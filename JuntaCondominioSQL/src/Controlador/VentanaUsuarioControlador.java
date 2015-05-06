@@ -63,14 +63,14 @@ public class VentanaUsuarioControlador {
     public static void InsertaUsuarioBD(String Usuario, String Password, String Rol) throws SQLException{
         
        String FKRol = Util.Consultar_PKPorNombre("ROL", "ROL_CLAVE", Rol, "ROL_NOMBRE");
-       //JOptionPane.showMessageDialog(Roles,"LA CLAVE DE "+Rol+" Es: "+FKRol);
-       String PKUsuario = Util.Consultar_PK("USUARIO", "USU_ID");
-       //DEBO SUMAR UNO.
-       //JOptionPane.showMessageDialog(Roles,"LA CLAVE DE USUARIO ES: "+PKUsuario);
+      //JOptionPane.showMessageDialog(Roles,"LA CLAVE DE "+Rol+" Es: "+FKRol);
+       String PKUsuario = Util.Consultar_PK_USUARIO("USUARIO", "USU_ CLAVE");
+     // DEBO SUMAR UNO.
+      //JOptionPane.showMessageDialog(Roles,"LA CLAVE DE USUARIO ES: "+PKUsuario);
     
         ConexionOracle Conexion= new ConexionOracle();
         Connection Con=Conexion.Conectar();
-        PreparedStatement pst=  Con.prepareStatement("INSERT INTO USUARIO (USU_ID,USU_USUARIO,USU_CONTRASENA,USU_FK_ROL) VALUES (?,?,?,?)");
+        PreparedStatement pst=  Con.prepareStatement("INSERT INTO USUARIO (USU_CLAVE,USU_USUARIO,USU_CONTRASENA,USU_FK_ROL) VALUES (?,?,?,?)");
         pst.setInt(1,Integer.parseInt(PKUsuario)+1);
         pst.setString(2,Usuario);
         pst.setString(3,Password);

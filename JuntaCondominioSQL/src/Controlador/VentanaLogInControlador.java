@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,6 +26,7 @@ public static boolean LogIn(String usuario, String password) throws SQLException
         ResultSet Valores= st.executeQuery("SELECT * FROM USUARIO");
         
             while(Valores.next()){
+                //JOptionPane.showMessageDialog(null,"LOS DATOS DEVUELTOS SON: ->"+(Valores.getString(2))+(Valores.getString(3)));
                 if ((usuario.equals(Valores.getString(2))) && (password.equals(Valores.getString(3))))
                     return true;
             }

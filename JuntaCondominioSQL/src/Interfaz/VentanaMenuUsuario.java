@@ -282,7 +282,7 @@ public class VentanaMenuUsuario extends javax.swing.JFrame {
                 //JOptionPane.showMessageDialog(rootPane,"EL ROL  ES -> "+pba);
                 String rol2 = rol;
                 VentanaUsuarioControlador.InsertaUsuarioBD(UsuarioSQL,PassSQL,rol2);
-                JOptionPane.showMessageDialog(rootPane,"USUARIO CREADO CORRECTAMENTE");
+                //JOptionPane.showMessageDialog(rootPane,"USUARIO CREADO CORRECTAMENTE");
                 VentanaMenuPrincipal nuevo = new VentanaMenuPrincipal();
                 nuevo.setVisible(true);
                 this.dispose();

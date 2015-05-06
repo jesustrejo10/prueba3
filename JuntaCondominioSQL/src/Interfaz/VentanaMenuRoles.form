@@ -81,7 +81,7 @@
                           </Group>
                           <Component id="Combo" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="67" max="32767" attributes="0"/>
+                      <EmptySpace pref="72" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="TXTNombre" min="-2" pref="122" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -123,12 +123,9 @@
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="LBLNombre" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="BTNVolver2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="BTNContinuar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="BTNVolver2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BTNContinuar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -220,7 +217,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Comic Sans MS" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Permiso2"/>
+        <Property name="text" type="java.lang.String" value="Edificio"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="P3">

@@ -42,8 +42,8 @@ public class VentanaMenuRolesControlador {
        Connection Con=Conexion.Conectar();
        for (String x : VentanaMenuRoles.AuxiliarPermisos){ 
         
-            String Clave= Consultar_PK("ROL_PER","ROL_PER_CLAVE");
-            PreparedStatement pst=  Con.prepareStatement("INSERT INTO ROL_PER (ROL_PER_CLAVE,ROL_PER_FK_PER,ROL_PER_FK_ROL) VALUES (?,?,?)");
+            String Clave= Consultar_PK("ROLPER","RP_CLAVE");
+            PreparedStatement pst=  Con.prepareStatement("INSERT INTO ROLPER (RP_CLAVE,RP_FK_PERMISO,RP_FK_ROL) VALUES (?,?,?)");
                 try {
                     pst.setInt(1,Integer.parseInt(Clave)+1);
                     }catch(Exception E){

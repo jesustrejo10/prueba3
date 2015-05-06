@@ -114,7 +114,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         });
 
         P2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P2.setText("Permiso2");
+        P2.setText("Edificio");
 
         P3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         P3.setText("jCheckBox3");
@@ -227,7 +227,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                                         .addComponent(P5))
                                     .addComponent(BTNContinuar)))
                             .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TXTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,11 +258,9 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(LBLNombre))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BTNVolver2)
-                            .addComponent(BTNContinuar))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BTNVolver2)
+                        .addComponent(BTNContinuar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LBLPermisos)
@@ -375,9 +373,9 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
     private void BTNFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNFinalActionPerformed
 
         String nombre = TXTNombre.getText();
-        String descripcon = TXTDescripcion.getText();
         AuxiliarPermisos.clear();
         boolean valido = false;
+        
         if (P1.isSelected()){
              JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 1");
              valido = true;

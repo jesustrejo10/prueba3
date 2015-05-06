@@ -25,9 +25,9 @@ public class VentanaMenuPrincipalControlador {
         Connection Con=Conexion.Conectar();
         Statement st= Con.createStatement();
         String Permiso = "";
-        ResultSet Valores= st.executeQuery("SELECT ROL_PER_FK_PER " +
-                                    "       FROM ROL_PER  , ROL , USUARIO " +
-                                    "       WHERE (ROL_CLAVE = USU_FK_ROL) AND (ROL_CLAVE = ROL_PER_FK_ROL) and (USU_ID = '"+PK+"')");
+        ResultSet Valores= st.executeQuery("SELECT RP_FK_PERMISO " +
+                                    "       FROM ROLPER  , ROL , USUARIO " +
+                                    "       WHERE (ROL_CLAVE = USU_FK_ROL) AND (ROL_CLAVE = RP_FK_ROL) and (USU_CLAVE = '"+PK+"')");
             while (Valores.next()){
                Permiso=Valores.getString(1);
                permisos.add(Permiso);

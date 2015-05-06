@@ -29,6 +29,9 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
             if(Integer.parseInt(x)==1){
                 BTNUsuarios.setEnabled(true);
             }
+             if(Integer.parseInt(x)==2){
+                BTN2.setEnabled(true);
+            }
         }
        
     }
@@ -47,7 +50,7 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         LBLTituloPrincipal = new javax.swing.JLabel();
         LogOut = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BTN2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,7 +75,12 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Menu Edificio");
 
-        jButton1.setText("Edificio");
+        BTN2.setText("Edificio");
+        BTN2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,7 +97,7 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                         .addGap(123, 123, 123)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jButton1)))
+                            .addComponent(BTN2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(329, 329, 329)
                         .addComponent(LBLTituloPrincipal)))
@@ -107,7 +115,7 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTNUsuarios)
-                    .addComponent(jButton1))
+                    .addComponent(BTN2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
                 .addComponent(LogOut)
                 .addContainerGap())
@@ -135,9 +143,22 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LogOutActionPerformed
 
+    private void BTN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN2ActionPerformed
+        VentanaMenuEdificio nuevo = null;
+        try {
+            nuevo = new VentanaMenuEdificio();
+        } catch (SQLException ex) {
+            Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        nuevo.setVisible(true);
+        this.dispose();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_BTN2ActionPerformed
+
     public static void ActivaPermisos(String Usu) throws SQLException{
-        String PKUsuario =Util.Consultar_PKPorNombre("USUARIO", "USU_ID",Usu,"USU_USUARIO");
-        JOptionPane.showMessageDialog(null,"PASO 01 CON :"+PKUsuario);
+        String PKUsuario =Util.Consultar_PKPorNombre("USUARIO", "USU_CLAVE",Usu,"USU_USUARIO");
+        //JOptionPane.showMessageDialog(null,"PASO 01 CON :"+PKUsuario);
         VentanaMenuPrincipalControlador.EncuentraPermisosSQL(PKUsuario);
             
         
@@ -183,11 +204,11 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTN2;
     private javax.swing.JButton BTNUsuarios;
     private javax.swing.JLabel LBLTituloPrincipal;
     private javax.swing.JLabel LBLUsuarios;
     private javax.swing.JButton LogOut;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
