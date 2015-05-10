@@ -5,12 +5,17 @@
 package Interfaz;
 
 import Controlador.VentanaMenuEdificioControlador;
+import static Controlador.VentanaMenuEdificioControlador.devuelvedireccionSQL;
 import static Interfaz.VentanaMenuRoles.modelo;
 import Modelo.Util;
+import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.management.Query.and;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,20 +28,63 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
     public static String ClaveEstado = null;
     public static String ClaveMunicipio = null;
     public static String ClaveParroquia= null;
-    
+    public static int Opcion = 0;
     public static DefaultTableModel modelo = new DefaultTableModel(); 
     public static int cont = 0;
     public static boolean AreaValida = false;
     public static ArrayList<String> AreasComunes = new ArrayList();
+    public static boolean ActivaCombo=false;
+    public static ArrayList<String> PermisosActuales = new ArrayList();
+      
     
     public VentanaMenuEdificio() throws SQLException {
         initComponents();
         cargarInterfaz();
-        VentanaMenuEdificioControlador.RellenaTablaSQL();
-        VentanaMenuEdificioControlador.LlenarEstado();
+    
+        Tabla.addKeyListener( new KeyAdapter() {} );
+      
+        
+        btnAyuda.setVisible(false);
+        ComboEstados.setVisible(false);
+        ComboMunicipio.setVisible(false);
+        ComboParroquia.setVisible(false);
+        jLabel3.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel5.setVisible(false);
+        jLabel6.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(false);
+        jLabel9.setVisible(false);
+        jLabel12.setVisible(false);
+        jLabel13.setVisible(false);
+        AC1.setVisible(false);
+        AC2.setVisible(false);
+        AC3.setVisible(false);
+        AC4.setVisible(false);
+        AC5.setVisible(false);
+        AC6.setVisible(false);
+        AC7.setVisible(false);
+        AC8.setVisible(false);
+        AC9.setVisible(false);
+         AC10.setVisible(false);
+         Tabla.setVisible(false);
+       ComboEstados.setVisible(false);
+       ComboMunicipio.setVisible(false);
+       ComboParroquia.setVisible(false);
+       TXTNombre.setVisible(false);
+       TXTRif.setVisible(false);
+      
+       try{
+       VentanaMenuEdificioControlador.RellenaTablaSQL();
+       }catch (Exception e){
+           JOptionPane.showMessageDialog(rootPane,"REVENTO EN ->"+e);
+       }
+       VentanaMenuEdificioControlador.LlenarEstado();
             for (String x: VentanaMenuEdificioControlador.Estados){
                 ComboEstados.addItem(x);
             }
+        JOptionPane.showMessageDialog(rootPane, "PARA REALIZAR ALGUNA OPERACION DEBE ESPECIFICAR QUE ACCION DESEA REALIZAR.");
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,7 +98,7 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jCheckBox9 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        ComboOpcion = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
@@ -74,13 +122,15 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
         AC10 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        BtnFinalizar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         ComboParroquia = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         TXTRif = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         TXTNombre = new javax.swing.JTextField();
+        btnAyuda = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         jCheckBox9.setText("jCheckBox1");
 
@@ -89,8 +139,8 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         jLabel1.setText("Menu Edificio");
 
-        jComboBox1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Crear Edificio\t", "Mostrar Edificio", "Editar Edificio", "Eliminar Edificio" }));
+        ComboOpcion.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Crear Edificio\t", "Mostrar Edificio", "Editar Edificio", "Eliminar Edificio" }));
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         jLabel2.setText("Selecione la operacion que desea realizar");
@@ -113,6 +163,16 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        Tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaMouseClicked(evt);
+            }
+        });
+        Tabla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TablaKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(Tabla);
@@ -177,6 +237,11 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
 
         AC6.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         AC6.setText("Estacionamiento");
+        AC6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AC6ActionPerformed(evt);
+            }
+        });
 
         AC7.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         AC7.setText("Ascensor");
@@ -192,6 +257,11 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         jButton1.setText("Continuar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Volver");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -200,23 +270,30 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Finalizar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        BtnFinalizar.setText("Finalizar");
+        BtnFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BtnFinalizarActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
         jLabel8.setText("Parroquia");
 
-        ComboParroquia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel12.setText("Rif:");
 
         jLabel13.setText("Nombre:");
 
         TXTNombre.setText("jTextField3");
+
+        btnAyuda.setText("Ayuda");
+
+        jButton3.setText("Refresh");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,20 +305,6 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                 .addGap(459, 459, 459))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jButton2)))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,28 +333,47 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                                         .addComponent(TXTRif)
                                         .addComponent(TXTNombre))))
                             .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(AC1)
+                                            .addComponent(AC3)
+                                            .addComponent(AC7)
+                                            .addComponent(AC9)
+                                            .addComponent(AC5))
+                                        .addGap(59, 59, 59)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(AC4)
+                                            .addComponent(AC2)
+                                            .addComponent(AC6)
+                                            .addComponent(AC8)
+                                            .addComponent(AC10))
+                                        .addGap(45, 45, 45)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AC1)
-                                    .addComponent(AC3)
-                                    .addComponent(AC7)
-                                    .addComponent(AC9)
-                                    .addComponent(AC5))
-                                .addGap(59, 59, 59)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AC4)
-                                    .addComponent(AC2)
-                                    .addComponent(AC6)
-                                    .addComponent(AC8)
-                                    .addComponent(AC10))
-                                .addGap(45, 45, 45)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jButton2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAyuda)
+                        .addGap(422, 422, 422)
+                        .addComponent(BtnFinalizar)))
                 .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
@@ -301,7 +383,7 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -325,7 +407,7 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                             .addComponent(AC10)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1))
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -334,6 +416,10 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel12)
@@ -355,12 +441,12 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
-                                    .addComponent(ComboParroquia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 49, Short.MAX_VALUE)
+                                    .addComponent(ComboParroquia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(BtnFinalizar)
+                    .addComponent(btnAyuda))
                 .addGap(21, 21, 21))
         );
 
@@ -368,6 +454,16 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        JOptionPane.showMessageDialog(rootPane,"Todos los cambios no guardados han sido borrados.");
+        try {
+            VentanaMenuPrincipal cambio = new VentanaMenuPrincipal();
+            cambio.setVisible(true);
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -389,6 +485,8 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
 
     private void ComboEstadosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboEstadosMouseReleased
 
+       if (ActivaCombo){
+        
         int fk = ComboEstados.getSelectedIndex();
         fk++;
         ClaveEstado =Integer.toString(fk);
@@ -401,10 +499,11 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
             }catch(Exception e){
                 JOptionPane.showMessageDialog(rootPane,"Error al llenar lista municipios ->"+e);
             }
+       }
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboEstadosMouseReleased
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void BtnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFinalizarActionPerformed
 
        String ParroquiaSeleccionada = (String) ComboParroquia.getSelectedItem();
         //JOptionPane.showMessageDialog(rootPane,"EL MUNICIPIO SELECCIONADO ES: "+MunicipioSeleccionado);
@@ -453,16 +552,18 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
              AreasComunes.add("10");
             }
             VentanaMenuEdificioControlador.InsertaArea_DetSQL(clave);
-            
+            VentanaMenuEdificio refresh = new VentanaMenuEdificio();
+            refresh.setVisible(true);
+            this.dispose();
         }catch(Exception e){
             JOptionPane.showMessageDialog(rootPane,"ERROR EN EJECUTAR CONSULTA1 ->"+e);
         }  
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BtnFinalizarActionPerformed
 
     private void ComboMunicipioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboMunicipioMouseReleased
 
-           
-            String MunicipioSeleccionado = (String) ComboMunicipio.getSelectedItem();
+           if (ActivaCombo)
+           {            String MunicipioSeleccionado = (String) ComboMunicipio.getSelectedItem();
             ComboParroquia.removeAllItems();
             //AQUI TENGO EL NOMBRE DEL MUNICIPIO
             //NECESITO LA CLAVE DE ESE MUNICIPIO (DEPENDIENDO DE EL ESTADO LO TENGO EN LA VARIABLE CLAVE ESTADO)
@@ -477,11 +578,208 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
         }
+           }
     }//GEN-LAST:event_ComboMunicipioMouseReleased
 
     private void ComboMunicipioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboMunicipioMouseEntered
 
     }//GEN-LAST:event_ComboMunicipioMouseEntered
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+             Opcion = ComboOpcion.getSelectedIndex();
+                if (Opcion==0){
+                        ActivaCombo = true;
+                        ComboEstados.setVisible(true);
+                        ComboMunicipio.setVisible(true);
+                        ComboParroquia.setVisible(true);
+                        ComboEstados.setEnabled(true);
+                        ComboParroquia.setEnabled(true);
+                        ComboMunicipio.setEnabled(true);
+                        jLabel3.setVisible(true);
+                        jLabel4.setVisible(true);
+                        jLabel5.setVisible(true);
+                        jLabel6.setVisible(true);
+                        jLabel7.setVisible(true);
+                        jLabel8.setVisible(true);
+                        jLabel9.setVisible(true);
+                        jLabel12.setVisible(true);
+                        jLabel13.setVisible(true);
+                        AC1.setVisible(true);
+                        AC2.setVisible(true);
+                        AC3.setVisible(true);
+                        AC4.setVisible(true);
+                        AC5.setVisible(true);
+                        AC6.setVisible(true);
+                        AC7.setVisible(true);
+                        AC8.setVisible(true);
+                        AC9.setVisible(true);
+                         AC10.setVisible(true);
+                         Tabla.setVisible(true);
+                       ComboEstados.setVisible(true);
+                       ComboMunicipio.setVisible(true);
+                       ComboParroquia.setVisible(true);
+                       TXTNombre.setVisible(true);
+                       TXTRif.setVisible(true);
+                       btnAyuda.setVisible(true);
+                       BtnFinalizar.setText("Registrar Edificio");
+                       JOptionPane.showMessageDialog(rootPane,"A CONTINUACION RELLENE TODOS LOS CAMPOS");
+                       jLabel5.setText(("Especifique la direccion del Edifcio"));
+                }
+                if (Opcion==1){
+                        jLabel5.setText("Direccion Especifica del edificio seleccionado");
+                        ComboEstados.setVisible(true);
+                        ComboMunicipio.setVisible(true);
+                        ComboParroquia.setVisible(true);
+                        jLabel3.setVisible(true);
+                        jLabel4.setVisible(true);
+                        jLabel5.setVisible(true);
+                        jLabel6.setVisible(true);
+                        jLabel7.setVisible(true);
+                        jLabel8.setVisible(true);
+                        jLabel9.setVisible(true);
+                        jLabel12.setVisible(true);
+                        jLabel13.setVisible(true);
+                        AC1.setVisible(true);
+                        AC2.setVisible(true);
+                        AC3.setVisible(true);
+                        AC4.setVisible(true);
+                        AC5.setVisible(true);
+                        AC6.setVisible(true);
+                        AC7.setVisible(true);
+                        AC8.setVisible(true);
+                        AC9.setVisible(true);
+                        AC10.setVisible(true);
+                        Tabla.setVisible(true);
+                       ComboEstados.setVisible(true);
+                       ComboMunicipio.setVisible(true);
+                       ComboParroquia.setVisible(true);
+                       TXTNombre.setVisible(true);
+                       TXTRif.setVisible(true);
+                       btnAyuda.setVisible(true);
+                       BtnFinalizar.setText("Registrar Edificio");
+                       JOptionPane.showMessageDialog(rootPane,"En la tabla aparece la informacion general de cada edificio, si desea "
+                               + "informacion detallada haga click sobre alguna fila..");
+                       ComboEstados.removeAll();
+                        ComboParroquia.removeAll();
+                        ComboMunicipio.removeAll();
+                        ComboEstados.addItem("Estado");
+                        ComboMunicipio.addItem("Municipio");
+                        ComboParroquia.addItem("Parroquia");
+                        ComboEstados.setEnabled(false);
+                        ComboMunicipio.setEnabled(false);
+                        ComboParroquia.setEnabled(false);
+                        PermisosActuales.clear();
+                }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TablaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TablaKeyReleased
+
+        if( Tabla.getSelectedRows().length > 0 ) {
+           int num = Tabla.getSelectedRow();
+            String nomb=(String)Tabla.getValueAt(num,1);
+            String rif =(String)Tabla.getValueAt(num,0);
+            //String edad=(String)Tabla.getValueAt(num, 2);
+            this.TXTNombre.setText(nomb);
+            this.TXTRif.setText(rif);
+          //  this.edad.setText(edad); 
+            
+         //   JOptionPane.showMessageDialog( Tabla ,"No son molestos los popups?");
+         }
+// TODO add your handling code here:
+    }//GEN-LAST:event_TablaKeyReleased
+
+    private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
+        
+                if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 1)) ) {
+                        
+                        int num = Tabla.getSelectedRow();
+                        String nomb=(String)Tabla.getValueAt(num,1);
+                        String rif =(String)Tabla.getValueAt(num,0);
+                        String ClaveParroquia=(String)Tabla.getValueAt(num, 2);
+                        this.TXTNombre.setText(nomb);
+                        this.TXTRif.setText(rif);
+                        String Direccion = "";
+                        //JOptionPane.showMessageDialog(rootPane,"AQUUIII");
+                    
+                    try {
+                            Direccion = devuelvedireccionSQL(ClaveParroquia);
+                            String[] DireccionDesglosada = Direccion.split("/");
+                            ComboEstados.removeAllItems();
+                            ComboMunicipio.removeAllItems();
+                            ComboParroquia.removeAllItems();
+                            ComboEstados.addItem(DireccionDesglosada[0]);
+                            ComboMunicipio.addItem(DireccionDesglosada[1]);
+                            ComboParroquia.addItem(DireccionDesglosada[2]);
+                            ComboEstados.setSelectedIndex(0);
+                            ComboMunicipio.setSelectedIndex(0);
+                            ComboParroquia.setSelectedIndex(0);
+                            AC1.setSelected(false);
+                            AC2.setSelected(false);
+                            AC3.setSelected(false);
+                            AC4.setSelected(false);
+                            AC5.setSelected(false);
+                            AC6.setSelected(false);
+                            AC7.setSelected(false);
+                            AC8.setSelected(false);
+                            AC9.setSelected(false);
+                            AC10.setSelected(false);
+                            PermisosActuales.clear();
+                            VentanaMenuEdificioControlador.ConsultaClaveEdificioSeleccionadoSQL(nomb, rif);
+                            for (String x : PermisosActuales){
+                                if (x.equalsIgnoreCase("1")){
+                                    AC1.setSelected(true);
+                                }    
+                                if (x.equalsIgnoreCase("2")){
+                                    AC2.setSelected(true);
+                                }
+                                if (x.equalsIgnoreCase("3")){
+                                    AC3.setSelected(true);
+                                }
+                                if (x.equalsIgnoreCase("4")){
+                                    AC4.setSelected(true);
+                                }
+                                if (x.equalsIgnoreCase("5")){
+                                    AC5.setSelected(true);
+                                }
+                                if (x.equalsIgnoreCase("6")){
+                                    AC6.setSelected(true);
+                                }
+                                if (x.equalsIgnoreCase("7")){
+                                    AC7.setSelected(true);
+                                }
+                                if (x.equalsIgnoreCase("8")){
+                                    AC8.setSelected(true);
+                                }
+                                if (x.equalsIgnoreCase("9")){
+                                    AC9.setSelected(true);
+                                }
+                                if (x.equalsIgnoreCase("10")){
+                                    AC10.setSelected(true);
+                                }
+                                
+                            }
+                            
+                            
+                    } catch (SQLException ex) {
+                        
+                        Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
+                        
+                    }
+                 }
+
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_TablaMouseClicked
+
+    private void AC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AC6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AC6ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+     
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public void cargarInterfaz(){
         String x[][]={};
@@ -526,6 +824,8 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+       
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -537,6 +837,7 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
             }
         });
     }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox AC1;
     private javax.swing.JCheckBox AC10;
@@ -548,18 +849,20 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
     private javax.swing.JCheckBox AC7;
     private javax.swing.JCheckBox AC8;
     private javax.swing.JCheckBox AC9;
+    private javax.swing.JButton BtnFinalizar;
     private javax.swing.JComboBox ComboEstados;
     private javax.swing.JComboBox ComboMunicipio;
+    private javax.swing.JComboBox ComboOpcion;
     private javax.swing.JComboBox ComboParroquia;
     private javax.swing.JTextField TXTNombre;
     private javax.swing.JTextField TXTRif;
     private javax.swing.JTable Tabla;
+    private javax.swing.JButton btnAyuda;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

@@ -306,9 +306,9 @@ public class VentanaMenuUsuario extends javax.swing.JFrame {
 
     private void BTNVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNVolverActionPerformed
 
-         VentanaMenuUsuario nuevo = null;
+         VentanaMenuPrincipal nuevo = null;
         try {
-            nuevo = new VentanaMenuUsuario();
+            nuevo = new VentanaMenuPrincipal();
         } catch (SQLException ex) {
             Logger.getLogger(VentanaMenuUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }

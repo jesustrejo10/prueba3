@@ -79,6 +79,7 @@ public class VentanaMenuRolesControlador {
         Statement st= Con.createStatement();
         String nombre="";
         String descrip="";
+        VentanaMenuRoles.cont = 0;
        
          ResultSet Valores= st.executeQuery("SELECT ROL_NOMBRE, ROL_DESCRIPCION"
                                          + " FROM ROL");
