@@ -6,10 +6,14 @@
 package Interfaz;
 
 import Controlador.VentanaMenuEdificioControlador;
+import static Controlador.VentanaMenuEdificioControlador.devuelvedireccionSQL;
 import Controlador.VentanaMenuPropietarioControlador;
 import static Interfaz.VentanaMenuEdificio.ActivaCombo;
 import static Interfaz.VentanaMenuEdificio.ClaveEstado;
 import static Interfaz.VentanaMenuEdificio.ClaveMunicipio;
+import static Interfaz.VentanaMenuEdificio.Opcion;
+import static Interfaz.VentanaMenuEdificio.PermisosActuales;
+import static Interfaz.VentanaMenuEdificio.modelo;
 import Modelo.Util;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -17,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,11 +34,21 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
           public static String ClaveEstado = null;
           public static String ClaveMunicipio = null;
           public static String ClaveParroquia= null;
-        
-    public VentanaMenuPropietario() {
-        initComponents();
-        PanelFormulario.setBorder(BorderFactory.createLineBorder(Color.black));
-        PanelFormulario.setVisible(false);
+          public static DefaultTableModel modelo = new DefaultTableModel(); 
+          public static int cont = 0;
+          public static String ForaneaPropietarioSeleccionado = null;
+          public static String SNombrePropietarioSeleccionado = null;
+          public static String SapellidoPropietarioSeleccionado= null;
+    
+          
+          
+    public VentanaMenuPropietario() throws SQLException {
+          initComponents();
+          PanelFormulario.setBorder(BorderFactory.createLineBorder(Color.black));
+          PanelFormulario.setVisible(false);
+          Panel2.setVisible(false);
+          cargarInterfaz();
+          VentanaMenuPropietarioControlador.RellenaTablaSQL();
     }
 
     /**
@@ -72,6 +87,10 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
         ComboParroquia = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        Panel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -223,6 +242,57 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
             }
         });
 
+        Panel2.setOpaque(false);
+
+        Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Identificacion", "Nombre", "Apellido"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Tabla);
+
+        jLabel12.setText("Datos Generales de los Propietarios");
+
+        javax.swing.GroupLayout Panel2Layout = new javax.swing.GroupLayout(Panel2);
+        Panel2.setLayout(Panel2Layout);
+        Panel2Layout.setHorizontalGroup(
+            Panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel2Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(Panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        Panel2Layout.setVerticalGroup(
+            Panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel12)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -231,26 +301,28 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(87, 87, 87)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(98, 98, 98)
-                                        .addComponent(jButton1))
-                                    .addComponent(jLabel2)
-                                    .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 610, Short.MAX_VALUE))
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel1)
+                        .addGap(0, 867, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,9 +337,14 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
@@ -292,6 +369,7 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
         
         Opcion = ComboOpcion.getSelectedIndex();
             if (Opcion==0){
+                jLabel3.setText("Rellene el formulario los campos con * son obligatorios.");
                 ActivaCombo=true;
                 PanelFormulario.setVisible(true);
                 TXTClave.setText("");
@@ -302,6 +380,9 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
                 ComboEstado.removeAllItems();
                 ComboMunicipio.removeAllItems();
                 ComboParroquia.removeAllItems();
+                ComboEstado.setEnabled(true);
+                ComboMunicipio.setEnabled(true);
+                ComboParroquia.setEnabled(true);
             try {
                 VentanaMenuPropietarioControlador.llenarListaEstados();
             } catch (SQLException ex) {
@@ -311,6 +392,23 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
                     ComboEstado.addItem(n);
                 }
                 
+            }
+            if (Opcion == 1){
+                    PanelFormulario.setVisible(true);
+                    Panel2.setVisible(false);
+                    jLabel3.setText("Se muestran los datos detallados de cada propietario.");
+                    Panel2.setVisible(true);
+                    TXTClave.setText("");
+                    TXTPNombre.setText("");
+                    TXTSNombre.setText("");
+                    TXTPApellido.setText("");
+                    TXTSApellido.setText("");
+                    ComboEstado.removeAllItems();
+                    ComboMunicipio.removeAllItems();
+                    ComboParroquia.removeAllItems();
+                    ComboEstado.setEnabled(false);
+                    ComboMunicipio.setEnabled(false);
+                    ComboParroquia.setEnabled(false);
             }
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -371,6 +469,61 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
+
+        
+                
+                if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 1)) ) {
+                        
+                        int num = Tabla.getSelectedRow();
+                        String Clave = (String) Tabla.getValueAt(num,0);
+                        
+                        String Pnombre=(String)Tabla.getValueAt(num,1);
+                        String PApellido=(String)Tabla.getValueAt(num,2);
+                         
+                        
+                        this.TXTPNombre.setText(Pnombre);
+                        this.TXTPApellido.setText(PApellido);
+                        this.TXTClave.setText(Clave);
+                        String Direccion = "";
+                        //JOptionPane.showMessageDialog(rootPane,"AQUUIII");
+                    /*
+                    try {
+                            Direccion = devuelvedireccionSQL(ClaveParroquia);
+                            String[] DireccionDesglosada = Direccion.split("/");
+                            ComboEstados.removeAllItems();
+                            ComboMunicipio.removeAllItems();
+                            ComboParroquia.removeAllItems();
+                            ComboEstados.addItem(DireccionDesglosada[0]);
+                            ComboMunicipio.addItem(DireccionDesglosada[1]);
+                            ComboParroquia.addItem(DireccionDesglosada[2]);
+                            ComboEstados.setSelectedIndex(0);
+                            ComboMunicipio.setSelectedIndex(0);
+                            ComboParroquia.setSelectedIndex(0);
+                            
+                            
+                    } catch (SQLException ex) {
+                        
+                        Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
+                        
+                    }
+                        */
+                 }
+
+
+        
+        
+
+    }//GEN-LAST:event_TablaMouseClicked
+
+    public void cargarInterfaz(){
+        String x[][]={};
+        String columnas[]={"Identificacion","Nombre","Apellido"};
+        modelo = new DefaultTableModel(x, columnas);
+        Tabla.setModel(modelo);
+        //RellenaTablaSQL();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -401,7 +554,11 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaMenuPropietario().setVisible(true);
+                try {
+                    new VentanaMenuPropietario().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -411,18 +568,21 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
     private javax.swing.JComboBox ComboMunicipio;
     private javax.swing.JComboBox ComboOpcion;
     private javax.swing.JComboBox ComboParroquia;
+    private javax.swing.JPanel Panel2;
     private javax.swing.JPanel PanelFormulario;
     private javax.swing.JTextField TXTClave;
     private javax.swing.JTextField TXTPApellido;
     private javax.swing.JTextField TXTPNombre;
     private javax.swing.JTextField TXTSApellido;
     private javax.swing.JTextField TXTSNombre;
+    private javax.swing.JTable Tabla;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -432,6 +592,7 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
