@@ -106,7 +106,7 @@ public class Util {
         ConexionOracle Conexion= new ConexionOracle();
         Connection Con=Conexion.Conectar();
         Statement st= Con.createStatement();
-         ResultSet Valores= st.executeQuery("SELECT ("+NombreClave+") FROM "+Tabla+" WHERE ( '"+ABuscar+"' = "+AComparar+" )  and (LUG_TIPO = 'Municipio') and (LUG_FK_LUGAR = "+ClaveForanea+")");
+        ResultSet Valores= st.executeQuery("SELECT ("+NombreClave+") FROM "+Tabla+" WHERE ( '"+ABuscar+"' = "+AComparar+" )  and (LUG_TIPO = 'Municipio') and (LUG_FK_LUGAR = "+ClaveForanea+")");
             while (Valores.next()){
                     //JOptionPane.showMessageDialog(null,"AQUIII");
                     String Clave=Valores.getString(1);

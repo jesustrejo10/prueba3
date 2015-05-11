@@ -569,7 +569,6 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
             //NECESITO LA CLAVE DE ESE MUNICIPIO (DEPENDIENDO DE EL ESTADO LO TENGO EN LA VARIABLE CLAVE ESTADO)
             try {
             ClaveMunicipio = Util.Consultar_PKPorNombreMunicipios("LUGAR","LUG_CLAVE",MunicipioSeleccionado,"LUG_NOMBRE",ClaveEstado);
-            //JOptionPane.showMessageDialog(rootPane,"La clave del Municipio "+MunicipioSeleccionado+"Es :"+ClaveMunicipio);
             VentanaMenuEdificioControlador.llenarListaParroquias(ClaveMunicipio);    
             for (String x :VentanaMenuEdificioControlador.Parroquias ){
                     ComboParroquia.addItem(x);
