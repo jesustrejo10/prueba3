@@ -39,7 +39,9 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
           public static String ForaneaPropietarioSeleccionado = null;
           public static String SNombrePropietarioSeleccionado = null;
           public static String SapellidoPropietarioSeleccionado= null;
-    
+          public static String ParroquiaPropietarioSeleccionado =null;
+          public static String MunicipioPropietarioSeleccionado =null;
+          public static String EstadoPropietarioSeleccionado =null;
           
           
     public VentanaMenuPropietario() throws SQLException {
@@ -48,7 +50,7 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
           PanelFormulario.setVisible(false);
           Panel2.setVisible(false);
           cargarInterfaz();
-          VentanaMenuPropietarioControlador.RellenaTablaSQL();
+          
     }
 
     /**
@@ -365,9 +367,23 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public static void LimpiarJTable(){
+          int a =modelo.getRowCount()-1;
+          for(int i=a;i>=0;i--){ 
+                    modelo.removeRow(i);
+          }
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Opcion = ComboOpcion.getSelectedIndex();
+        
+          LimpiarJTable();
+              try {
+                  VentanaMenuPropietarioControlador.RellenaTablaSQL();
+              } catch (SQLException ex) {
+                  Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+              }
+          Opcion = ComboOpcion.getSelectedIndex();
             if (Opcion==0){
                 jLabel3.setText("Rellene el formulario los campos con * son obligatorios.");
                 ActivaCombo=true;
@@ -409,6 +425,8 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
                     ComboEstado.setEnabled(false);
                     ComboMunicipio.setEnabled(false);
                     ComboParroquia.setEnabled(false);
+                    
+                    
             }
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -473,47 +491,41 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
 
         
                 
-                if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 1)) ) {
+          if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 1)) ) {
                         
-                        int num = Tabla.getSelectedRow();
-                        String Clave = (String) Tabla.getValueAt(num,0);
+                    int num = Tabla.getSelectedRow();
+                    String Clave = (String) Tabla.getValueAt(num,0);
+                    String Pnombre=(String)Tabla.getValueAt(num,1);
+                    String PApellido=(String)Tabla.getValueAt(num,2);
+                    this.TXTPNombre.setText(Pnombre);
+                    this.TXTPApellido.setText(PApellido);
+                    this.TXTClave.setText(Clave);
                         
-                        String Pnombre=(String)Tabla.getValueAt(num,1);
-                        String PApellido=(String)Tabla.getValueAt(num,2);
-                         
-                        
-                        this.TXTPNombre.setText(Pnombre);
-                        this.TXTPApellido.setText(PApellido);
-                        this.TXTClave.setText(Clave);
-                        String Direccion = "";
-                        //JOptionPane.showMessageDialog(rootPane,"AQUUIII");
-                    /*
                     try {
-                            Direccion = devuelvedireccionSQL(ClaveParroquia);
-                            String[] DireccionDesglosada = Direccion.split("/");
-                            ComboEstados.removeAllItems();
-                            ComboMunicipio.removeAllItems();
-                            ComboParroquia.removeAllItems();
-                            ComboEstados.addItem(DireccionDesglosada[0]);
-                            ComboMunicipio.addItem(DireccionDesglosada[1]);
-                            ComboParroquia.addItem(DireccionDesglosada[2]);
-                            ComboEstados.setSelectedIndex(0);
-                            ComboMunicipio.setSelectedIndex(0);
-                            ComboParroquia.setSelectedIndex(0);
-                            
-                            
-                    } catch (SQLException ex) {
-                        
-                        Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
-                        
+                              VentanaMenuPropietarioControlador.RellenaCamposFaltantes(Clave);
+                    }catch (SQLException ex) {
+                              JOptionPane.showMessageDialog(rootPane,"Error al ejecutar la consulta 'rellena campos faltantes' ->"+ex);
+                              Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                        */
-                 }
+                    this.TXTSNombre.setText(SNombrePropietarioSeleccionado);
+                    this.TXTSApellido.setText(SapellidoPropietarioSeleccionado);
+                 
+                    try {
+                              VentanaMenuPropietarioControlador.RellenaComboParroquiaPropietarioSeleccionado(this.ForaneaPropietarioSeleccionado);
+                    } catch (SQLException ex) {
+                              Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    this.ComboEstado.removeAllItems();
+                    this.ComboMunicipio.removeAllItems();
+                    this.ComboParroquia.removeAllItems();
+                    this.ComboEstado.addItem(EstadoPropietarioSeleccionado);
+                    this.ComboMunicipio.addItem(MunicipioPropietarioSeleccionado);
+                    this.ComboParroquia.addItem(ParroquiaPropietarioSeleccionado);
+                    this.ComboEstado.setSelectedIndex(0);
+                    this.ComboMunicipio.setSelectedIndex(0);
+                    this.ComboParroquia.setSelectedIndex(0);
 
-
-        
-        
-
+          }
     }//GEN-LAST:event_TablaMouseClicked
 
     public void cargarInterfaz(){
@@ -524,9 +536,7 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
         //RellenaTablaSQL();
     }
     
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

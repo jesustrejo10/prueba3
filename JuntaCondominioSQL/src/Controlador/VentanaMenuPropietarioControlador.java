@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,14 +55,14 @@ public static void insertaPropietarioSQL(String Clave, String PNombre, String SN
         
 public static void RellenaTablaSQL() throws SQLException{
  
-        ConexionOracle Conexion= new ConexionOracle();
-        Connection Con=Conexion.Conectar();
-        Statement st= Con.createStatement();
-        String ID="";
-        String Nombre="";
-        String Apellido ="";
-        VentanaMenuPropietario.cont = 0;
-         ResultSet Valores= st.executeQuery("SELECT *"
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          String ID="";
+          String Nombre="";
+          String Apellido ="";
+          VentanaMenuPropietario.cont = 0;
+          ResultSet Valores= st.executeQuery("SELECT *"
                                          + " FROM PROPIETARIO");
             while (Valores.next()){
                     ID=Valores.getString(1);
@@ -80,14 +81,42 @@ public static void RellenaCamposFaltantes(String Clave) throws SQLException{
           ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
           Statement st= Con.createStatement();
-          ResultSet Valores= st.executeQuery("SELECT (PRO_SNOMBRE, PRO_SAPELLIDO, PRO_FK_LUGAR) FROM PROPIETARIO WHERE (PRO_CLAVE = '"+Clave+"')");
+          ResultSet Valores= st.executeQuery("SELECT PRO_SNOMBRE, PRO_SAPELLIDO, PRO_FK_LUGAR "
+                                                                          + "FROM PROPIETARIO"
+                                                                         + " WHERE (PRO_CLAVE = "+Clave+")");
                     while (Valores.next()){
                               VentanaMenuPropietario.ForaneaPropietarioSeleccionado = Integer.toString(Valores.getInt(3));
                               VentanaMenuPropietario.SNombrePropietarioSeleccionado = Valores.getString(1);
                               VentanaMenuPropietario.SapellidoPropietarioSeleccionado = Valores.getString(2);
+                              //JOptionPane.showMessageDialog(null,"Encontro al propietario ->"+Valores.getString(1));
                     }
     
           }
 
-}
+public static void RellenaComboParroquiaPropietarioSeleccionado (String Foranea) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          int fk_parroquia= 0;
+          ResultSet Valores= st.executeQuery("SELECT LUG_NOMBRE,LUG_FK_LUGAR FROM LUGAR WHERE (LUG_CLAVE = "+Foranea+")");
+                    while (Valores.next()){
+                              VentanaMenuPropietario.ParroquiaPropietarioSeleccionado = Valores.getString(1);
+                              fk_parroquia = Valores.getInt(2);
+                    }
+         int fk_Municipio = 0; 
+          Valores= st.executeQuery("SELECT LUG_NOMBRE,LUG_FK_LUGAR FROM LUGAR WHERE (LUG_CLAVE = "+fk_parroquia+") and (LUG_TIPO = 'Municipio')");
+                    while (Valores.next()){
+                              VentanaMenuPropietario.MunicipioPropietarioSeleccionado =Valores.getString(1);
+                              fk_Municipio = Valores.getInt(2);
+                    }
+          
+          Valores= st.executeQuery("SELECT LUG_NOMBRE FROM LUGAR WHERE (LUG_CLAVE = "+fk_Municipio+") and (LUG_TIPO = 'Estado')");
+                    while (Valores.next()){
+                              VentanaMenuPropietario.EstadoPropietarioSeleccionado =Valores.getString(1);
+                            
+                    }          
+          
+          }
+};
+
 
