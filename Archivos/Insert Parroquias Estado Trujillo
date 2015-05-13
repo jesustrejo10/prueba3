@@ -1,0 +1,134 @@
+--Trujillo 20 - Municipio Andres Bello 21280
+INSERT INTO LUGAR VALUES (21280001,'Araguaney','Parroquia',21280);
+INSERT INTO LUGAR VALUES (21280002,'El jaguito','Parroquia',21280);
+INSERT INTO LUGAR VALUES (21280003,'La Esperanza','Parroquia',21280);
+INSERT INTO LUGAR VALUES (21280004,'Santa Isabel','Parroquia',21280);
+
+--Trujillo 20 - Municipio Bocono 21281
+INSERT INTO LUGAR VALUES (21281001,'Ayacucho','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281002,'Bocono','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281003,'Burbusay','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281004,'El Carmen','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281005,'Guaramacal','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281006,'Jauregui','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281007,'La Vega','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281008,'Mosquey','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281009,'Rangel','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281010,'Rivas','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281011,'San Jose','Parroquia',21281);
+INSERT INTO LUGAR VALUES (21281012,'San Miguel','Parroquia',21281);
+
+--Trujillo 20 - Municipio Bolivar 21282
+INSERT INTO LUGAR VALUES (21282001,'Sabana Grande','Parroquia',21282);
+INSERT INTO LUGAR VALUES (21282002,'Cheregüé','Parroquia',21282);
+INSERT INTO LUGAR VALUES (21282003,'Granado','Parroquia',21282);
+
+--Trujillo 20 - Municipio Candelaria 21283	
+INSERT INTO LUGAR VALUES (21283001,'Arnoldo Gabaldon','Parroquia',21283);
+INSERT INTO LUGAR VALUES (21283002,'bolivia','Parroquia',21283);
+INSERT INTO LUGAR VALUES (21283003,'Carrillo','Parroquia',21283);
+INSERT INTO LUGAR VALUES (21283004,'Cegarra','Parroquia',21283);
+INSERT INTO LUGAR VALUES (21283005,'Chejendé','Parroquia',21283);
+INSERT INTO LUGAR VALUES (21283006,' Manuel Salvador Ulloa','Parroquia',21283);
+INSERT INTO LUGAR VALUES (21283007,' San José','Parroquia',21283);
+
+--Trujillo 20 - Municipio Carache 21284	
+INSERT INTO LUGAR VALUES (21284001,'Carache','Parroquia',21284);
+INSERT INTO LUGAR VALUES (21284002,'La Concepción','Parroquia',21284);
+INSERT INTO LUGAR VALUES (21284003,'Cuicas','Parroquia',21284);
+INSERT INTO LUGAR VALUES (21284004,'Panamericana','Parroquia',21284);
+INSERT INTO LUGAR VALUES (21284005,'Santa Cruz','Parroquia',21284);
+
+--Trujillo 20 - Municipio Carvajal 21285	
+INSERT INTO LUGAR VALUES (21285001,'Carvajal','Parroquia',21285);
+INSERT INTO LUGAR VALUES (21285002,'Campo Alegre','Parroquia',21285);
+INSERT INTO LUGAR VALUES (21285003,'Antonio Nicolás Briceño','Parroquia',21285);
+INSERT INTO LUGAR VALUES (21285004,'José Leonardo Suárez','Parroquia',21285);
+
+--Trujillo 20 - Municipio Campo Elias 21286	
+INSERT INTO LUGAR VALUES (21286001,'Arnoldo Gabaldón','Parroquia',21286);
+INSERT INTO LUGAR VALUES (21286001,'Campo Elias','Parroquia',21286);
+
+--Trujillo 20 - Municipio Escuque 21287	
+INSERT INTO LUGAR VALUES (21287001,'Escuque','Parroquia',21287);
+INSERT INTO LUGAR VALUES (21287002,'La Union','Parroquia',21287);
+INSERT INTO LUGAR VALUES (21287003,'Sabana Libre','Parroquia',21287);
+INSERT INTO LUGAR VALUES (21287004,'Santa Rita','Parroquia',21287);
+
+--Trujillo 20 - Municipio La Ceiba 21288	
+INSERT INTO LUGAR VALUES (21288001,'Santa Apolonia','Parroquia',21288);
+INSERT INTO LUGAR VALUES (21288002,'El Progreso','Parroquia',21288);
+INSERT INTO LUGAR VALUES (21288003,'La Ceiba','Parroquia',21288);
+INSERT INTO LUGAR VALUES (21288004,'Tres de Febrero','Parroquia',21288);
+
+--Trujillo 20 - Municipio Marques canizalez 21289	
+INSERT INTO LUGAR VALUES (21289001,'Los Caprichos','Parroquia',21289);
+INSERT INTO LUGAR VALUES (21289002,'El Socorro','Parroquia',21289);
+INSERT INTO LUGAR VALUES (21289003,'Antonio José de Sucre','Parroquia',21289);
+
+--Trujillo 20 - Municipio Miranda 21290	
+INSERT INTO LUGAR VALUES (21290001,'El Dividive','Parroquia',21290);
+INSERT INTO LUGAR VALUES (21290002,'Agua Santa','Parroquia',21290);
+INSERT INTO LUGAR VALUES (21290003,'Agua Caliente','Parroquia',21290);
+INSERT INTO LUGAR VALUES (21290004,'El Cenizo','Parroquia',21290);
+INSERT INTO LUGAR VALUES (21290005,'Valerita','Parroquia',21290);
+
+--Trujillo 20 - Municipio Monte Carmelo 21291	
+INSERT INTO LUGAR VALUES (21291001,'Monte Carmelo','Parroquia',21291);
+INSERT INTO LUGAR VALUES (21291002,'Buena Vista','Parroquia',21291);
+INSERT INTO LUGAR VALUES (21291003,'Santa María del Horcón','Parroquia',21291);
+
+--Trujillo 20 - Municipio Motatan 21292	
+INSERT INTO LUGAR VALUES (21292001,'Motatán','Parroquia',21292);
+INSERT INTO LUGAR VALUES (21292002,'El Baño','Parroquia',21292);
+INSERT INTO LUGAR VALUES (21292003,'Jalisco','Parroquia',21292);
+
+--Trujillo 20 - Municipio Pampan 21293	
+INSERT INTO LUGAR VALUES (21293001,'Pampan','Parroquia',21293);
+INSERT INTO LUGAR VALUES (21293002,'Flor de Patria','Parroquia',21293);
+INSERT INTO LUGAR VALUES (21293003,'La Paz','Parroquia',21293);
+INSERT INTO LUGAR VALUES (21293004,'Santa Ana','Parroquia',21293);
+
+--Trujillo 20 - Municipio Pampanito 21294	
+INSERT INTO LUGAR VALUES (21294001,'Pampanito','Parroquia',21294);
+INSERT INTO LUGAR VALUES (21294002,'La Concepcion','Parroquia',21294);
+INSERT INTO LUGAR VALUES (21294003,'Pampanito II','Parroquia',21294);
+
+--Trujillo 20 municipio Rafael Rangel 21295
+INSERT INTO LUGAR VALUES (21295001,'Betijoque','Parroquia',21295);
+INSERT INTO LUGAR VALUES (21295002,'El Cedro','Parroquia',21295);
+INSERT INTO LUGAR VALUES (21295003,'José G. Hernández','Parroquia',21295);
+INSERT INTO LUGAR VALUES (21295004,'La Pueblita','Parroquia',21295);
+
+--Trujillo 20 municipio Sucre 21296
+INSERT INTO LUGAR VALUES (21296001,'Sabana de Mendoza','Parroquia',21296);
+INSERT INTO LUGAR VALUES (21296002,'Junín','Parroquia',21296);
+INSERT INTO LUGAR VALUES (21296003,'Valmore','Parroquia',21296);
+INSERT INTO LUGAR VALUES (21296004,'El Paraíso','Parroquia',21296);
+
+--Trujillo 20 municipio Trujillo 21297
+INSERT INTO LUGAR VALUES (21297001,'Andrés Linares','Parroquia',21297);
+INSERT INTO LUGAR VALUES (21297002,'Chiquinquira','Parroquia',21297);
+INSERT INTO LUGAR VALUES (21297003,'Cristobal Mendoza','Parroquia',21297);
+INSERT INTO LUGAR VALUES (21297004,'Cruz Carrilo','Parroquia',21297);
+INSERT INTO LUGAR VALUES (21297005,'Matriz','Parroquia',21297);
+INSERT INTO LUGAR VALUES (21297006,'Monsenor Carrillo','Parroquia',21297);
+INSERT INTO LUGAR VALUES (21297007,'Tres Esquina','Parroquia',21297);
+
+--Trujillo 20 municipio Urdaneta 21298
+INSERT INTO LUGAR VALUES (21298001,'Cabimbú','Parroquia',21298);
+INSERT INTO LUGAR VALUES (21298002,'Jajó','Parroquia',21298);
+INSERT INTO LUGAR VALUES (21298003,'La Mesa de Esnujaque','Parroquia',21298);
+INSERT INTO LUGAR VALUES (21298004,'Santiago','Parroquia',21298);
+INSERT INTO LUGAR VALUES (21298005,'Tuname','Parroquia',21298);
+INSERT INTO LUGAR VALUES (21298006,'La Quebrada','Parroquia',21298);
+
+--Trujillo 20 municipio Valera 21299
+INSERT INTO LUGAR VALUES (21299001,'Juan Ignacio Montilla','Parroquia',21299);
+INSERT INTO LUGAR VALUES (21299002,'La Beatriz','Parroquia',21299);
+INSERT INTO LUGAR VALUES (21299003,'Mercedes Diaz','Parroquia',21299);
+INSERT INTO LUGAR VALUES (21299004,'San Luis','Parroquia',21299);
+INSERT INTO LUGAR VALUES (21299005,'Mendoza del Momboy','Parroquia',21299);
+INSERT INTO LUGAR VALUES (21299006,'La Puerta','Parroquia',21299);
+INSERT INTO LUGAR VALUES (21299007,'Campo Alegre','Parroquia',21299);
+

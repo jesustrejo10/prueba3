@@ -6,6 +6,7 @@ package Interfaz;
 
 import Controlador.VentanaMenuEdificioControlador;
 import static Controlador.VentanaMenuEdificioControlador.devuelvedireccionSQL;
+import static Interfaz.VentanaMenuPropietario.modelo;
 import static Interfaz.VentanaMenuRoles.modelo;
 import Modelo.Util;
 import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
@@ -590,6 +591,13 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ComboMunicipioMouseEntered
 
+        public static void LimpiarJTable(){
+          int a =modelo.getRowCount()-1;
+          for(int i=a;i>=0;i--){ 
+                    modelo.removeRow(i);
+          }
+    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
              Opcion = ComboOpcion.getSelectedIndex();
@@ -630,8 +638,20 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                        BtnFinalizar.setText("Registrar Edificio");
                        JOptionPane.showMessageDialog(rootPane,"A CONTINUACION RELLENE TODOS LOS CAMPOS");
                        jLabel5.setText(("Especifique la direccion del Edifcio"));
+                       LimpiarJTable();
+                    try{
+                              VentanaMenuEdificioControlador.RellenaTablaSQL();
+                              VentanaMenuEdificioControlador.LlenarEstado();
+                    }catch (Exception e){
+                              JOptionPane.showMessageDialog(rootPane,"REVENTO EN ->"+e);
+                    }
+                    for (String x: VentanaMenuEdificioControlador.Estados){
+                              ComboEstados.addItem(x);
+                    }
+          
                 }
                 if (Opcion==1){
+                        ActivaCombo=false;
                         jLabel5.setText("Direccion Especifica del edificio seleccionado");
                         ComboEstados.setVisible(true);
                         ComboMunicipio.setVisible(true);
@@ -675,9 +695,21 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                         ComboMunicipio.setEnabled(false);
                         ComboParroquia.setEnabled(false);
                         PermisosActuales.clear();
+                        LimpiarJTable();
+                    try{
+                              VentanaMenuEdificioControlador.RellenaTablaSQL();
+                              VentanaMenuEdificioControlador.LlenarEstado();
+                    }catch (Exception e){
+                              JOptionPane.showMessageDialog(rootPane,"REVENTO EN ->"+e);
+                    }
+                    for (String x: VentanaMenuEdificioControlador.Estados){
+                              ComboEstados.addItem(x);
+                    }
+          
                 }
                 
           if (Opcion==2){
+                        ActivaCombo=true;
                         jLabel5.setText("Direccion Especifica del edificio a Editar");
                         ComboEstados.setVisible(true);
                         ComboMunicipio.setVisible(true);
@@ -708,20 +740,26 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                        TXTNombre.setVisible(true);
                        TXTRif.setVisible(true);
                        btnAyuda.setVisible(true);
-                       BtnFinalizar.setText("Registrar Edificio");
-                       JOptionPane.showMessageDialog(rootPane,"En la tabla aparece la informacion general de cada edificio, si desea "
-                               + "informacion detallada haga click sobre alguna fila..");
+                       BtnFinalizar.setText("Modificar Edificio");
                        ComboEstados.removeAll();
                         ComboParroquia.removeAll();
                         ComboMunicipio.removeAll();
-                        ComboEstados.addItem("Estado");
-                        ComboMunicipio.addItem("Municipio");
-                        ComboParroquia.addItem("Parroquia");
-                        ComboEstados.setEnabled(false);
-                        ComboMunicipio.setEnabled(false);
-                        ComboParroquia.setEnabled(false);
+                        ComboEstados.setEnabled(true);
+                        ComboMunicipio.setEnabled(true);
+                        ComboParroquia.setEnabled(true);
                         PermisosActuales.clear();
-                }
+                    LimpiarJTable();
+                    try{
+                              VentanaMenuEdificioControlador.RellenaTablaSQL();
+                              VentanaMenuEdificioControlador.LlenarEstado();
+                    }catch (Exception e){
+                              JOptionPane.showMessageDialog(rootPane,"REVENTO EN ->"+e);
+                    }
+                    for (String x: VentanaMenuEdificioControlador.Estados){
+                              ComboEstados.addItem(x);
+                    }
+          
+          }
        
     }//GEN-LAST:event_jButton1ActionPerformed
 

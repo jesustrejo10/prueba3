@@ -1,0 +1,405 @@
+
+INSERT INTO LUGAR VALUES (1,'Amazonas','Estado','');
+INSERT INTO LUGAR VALUES (2,'Anzoategui','Estado','');
+INSERT INTO LUGAR VALUES (3,'Apure','Estado','');
+INSERT INTO LUGAR VALUES (4,'Aragua','Estado','');
+INSERT INTO LUGAR VALUES (5,'Barinas','Estado','');
+INSERT INTO LUGAR VALUES (6,'Bolivar','Estado','');
+INSERT INTO LUGAR VALUES (7,'Carabobo','Estado','');
+INSERT INTO LUGAR VALUES (8,'Cojedes','Estado','');
+INSERT INTO LUGAR VALUES (9,'Delta Amacuro','Estado','');
+INSERT INTO LUGAR VALUES (10,'Distrito Capital','Estado','');
+INSERT INTO LUGAR VALUES (11,'Falcon','Estado','');
+INSERT INTO LUGAR VALUES (12,'Guarico','Estado','');
+INSERT INTO LUGAR VALUES (13,'Lara','Estado','');
+INSERT INTO LUGAR VALUES (14,'Merida','Estado','');
+INSERT INTO LUGAR VALUES (15,'Miranda','Estado','');
+INSERT INTO LUGAR VALUES (16,'Monagas','Estado','');
+INSERT INTO LUGAR VALUES (17,'Nueva Esparta','Estado','');
+INSERT INTO LUGAR VALUES (18,'Portuguesa','Estado','');
+INSERT INTO LUGAR VALUES (19,'Sucre','Estado','');
+INSERT INTO LUGAR VALUES (20,'Tachira','Estado','');
+INSERT INTO LUGAR VALUES (21,'Trujillo','Estado','');
+INSERT INTO LUGAR VALUES (22,'Vargas','Estado','');
+INSERT INTO LUGAR VALUES (23,'Yaracuy','Estado','');
+INSERT INTO LUGAR VALUES (24,'Zulia','Estado','');
+--Amazonas 7
+INSERT INTO LUGAR VALUES (101,'Alto Orinoco','Municipio',1);
+INSERT INTO LUGAR VALUES (102,'Atabapo','Municipio',1);
+INSERT INTO LUGAR VALUES (103,'Atures','Municipio',1);
+INSERT INTO LUGAR VALUES (104,'Autana','Municipio',1);
+INSERT INTO LUGAR VALUES (105,'Manapiare','Municipio',1);
+INSERT INTO LUGAR VALUES (106,'Maroa','Municipio',1);
+INSERT INTO LUGAR VALUES (107,'Rio Negro','Municipio',1);
+--Anzoategui 21
+INSERT INTO LUGAR VALUES (208,'Anaco','Municipio',2);
+INSERT INTO LUGAR VALUES (209,'Aragua','Municipio',2);
+INSERT INTO LUGAR VALUES (210,'Bolivar','Municipio',2);
+INSERT INTO LUGAR VALUES (211,'Bruzual','Municipio',2);
+INSERT INTO LUGAR VALUES (212,'Cajigal','Municipio',2);
+INSERT INTO LUGAR VALUES (213,'Carvajal','Municipio',2);
+INSERT INTO LUGAR VALUES (214,'Diego','Municipio',2);
+INSERT INTO LUGAR VALUES (215,'Freites','Municipio',2);
+INSERT INTO LUGAR VALUES (216,'Guanipa','Municipio',2);
+INSERT INTO LUGAR VALUES (217,'Guanta','Municipio',2);
+INSERT INTO LUGAR VALUES (218,'Independencia','Municipio',2);
+INSERT INTO LUGAR VALUES (219,'Libertad','Municipio',2);
+INSERT INTO LUGAR VALUES (220,'McGregor','Municipio',2);
+INSERT INTO LUGAR VALUES (221,'Miranda','Municipio',2);
+INSERT INTO LUGAR VALUES (222,'Monagas','Municipio',2);
+INSERT INTO LUGAR VALUES (223,'Peñalver','Municipio',2);
+INSERT INTO LUGAR VALUES (224,'Piritu','Municipio',2);
+INSERT INTO LUGAR VALUES (225,'San Juan de Capistrano','Municipio',2);
+INSERT INTO LUGAR VALUES (226,'Santa Ana','Municipio',2);
+INSERT INTO LUGAR VALUES (227,'Simon Rodriguez','Municipio',2);
+INSERT INTO LUGAR VALUES (228,'Puerto La Cruz','Municipio',2);
+
+--Apure 7
+INSERT INTO LUGAR VALUES (329,'Achaguas','Municipio',3);
+INSERT INTO LUGAR VALUES (330,'Biruaca','Municipio',3);
+INSERT INTO LUGAR VALUES (331,'Muñoz','Municipio',3);
+INSERT INTO LUGAR VALUES (332,'Paez','Municipio',3);
+INSERT INTO LUGAR VALUES (333,'Pedro Camejo','Municipio',3);
+INSERT INTO LUGAR VALUES (334,'Romulo Gallegos','Municipio',3);
+INSERT INTO LUGAR VALUES (335,'San Fernando','Municipio',3);
+
+--Aragua 18
+INSERT INTO LUGAR VALUES (436,'Bolivar','Municipio',4);
+INSERT INTO LUGAR VALUES (437,'Camatagua','Municipio',4);
+INSERT INTO LUGAR VALUES (438,'Francisco Linares Alcantara','Municipio',4);
+INSERT INTO LUGAR VALUES (439,'Girardot','Municipio',4);
+INSERT INTO LUGAR VALUES (440,'Jose Angel Lamas','Municipio',4);
+INSERT INTO LUGAR VALUES (441,'Jose Felix Ribas','Municipio',4);
+INSERT INTO LUGAR VALUES (442,'Jose Rafael Revenga','Municipio',4);
+INSERT INTO LUGAR VALUES (443,'Libertador','Municipio',4);
+INSERT INTO LUGAR VALUES (444,'Mario Briceño Iragorry','Municipio',4);
+INSERT INTO LUGAR VALUES (445,'Ocumare de la Costa de Oro','Municipio',4);
+INSERT INTO LUGAR VALUES (446,'San Casimiro','Municipio',4);
+INSERT INTO LUGAR VALUES (447,'San Sebastian','Municipio',4);
+INSERT INTO LUGAR VALUES (448,'Santiago Mariño','Municipio',4);
+INSERT INTO LUGAR VALUES (449,'Santos Michelena','Municipio',4);
+INSERT INTO LUGAR VALUES (450,'Sucre','Municipio',4);
+INSERT INTO LUGAR VALUES (451,'Tovar','Municipio',4);
+INSERT INTO LUGAR VALUES (452,'Urdaneta','Municipio',4);
+INSERT INTO LUGAR VALUES (453,'Zamora','Municipio',4);
+
+--Barinas 12
+INSERT INTO LUGAR VALUES (554,'Alberto Arvelo Torrealba','Municipio',5);
+INSERT INTO LUGAR VALUES (555,'Andres Eloy Blanco','Municipio',5);
+INSERT INTO LUGAR VALUES (556,'Antonio Jose de Sucre','Municipio',5);
+INSERT INTO LUGAR VALUES (557,'Arismendi','Municipio',5);
+INSERT INTO LUGAR VALUES (558,'Barinas','Municipio',5);
+INSERT INTO LUGAR VALUES (559,'Bolivar','Municipio',5);
+INSERT INTO LUGAR VALUES (560,'Cruz Paredes','Municipio',5);
+INSERT INTO LUGAR VALUES (561,'Ezequiel Zamora','Municipio',5);
+INSERT INTO LUGAR VALUES (562,'Obispos','Municipio',5);
+INSERT INTO LUGAR VALUES (563,'Pedraza','Municipio',5);
+INSERT INTO LUGAR VALUES (564,'Rojas','Municipio',5);
+INSERT INTO LUGAR VALUES (565,'Sosa','Municipio',5);
+
+--Bolivar 11
+INSERT INTO LUGAR VALUES (666,'Caroni','Municipio',6);
+INSERT INTO LUGAR VALUES (667,'Cedeño','Municipio',6);
+INSERT INTO LUGAR VALUES (668,'El Callao','Municipio',6);
+INSERT INTO LUGAR VALUES (669,'Gran Sabana','Municipio',6);
+INSERT INTO LUGAR VALUES (670,'Heres','Municipio',6);
+INSERT INTO LUGAR VALUES (671,'Piar','Municipio',6);
+INSERT INTO LUGAR VALUES (672,'Raul Leoni','Municipio',6);
+INSERT INTO LUGAR VALUES (673,'Roscio','Municipio',6);
+INSERT INTO LUGAR VALUES (674,'Sifontes','Municipio',6);
+INSERT INTO LUGAR VALUES (675,'Sucre','Municipio',6);
+INSERT INTO LUGAR VALUES (676,'Padre Pedro Chen','Municipio',6);
+
+--Carabobo 14
+INSERT INTO LUGAR VALUES (777,'Bejuma','Municipio',7);
+INSERT INTO LUGAR VALUES (778,'Carlos Arvelo','Municipio',7);
+INSERT INTO LUGAR VALUES (779,'Diego Ibarra','Municipio',7);
+INSERT INTO LUGAR VALUES (780,'Guacara','Municipio',7);
+INSERT INTO LUGAR VALUES (781,'Juan Jose Mora','Municipio',7);
+INSERT INTO LUGAR VALUES (782,'Libertador','Municipio',7);
+INSERT INTO LUGAR VALUES (783,'Los Guayos','Municipio',7);
+INSERT INTO LUGAR VALUES (784,'Miranda','Municipio',7);
+INSERT INTO LUGAR VALUES (785,'Montalban','Municipio',7);
+INSERT INTO LUGAR VALUES (786,'Naguanagua','Municipio',7);
+INSERT INTO LUGAR VALUES (787,'Puerto Cabello','Municipio',7);
+INSERT INTO LUGAR VALUES (788,'San Diego','Municipio',7);
+INSERT INTO LUGAR VALUES (789,'San Joaquin','Municipio',7);
+INSERT INTO LUGAR VALUES (790,'Valencia','Municipio',7);
+
+--Cojedes 9
+INSERT INTO LUGAR VALUES (891,'Anzoategui','Municipio',8);
+INSERT INTO LUGAR VALUES (892,'Tinaco','Municipio',8);
+INSERT INTO LUGAR VALUES (893,'Girardot','Municipio',8);
+INSERT INTO LUGAR VALUES (894,'Lima Blanco','Municipio',8);
+INSERT INTO LUGAR VALUES (895,'Pao de San Juan Bautista','Municipio',8);
+INSERT INTO LUGAR VALUES (896,'Ricaurte','Municipio',8);
+INSERT INTO LUGAR VALUES (897,'Romulo','Municipio',8);
+INSERT INTO LUGAR VALUES (898,'Tinaquillo','Municipio',8);
+INSERT INTO LUGAR VALUES (899,'Ezequiel Zamora','Municipio',8);
+--Delta Amacuro 4
+INSERT INTO LUGAR VALUES (9100,'Antonio Diaz','Municipio',9);
+INSERT INTO LUGAR VALUES (9101,'Casacoima','Municipio',9);
+INSERT INTO LUGAR VALUES (9102,'Pedernales','Municipio',9);
+INSERT INTO LUGAR VALUES (9103,'Tucupita','Municipio',9);
+
+--Distrito Capital 1
+INSERT INTO LUGAR VALUES (10104,'Libertador','Municipio',10);
+--Falcon 25
+INSERT INTO LUGAR VALUES (11105,'Acosta','Municipio',11);
+INSERT INTO LUGAR VALUES (11106,'Bolivar','Municipio',11);
+INSERT INTO LUGAR VALUES (11107,'Buchivacao','Municipio',11);
+INSERT INTO LUGAR VALUES (11108,'Cacique Manaure','Municipio',11);
+INSERT INTO LUGAR VALUES (11109,'Carirubana','Municipio',11);
+INSERT INTO LUGAR VALUES (11110,'Colina','Municipio',11);
+INSERT INTO LUGAR VALUES (11111,'Dabajuro','Municipio',11);
+INSERT INTO LUGAR VALUES (11112,'Democracia','Municipio',11);
+INSERT INTO LUGAR VALUES (11113,'Falcon','Municipio',11);
+INSERT INTO LUGAR VALUES (11114,'Federacion','Municipio',11);
+INSERT INTO LUGAR VALUES (11115,'Jacura','Municipio',11);
+INSERT INTO LUGAR VALUES (11116,'Los Teques','Municipio',11);
+INSERT INTO LUGAR VALUES (11117,'Mauroa','Municipio',11);
+INSERT INTO LUGAR VALUES (11118,'Miranda','Municipio',11);
+INSERT INTO LUGAR VALUES (11119,'Monseñor Iturriza','Municipio',11);
+INSERT INTO LUGAR VALUES (11120,'Palmasola','Municipio',11);
+INSERT INTO LUGAR VALUES (11121,'Petit','Municipio',11);
+INSERT INTO LUGAR VALUES (11122,'Piritu','Municipio',11);
+INSERT INTO LUGAR VALUES (11123,'San Francisco','Municipio',11);
+INSERT INTO LUGAR VALUES (11124,'Silva','Municipio',11);
+INSERT INTO LUGAR VALUES (11125,'Sucre','Municipio',11);
+INSERT INTO LUGAR VALUES (11126,'Tocopero','Municipio',11);
+INSERT INTO LUGAR VALUES (11127,'Union','Municipio',11);
+INSERT INTO LUGAR VALUES (11128,'Urumaco','Municipio',11);
+INSERT INTO LUGAR VALUES (11129,'Zamora','Municipio',11);
+
+--Guarico 15
+INSERT INTO LUGAR VALUES (12130,'Camaguan','Municipio',12);
+INSERT INTO LUGAR VALUES (12131,'Chaguaramas','Municipio',12);
+INSERT INTO LUGAR VALUES (12132,'El Socorro','Municipio',12);
+INSERT INTO LUGAR VALUES (12133,'Francisco de Miranda','Municipio',12);
+INSERT INTO LUGAR VALUES (12134,'Jose Felix Ribas','Municipio',12);
+INSERT INTO LUGAR VALUES (12135,'Jose Tadeo Monagas','Municipio',12);
+INSERT INTO LUGAR VALUES (12136,'Juan German Roscio','Municipio',12);
+INSERT INTO LUGAR VALUES (12137,'Julian Mellado','Municipio',12);
+INSERT INTO LUGAR VALUES (12138,'Las Mercedes','Municipio',12);
+INSERT INTO LUGAR VALUES (12139,'Leonardo Infante','Municipio',12);
+INSERT INTO LUGAR VALUES (12140,'Ortiz','Municipio',12);
+INSERT INTO LUGAR VALUES (12141,'San Geronimo de Guayabal','Municipio',12);
+INSERT INTO LUGAR VALUES (12142,'San Jose de Guaribe','Municipio',12);
+INSERT INTO LUGAR VALUES (12143,'Santa Maria de Ipire','Municipio',12);
+INSERT INTO LUGAR VALUES (12144,'Zaraza','Municipio',12);
+
+--Lara 9
+INSERT INTO LUGAR VALUES (13145,'Andres Eloy Blanco','Municipio',13);
+INSERT INTO LUGAR VALUES (13146,'Crespo','Municipio',13);
+INSERT INTO LUGAR VALUES (13147,'Iribarren','Municipio',13);
+INSERT INTO LUGAR VALUES (13148,'Jimenez','Municipio',13);
+INSERT INTO LUGAR VALUES (13149,'Moran','Municipio',13);
+INSERT INTO LUGAR VALUES (13150,'Palavecino','Municipio',13);
+INSERT INTO LUGAR VALUES (13151,'Simon Planas','Municipio',13);
+INSERT INTO LUGAR VALUES (13152,'Torres','Municipio',13);
+INSERT INTO LUGAR VALUES (13153,'Urdaneta','Municipio',13);
+
+
+--Merida 23
+INSERT INTO LUGAR VALUES (14154,'Alberto Adriani','Municipio',14);
+INSERT INTO LUGAR VALUES (14155,'Andres Bello','Municipio',14);
+INSERT INTO LUGAR VALUES (14156,'Antonio Pinto Salinas','Municipio',14);
+INSERT INTO LUGAR VALUES (14157,'Aricagua','Municipio',14);
+INSERT INTO LUGAR VALUES (14158,'Arzobispo','Municipio',14);
+INSERT INTO LUGAR VALUES (14159,'Campo Elias','Municipio',14);
+INSERT INTO LUGAR VALUES (14160,'Caracciolo Parra Olmedo','Municipio',14);
+INSERT INTO LUGAR VALUES (14161,'Cardenal Quintero','Municipio',14);
+INSERT INTO LUGAR VALUES (14162,'Guaraque','Municipio',14);
+INSERT INTO LUGAR VALUES (14163,'Julio Cesar Salas','Municipio',14);
+INSERT INTO LUGAR VALUES (14164,'Justo Briceño','Municipio',14);
+INSERT INTO LUGAR VALUES (14165,'Libertador','Municipio',14);
+INSERT INTO LUGAR VALUES (14166,'Miranda','Municipio',14);
+INSERT INTO LUGAR VALUES (14167,'Obispo Ramos de Lora','Municipio',14);
+INSERT INTO LUGAR VALUES (14168,'Padre Norega','Municipio',14);
+INSERT INTO LUGAR VALUES (14169,'Pueblo Llano','Municipio',14);
+INSERT INTO LUGAR VALUES (14170,'Rangel','Municipio,14');
+INSERT INTO LUGAR VALUES (14171,'Rivas Davila','Municipio',14);
+INSERT INTO LUGAR VALUES (14172,'Santos Marquina','Municipio',14);
+INSERT INTO LUGAR VALUES (14173,'Sucre','Municipio',14);
+INSERT INTO LUGAR VALUES (14174,'Tovar','Municipio',14);
+INSERT INTO LUGAR VALUES (14175,'Tulio Febres Cordero','Municipio',14);
+INSERT INTO LUGAR VALUES (14176,'Zea','Municipio',14);
+
+--Miranda 21
+INSERT INTO LUGAR VALUES (15177,'Acevedo','Municipio',15);
+INSERT INTO LUGAR VALUES (15178,'Andres Bello','Municipio',15);
+INSERT INTO LUGAR VALUES (15179,'Baruta','Municipio',15);
+INSERT INTO LUGAR VALUES (15180,'Brion','Municipio',15);
+INSERT INTO LUGAR VALUES (15181,'Buroz','Municipio',15);
+INSERT INTO LUGAR VALUES (15182,'Carrizal','Municipio',15);
+INSERT INTO LUGAR VALUES (15183,'Chacao','Municipio',15);
+INSERT INTO LUGAR VALUES (15184,'Cristobal Rojas','Municipio',15);
+INSERT INTO LUGAR VALUES (15185,'El Hatillo','Municipio',15);
+INSERT INTO LUGAR VALUES (15186,'Guaicaipuro','Municipio',15);
+INSERT INTO LUGAR VALUES (15187,'Independencia','Municipio',15);
+INSERT INTO LUGAR VALUES (15188,'Lander','Municipio',15);
+INSERT INTO LUGAR VALUES (15189,'Los Salias','Municipio',15);
+INSERT INTO LUGAR VALUES (15190,'Paez','Municipio',15);
+INSERT INTO LUGAR VALUES (15191,'Paz Castillo','Municipio',15);
+INSERT INTO LUGAR VALUES (15192,'Pedro Gual','Municipio',15);
+INSERT INTO LUGAR VALUES (15193,'Plaza','Municipio',15);
+INSERT INTO LUGAR VALUES (15194,'Simon Bolivar','Municipio',15);
+INSERT INTO LUGAR VALUES (15195,'Sucre','Municipio',15);
+INSERT INTO LUGAR VALUES (15196,'Urdaneta','Municipio',15);
+INSERT INTO LUGAR VALUES (15197,'Zamora','Municipio',15);
+
+
+--Monagas 13
+
+INSERT INTO LUGAR VALUES (16198,'Acosta','Municipio',16);
+INSERT INTO LUGAR VALUES (16199,'Aguasay','Municipio',16);
+INSERT INTO LUGAR VALUES (16200,'Bolivar','Municipio',16);
+INSERT INTO LUGAR VALUES (16201,'Caripe','Municipio',16);
+INSERT INTO LUGAR VALUES (16202,'Cedeño','Municipio',16);
+INSERT INTO LUGAR VALUES (16203,'Ezequiel Zamora','Municipio',16);
+INSERT INTO LUGAR VALUES (16204,'Libertador','Municipio',16);
+INSERT INTO LUGAR VALUES (16205,'Maturin','Municipio',16);
+INSERT INTO LUGAR VALUES (16206,'Piar','Municipio',16);
+INSERT INTO LUGAR VALUES (16207,'Punceres','Municipio',16);
+INSERT INTO LUGAR VALUES (16208,'Santa Barbara','Municipio',16);
+INSERT INTO LUGAR VALUES (16209,'Sotillo','Municipio',16);
+INSERT INTO LUGAR VALUES (16210,'Uracoa','Municipio',16);
+
+--Nueva Esparta 11
+INSERT INTO LUGAR VALUES (17211,'Antolin del Campo','Municipio',17);
+INSERT INTO LUGAR VALUES (17212,'Arismendi','Municipio',17);
+INSERT INTO LUGAR VALUES (17213,'Diaz','Municipio',17);
+INSERT INTO LUGAR VALUES (17214,'Garcia','Municipio',17);
+INSERT INTO LUGAR VALUES (17215,'Gomez','Municipio',17);
+INSERT INTO LUGAR VALUES (17216,'Maneiro','Municipio',17);
+INSERT INTO LUGAR VALUES (17217,'Marcano','Municipio',17);
+INSERT INTO LUGAR VALUES (17218,'Mariño','Municipio',17);
+INSERT INTO LUGAR VALUES (17219,'Peninsula de Macanao','Municipio',17);
+INSERT INTO LUGAR VALUES (17220,'Tubores','Municipio',17);
+INSERT INTO LUGAR VALUES (17221,'Villalba','Municipio',17);
+
+--Portuguesa 14
+INSERT INTO LUGAR VALUES (18222,'Agua Blanca','Municipio',18);
+INSERT INTO LUGAR VALUES (18223,'Araure','Municipio',18);
+INSERT INTO LUGAR VALUES (18224,'Esteller','Municipio',18);
+INSERT INTO LUGAR VALUES (18225,'Guanare','Municipio',18);
+INSERT INTO LUGAR VALUES (18226,'Guanarito','Municipio',18);
+INSERT INTO LUGAR VALUES (18227,'Monseñor Jose Vicenti de Unda','Municipio',18);
+INSERT INTO LUGAR VALUES (18228,'Ospino','Municipio',18);
+INSERT INTO LUGAR VALUES (18229,'Paez','Municipio',18);
+INSERT INTO LUGAR VALUES (18230,'Papelon','Municipio',18);
+INSERT INTO LUGAR VALUES (18231,'San genaro de Boconoito','Municipio',18);
+INSERT INTO LUGAR VALUES (18232,'San Rafael de Onoto','Municipio',18);
+INSERT INTO LUGAR VALUES (18233,'Santa Rosalia','Municipio',18);
+INSERT INTO LUGAR VALUES (18234,'Sucre','Municipio',18);
+INSERT INTO LUGAR VALUES (18235,'Turen','Municipio',18);
+
+--Sucre 15
+INSERT INTO LUGAR VALUES (19236,'Andres Eloy Blanco','Municipio',19);
+INSERT INTO LUGAR VALUES (19237,'Andres Mata','Municipio',19);
+INSERT INTO LUGAR VALUES (19238,'Arismendi','Municipio',19);
+INSERT INTO LUGAR VALUES (19239,'Benitez','Municipio',19);
+INSERT INTO LUGAR VALUES (19240,'Beremudez','Municipio',19);
+INSERT INTO LUGAR VALUES (19241,'Bolivar','Municipio',19);
+INSERT INTO LUGAR VALUES (19242,'Cajigal','Municipio',19);
+INSERT INTO LUGAR VALUES (19243,'Cruz Salmeron Acosta','Municipio',19);
+INSERT INTO LUGAR VALUES (19244,'Libertador','Municipio',19);
+INSERT INTO LUGAR VALUES (19245,'Mariño','Municipio',19);
+INSERT INTO LUGAR VALUES (19246,'Mejia','Municipio',19);
+INSERT INTO LUGAR VALUES (19247,'Montes','Municipio',19);
+INSERT INTO LUGAR VALUES (19248,'Ribero','Municipio',19);
+INSERT INTO LUGAR VALUES (19249,'Sucre','Municipio',19);
+INSERT INTO LUGAR VALUES (19250,'Valdez','Municipio',19);
+
+--Tachira 29
+INSERT INTO LUGAR VALUES (20251,'Andres Bello','Municipio',20);
+INSERT INTO LUGAR VALUES (20252,'Antonio Romulo Costa','Municipio',20);
+INSERT INTO LUGAR VALUES (20253,'Ayacucho','Municipio',20);
+INSERT INTO LUGAR VALUES (20254,'Bolivar','Municipio',20);
+INSERT INTO LUGAR VALUES (20255,'Cardenas','Municipio',20);
+INSERT INTO LUGAR VALUES (20256,'Cordoba','Municipio',20);
+INSERT INTO LUGAR VALUES (20257,'Fernandez Feo','Municipio',20);
+INSERT INTO LUGAR VALUES (20258,'Francisco de Miranda','Municipio',20);
+INSERT INTO LUGAR VALUES (20259,'Garcia de Hevia','Municipio',20);
+INSERT INTO LUGAR VALUES (20260,'Guasimos','Municipio',20);
+INSERT INTO LUGAR VALUES (20261,'Independencia','Municipio',20);
+INSERT INTO LUGAR VALUES (20262,'Jauregui','Municipio',20);
+INSERT INTO LUGAR VALUES (20263,'Jose Maria Vargas','Municipio',20);
+INSERT INTO LUGAR VALUES (20264,'Junin','Municipio',20);
+INSERT INTO LUGAR VALUES (20265,'Libertad','Municipio',20);
+INSERT INTO LUGAR VALUES (20266,'Libertador','Municipio',20);
+INSERT INTO LUGAR VALUES (20267,'Lobatera','Municipio',20);
+INSERT INTO LUGAR VALUES (20268,'Michelena','Municipio',20);
+INSERT INTO LUGAR VALUES (20269,'Panamericano','Municipio',20);
+INSERT INTO LUGAR VALUES (20270,'Pedro Maria Ureña','Municipio',20);
+INSERT INTO LUGAR VALUES (20271,'Rafael Urdaneta','Municipio',20);
+INSERT INTO LUGAR VALUES (20272,'Samuel Dario Maldonado','Municipio',20);
+INSERT INTO LUGAR VALUES (20273,'San Cristobal','Municipio',20);
+INSERT INTO LUGAR VALUES (20274,'Seboruco','Municipio',20);
+INSERT INTO LUGAR VALUES (20275,'Simon Rodriguez','Municipio',20);
+INSERT INTO LUGAR VALUES (20276,'Sucre','Municipio',20);
+INSERT INTO LUGAR VALUES (20277,'Torbes','Municipio',20);
+INSERT INTO LUGAR VALUES (20278,'Uribante','Municipio',20);
+INSERT INTO LUGAR VALUES (20279,'San Judas Tadeo','Municipio',20);
+
+--Trujillo 20
+INSERT INTO LUGAR VALUES (21280,'Andres Bello','Municipio',21);
+INSERT INTO LUGAR VALUES (21281,'Bocono','Municipio',21);
+INSERT INTO LUGAR VALUES (21282,'Bolivar','Municipio',21);
+INSERT INTO LUGAR VALUES (21283,'Candelaria','Municipio',21);
+INSERT INTO LUGAR VALUES (21284,'Carache','Municipio',21);
+INSERT INTO LUGAR VALUES (21287,'Escuque','Municipio',21);
+INSERT INTO LUGAR VALUES (21289,'Jose Felipe Marquez Cañozalez','Municipio',21);
+INSERT INTO LUGAR VALUES (21286,'Juan Vicente Campos Elias','Municipio',21);
+INSERT INTO LUGAR VALUES (21288,'La Ceiba','Municipio',21);
+INSERT INTO LUGAR VALUES (21290,'Miranda','Municipio',21);
+INSERT INTO LUGAR VALUES (21291,'Monte Carmelo','Municipio',21);
+INSERT INTO LUGAR VALUES (21292,'Motatan','Municipio',21);
+INSERT INTO LUGAR VALUES (21293,'Pampan','Municipio',21);
+INSERT INTO LUGAR VALUES (21294,'Pampanito','Municipio',21);
+INSERT INTO LUGAR VALUES (21295,'Rafael Rangel','Municipio',21);
+INSERT INTO LUGAR VALUES (21285,'San Rafael de Carvajal','Municipio',21);
+INSERT INTO LUGAR VALUES (21296,'Sucre','Municipio',21);
+INSERT INTO LUGAR VALUES (21297,'Trujillo','Municipio',21);
+INSERT INTO LUGAR VALUES (21298,'Urdaneta','Municipio',21);
+INSERT INTO LUGAR VALUES (21299,'Valera','Municipio',21);
+--Vargas 1
+INSERT INTO LUGAR VALUES (22300,'Vargas','Municipio',22);
+--Yaracuy 14
+INSERT INTO LUGAR VALUES (23301,'Aristides Bastidas','Municipio',23);
+INSERT INTO LUGAR VALUES (23302,'Bolivar','Municipio',23);
+INSERT INTO LUGAR VALUES (23303,'Bruzual','Municipio',23);
+INSERT INTO LUGAR VALUES (23304,'Cocorote','Municipio',23);
+INSERT INTO LUGAR VALUES (23305,'Independencia','Municipio',23);
+INSERT INTO LUGAR VALUES (23306,'Jose Antonio Paez','Municipio',23);
+INSERT INTO LUGAR VALUES (23307,'La Trinidad','Municipio',23);
+INSERT INTO LUGAR VALUES (23308,'Manual Monge','Municipio',23);
+INSERT INTO LUGAR VALUES (23309,'Nirgua','Municipio',23);
+INSERT INTO LUGAR VALUES (23310,'Peña','Municipio',23);
+INSERT INTO LUGAR VALUES (23311,'San Felipe','Municipio',23);
+INSERT INTO LUGAR VALUES (23312,'Sucre','Municipio',23);
+INSERT INTO LUGAR VALUES (23313,'Urachiche','Municipio',23);
+INSERT INTO LUGAR VALUES (23314,'Veroes','Municipio',23);
+
+--Zulia 21
+INSERT INTO LUGAR VALUES (24315,'Almirante Padilla','Municipio',24);
+INSERT INTO LUGAR VALUES (24316,'Baralt','Municipio',24);
+INSERT INTO LUGAR VALUES (24317,'Cabimas','Municipio',24);
+INSERT INTO LUGAR VALUES (24318,'Catatumbo','Municipio',24);
+INSERT INTO LUGAR VALUES (24319,'Colon','Municipio',24);
+INSERT INTO LUGAR VALUES (24320,'Francisco Javier Pulgar','Municipio',24);
+INSERT INTO LUGAR VALUES (24321,'Jesus Enrique Losada','Municipio',24);
+INSERT INTO LUGAR VALUES (24322,'Jesus Maria Semprun','Municipio',24);
+INSERT INTO LUGAR VALUES (24323,'La Cañada de Urdaneta','Municipio',24);
+INSERT INTO LUGAR VALUES (24324,'Lagunillas','Municipio',24);
+INSERT INTO LUGAR VALUES (24325,'Machiques de Perija','Municipio',24);
+INSERT INTO LUGAR VALUES (24326,'Mara','Municipio',24);
+INSERT INTO LUGAR VALUES (24327,'Maracaibo','Municipio',24);
+INSERT INTO LUGAR VALUES (24328,'Miranda','Municipio',24);
+INSERT INTO LUGAR VALUES (24329,'Paez','Municipio',24);
+INSERT INTO LUGAR VALUES (24330,'Rosario de Perija','Municipio',24);
+INSERT INTO LUGAR VALUES (24331,'San Francisco','Municipio',24);
+INSERT INTO LUGAR VALUES (24332,'San Rita','Municipio',24);
+INSERT INTO LUGAR VALUES (24333,'Simon Bolivar','Municipio',24);
+INSERT INTO LUGAR VALUES (24334,'Sucre','Municipio',24);
+INSERT INTO LUGAR VALUES (24335,'Valmore','Municipio',24);
