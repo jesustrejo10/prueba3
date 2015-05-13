@@ -117,7 +117,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         P2.setText("Edificio");
 
         P3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P3.setText("jCheckBox3");
+        P3.setText("Propietario");
 
         P4.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         P4.setText("jCheckBox4");
@@ -377,14 +377,19 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         boolean valido = false;
         
         if (P1.isSelected()){
-             JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 1");
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 1");
              valido = true;
              AuxiliarPermisos.add("1");
         }
         if (P2.isSelected()){
-             JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 1");
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 1");
              valido = true;
              AuxiliarPermisos.add("2");
+        }
+        if (P3.isSelected()){
+             JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             valido = true;
+             AuxiliarPermisos.add("4");
         }
         if (valido){
             

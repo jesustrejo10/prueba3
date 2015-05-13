@@ -35,7 +35,7 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
     public static ArrayList<String> AreasComunes = new ArrayList();
     public static boolean ActivaCombo=false;
     public static ArrayList<String> PermisosActuales = new ArrayList();
-      
+
     
     public VentanaMenuEdificio() throws SQLException {
         initComponents();
@@ -315,9 +315,9 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(81, 81, 81)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(ComboEstados, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(ComboMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(ComboMunicipio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(ComboEstados, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(60, 60, 60)
@@ -505,59 +505,65 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
 
     private void BtnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFinalizarActionPerformed
 
-       String ParroquiaSeleccionada = (String) ComboParroquia.getSelectedItem();
-        //JOptionPane.showMessageDialog(rootPane,"EL MUNICIPIO SELECCIONADO ES: "+MunicipioSeleccionado);
-        try {
-           String NombreEdif = TXTNombre.getText();
-           String RifEdif = TXTRif.getText();
-           ClaveParroquia = Util.Consultar_PKPorNombreParroquia("LUGAR","LUG_CLAVE",ParroquiaSeleccionada,"LUG_NOMBRE",ClaveMunicipio);
-           //JOptionPane.showMessageDialog(rootPane, "Logro buscar la clave de parroquia y es:"+ClaveParroquia);
-           int clave =VentanaMenuEdificioControlador.InsertarEdificioSQL(RifEdif,NombreEdif,ClaveParroquia);
-            JOptionPane.showMessageDialog(rootPane,"EDIFICIO: "+NombreEdif+" AGREGADO SATISFACTORIAMENTE");
+          if (Opcion == 0){
+                    String ParroquiaSeleccionada = (String) ComboParroquia.getSelectedItem();
+                    try {
+                              String NombreEdif = TXTNombre.getText();
+                              String RifEdif = TXTRif.getText();
+                              ClaveParroquia = Util.Consultar_PKPorNombreParroquia("LUGAR","LUG_CLAVE",ParroquiaSeleccionada,"LUG_NOMBRE",ClaveMunicipio);
+                              //JOptionPane.showMessageDialog(rootPane, "Logro buscar la clave de parroquia y es:"+ClaveParroquia);
+                              int clave =VentanaMenuEdificioControlador.InsertarEdificioSQL(RifEdif,NombreEdif,ClaveParroquia);
+                              JOptionPane.showMessageDialog(rootPane,"EDIFICIO: "+NombreEdif+" AGREGADO SATISFACTORIAMENTE");
+
+                              AreaValida=false;
+                              AreasComunes.clear();
+                              if (AC1.isSelected()){
+                                        AreaValida = true;
+                                         AreasComunes.add("1");
+                               }
+                              if (AC2.isSelected()){
+                                         AreaValida = true;
+                                         AreasComunes.add("2");
+                              }
+                              if (AC3.isSelected()){
+                                        AreaValida = true;
+                                        AreasComunes.add("3");
+                              }
+                              if (AC4.isSelected()){
+                                        AreaValida = true;
+                                        AreasComunes.add("4");
+                              }
+                              if (AC5.isSelected()){
+                                        AreaValida = true;
+                                        AreasComunes.add("5");
+                               }
+                              if (AC6.isSelected()){
+                                        AreaValida = true;
+                                        AreasComunes.add("6");
+                               }
+                              if (AC7.isSelected()){
+                                        AreaValida = true;
+                                        AreasComunes.add("7");
+                               }
+                              if (AC8.isSelected()){
+                                        AreaValida = true;
+                                        AreasComunes.add("8");
+                              }if (AC9.isSelected()){
+                                        AreaValida = true;
+                                        AreasComunes.add("9");
+                              }if (AC10.isSelected()){
+                                        AreaValida = true;
+                                        AreasComunes.add("10");
+                              }
             
-            AreaValida=false;
-            AreasComunes.clear();
-        
-            
-            if (AC1.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("1");
-            }
-            if (AC2.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("2");
-            }if (AC3.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("3");
-            }if (AC4.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("4");
-            }if (AC5.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("5");
-            }if (AC6.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("6");
-            }if (AC7.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("7");
-            }if (AC8.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("8");
-            }if (AC9.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("9");
-            }if (AC10.isSelected()){
-             AreaValida = true;
-             AreasComunes.add("10");
-            }
-            VentanaMenuEdificioControlador.InsertaArea_DetSQL(clave);
-            VentanaMenuEdificio refresh = new VentanaMenuEdificio();
-            refresh.setVisible(true);
-            this.dispose();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane,"ERROR EN EJECUTAR CONSULTA1 ->"+e);
-        }  
+                              VentanaMenuEdificioControlador.InsertaArea_DetSQL(clave);
+                              VentanaMenuEdificio refresh = new VentanaMenuEdificio();
+                              refresh.setVisible(true);
+                              this.dispose();
+                    }catch(Exception e){
+                              JOptionPane.showMessageDialog(rootPane,"ERROR EN EJECUTAR CONSULTA1 ->"+e);
+                    }
+          }
     }//GEN-LAST:event_BtnFinalizarActionPerformed
 
     private void ComboMunicipioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboMunicipioMouseReleased
@@ -670,102 +676,185 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                         ComboParroquia.setEnabled(false);
                         PermisosActuales.clear();
                 }
+                
+          if (Opcion==2){
+                        jLabel5.setText("Direccion Especifica del edificio a Editar");
+                        ComboEstados.setVisible(true);
+                        ComboMunicipio.setVisible(true);
+                        ComboParroquia.setVisible(true);
+                        jLabel3.setVisible(true);
+                        jLabel4.setVisible(true);
+                        jLabel5.setVisible(true);
+                        jLabel6.setVisible(true);
+                        jLabel7.setVisible(true);
+                        jLabel8.setVisible(true);
+                        jLabel9.setVisible(true);
+                        jLabel12.setVisible(true);
+                        jLabel13.setVisible(true);
+                        AC1.setVisible(true);
+                        AC2.setVisible(true);
+                        AC3.setVisible(true);
+                        AC4.setVisible(true);
+                        AC5.setVisible(true);
+                        AC6.setVisible(true);
+                        AC7.setVisible(true);
+                        AC8.setVisible(true);
+                        AC9.setVisible(true);
+                        AC10.setVisible(true);
+                        Tabla.setVisible(true);
+                       ComboEstados.setVisible(true);
+                       ComboMunicipio.setVisible(true);
+                       ComboParroquia.setVisible(true);
+                       TXTNombre.setVisible(true);
+                       TXTRif.setVisible(true);
+                       btnAyuda.setVisible(true);
+                       BtnFinalizar.setText("Registrar Edificio");
+                       JOptionPane.showMessageDialog(rootPane,"En la tabla aparece la informacion general de cada edificio, si desea "
+                               + "informacion detallada haga click sobre alguna fila..");
+                       ComboEstados.removeAll();
+                        ComboParroquia.removeAll();
+                        ComboMunicipio.removeAll();
+                        ComboEstados.addItem("Estado");
+                        ComboMunicipio.addItem("Municipio");
+                        ComboParroquia.addItem("Parroquia");
+                        ComboEstados.setEnabled(false);
+                        ComboMunicipio.setEnabled(false);
+                        ComboParroquia.setEnabled(false);
+                        PermisosActuales.clear();
+                }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TablaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TablaKeyReleased
 
-        if( Tabla.getSelectedRows().length > 0 ) {
-           int num = Tabla.getSelectedRow();
-            String nomb=(String)Tabla.getValueAt(num,1);
-            String rif =(String)Tabla.getValueAt(num,0);
-            //String edad=(String)Tabla.getValueAt(num, 2);
-            this.TXTNombre.setText(nomb);
-            this.TXTRif.setText(rif);
-          //  this.edad.setText(edad); 
-            
-         //   JOptionPane.showMessageDialog( Tabla ,"No son molestos los popups?");
-         }
-// TODO add your handling code here:
     }//GEN-LAST:event_TablaKeyReleased
 
     private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
         
-                if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 1)) ) {
+          if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 1)) ) {
                         
-                        int num = Tabla.getSelectedRow();
-                        String nomb=(String)Tabla.getValueAt(num,1);
-                        String rif =(String)Tabla.getValueAt(num,0);
-                        String ClaveParroquia=(String)Tabla.getValueAt(num, 2);
-                        this.TXTNombre.setText(nomb);
-                        this.TXTRif.setText(rif);
-                        String Direccion = "";
-                        //JOptionPane.showMessageDialog(rootPane,"AQUUIII");
+                    int num = Tabla.getSelectedRow();
+                    String nomb=(String)Tabla.getValueAt(num,1);
+                    String rif =(String)Tabla.getValueAt(num,0);
+                    String ClaveParroquia=(String)Tabla.getValueAt(num, 2);
+                    this.TXTNombre.setText(nomb);
+                    this.TXTRif.setText(rif);
+                    String Direccion = "";
                     
                     try {
-                            Direccion = devuelvedireccionSQL(ClaveParroquia);
-                            String[] DireccionDesglosada = Direccion.split("/");
-                            ComboEstados.removeAllItems();
-                            ComboMunicipio.removeAllItems();
-                            ComboParroquia.removeAllItems();
-                            ComboEstados.addItem(DireccionDesglosada[0]);
-                            ComboMunicipio.addItem(DireccionDesglosada[1]);
-                            ComboParroquia.addItem(DireccionDesglosada[2]);
-                            ComboEstados.setSelectedIndex(0);
-                            ComboMunicipio.setSelectedIndex(0);
-                            ComboParroquia.setSelectedIndex(0);
-                            AC1.setSelected(false);
-                            AC2.setSelected(false);
-                            AC3.setSelected(false);
-                            AC4.setSelected(false);
-                            AC5.setSelected(false);
-                            AC6.setSelected(false);
-                            AC7.setSelected(false);
-                            AC8.setSelected(false);
-                            AC9.setSelected(false);
-                            AC10.setSelected(false);
-                            PermisosActuales.clear();
-                            VentanaMenuEdificioControlador.ConsultaClaveEdificioSeleccionadoSQL(nomb, rif);
-                            for (String x : PermisosActuales){
-                                if (x.equalsIgnoreCase("1")){
-                                    AC1.setSelected(true);
-                                }    
-                                if (x.equalsIgnoreCase("2")){
-                                    AC2.setSelected(true);
-                                }
-                                if (x.equalsIgnoreCase("3")){
-                                    AC3.setSelected(true);
-                                }
-                                if (x.equalsIgnoreCase("4")){
-                                    AC4.setSelected(true);
-                                }
-                                if (x.equalsIgnoreCase("5")){
-                                    AC5.setSelected(true);
-                                }
-                                if (x.equalsIgnoreCase("6")){
-                                    AC6.setSelected(true);
-                                }
-                                if (x.equalsIgnoreCase("7")){
-                                    AC7.setSelected(true);
-                                }
-                                if (x.equalsIgnoreCase("8")){
-                                    AC8.setSelected(true);
-                                }
-                                if (x.equalsIgnoreCase("9")){
-                                    AC9.setSelected(true);
-                                }
-                                if (x.equalsIgnoreCase("10")){
-                                    AC10.setSelected(true);
-                                }
-                                
-                            }
-                            
-                            
-                    } catch (SQLException ex) {
-                        
-                        Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
-                        
+                              Direccion = devuelvedireccionSQL(ClaveParroquia);
+                              String[] DireccionDesglosada = Direccion.split("/");
+                              ComboEstados.removeAllItems();
+                              ComboMunicipio.removeAllItems();
+                              ComboParroquia.removeAllItems();
+                              ComboEstados.addItem(DireccionDesglosada[0]);
+                              ComboMunicipio.addItem(DireccionDesglosada[1]);
+                              ComboParroquia.addItem(DireccionDesglosada[2]);
+                              ComboEstados.setSelectedIndex(0);
+                              ComboMunicipio.setSelectedIndex(0);
+                              ComboParroquia.setSelectedIndex(0);
+                              AC1.setSelected(false);
+                              AC2.setSelected(false);
+                              AC3.setSelected(false);
+                              AC4.setSelected(false);
+                              AC5.setSelected(false);
+                              AC6.setSelected(false);
+                              AC7.setSelected(false);
+                              AC8.setSelected(false);
+                              AC9.setSelected(false);
+                              AC10.setSelected(false);
+                              PermisosActuales.clear();
+                              VentanaMenuEdificioControlador.ConsultaClaveEdificioSeleccionadoSQL(nomb, rif);
+                              for (String x : PermisosActuales){
+                                        if (x.equalsIgnoreCase("1")){
+                                                  AC1.setSelected(true);
+                                        }if (x.equalsIgnoreCase("2")){
+                                                  AC2.setSelected(true);
+                                        }if (x.equalsIgnoreCase("3")){
+                                                  AC3.setSelected(true);
+                                        }if (x.equalsIgnoreCase("4")){
+                                                  AC4.setSelected(true);
+                                        }if (x.equalsIgnoreCase("5")){
+                                                  AC5.setSelected(true);
+                                        }if (x.equalsIgnoreCase("6")){
+                                                  AC6.setSelected(true);
+                                        }if (x.equalsIgnoreCase("7")){
+                                                  AC7.setSelected(true);
+                                        }if (x.equalsIgnoreCase("8")){
+                                                  AC8.setSelected(true);
+                                        }if (x.equalsIgnoreCase("9")){
+                                                  AC9.setSelected(true);
+                                        }if (x.equalsIgnoreCase("10")){
+                                                  AC10.setSelected(true);
+                                        }    
+                              }                  
+                    }catch (SQLException ex) {
+                              Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                 }
+          }
+          if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 2)) ) {
+                        
+                    int num = Tabla.getSelectedRow();
+                    String nomb=(String)Tabla.getValueAt(num,1);
+                    String rif =(String)Tabla.getValueAt(num,0);
+                    String ClaveParroquia=(String)Tabla.getValueAt(num, 2);
+                    this.TXTNombre.setText(nomb);
+                    this.TXTRif.setText(rif);
+                    String Direccion = "";
+                    
+                    try {
+                              Direccion = devuelvedireccionSQL(ClaveParroquia);
+                              String[] DireccionDesglosada = Direccion.split("/");
+                              ComboEstados.removeAllItems();
+                              ComboMunicipio.removeAllItems();
+                              ComboParroquia.removeAllItems();
+                              ComboEstados.addItem(DireccionDesglosada[0]);
+                              ComboMunicipio.addItem(DireccionDesglosada[1]);
+                              ComboParroquia.addItem(DireccionDesglosada[2]);
+                              ComboEstados.setSelectedIndex(0);
+                              ComboMunicipio.setSelectedIndex(0);
+                              ComboParroquia.setSelectedIndex(0);
+                              AC1.setSelected(false);
+                              AC2.setSelected(false);
+                              AC3.setSelected(false);
+                              AC4.setSelected(false);
+                              AC5.setSelected(false);
+                              AC6.setSelected(false);
+                              AC7.setSelected(false);
+                              AC8.setSelected(false);
+                              AC9.setSelected(false);
+                              AC10.setSelected(false);
+                              PermisosActuales.clear();
+                              VentanaMenuEdificioControlador.ConsultaClaveEdificioSeleccionadoSQL(nomb, rif);
+                              for (String x : PermisosActuales){
+                                        if (x.equalsIgnoreCase("1")){
+                                                  AC1.setSelected(true);
+                                        }if (x.equalsIgnoreCase("2")){
+                                                  AC2.setSelected(true);
+                                        }if (x.equalsIgnoreCase("3")){
+                                                  AC3.setSelected(true);
+                                        }if (x.equalsIgnoreCase("4")){
+                                                  AC4.setSelected(true);
+                                        }if (x.equalsIgnoreCase("5")){
+                                                  AC5.setSelected(true);
+                                        }if (x.equalsIgnoreCase("6")){
+                                                  AC6.setSelected(true);
+                                        }if (x.equalsIgnoreCase("7")){
+                                                  AC7.setSelected(true);
+                                        }if (x.equalsIgnoreCase("8")){
+                                                  AC8.setSelected(true);
+                                        }if (x.equalsIgnoreCase("9")){
+                                                  AC9.setSelected(true);
+                                        }if (x.equalsIgnoreCase("10")){
+                                                  AC10.setSelected(true);
+                                        }    
+                              }                  
+                    }catch (SQLException ex) {
+                              Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+          }
+          
+          
 
         
 // TODO add your handling code here:

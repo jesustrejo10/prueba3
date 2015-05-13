@@ -52,7 +52,24 @@ public static void insertaPropietarioSQL(String Clave, String PNombre, String SN
           pst.setInt(6,Integer.parseInt(FK_lugar));
           pst.executeUpdate();    
 }
-        
+
+public static void ActualizaPropietarioSQL(String Clave, String PNombre, String SNombre, String PApellido , String SApellido , String FK_lugar)throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("update PROPIETARIO SET PRO_CLAVE="+Clave+",PRO_PNOMBRE = '"+PNombre+"',PRO_SNOMBRE = '"+SNombre+"',PRO_PAPELLIDO = '"+PApellido+"',PRO_SAPELLIDO = '"+SApellido+"',PRO_FK_LUGAR = "+FK_lugar+"" +
+            "WHERE PRO_CLAVE ="+VentanaMenuPropietario.ClaveActualPropietario+"");
+                 
+          pst.executeUpdate();    
+}
+
+public static void EliminaPropietarioSQL()throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("DELETE PROPIETARIO " +
+            "WHERE PRO_CLAVE ="+VentanaMenuPropietario.ClaveActualPropietario+"");
+          pst.executeUpdate();    
+}
+
 public static void RellenaTablaSQL() throws SQLException{
  
           ConexionOracle Conexion= new ConexionOracle();
