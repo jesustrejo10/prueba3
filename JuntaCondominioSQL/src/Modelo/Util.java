@@ -46,9 +46,9 @@ public class Util {
         Statement st= Con.createStatement();
         String Clave="1";
         int conta = 0;
-        JOptionPane.showConfirmDialog(null, "Antes");
+       // JOptionPane.showConfirmDialog(null, "Antes");
          ResultSet Valores= st.executeQuery("SELECT MAX(EDI_CLAVE) FROM EDIFICIO");
-        JOptionPane.showConfirmDialog(null, "DESPUES");
+        //JOptionPane.showConfirmDialog(null, "DESPUES");
          
          while (Valores.next()){
                     Clave=Valores.getString(1);
@@ -61,6 +61,20 @@ public class Util {
             return ("0");
          
       }
+    
+    public static String Consultar_PK_EdificioConRif(String Rif) throws SQLException {
+         ConexionOracle Conexion= new ConexionOracle();
+        Connection Con=Conexion.Conectar();
+        Statement st= Con.createStatement();
+        ResultSet Valores= st.executeQuery("SELECT EDI_CLAVE FROM EDIFICIO WHERE EDI_RIF ='"+Rif+"'  ");
+            while (Valores.next()){
+                    //JOptionPane.showMessageDialog(null,"AQUIII");
+                    String Clave=Valores.getString(1);
+                    return (Clave);
+                }
+        return ("false");
+    }
+    
    
     
      public static String Consultar_PK_USUARIO(String Tabla, String NombreClave) throws SQLException{
