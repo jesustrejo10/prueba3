@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 
 public class MenuBienesRaicesControlador {
 
-    public static void RellenaTablaSQL() throws SQLException{
+public static void RellenaTablaSQL() throws SQLException{
  
         ConexionOracle Conexion= new ConexionOracle();
         Connection Con=Conexion.Conectar();
@@ -46,16 +46,15 @@ public class MenuBienesRaicesControlador {
             
             
     };
- 
     
-    public static void RellenaTablaApartamentosSQL() throws SQLException{
+public static void RellenaTablaApartamentosSQL() throws SQLException{
  
         ConexionOracle Conexion= new ConexionOracle();
         Connection Con=Conexion.Conectar();
         Statement st= Con.createStatement();
-        JOptionPane.showMessageDialog(null,"La clave trampa es:->"+MenuBienesRaices.ClaveTrampa);
+        //JOptionPane.showMessageDialog(null,"La clave trampa es:->"+MenuBienesRaices.ClaveTrampa);
         MenuBienesRaices.cont = 0;
-         ResultSet Valores= st.executeQuery("SELECT AD.AD_CLAVE,AD.AD_PISO,AD.AD_ALICUOTA, APT.APT_MEDIDAS\n" +
+         ResultSet Valores= st.executeQuery("SELECT AD.AD_CLAVE,AD.AD_PISO,AD.AD_ALICUOTA,AD_PRECIO, APT.APT_MEDIDAS\n" +
                                                                             "FROM APT_DET AD, APARTAMENTO APT, EDIFICIO E\n" +
                                                                             "WHERE (AD.AD_FK_EDIFICIO = "+MenuBienesRaices.ClaveTrampa+") AND\n" +
                                                                             "(AD.AD_FK_APARTAMENTO = APT.APT_CLAVE)and"
@@ -65,8 +64,78 @@ public class MenuBienesRaicesControlador {
                     MenuBienesRaices.ModeloApartamentos.setValueAt(Valores.getInt(1),MenuBienesRaices.cont,0);
                     MenuBienesRaices.ModeloApartamentos.setValueAt(Valores.getString(2),MenuBienesRaices.cont,1);
                     MenuBienesRaices.ModeloApartamentos.setValueAt(Valores.getString(3),MenuBienesRaices.cont,2);
-                    MenuBienesRaices.ModeloApartamentos.setValueAt(Valores.getString(4),MenuBienesRaices.cont,3);
+                    MenuBienesRaices.ModeloApartamentos.setValueAt(Valores.getString(5),MenuBienesRaices.cont,3);
+                    MenuBienesRaices.ModeloApartamentos.setValueAt(Valores.getString(4),MenuBienesRaices.cont,4);
                     MenuBienesRaices.cont++;
+            }
+    
+}
+  
+public static void RellenaTablaOficinasSQL() throws SQLException{
+ 
+        ConexionOracle Conexion= new ConexionOracle();
+        Connection Con=Conexion.Conectar();
+        Statement st= Con.createStatement();
+        //JOptionPane.showMessageDialog(null,"La clave trampa es:->"+MenuBienesRaices.ClaveTrampa);
+        MenuBienesRaices.cont = 0;
+         ResultSet Valores= st.executeQuery("SELECT O.OFI_CLAVE, O.OFI_NOMBRE , O.OFI_CORREO , L.LUG_NOMBRE \n" +
+                                                                            "FROM OFICINA O, LUGAR L\n" +
+                                                                            "WHERE O.OFI_FK_LUGAR = L.LUG_CLAVE");
+            while (Valores.next()){
+                     MenuBienesRaices.modeloOficinas.insertRow(MenuBienesRaices.cont, new Object[]{});
+                    MenuBienesRaices.modeloOficinas.setValueAt(Valores.getInt(1),MenuBienesRaices.cont,0);
+                    MenuBienesRaices.modeloOficinas.setValueAt(Valores.getString(2),MenuBienesRaices.cont,1);
+                    MenuBienesRaices.modeloOficinas.setValueAt(Valores.getString(3),MenuBienesRaices.cont,2);
+                    MenuBienesRaices.modeloOficinas.setValueAt(Valores.getString(4),MenuBienesRaices.cont,3);
+                    MenuBienesRaices.cont++;
+            }
+    
+}
+    
+public static void RellenaTablaApartamentosCompradosSQL(String Clave) throws SQLException{
+ 
+        ConexionOracle Conexion= new ConexionOracle();
+        Connection Con=Conexion.Conectar();
+        Statement st= Con.createStatement();
+        //JOptionPane.showMessageDialog(null,"La clave trampa es:->"+MenuBienesRaices.ClaveTrampa);
+        MenuBienesRaices.contAPT = 0;
+         ResultSet Valores= st.executeQuery("SELECT E.EDI_NOMBRE , APT.APT_MEDIDAS , AD.AD_ALICUOTA ,AD.AD_PISO,AD.AD_CLAVE,AD.AD_PRECIO\n" +
+                                                                            "FROM EDIFICIO E, APARTAMENTO APT, PROPIETARIO P, APT_DET AD\n" +
+                                                                            "WHERE E.EDI_CLAVE = AD.AD_FK_EDIFICIO AND APT.APT_CLAVE = AD.AD_FK_APARTAMENTO AND P.PRO_CLAVE = AD.AD_FK_PROPIETARIO"
+                 + "                                                          and P.PRO_CLAVE = "+Clave+"");
+            while (Valores.next()){
+                     MenuBienesRaices.ModeloApartamentosComprados.insertRow(MenuBienesRaices.contAPT, new Object[]{});
+                     MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getString(1),MenuBienesRaices.contAPT,0);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getString(2),MenuBienesRaices.contAPT,1);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getFloat(3),MenuBienesRaices.contAPT,2);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getString(4),MenuBienesRaices.contAPT,3);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getInt(5),MenuBienesRaices.contAPT,4);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getFloat(6),MenuBienesRaices.contAPT,5);
+                    MenuBienesRaices.contAPT++;
+            }
+    
+}
+
+public static void RellenaTablaApartamentosCompradosOficinaSQL(String Clave) throws SQLException{
+ 
+        ConexionOracle Conexion= new ConexionOracle();
+        Connection Con=Conexion.Conectar();
+        Statement st= Con.createStatement();
+        //JOptionPane.showMessageDialog(null,"La clave trampa es:->"+MenuBienesRaices.ClaveTrampa);
+        MenuBienesRaices.contAPT = 0;
+         ResultSet Valores= st.executeQuery("SELECT E.EDI_NOMBRE , APT.APT_MEDIDAS , AD.AD_ALICUOTA ,AD.AD_PISO,AD.AD_CLAVE,AD.AD_PRECIO\n" +
+                                                                            "FROM EDIFICIO E, APARTAMENTO APT, OFICINA O, APT_DET AD\n" +
+                                                                            "WHERE E.EDI_CLAVE = AD.AD_FK_EDIFICIO AND APT.APT_CLAVE = AD.AD_FK_APARTAMENTO AND O.OFI_CLAVE = AD.AD_FK_OFICINA"
+                 + "                                                          and O.OFI_CLAVE = "+Clave+"");
+            while (Valores.next()){
+                     MenuBienesRaices.ModeloApartamentosComprados.insertRow(MenuBienesRaices.contAPT, new Object[]{});
+                     MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getString(1),MenuBienesRaices.contAPT,0);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getString(2),MenuBienesRaices.contAPT,1);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getFloat(3),MenuBienesRaices.contAPT,2);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getString(4),MenuBienesRaices.contAPT,3);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getInt(5),MenuBienesRaices.contAPT,4);
+                    MenuBienesRaices.ModeloApartamentosComprados.setValueAt(Valores.getFloat(6),MenuBienesRaices.contAPT,5);
+                    MenuBienesRaices.contAPT++;
             }
     
 }
@@ -97,6 +166,19 @@ public static void AsignaApartamentoAPropietario(String ClaveApartamento, String
 
 }
     
+public static void ColocarApartamentoEnVentaPropietario(String ClaveApartamento, String NuevoPrecio ) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("update APT_DET SET " +
+                                                                                                    " AD_VENTA = 'SI' , AD_PRECIO = "+NuevoPrecio+""+
+                                                                                                    " WHERE AD_CLAVE ="+ClaveApartamento+"");
+                 
+          pst.executeUpdate();    
+
+
+
+}
+
 public static void RellenaTablaPropietariosSQL() throws SQLException{
  
           ConexionOracle Conexion= new ConexionOracle();
@@ -120,7 +202,6 @@ public static void RellenaTablaPropietariosSQL() throws SQLException{
             }
  };
 
-
 public static void RellenaTablaaPSQL() throws SQLException{
  
           ConexionOracle Conexion= new ConexionOracle();
@@ -143,5 +224,19 @@ public static void RellenaTablaaPSQL() throws SQLException{
                     MenuBienesRaices.cont++;
             }
  };
+
+public static void AsignaApartamentoAOficina(String ClaveApartamento, String ClavePropietario ) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("update APT_DET SET " +
+                                                                                                    " AD_FK_OFICINA = "+ClavePropietario+", AD_VENTA = 'NO' , AD_FK_PROPIETARIO = null"+
+                                                                                                    " WHERE AD_CLAVE ="+ClaveApartamento+" ");
+                 
+          pst.executeUpdate();    
+
+
+
+}
+
 
 }

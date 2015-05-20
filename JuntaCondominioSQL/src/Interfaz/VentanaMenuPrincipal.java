@@ -25,6 +25,8 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         BTNUsuarios.setEnabled(false);
         BTNPropietario.setEnabled (false);
         BTN2.setEnabled(false);
+        BTNJunta.setEnabled(false);
+        btnbienes.setEnabled(false);
         ActivaPermisos(VentanaLogIn.Logeado);
         
         for (String x : VentanaMenuPrincipalControlador.permisos){
@@ -37,7 +39,12 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
              if(Integer.parseInt(x)==4){
                 BTNPropietario.setEnabled(true);
             }
-         
+                if(Integer.parseInt(x)==5){
+                BTNJunta.setEnabled(true);
+            }
+                if(Integer.parseInt(x)==6){
+                btnbienes.setEnabled(true);
+            }
              
         }
     }
@@ -60,7 +67,9 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         lblprop = new javax.swing.JLabel();
         BTNPropietario = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BTNJunta = new javax.swing.JButton();
+        btnbienes = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,12 +112,21 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
 
         jLabel2.setText("Menu JuntaCondominio");
 
-        jButton1.setText("JuntaCondominio");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BTNJunta.setText("JuntaCondominio");
+        BTNJunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BTNJuntaActionPerformed(evt);
             }
         });
+
+        btnbienes.setText("Bienes Raices");
+        btnbienes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbienesActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Menu Bienes Raices");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,26 +135,30 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BTNUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LBLUsuarios)
-                            .addComponent(LogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(123, 123, 123)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(BTN2))
-                        .addGap(101, 101, 101)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblprop)
-                            .addComponent(BTNPropietario))
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(329, 329, 329)
-                        .addComponent(LBLTituloPrincipal)))
+                        .addComponent(LBLTituloPrincipal))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnbienes)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(BTNUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(LBLUsuarios)
+                                    .addComponent(LogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(123, 123, 123)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(BTN2))
+                                .addGap(101, 101, 101)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblprop)
+                                    .addComponent(BTNPropietario))
+                                .addGap(63, 63, 63)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(BTNJunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel3))))
                 .addContainerGap(185, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -155,8 +177,12 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(BTNUsuarios)
                     .addComponent(BTN2)
                     .addComponent(BTNPropietario)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
+                    .addComponent(BTNJunta))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel3)
+                .addGap(28, 28, 28)
+                .addComponent(btnbienes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(LogOut)
                 .addContainerGap())
         );
@@ -209,7 +235,7 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BTNPropietarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BTNJuntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNJuntaActionPerformed
          VentanaMenuJuntaCondominio nueva = null;
         try {
             nueva = new VentanaMenuJuntaCondominio();
@@ -218,7 +244,15 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         }
         nueva.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BTNJuntaActionPerformed
+
+    private void btnbienesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbienesActionPerformed
+            MenuBienesRaices nueva = new MenuBienesRaices();
+            nueva.setVisible(true);
+            this.dispose();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnbienesActionPerformed
 
     public static void ActivaPermisos(String Usu) throws SQLException{
         String PKUsuario =Util.Consultar_PKPorNombre("USUARIO", "USU_CLAVE",Usu,"USU_USUARIO");
@@ -269,14 +303,16 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN2;
+    private javax.swing.JButton BTNJunta;
     private javax.swing.JButton BTNPropietario;
     private javax.swing.JButton BTNUsuarios;
     private javax.swing.JLabel LBLTituloPrincipal;
     private javax.swing.JLabel LBLUsuarios;
     private javax.swing.JButton LogOut;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnbienes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblprop;
     // End of variables declaration//GEN-END:variables
 }
