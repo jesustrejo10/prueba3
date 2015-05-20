@@ -1064,7 +1064,7 @@ INSERT INTO LUGAR VALUES (21285004,'José Leonardo Suárez','Parroquia',21285);
 
 --Trujillo 20 - Municipio Campo Elias 21286	
 INSERT INTO LUGAR VALUES (21286001,'Arnoldo Gabaldón','Parroquia',21286);
-INSERT INTO LUGAR VALUES (21286001,'Campo Elias','Parroquia',21286);
+INSERT INTO LUGAR VALUES (21286002,'Campo Elias','Parroquia',21286);
 
 --Trujillo 20 - Municipio Escuque 21287	
 INSERT INTO LUGAR VALUES (21287001,'Escuque','Parroquia',21287);
