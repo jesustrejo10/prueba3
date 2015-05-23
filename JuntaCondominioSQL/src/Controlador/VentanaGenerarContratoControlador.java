@@ -9,6 +9,7 @@ import Interfaz.MenuBienesRaices;
 import Interfaz.VentanaGenerarContrato;
 import Modelo.ConexionOracle;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -65,4 +66,11 @@ public static void RellenaTablaOficinasSQL() throws SQLException{
 }
 
     
+public static void RegistrarLLamado(String numero, String Quorum, String Porcentaje, String fk_Contrato ) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("insert into VENTA_APT VALUES() ");
+          pst.executeUpdate();    
+}
+
 }
