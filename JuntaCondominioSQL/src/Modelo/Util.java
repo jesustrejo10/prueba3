@@ -75,6 +75,22 @@ public class Util {
         return ("false");
     }
     
+    
+    
+    
+    public static String Consultar_PK_EdificioConClaveJunta(Integer ClaveJunta) throws SQLException {
+         ConexionOracle Conexion= new ConexionOracle();
+        Connection Con=Conexion.Conectar();
+        Statement st= Con.createStatement();
+        ResultSet Valores= st.executeQuery("SELECT JC_FK_EDIFICIO FROM  JUNTACONDOMINIO WHERE JC_CLAVE ="+ClaveJunta+"");
+            while (Valores.next()){
+                    //JOptionPane.showMessageDialog(null,"AQUIII");
+                    String Clave=Valores.getString(1);
+                    return (Clave);
+                }
+        return ("false");
+    }
+    
    
     
      public static String Consultar_PK_USUARIO(String Tabla, String NombreClave) throws SQLException{

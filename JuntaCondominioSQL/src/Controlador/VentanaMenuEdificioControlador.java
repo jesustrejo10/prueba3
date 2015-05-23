@@ -5,6 +5,7 @@
 package Controlador;
 
 import static Controlador.VentanaMenuRolesControlador.Consultar_PK_ROL;
+import Interfaz.MenuBienesRaices;
 import Interfaz.VentanaMenuEdificio;
 import Interfaz.VentanaMenuRoles;
 import Modelo.ConexionOracle;
@@ -63,7 +64,6 @@ public static void llenarListaEstados() throws SQLException{
     Statement st= Con.createStatement();
     ResultSet Valores= st.executeQuery("SELECT (LUG_NOMBRE) FROM LUGAR WHERE (LUG_TIPO = 'Estado')");
        while (Valores.next()){
-            //JOptionPane.showMessageDialog(null,"AQUIII");
             Estados.add(Valores.getString(1));
        }
 }
@@ -75,7 +75,6 @@ public static void llenarListaMunicipios(String FK_Lugar) throws SQLException{
     Statement st= Con.createStatement();
     ResultSet Valores= st.executeQuery("SELECT (LUG_NOMBRE) FROM LUGAR WHERE (LUG_FK_LUGAR ="+FK_Lugar+" )");
        while (Valores.next()){
-            //JOptionPane.showMessageDialog(null,"AQUIII");
             Municipios.add(Valores.getString(1));
             
        }
@@ -90,35 +89,18 @@ public static void llenarListaParroquias(String FK_Lugar) throws SQLException{
     Statement st= Con.createStatement();
     ResultSet Valores= st.executeQuery("SELECT (LUG_NOMBRE) FROM LUGAR WHERE (LUG_FK_LUGAR ="+FK_Lugar+" )");
        while (Valores.next()){
-            //JOptionPane.showMessageDialog(null,"AQUIII");
             Parroquias.add(Valores.getString(1));
             
        }
 }
 
-public static int InsertarEdificioSQL(String Rif, String Nombre, String FK_Lugar) throws SQLException{
+public static void InsertarEdificioSQL(String Rif, String Nombre, String FK_Lugar) throws SQLException{
 
         ConexionOracle Conexion= new ConexionOracle();
         Connection Con=Conexion.Conectar();
-        String Clave= Util.Consultar_PK("EDIFICIO","EDI_CLAVE");
-        //JOptionPane.showMessageDialog(null,"LA CLAVE DEL EDIF ES:"+Clave);
-        
-        if (Clave.equalsIgnoreCase("null")){
-            //JOptionPane.showMessageDialog(null,"LOGRE BURLAR EL NULL");
-            Clave="0";
-        }
-            
-        //JOptionPane.showMessageDialog(null,"ENCONTRO LA CLAVE DEL EDIF ->"+Clave);
-        PreparedStatement pst=  Con.prepareStatement("INSERT INTO EDIFICIO (EDI_CLAVE,EDI_RIF,EDI_NOMBRE,EDI_FK_LUGAR) VALUES (?,?,?,?)");
-        pst.setInt(1,Integer.parseInt(Clave)+1);
-        pst.setString(2,Rif);
-        pst.setString(3,Nombre);
-        pst.setInt(4,Integer.parseInt(FK_Lugar));
+        PreparedStatement pst=  Con.prepareStatement("INSERT INTO EDIFICIO (EDI_CLAVE,EDI_RIF,EDI_NOMBRE,EDI_FK_LUGAR) VALUES (SQ_PK_EDIFICIO.NEXTVAL,'"+Rif+"','"+Nombre+"',"+FK_Lugar+")");
         pst.executeUpdate();    
-
-        return (Integer.parseInt(Clave)+1);
 }
-
 public static void RellenaTablaSQL() throws SQLException{
  
         ConexionOracle Conexion= new ConexionOracle();
@@ -143,7 +125,7 @@ public static void RellenaTablaSQL() throws SQLException{
  };
  
 public static void ConsultaClaveEdificioSeleccionadoSQL(String Nombre, String Rif) throws SQLException{
-
+        String Cambio = MenuBienesRaices.ClaveTrampa;
         String clave =null ;
         ConexionOracle Conexion= new ConexionOracle();
         Connection Con=Conexion.Conectar();
@@ -154,8 +136,9 @@ public static void ConsultaClaveEdificioSeleccionadoSQL(String Nombre, String Ri
   
             while (Valores.next()){
                   clave=Integer.toString(Valores.getInt(1));
+                  MenuBienesRaices.ClaveTrampa = clave;  
                   VentanaMenuEdificio.PermisosActuales.add(clave);
-                  //JOptionPane.showMessageDialog(null,"lo encuentra");
+                   //JOptionPane.showMessageDialog(null,"lo encuentra");
             }
     
             
@@ -166,14 +149,14 @@ public static void InsertaArea_DetSQL(int fk_edificio) throws SQLException{
         ConexionOracle Conexion= new ConexionOracle();
         Connection Con=Conexion.Conectar();
         Statement st= Con.createStatement();
-        int Clave = Integer.parseInt(Util.Consultar_PK("AREA_DET","AD_CLAVE")) +1;
+        //int Clave = Integer.parseInt(Util.Consultar_PK("AREA_DET","AD_CLAVE")) +1;
         for (String x : VentanaMenuEdificio.AreasComunes){
-        PreparedStatement pst=  Con.prepareStatement("INSERT INTO AREA_DET (AD_CLAVE,AD_FK_AREACOMUN,AD_FK_EDIFICIO) VALUES (?,?,?)");
-        pst.setInt(1,Clave);
-        pst.setInt(2,Integer.parseInt(x));
-        pst.setInt(3,fk_edificio);
+        PreparedStatement pst=  Con.prepareStatement("INSERT INTO AREA_DET (AD_CLAVE,AD_FK_AREACOMUN,AD_FK_EDIFICIO) VALUES (SQ_PK_AREA_DET.NEXTVAL,"+x+","+fk_edificio+")");
+        //pst.setInt(1,Clave);
+        //pst.setInt(2,Integer.parseInt(x));
+        //pst.setInt(3,fk_edificio);
         pst.executeUpdate();    
-        Clave++;
+        //Clave++;
         }
 
 }

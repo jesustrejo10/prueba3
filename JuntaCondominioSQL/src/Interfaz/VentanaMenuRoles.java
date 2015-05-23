@@ -120,10 +120,10 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         P3.setText("Propietario");
 
         P4.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P4.setText("jCheckBox4");
+        P4.setText("JuntaCondominio");
 
         P5.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P5.setText("jCheckBox5");
+        P5.setText("Bienes Raices");
 
         P6.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         P6.setText("jCheckBox6");
@@ -215,19 +215,19 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                                     .addComponent(jButton3)
                                     .addComponent(BTNVolver2))
                                 .addGap(58, 58, 58)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(LBLPermisos)
+                                    .addComponent(BTNContinuar)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(P4)
-                                        .addGap(96, 96, 96)
-                                        .addComponent(P6))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(P3)
-                                        .addGap(96, 96, 96)
-                                        .addComponent(P5))
-                                    .addComponent(BTNContinuar)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(P3)
+                                            .addComponent(P4))
+                                        .addGap(53, 53, 53)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(P6)
+                                            .addComponent(P5)))))
                             .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TXTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,10 +387,23 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
              AuxiliarPermisos.add("2");
         }
         if (P3.isSelected()){
-             JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
              valido = true;
              AuxiliarPermisos.add("4");
         }
+        if (P4.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             valido = true;
+             AuxiliarPermisos.add("5");
+        }
+        if (P5.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             valido = true;
+             AuxiliarPermisos.add("6");
+        }
+        
+        
+        
         if (valido){
             
             try {

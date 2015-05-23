@@ -47,6 +47,7 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
     public VentanaMenuPropietario() throws SQLException {
           initComponents();
           PanelFormulario.setBorder(BorderFactory.createLineBorder(Color.black));
+          
           PanelFormulario.setVisible(false);
           Panel2.setVisible(false);
           cargarInterfaz();
