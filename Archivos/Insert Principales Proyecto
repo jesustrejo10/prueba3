@@ -2,6 +2,8 @@ insert into PERMISO(PER_CLAVE,PER_DESCRIPCION) values(1,'Usuario');
 insert into PERMISO(PER_CLAVE,PER_DESCRIPCION) values(2,'Edificio');
 insert into PERMISO(PER_CLAVE,PER_DESCRIPCION) values(3,'contrato');
 insert into permiso values(4,'Propietario');
+insert into PERMISO(PER_CLAVE,PER_DESCRIPCION) values(5,'Bienes Raices');
+insert into permiso values(6,'JuntaCondominio');
 
 
 insert into ROL(ROL_CLAVE,ROL_NOMBRE,ROL_DESCRIPCION) VALUES (1,'MASTER','ROL_DE_PRUEBA');
