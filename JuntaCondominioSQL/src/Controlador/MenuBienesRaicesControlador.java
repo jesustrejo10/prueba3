@@ -10,6 +10,7 @@ import Interfaz.VentanaMenuEdificio;
 import Interfaz.VentanaMenuPropietario;
 import Modelo.ConexionOracle;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -177,6 +178,13 @@ public static void ColocarApartamentoEnVentaPropietario(String ClaveApartamento,
 
 
 
+}
+
+public static void RegistrarTransaccionBienesRaices(Float Comision,String fkapt, String fk_ofi, String fecha ) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("insert into VENTA_APT VALUES(SQ_PK_VENTA_APT.NEXTVAL,"+Comision+","+fkapt+","+fk_ofi+", to_date('"+fecha+"','YYYYMMDD')) ");
+          pst.executeUpdate();    
 }
 
 public static void RellenaTablaPropietariosSQL() throws SQLException{
