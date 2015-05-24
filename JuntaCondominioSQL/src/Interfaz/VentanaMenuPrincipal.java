@@ -236,13 +236,13 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNPropietarioActionPerformed
 
     private void BTNJuntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNJuntaActionPerformed
-//         VentanaMenuJuntaCondominio nueva = null;
-  //      try {
-    //        nueva = new VentanaMenuJuntaCondominio();
-      //  } catch (SQLException ex) {
-        //    Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        //}
-        //nueva.setVisible(true);
+        VentanaMenuJuntaCondominio nueva = null;
+       try {
+           nueva = new VentanaMenuJuntaCondominio();
+       } catch (SQLException ex) {
+            Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        nueva.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTNJuntaActionPerformed
 

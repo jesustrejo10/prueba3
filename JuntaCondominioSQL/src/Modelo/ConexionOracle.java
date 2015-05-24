@@ -22,7 +22,7 @@ public class ConexionOracle {
         
             Class.forName("oracle.jdbc.OracleDriver");
             String DataBase="jdbc:oracle:thin:@localhost:1521:XE";
-            ConexionDB=DriverManager.getConnection(DataBase,"SYSTEM","1234");
+            ConexionDB=DriverManager.getConnection(DataBase,"SYSTEM","21290139");
             if(ConexionDB!=null){
                 System.out.println("Conexion a la base de datos Condominios Ucab Completada");
             }
