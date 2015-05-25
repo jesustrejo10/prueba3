@@ -6,11 +6,15 @@
 package Interfaz;
 
 import Controlador.VentanaGenerarContratoControlador;
+import Controlador.VentanaMenuEdificioControlador;
 import static Interfaz.MenuBienesRaices.ModeloEdificios;
 import static Interfaz.MenuBienesRaices.modeloOficinas;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,12 +29,20 @@ public class VentanaGenerarContrato extends javax.swing.JFrame {
 public static DefaultTableModel ModeloEdificios = new DefaultTableModel(); 
 public static DefaultTableModel ModeloOficinas = new DefaultTableModel(); 
 
+DateFormat df = DateFormat.getDateInstance();
+public static String ClaveContrato = null;
+
+
 public static boolean ok = true;
 public static int Opcion = 0;    
 public static int cont = 0;
     
 public VentanaGenerarContrato() {
         initComponents();
+        Panel1.setVisible(false);
+        Panel2.setVisible(false);
+        PanelCont.setVisible(false);
+        jButton3.setVisible(false);
 }
 
 public void CargarInterfazEdificiosDisponibles(){
@@ -47,6 +59,25 @@ public void cargarInterfazOficina(){
         Tabla1.setModel(ModeloOficinas);
         }
 
+    public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) { //CONVIERTE UTIL.DATE A SQL.DATE
+        return new java.sql.Date(date.getTime()); }
+
+    public String ConvierteFechas(String FechaInicio){
+          try{
+                                        SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy"); 
+                                        java.util.Date fecha=sdf.parse(FechaInicio); 
+                                        java.sql.Date FechaNegociacion = convertJavaDateToSqlDate(fecha); //CONVERSIONES A TIPO SQL.DATE
+                                        String intento;
+                                        intento = (String) FechaNegociacion.toString();
+                                        String[] intento2 =intento.split("-");
+                                        String intento3 = intento2[0]+intento2[1]+intento2[2];
+                                        return (intento3);
+          }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"Error al convertir la fecha."+e.getMessage());
+          }                        
+        return null;
+    
+    };
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,13 +99,13 @@ public void cargarInterfazOficina(){
         Panel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Tabla2 = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
+        PanelCont = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jTextField1 = new javax.swing.JTextField();
+        Fecha1 = new com.toedter.calendar.JDateChooser();
+        Fecha2 = new com.toedter.calendar.JDateChooser();
+        txtMonto = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
@@ -86,9 +117,9 @@ public void cargarInterfazOficina(){
 
         jLabel1.setText("Seleccione la operacion que desea realizar");
 
-        ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Generar Contrato Nuevo", " " }));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Seleccionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -106,10 +137,10 @@ public void cargarInterfazOficina(){
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ComboOpcion, 0, 258, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +218,7 @@ public void cargarInterfazOficina(){
                 .addContainerGap())
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles Del Contrato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Medium", 0, 18))); // NOI18N
+        PanelCont.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles Del Contrato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Medium", 0, 18))); // NOI18N
 
         jLabel2.setText("Fecha de Emision del Contrato");
 
@@ -195,47 +226,52 @@ public void cargarInterfazOficina(){
 
         jLabel4.setText("Monto a partir del cual se calculara un Alto Valor");
 
-        jTextField1.setText("100000");
+        txtMonto.setText("100000");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout PanelContLayout = new javax.swing.GroupLayout(PanelCont);
+        PanelCont.setLayout(PanelContLayout);
+        PanelContLayout.setHorizontalGroup(
+            PanelContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelContLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(PanelContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelContLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelContLayout.createSequentialGroup()
+                        .addGroup(PanelContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))))
+                        .addGroup(PanelContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtMonto)
+                            .addComponent(Fecha2, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))))
                 .addGap(38, 38, 38))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PanelContLayout.setVerticalGroup(
+            PanelContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelContLayout.createSequentialGroup()
+                .addGroup(PanelContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Fecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Fecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Siguiente");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +290,7 @@ public void cargarInterfazOficina(){
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PanelCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -273,7 +309,7 @@ public void cargarInterfazOficina(){
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PanelCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,6 +341,10 @@ public void cargarInterfazOficina(){
 
           Opcion = ComboOpcion.getSelectedIndex();
           if (Opcion == 0){
+                    Panel1.setVisible(true);
+                    Panel2.setVisible(true);
+                    PanelCont.setVisible(true);
+                    jButton3.setVisible(true);
                     CargarInterfazEdificiosDisponibles();
                     cargarInterfazOficina();
                     try {
@@ -321,12 +361,53 @@ public void cargarInterfazOficina(){
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
           //ok = true;
           if (ok){
+                    
+              try {
+                  
+                    String FechaInicio = df.format(Fecha1.getDate());
+                    String FechaString = ConvierteFechas(FechaInicio);
+                    String FechaFin = df.format(Fecha2.getDate());
+                    String FechaString2 = ConvierteFechas(FechaInicio);
+                    Float MontoElevado = Float.parseFloat(txtMonto.getText());
+                    int num1 = Tabla1.getSelectedRow();
+                    int ClaveOficinaSelec = (Integer) Tabla1.getValueAt(num1,0);
+                    String ClaveOficina = Integer.toString(ClaveOficinaSelec);
+                    int num2 = Tabla2.getSelectedRow();
+                    String RifEdificioSelec = (String) Tabla2.getValueAt(num2,0);
+                    String NombreEdifSelec = (String)Tabla2.getValueAt(num2,1);
+                    String ClaveEdificio = VentanaGenerarContratoControlador.ConsultaClaveEdificioSeleccionadoSQL2(NombreEdifSelec, RifEdificioSelec);
+                    
+                    JOptionPane.showMessageDialog(rootPane, MontoElevado);
+                    JOptionPane.showMessageDialog(rootPane, FechaString);
+                    JOptionPane.showMessageDialog(rootPane, FechaString2);
+                    JOptionPane.showMessageDialog(rootPane, ClaveOficina);
+                    JOptionPane.showMessageDialog(rootPane, ClaveEdificio);
+                    
+                    VentanaGenerarContratoControlador.RegistrarContratoSQL(Float.toString(MontoElevado), FechaString, FechaString2, ClaveOficina,ClaveEdificio);
+                    ClaveContrato = VentanaGenerarContratoControlador.ConsultaClaveContrato();
+
+                    
                     ok = false;
                     MenuLlamados nuevo = new MenuLlamados();
                     nuevo.setVisible(true);
+                    }catch(Exception e){
+                                JOptionPane.showMessageDialog(rootPane,"Error, debe llenar los campos correctamente."+e.getMessage());
+                    }
           }
            // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    try {
+        VentanaMenuPrincipal nuevo  = new VentanaMenuPrincipal();
+        nuevo.setVisible(true);
+        this.dispose();
+    } catch (SQLException ex) {
+          JOptionPane.showMessageDialog(rootPane,"ERROR, debe ingresar desde el LOG-IN para cargar los permisos");
+           //Logger.getLogger(VentanaGenerarContrato.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,24 +446,24 @@ public void cargarInterfazOficina(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ComboOpcion;
+    private com.toedter.calendar.JDateChooser Fecha1;
+    private com.toedter.calendar.JDateChooser Fecha2;
     private javax.swing.JPanel Panel1;
     private javax.swing.JPanel Panel2;
+    private javax.swing.JPanel PanelCont;
     private javax.swing.JTable Tabla1;
     private javax.swing.JTable Tabla2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables
 }

@@ -718,7 +718,7 @@ public void cargarInterfazOficina(){
                               int num3 = TablaComprados.getSelectedRow();
                               int ClaveOficina = (Integer) TablaComprados.getValueAt(num3,0);
                               String ClaveOficina2 = Integer.toString(ClaveOficina);
-                              System.out.print("gola");
+                              //System.out.print("gola");
                               int num2 = TablaPropietarios.getSelectedRow();
                               String ClavePropietario = (String)TablaPropietarios.getValueAt(num2,0);
 

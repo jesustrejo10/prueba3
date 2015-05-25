@@ -126,7 +126,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         P5.setText("Bienes Raices");
 
         P6.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P6.setText("jCheckBox6");
+        P6.setText("Contrato");
 
         Tabla.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -401,7 +401,12 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
              valido = true;
              AuxiliarPermisos.add("6");
         }
-        
+        if (P6.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             valido = true;
+             AuxiliarPermisos.add("3");
+        }
+
         
         
         if (valido){

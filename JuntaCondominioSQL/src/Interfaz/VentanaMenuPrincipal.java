@@ -27,6 +27,7 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         BTN2.setEnabled(false);
         BTNJunta.setEnabled(false);
         btnbienes.setEnabled(false);
+        BtnContrato.setEnabled(false);
         ActivaPermisos(VentanaLogIn.Logeado);
         
         for (String x : VentanaMenuPrincipalControlador.permisos){
@@ -36,6 +37,9 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
              if(Integer.parseInt(x)==2){
                 BTN2.setEnabled(true);
             }
+              if(Integer.parseInt(x)==3){
+                BtnContrato.setEnabled(true);
+              }
              if(Integer.parseInt(x)==4){
                 BTNPropietario.setEnabled(true);
             }
@@ -46,9 +50,9 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                 btnbienes.setEnabled(true);
             }
              
-        }
+        
     }
-
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,6 +74,8 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         BTNJunta = new javax.swing.JButton();
         btnbienes = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        BtnContrato = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +134,15 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
 
         jLabel3.setText("Menu Bienes Raices");
 
+        jLabel4.setText("Asignacion de Contratos");
+
+        BtnContrato.setText("Contratos");
+        BtnContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnContratoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,13 +155,15 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnbienes)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(BTNUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(LBLUsuarios)
+                                .addComponent(LogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addComponent(btnbienes))
+                        .addGap(86, 86, 86)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(BTNUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(LBLUsuarios)
-                                    .addComponent(LogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(123, 123, 123)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(BTN2))
@@ -158,7 +175,8 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(BTNJunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jLabel3))))
+                            .addComponent(jLabel4)
+                            .addComponent(BtnContrato))))
                 .addContainerGap(185, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -179,10 +197,14 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(BTNPropietario)
                     .addComponent(BTNJunta))
                 .addGap(35, 35, 35)
-                .addComponent(jLabel3)
-                .addGap(28, 28, 28)
-                .addComponent(btnbienes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnContrato)
+                    .addComponent(btnbienes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                 .addComponent(LogOut)
                 .addContainerGap())
         );
@@ -251,8 +273,13 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
             nueva.setVisible(true);
             this.dispose();
         
-// TODO add your handling code here:
     }//GEN-LAST:event_btnbienesActionPerformed
+
+    private void BtnContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnContratoActionPerformed
+            VentanaGenerarContrato nueva = new VentanaGenerarContrato();
+            nueva.setVisible(true);
+            this.dispose();    
+    }//GEN-LAST:event_BtnContratoActionPerformed
 
     public static void ActivaPermisos(String Usu) throws SQLException{
         String PKUsuario =Util.Consultar_PKPorNombre("USUARIO", "USU_CLAVE",Usu,"USU_USUARIO");
@@ -306,6 +333,7 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BTNJunta;
     private javax.swing.JButton BTNPropietario;
     private javax.swing.JButton BTNUsuarios;
+    private javax.swing.JButton BtnContrato;
     private javax.swing.JLabel LBLTituloPrincipal;
     private javax.swing.JLabel LBLUsuarios;
     private javax.swing.JButton LogOut;
@@ -313,6 +341,7 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblprop;
     // End of variables declaration//GEN-END:variables
 }

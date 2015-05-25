@@ -401,8 +401,8 @@ public class MenuLlamados extends javax.swing.JFrame {
                     String Porcentaje2  =por2.getText();
                     
                     try {
-                              VentanaGenerarContratoControlador.RegistrarLLamado("2", Quorum2, Porcentaje2, "1");
-                              VentanaGenerarContratoControlador.RegistrarLLamado("1", Quorum1, Porcentaje1, "1");
+                              VentanaGenerarContratoControlador.RegistrarLLamado("2", Quorum2, Porcentaje2, VentanaGenerarContrato.ClaveContrato);
+                              VentanaGenerarContratoControlador.RegistrarLLamado("1", Quorum1, Porcentaje1, VentanaGenerarContrato.ClaveContrato);
 
                     } catch (SQLException ex) {
                               Logger.getLogger(MenuLlamados.class.getName()).log(Level.SEVERE, null, ex);
@@ -419,9 +419,9 @@ public class MenuLlamados extends javax.swing.JFrame {
                     
                     
                     try {
-                              VentanaGenerarContratoControlador.RegistrarLLamado("2", Quorum2, Porcentaje2, "1");
-                              VentanaGenerarContratoControlador.RegistrarLLamado("1", Quorum1, Porcentaje1, "1");
-                              VentanaGenerarContratoControlador.RegistrarLLamado("3", Quorum3, Porcentaje3, "1");
+                              VentanaGenerarContratoControlador.RegistrarLLamado("2", Quorum2, Porcentaje2, VentanaGenerarContrato.ClaveContrato);
+                              VentanaGenerarContratoControlador.RegistrarLLamado("1", Quorum1, Porcentaje1, VentanaGenerarContrato.ClaveContrato);
+                              VentanaGenerarContratoControlador.RegistrarLLamado("3", Quorum3, Porcentaje3, VentanaGenerarContrato.ClaveContrato);
 
                     } catch (SQLException ex) {
                               Logger.getLogger(MenuLlamados.class.getName()).log(Level.SEVERE, null, ex);
@@ -441,10 +441,10 @@ public class MenuLlamados extends javax.swing.JFrame {
                     
                     
                     try {
-                              VentanaGenerarContratoControlador.RegistrarLLamado("2", Quorum2, Porcentaje2, "1");
-                              VentanaGenerarContratoControlador.RegistrarLLamado("1", Quorum1, Porcentaje1, "1");
-                              VentanaGenerarContratoControlador.RegistrarLLamado("3", Quorum3, Porcentaje3, "1");
-                              VentanaGenerarContratoControlador.RegistrarLLamado("4", Quorum4, Porcentaje4, "1");
+                              VentanaGenerarContratoControlador.RegistrarLLamado("2", Quorum2, Porcentaje2, VentanaGenerarContrato.ClaveContrato);
+                              VentanaGenerarContratoControlador.RegistrarLLamado("1", Quorum1, Porcentaje1, VentanaGenerarContrato.ClaveContrato);
+                              VentanaGenerarContratoControlador.RegistrarLLamado("3", Quorum3, Porcentaje3, VentanaGenerarContrato.ClaveContrato);
+                              VentanaGenerarContratoControlador.RegistrarLLamado("4", Quorum4, Porcentaje4, VentanaGenerarContrato.ClaveContrato);
 
                     } catch (SQLException ex) {
                               Logger.getLogger(MenuLlamados.class.getName()).log(Level.SEVERE, null, ex);
@@ -453,6 +453,9 @@ public class MenuLlamados extends javax.swing.JFrame {
           }
           
           VentanaGenerarContrato.ok = true;
+          MenuGestionDeFondos nuevo = new MenuGestionDeFondos();
+          nuevo.setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
