@@ -75,3 +75,7 @@ alter table VENTA_APT add (VAPT_FECHA DATE NOT NULL);
 alter table CONTRATO DROP column CONT_QUORUM_MINIMO;
 create sequence SQ_PK_LLAMADO increment by 1 start with 1;
 create sequence SQ_PK_MIEMBROS increment by 1 start with 1;
+alter table RECLAMO drop constraint FK_RECLAMO_PROPIETARIO;
+alter table RECLAMO drop COLUMN REC_FK_PROPIETARIO;
+alter table RECLAMO ADD (REC_FK_APT_DET NUMBER NOT NULL);
+alter table RECLAMO ADD CONSTRAINT FK_RECLAMO_APT_DET FOREIGN KEY (REC_FK_APT_DET) REFERENCES APT_DET ON DELETE CASCADE;
