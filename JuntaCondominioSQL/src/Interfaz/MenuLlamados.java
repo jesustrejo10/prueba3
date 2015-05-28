@@ -174,14 +174,18 @@ public class MenuLlamados extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         llamado1.setBorder(javax.swing.BorderFactory.createTitledBorder("Llamado numero 1"));
 
         jLabel1.setText("Quorum Minimo");
 
+        quo1.setText("10");
+
         jLabel2.setText("Porcentaje de Votos Para Aprobacion");
+
+        por1.setText("75");
 
         javax.swing.GroupLayout llamado1Layout = new javax.swing.GroupLayout(llamado1);
         llamado1.setLayout(llamado1Layout);
@@ -214,7 +218,11 @@ public class MenuLlamados extends javax.swing.JFrame {
 
         jLabel5.setText("Quorum Minimo");
 
+        quo2.setText("7");
+
         jLabel6.setText("Porcentaje de Votos Para Aprobacion");
+
+        por2.setText("50");
 
         javax.swing.GroupLayout llamado2Layout = new javax.swing.GroupLayout(llamado2);
         llamado2.setLayout(llamado2Layout);
@@ -247,7 +255,11 @@ public class MenuLlamados extends javax.swing.JFrame {
 
         jLabel9.setText("Quorum Minimo");
 
+        quo3.setText("1");
+
         jLabel10.setText("Porcentaje de Votos Para Aprobacion");
+
+        por3.setText("100");
 
         javax.swing.GroupLayout llamado3Layout = new javax.swing.GroupLayout(llamado3);
         llamado3.setLayout(llamado3Layout);
@@ -348,7 +360,7 @@ public class MenuLlamados extends javax.swing.JFrame {
                 .addComponent(llamado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(llamado4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );

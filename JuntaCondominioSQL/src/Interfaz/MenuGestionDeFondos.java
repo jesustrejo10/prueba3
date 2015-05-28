@@ -115,7 +115,12 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Ayuda");
+        jButton3.setText("Calcular");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelAsignacionFondoLayout = new javax.swing.GroupLayout(PanelAsignacionFondo);
         PanelAsignacionFondo.setLayout(PanelAsignacionFondoLayout);
@@ -162,9 +167,11 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
                 .addGroup(PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTrabajo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3))
                     .addComponent(FONDO1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,9 +179,7 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
                     .addComponent(FONDO2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtMejora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3))
+                    .addComponent(txtMejora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FONDO3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,24 +262,63 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
                               }
                               
                               for (String x : Fondos){
-                                        if (x.equalsIgnoreCase("1"))
-                                                  VentanaGestionDeFondosControlador.InsertarContFondosSQL(Float.toString(MontoFondoTrabajo), x, VentanaGenerarContrato.ClaveContrato);
-                                        if (x.equalsIgnoreCase("2"))
-                                                  VentanaGestionDeFondosControlador.InsertarContFondosSQL(Float.toString(MontoFondoReserva), x, VentanaGenerarContrato.ClaveContrato);
-                                        if (x.equalsIgnoreCase("3"))
-                                                  VentanaGestionDeFondosControlador.InsertarContFondosSQL(Float.toString(MontoFondoMejora), x, VentanaGenerarContrato.ClaveContrato);
-                                        if (x.equalsIgnoreCase("4"))
-                                                  VentanaGestionDeFondosControlador.InsertarContFondosSQL(Float.toString(MontoFondoCajaChica), x, VentanaGenerarContrato.ClaveContrato);
+                                        if (x.equalsIgnoreCase("1")){
+                                                  VentanaGestionDeFondosControlador.InsertarContFondosSQL("0", x, VentanaGenerarContrato.ClaveContrato);
+                                                  String clave = VentanaGestionDeFondosControlador.DevuelveClave();
+                                                  JOptionPane.showMessageDialog(rootPane,"LA CLAVE ES: "+clave);
+                                                  
+                                                  VentanaGestionDeFondosControlador.InsertarTrabajoSQL(clave,Float.toString(MontoFondoTrabajo));
+                                                  JOptionPane.showMessageDialog(rootPane,"inserto el trabajo");}
+                                        if (x.equalsIgnoreCase("2")){
+                                                  
+                                                  VentanaGestionDeFondosControlador.InsertarContFondosSQL("0", x, VentanaGenerarContrato.ClaveContrato);
+                                                  String clave2 = VentanaGestionDeFondosControlador.DevuelveClave();
+                                                  JOptionPane.showMessageDialog(rootPane,"LA CLAVE ES2: "+clave2);
+                                                  VentanaGestionDeFondosControlador.InsertarTrabajoSQL(clave2,Float.toString(MontoFondoReserva));
+                                                  JOptionPane.showMessageDialog(rootPane,"inserto el trabajo2");
+                                        }if (x.equalsIgnoreCase("3"))
+                                        {         VentanaGestionDeFondosControlador.InsertarContFondosSQL("0", x, VentanaGenerarContrato.ClaveContrato);
+                                                  String clave3 = VentanaGestionDeFondosControlador.DevuelveClave();
+                                                  VentanaGestionDeFondosControlador.InsertarTrabajoSQL(clave3,Float.toString(MontoFondoMejora));
+                                                  
+                                        
+                                        }if (x.equalsIgnoreCase("4"))
+                                        {          VentanaGestionDeFondosControlador.InsertarContFondosSQL("0", x, VentanaGenerarContrato.ClaveContrato);
+                                                  String clave4 = VentanaGestionDeFondosControlador.DevuelveClave();
+                                                  VentanaGestionDeFondosControlador.InsertarTrabajoSQL(clave4,Float.toString(MontoFondoCajaChica));
+                                        }         
                               }
                               JOptionPane.showMessageDialog(rootPane,"Fondos Asignados Correctamente");
                               
+                              
                               this.dispose();
                     }catch(Exception e){
-                              JOptionPane.showMessageDialog(rootPane," Error,Los Montos Deben ser indicados en Numeros");
+                              JOptionPane.showMessageDialog(rootPane," Error,Los Montos Deben ser indicados en Numeros"+e);
                     }
                               
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+          try{
+                    float calculador = Float.parseFloat(txtEstimado.getText());
+                    float MontoReserva = calculador*3;
+                    FONDO2.setSelected(true);
+                    FONDO2.setEnabled(false);
+                    txtReserva.setText(Float.toString(MontoReserva));
+                    float CajaChica = (float) (calculador * 0.1);
+                    txtCajaChica.setText(Float.toString(CajaChica));
+                    float Trabajo = calculador *5;
+                    txtTrabajo.setText(Float.toString(Trabajo));
+                    float Mejora  = calculador *5;
+                    txtMejora.setText(Float.toString(Mejora));
+                    
+          }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"Error, el campo debe ser llenado en numeros."+e);
+          }
+            // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

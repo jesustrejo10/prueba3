@@ -196,7 +196,7 @@
                   <Component id="llamado3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="llamado4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -233,7 +233,7 @@
                           <Component id="ComboOpcion" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -307,6 +307,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="quo1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="10"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
@@ -314,6 +317,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="por1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="75"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -364,6 +370,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="quo2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="7"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -371,6 +380,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="por2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="50"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -421,6 +433,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="quo3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="1"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
@@ -428,6 +443,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="por3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="100"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

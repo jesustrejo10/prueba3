@@ -31,12 +31,15 @@ public static DefaultTableModel ModeloOficinas = new DefaultTableModel();
 
 DateFormat df = DateFormat.getDateInstance();
 public static String ClaveContrato = null;
-
+public static boolean Culminar = false;
+public static int FaseFin = 0;
 
 public static boolean ok = true;
 public static int Opcion = 0;    
 public static int cont = 0;
-    
+public static String FechaRealizado = "";
+public static String ClaveOficinaSeleccionada = "";
+
 public VentanaGenerarContrato() {
         initComponents();
         Panel1.setVisible(false);
@@ -360,41 +363,52 @@ public void cargarInterfazOficina(){
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
           //ok = true;
+        if (FaseFin == 0){
+        
           if (ok){
                     
               try {
                   
                     String FechaInicio = df.format(Fecha1.getDate());
                     String FechaString = ConvierteFechas(FechaInicio);
+                    FechaRealizado = FechaString;
                     String FechaFin = df.format(Fecha2.getDate());
                     String FechaString2 = ConvierteFechas(FechaInicio);
                     Float MontoElevado = Float.parseFloat(txtMonto.getText());
                     int num1 = Tabla1.getSelectedRow();
                     int ClaveOficinaSelec = (Integer) Tabla1.getValueAt(num1,0);
                     String ClaveOficina = Integer.toString(ClaveOficinaSelec);
+                    ClaveOficinaSeleccionada = ClaveOficina;
+                    
                     int num2 = Tabla2.getSelectedRow();
                     String RifEdificioSelec = (String) Tabla2.getValueAt(num2,0);
                     String NombreEdifSelec = (String)Tabla2.getValueAt(num2,1);
                     String ClaveEdificio = VentanaGenerarContratoControlador.ConsultaClaveEdificioSeleccionadoSQL2(NombreEdifSelec, RifEdificioSelec);
                     
+                    /*
                     JOptionPane.showMessageDialog(rootPane, MontoElevado);
                     JOptionPane.showMessageDialog(rootPane, FechaString);
                     JOptionPane.showMessageDialog(rootPane, FechaString2);
                     JOptionPane.showMessageDialog(rootPane, ClaveOficina);
                     JOptionPane.showMessageDialog(rootPane, ClaveEdificio);
-                    
+                    */
                     VentanaGenerarContratoControlador.RegistrarContratoSQL(Float.toString(MontoElevado), FechaString, FechaString2, ClaveOficina,ClaveEdificio);
                     ClaveContrato = VentanaGenerarContratoControlador.ConsultaClaveContrato();
-
-                    
+                    VentanaGenerarContratoControlador.RegistrarLibro("OFICINA", ClaveContrato);
+                    VentanaGenerarContratoControlador.RegistrarLibro("JUNTA", ClaveContrato);
                     ok = false;
+                    FaseFin = 1;
                     MenuLlamados nuevo = new MenuLlamados();
                     nuevo.setVisible(true);
                     }catch(Exception e){
                                 JOptionPane.showMessageDialog(rootPane,"Error, debe llenar los campos correctamente."+e.getMessage());
                     }
           }
-           // TODO add your handling code here:
+        }
+        if (FaseFin ==1 && Culminar){
+                //reinicio y borralox
+        }
+          // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

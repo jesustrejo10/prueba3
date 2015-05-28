@@ -74,6 +74,15 @@ public static void RegistrarLLamado(String numero, String Quorum, String Porcent
           pst.executeUpdate();    
 }
 
+
+public static void RegistrarLibro(String Tipo, String fk_Contrato ) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("INSERT INTO LIBRO VALUES (SQ_PK_LIBRO.NEXTVAL,'"+Tipo+"',"+fk_Contrato+")");
+          pst.executeUpdate();    
+}
+
+
 public static void RegistrarContratoSQL(String Monto, String F1, String F2, String FkOfic, String FKEdif) throws SQLException{
           ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
