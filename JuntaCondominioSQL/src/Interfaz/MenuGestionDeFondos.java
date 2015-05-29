@@ -265,17 +265,18 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
                                         if (x.equalsIgnoreCase("1")){
                                                   VentanaGestionDeFondosControlador.InsertarContFondosSQL("0", x, VentanaGenerarContrato.ClaveContrato);
                                                   String clave = VentanaGestionDeFondosControlador.DevuelveClave();
-                                                  JOptionPane.showMessageDialog(rootPane,"LA CLAVE ES: "+clave);
+                                             //     JOptionPane.showMessageDialog(rootPane,"LA CLAVE ES: "+clave);
                                                   
                                                   VentanaGestionDeFondosControlador.InsertarTrabajoSQL(clave,Float.toString(MontoFondoTrabajo));
-                                                  JOptionPane.showMessageDialog(rootPane,"inserto el trabajo");}
+                                               //   JOptionPane.showMessageDialog(rootPane,"inserto el trabajo");
+                                        }
                                         if (x.equalsIgnoreCase("2")){
                                                   
                                                   VentanaGestionDeFondosControlador.InsertarContFondosSQL("0", x, VentanaGenerarContrato.ClaveContrato);
                                                   String clave2 = VentanaGestionDeFondosControlador.DevuelveClave();
-                                                  JOptionPane.showMessageDialog(rootPane,"LA CLAVE ES2: "+clave2);
+                                           //       JOptionPane.showMessageDialog(rootPane,"LA CLAVE ES2: "+clave2);
                                                   VentanaGestionDeFondosControlador.InsertarTrabajoSQL(clave2,Float.toString(MontoFondoReserva));
-                                                  JOptionPane.showMessageDialog(rootPane,"inserto el trabajo2");
+                                         //         JOptionPane.showMessageDialog(rootPane,"inserto el trabajo2");
                                         }if (x.equalsIgnoreCase("3"))
                                         {         VentanaGestionDeFondosControlador.InsertarContFondosSQL("0", x, VentanaGenerarContrato.ClaveContrato);
                                                   String clave3 = VentanaGestionDeFondosControlador.DevuelveClave();

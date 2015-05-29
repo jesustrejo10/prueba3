@@ -115,4 +115,24 @@ public static void InsertarTrabajoSQL(String fk_proveedor ,String f1, String f2)
           pst.executeUpdate();    
 }
 
+public static void InsertarAD_TRASQL(String fk_trabajo, String fk_AD) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("insert into AD_TRA VALUES(SQ_PK_AD_TRA.NEXTVAL,"+fk_AD+","+fk_trabajo+")");
+          pst.executeUpdate();    
+}
+
+public static String DevuelveClaveTrabajo() throws SQLException{
+ 
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery("select MAX(TRA_CLAVE) FROM TRABAJO");
+                    while (Valores.next()){ 
+                              return(Integer.toString(Valores.getInt(1)));
+                    }
+          return ("");   
+            
+    };
+
 }

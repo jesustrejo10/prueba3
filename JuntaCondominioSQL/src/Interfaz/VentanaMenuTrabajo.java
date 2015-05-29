@@ -507,6 +507,12 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                               //String ClaveProveedorSeleccionadoString = Integer.toString(ClaveProveedorSeleccionado);
                               //JOptionPane.showMessageDialog(rootPane, FechaPropuestoString+"->"+FechaRealizadoString);
                               VentanaMenuTrabajoControlador.InsertarTrabajoSQL(ClaveProveedorSeleccionado,FechaPropuestoString,FechaRealizadoString);
+                              int columnaSeleccionadaTablaAreaDet = Tabla2.getSelectedRow();
+                              String ClaveAreaDet =((String)Tabla2.getValueAt(columnaSeleccionadaTablaAreaDet,0));
+                              JOptionPane.showMessageDialog(null, ClaveAreaDet);
+                              String ClaveTrabajoActual = VentanaMenuTrabajoControlador.DevuelveClaveTrabajo();
+                              VentanaMenuTrabajoControlador.InsertarAD_TRASQL(ClaveTrabajoActual, ClaveAreaDet);
+                              
                     }
            }catch(Exception e){
                     JOptionPane.showMessageDialog(rootPane,"SE TIRO 3->"+e);

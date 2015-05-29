@@ -92,19 +92,17 @@ public static void RegistrarContratoSQL(String Monto, String F1, String F2, Stri
 }
 
 public static String ConsultaClaveEdificioSeleccionadoSQL2(String Nombre, String Rif) throws SQLException{
-        String Cambio = MenuBienesRaices.ClaveTrampa;
-        String clave =null ;
-        ConexionOracle Conexion= new ConexionOracle();
-        Connection Con=Conexion.Conectar();
-        Statement st= Con.createStatement();
-        ResultSet Valores= st.executeQuery("SELECT E.EDI_CLAVE\n" +
+          String clave =null ;
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+         ResultSet Valores= st.executeQuery("SELECT E.EDI_CLAVE\n" +
                                                                           " FROM EDIFICIO E \n" +
                                                                           " WHERE E.EDI_RIF = '"+Rif+"' AND E.EDI_NOMBRE = '"+Nombre+"'");
   
             while (Valores.next()){
                   clave=Integer.toString(Valores.getInt(1));
                    return (clave);
-                  //JOptionPane.showMessageDialog(null,"lo encuentra");
             }
     return ("null");
             
