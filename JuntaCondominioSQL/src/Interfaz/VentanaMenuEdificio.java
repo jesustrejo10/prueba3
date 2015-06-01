@@ -629,8 +629,11 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                               float precio2 = Float.parseFloat(precio);
                               for (int piso = 1, j = piso + 1; piso <= Cantidad ;piso++){
                               
-                                         VentanaMenuApartamentoControlador.InsertaAPT_DETSQL(ali,ClaveEdificio, ClaveAPT,"SI",Integer.toString(piso),precio2);
-                                         //System.out.println("piso ->"+piso);
+                                        VentanaMenuApartamentoControlador.InsertaCuenta_APT_DETSQL();
+                                        String ClaveCuenta = VentanaMenuApartamentoControlador.DevuelveClaveCuenta();
+                                        VentanaMenuApartamentoControlador.InsertaAPT_DETSQL(ali,ClaveEdificio, ClaveAPT,"SI",Integer.toString(piso),precio2,ClaveCuenta);
+                                         //Voy a crearles las cuentas a los APT;
+                                         
                               }
                               //JOptionPane.showMessageDialog(rootPane,"LA CLAVE APT ES:"+ClaveAPT);
                               VentanaMenuEdificioControlador.InsertaArea_DetSQL(claveedificio);

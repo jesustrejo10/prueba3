@@ -57,7 +57,6 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
         //RellenaTablaSQL();
     }
     
-    
     public void cargarInterfazAreasComunes(){
           String x[][]={};
           String columnas[]={"CodigoIndividual","Nombre","Edificio"};

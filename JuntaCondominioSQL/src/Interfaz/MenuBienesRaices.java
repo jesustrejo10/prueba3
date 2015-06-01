@@ -858,21 +858,6 @@ public void cargarInterfazOficina(){
                     btnfin.setVisible(true);
                    
           }
-
-        
-
-          String[] prueba = null;
-          prueba[0]="9999";
-          prueba[1]="9999";
-          prueba[2]="9999";
-          prueba[3]="9999";
-          prueba[4]="9999";
-          prueba[5]="9999";
-
-
-        
-        
-// TODO add your handling code here:
     }//GEN-LAST:event_TablaCompradosMouseClicked
 
     private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked

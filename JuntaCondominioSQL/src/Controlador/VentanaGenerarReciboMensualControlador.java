@@ -9,9 +9,11 @@ import Interfaz.VentanaGenerarReciboMensual;
 import Interfaz.VentanaMenuEdificio;
 import Modelo.ConexionOracle;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -65,7 +67,50 @@ public class VentanaGenerarReciboMensualControlador {
           Con.close();
  };
    
+     public static String CalculaPrecioRecibo() throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery("    SELECT SUM(T.TRA_MONTO) AS MONTORECIBO\n" +
+                                                                            "     from TRABAJO T  \n" +
+                                                                            "    WHERE (T.TRA_CLAVE IN ("+VentanaGenerarReciboMensual.TrabajosSeleccionados+"))");
+          while (Valores.next()){
+                    return Float.toString(Valores.getFloat(1));
+          }     
+          float returnx = 0;
+          return ("0");
+     };    
+  
+      public static String CalculaJuntaActual(String Clave) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery(" select JC_CLAVE \n" +
+                                                                              " from JUNTACONDOMINIO, EDIFICIO E\n" +
+                                                                              " where \n" +
+                                                                              " E.EDI_CLAVE = JUNTACONDOMINIO.JC_FK_EDIFICIO AND\n" +
+                                                                              " E.EDI_CLAVE = "+Clave+" AND\n" +
+                                                                          "    JC_FECHA_FIN = (select MAX(JC_FECHA_FIN)\n" +    
+                                                                          "                                     FROM JUNTACONDOMINIO) " );
+          while (Valores.next()){
+                    return Integer.toString(Valores.getInt(1));
+          }     
+          return ("0");
+     }; 
      
+     public static String CalculaPrecioRecibo2() throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery("    SELECT SUM(T.TRA_MONTO) AS MONTORECIBO\n" +
+                                                                            "     from TRABAJO T  \n" +
+                                                                            "    WHERE (T.TRA_CLAVE IN ("+VentanaGenerarReciboMensual.TrabajosSeleccionados+"))");
+          while (Valores.next()){
+                    return Float.toString(Valores.getFloat(1));
+          }     
+          float returnx = 0;
+          return ("0");
+     };
      
      public static void RellenaTablaTrabajosDisponiblesSQL2(String ClaveEdif) throws SQLException{
  
@@ -114,6 +159,49 @@ public class VentanaGenerarReciboMensualControlador {
           }
           Con.close();
  };
+     
+     public static void InsertaReciboMensualSQL(String fk_Junta, String Fecha) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("INSERT INTO RECIBOMENSUAL VALUES (SQ_RECIBO_MENSUAL.NEXTVAL,TO_DATE('"+Fecha+"','YYYYMMDD'),'APROBADO',"+fk_Junta+")");
+          pst.executeUpdate();    
+}
+
+     public static void ActualizaTrabajoAPasado(String fk_Recibo, String ClaveTrabajo) throws SQLException{
+     
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con = Conexion.Conectar(); 
+          Statement st= Con.createStatement();
+          PreparedStatement pst=  Con.prepareStatement("update TRABAJO set TRA_FK_RECIBOMENSUAL = "+fk_Recibo+"  \n" +
+                                                                                                     "where TRA_CLAVE = "+ClaveTrabajo);
+          pst.executeUpdate();
+     }
+     
+       public static void InsertaAvisoCobroSQL(String FK_RECIBOMENSUAL) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+        try (Connection Con = Conexion.Conectar()) {
+            Statement st= Con.createStatement();
+            ResultSet Valores= st.executeQuery(" select C.CUE_CLAVE , AD.AD_ALICUOTA\n" +
+                    " from CUENTA C , APT_DET AD\n" +
+                    " WHERE C.CUE_CLAVE = AD.AD_FK_CUENTA");
+            while (Valores.next()){
+                String Cuenta = Integer.toString(Valores.getInt(1));
+                Float Monto = VentanaGenerarReciboMensual.PrecioRecibo*(Valores.getFloat(2) / 100);
+                PreparedStatement pst=  Con.prepareStatement("INSERT INTO AVISOCOBRO VALUES ("
+                        + "                                                                               SQ_PK_AVISOCOBRO.NEXTVAL,"
+                        + "                                                                               "+Monto+","
+                        + "                                                                               'NOPAGADO',"
+                        + "                                                                               "+FK_RECIBOMENSUAL+","
+                        + "                                                                               "+Cuenta+")");
+                pst.executeUpdate();
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error en:"+e);
+        }
+          
+     };
+     
      
 }
 

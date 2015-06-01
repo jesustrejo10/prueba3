@@ -8,7 +8,13 @@ package Interfaz;
 import Controlador.VentanaGenerarContratoControlador;
 import Controlador.VentanaGenerarReciboMensualControlador;
 import static Interfaz.VentanaMenuTrabajo.ModeloEdificios;
+import Modelo.ConexionOracle;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,19 +37,22 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
     public static DefaultTableModel ModeloTrabajosAsignados = new DefaultTableModel();
     public static String TrabajosSeleccionados = "";
     public static String ClaveEdificio ="";
-    
+    public static DateFormat df = DateFormat.getDateInstance();
+    public static Float PrecioRecibo;
     public void cargarInterfazEdificios(){
           String x[][]={};
           String columnas[]={"Rif","Nombre","Direccion"};
           ModeloEdificios = new DefaultTableModel(x, columnas);
           Tabla1.setModel(ModeloEdificios);
     }
+    
     public void cargarInterfazTrabajosDisponibles(){
           String x[][]={};
           String columnas[]={"Clave","Descripcion","Fecha de Realizacion", "Monto", "Tipo"};
           ModeloTrabajosDisponibles = new DefaultTableModel(x, columnas);
           Tabla2.setModel(ModeloTrabajosDisponibles);
     }
+    
     public void cargarInterfazTrabajosAsignados(){
           String x[][]={};
           String columnas[]={"Clave","Descripcion","Fecha de Realizacion", "Monto", "Tipo"};
@@ -51,10 +60,55 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
           Tabla3.setModel(ModeloTrabajosAsignados);
     }
     
+    public static java.sql.Date convertJavaDateToSqlDate(java.util.Date date) { //CONVIERTE UTIL.DATE A SQL.DATE
+        return new java.sql.Date(date.getTime()); }
+
+    public static String ConvierteFechas(String FechaInicio){
+          try{
+                                        SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy"); 
+                                        java.util.Date fecha=sdf.parse(FechaInicio); 
+                                        java.sql.Date FechaNegociacion = convertJavaDateToSqlDate(fecha); //CONVERSIONES A TIPO SQL.DATE
+                                        String intento;
+                                        intento = (String) FechaNegociacion.toString();
+                                        String[] intento2 =intento.split("-");
+                                        String intento3 = intento2[0]+intento2[1]+intento2[2];
+                                        return (intento3);
+          }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"Error al convertir la fecha."+e.getMessage());
+          }                        
+        return null;
     
+    }
     
-    
-    
+    public static String CalculaJuntaActual(String Clave) throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery(" select JC_CLAVE \n" +
+                                                                              " from JUNTACONDOMINIO, EDIFICIO E\n" +
+                                                                              " where \n" +
+                                                                              " E.EDI_CLAVE = JUNTACONDOMINIO.JC_FK_EDIFICIO AND\n" +
+                                                                              " E.EDI_CLAVE = "+Clave+" AND\n" +
+                                                                          "    JC_FECHA_FIN = (select MAX(JC_FECHA_FIN)\n" +    
+                                                                          "                                     FROM JUNTACONDOMINIO) " );
+          while (Valores.next()){
+                    return Integer.toString(Valores.getInt(1));
+          }     
+          return ("0");
+     }; 
+     
+    public static String CalculaClaveRecibo() throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery(" select max(RECI_CLAVE)\n" +
+                                                                             " FROM RECIBOMENSUAL" );
+          while (Valores.next()){
+                    return Integer.toString(Valores.getInt(1));
+          }     
+          return ("0");
+     }; 
+     
     public VentanaGenerarReciboMensual() {
         initComponents();
     }
@@ -83,6 +137,11 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         Tabla3 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        PanelFormulario = new javax.swing.JPanel();
+        Mes = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtMonto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,7 +220,7 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,7 +253,7 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -249,44 +308,87 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
             }
         });
 
+        PanelFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Rellene La Informacion Solicitada"));
+
+        jLabel2.setText("Seleccione El mes Al cual desea Realizar el recibo");
+
+        javax.swing.GroupLayout PanelFormularioLayout = new javax.swing.GroupLayout(PanelFormulario);
+        PanelFormulario.setLayout(PanelFormularioLayout);
+        PanelFormularioLayout.setHorizontalGroup(
+            PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelFormularioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(Mes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelFormularioLayout.setVerticalGroup(
+            PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFormularioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(Mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel3.setText("Monto Total");
+
+        txtMonto.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        txtMonto.setText("0");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addContainerGap(176, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
+                    .addComponent(jLabel3)
+                    .addComponent(txtMonto)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PanelFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jButton2)))
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtMonto)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +438,6 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
           }
         
     }//GEN-LAST:event_Tabla1MouseClicked
-
     
     public static void LimpiarJTable(DefaultTableModel Nombremodelo){
           int a =Nombremodelo.getRowCount()-1;
@@ -347,10 +448,28 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        
-        String prueba="";
-        prueba =prueba + "1"+",";
-        System.out.println(prueba);
+          String ClaveJuntaActual  = "35";
+          try {
+                    ClaveJuntaActual = CalculaJuntaActual(ClaveEdificio);
+                    String FRealizado = df.format(Mes.getDate());
+                    String FechaRealizadoString = ConvierteFechas(FRealizado);
+                    VentanaGenerarReciboMensualControlador.InsertaReciboMensualSQL(ClaveJuntaActual,FechaRealizadoString);
+                    PrecioRecibo = Float.parseFloat(CalculaPrecioRecibo2());
+                    String ClaveRecibcoMensual = CalculaClaveRecibo();
+                    VentanaGenerarReciboMensualControlador.InsertaAvisoCobroSQL(ClaveRecibcoMensual);
+                    String [] TrabajosSeparados = TrabajosSeleccionados.split(",");
+                    int tamano = TrabajosSeparados.length;
+                    for (int factor = 0 ; factor < tamano ; factor++){
+                              VentanaGenerarReciboMensualControlador.ActualizaTrabajoAPasado(ClaveRecibcoMensual, TrabajosSeparados[factor]);
+                    }
+                    
+                    
+                    
+          } catch (SQLException ex) {
+                    Logger.getLogger(VentanaGenerarReciboMensual.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          JOptionPane.showMessageDialog(null, "La Clave es: "+ClaveJuntaActual);
+       
         
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -365,19 +484,34 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
                     else{
                               TrabajosSeleccionados = TrabajosSeleccionados+","+ClaveTrabajoSeleccionado;
                     }
-                    //System.out.println(TrabajosSeleccionados);
                     LimpiarJTable(ModeloTrabajosDisponibles);
                     LimpiarJTable(ModeloTrabajosAsignados);
                     cargarInterfazTrabajosAsignados();
                     try {
                               VentanaGenerarReciboMensualControlador.RellenaTablaTrabajosDisponiblesSQL2(ClaveEdificio);
                               VentanaGenerarReciboMensualControlador.RellenaTablaTrabajosDisponiblesSQL3(ClaveEdificio);
+                              String ParaImprimir = CalculaPrecioRecibo2();
+                              txtMonto.setText(ParaImprimir);
                     } catch (SQLException ex) {
                               Logger.getLogger(VentanaGenerarReciboMensual.class.getName()).log(Level.SEVERE, null, ex);
                     }
           }
     }//GEN-LAST:event_Tabla2MouseClicked
-
+    
+    public static String CalculaPrecioRecibo2() throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery("    SELECT SUM(T.TRA_MONTO) AS MONTORECIBO\n" +
+                                                                            "     from TRABAJO T  \n" +
+                                                                            "    WHERE (T.TRA_CLAVE IN ("+TrabajosSeleccionados+"))");
+          while (Valores.next()){
+                    return Float.toString(Valores.getFloat(1));
+          }     
+          float returnx = 0;
+          return ("0");
+     };
+    
     private void Tabla3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla3MouseClicked
 
           if (Opcion == 0){
@@ -386,10 +520,10 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
                     String[] Separado =TrabajosSeleccionados.split(",");
                     int tamano = Separado.length;
                     String Nuevo = "";
-                    System.out.println(tamano);
+                    //System.out.println(tamano);
                     for (int factor = 0 ; factor < tamano ; factor++){
                               if (!(ClaveTrabajoSeleccionado.equalsIgnoreCase(Separado[factor]))){
-                                        System.out.println("FACTORIA"+Separado[factor]);
+                      //                  System.out.println("FACTORIA"+Separado[factor]);
                                         if (Nuevo.equalsIgnoreCase("")){
                                                   Nuevo =Separado[factor];
                                         }
@@ -401,7 +535,7 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
                     TrabajosSeleccionados=Nuevo;
                     if (TrabajosSeleccionados.equalsIgnoreCase(""))
                               TrabajosSeleccionados = "999999";
-                    System.out.println("SANGANA"+TrabajosSeleccionados);
+                    //System.out.println("SANGANA"+TrabajosSeleccionados);
                     LimpiarJTable(ModeloTrabajosDisponibles);
                     LimpiarJTable(ModeloTrabajosAsignados);
                     cargarInterfazTrabajosAsignados();
@@ -409,6 +543,8 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
                     try {
                               VentanaGenerarReciboMensualControlador.RellenaTablaTrabajosDisponiblesSQL2(ClaveEdificio);
                               VentanaGenerarReciboMensualControlador.RellenaTablaTrabajosDisponiblesSQL3(ClaveEdificio);
+                              String ParaImprimir = CalculaPrecioRecibo2();
+                              txtMonto.setText(ParaImprimir);
                     } catch (SQLException ex) {
                               Logger.getLogger(VentanaGenerarReciboMensual.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -452,12 +588,16 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ComboOpcion;
+    private com.toedter.calendar.JDateChooser Mes;
+    private javax.swing.JPanel PanelFormulario;
     private javax.swing.JTable Tabla1;
     private javax.swing.JTable Tabla2;
     private javax.swing.JTable Tabla3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -466,5 +606,6 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel txtMonto;
     // End of variables declaration//GEN-END:variables
 }

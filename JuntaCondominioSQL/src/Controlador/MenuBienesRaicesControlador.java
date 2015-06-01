@@ -50,12 +50,11 @@ public static void RellenaTablaSQL() throws SQLException{
     
 public static void RellenaTablaApartamentosSQL() throws SQLException{
  
-        ConexionOracle Conexion= new ConexionOracle();
-        Connection Con=Conexion.Conectar();
-        Statement st= Con.createStatement();
-        //JOptionPane.showMessageDialog(null,"La clave trampa es:->"+MenuBienesRaices.ClaveTrampa);
-        MenuBienesRaices.cont = 0;
-         ResultSet Valores= st.executeQuery("SELECT AD.AD_CLAVE,AD.AD_PISO,AD.AD_ALICUOTA,AD_PRECIO, APT.APT_MEDIDAS\n" +
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          MenuBienesRaices.cont = 0;
+          ResultSet Valores= st.executeQuery("SELECT AD.AD_CLAVE,AD.AD_PISO,AD.AD_ALICUOTA,AD_PRECIO, APT.APT_MEDIDAS\n" +
                                                                             "FROM APT_DET AD, APARTAMENTO APT, EDIFICIO E\n" +
                                                                             "WHERE (AD.AD_FK_EDIFICIO = "+MenuBienesRaices.ClaveTrampa+") AND\n" +
                                                                             "(AD.AD_FK_APARTAMENTO = APT.APT_CLAVE)and"
