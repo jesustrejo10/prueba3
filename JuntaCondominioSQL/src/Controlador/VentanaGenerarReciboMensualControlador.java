@@ -182,8 +182,8 @@ public class VentanaGenerarReciboMensualControlador {
         try (Connection Con = Conexion.Conectar()) {
             Statement st= Con.createStatement();
             ResultSet Valores= st.executeQuery(" select C.CUE_CLAVE , AD.AD_ALICUOTA\n" +
-                    " from CUENTA C , APT_DET AD\n" +
-                    " WHERE C.CUE_CLAVE = AD.AD_FK_CUENTA");
+                                                                               " from CUENTA C , APT_DET AD\n" +
+                                                                               " WHERE C.CUE_CLAVE = AD.AD_FK_CUENTA");
             while (Valores.next()){
                 String Cuenta = Integer.toString(Valores.getInt(1));
                 Float Monto = VentanaGenerarReciboMensual.PrecioRecibo*(Valores.getFloat(2) / 100);

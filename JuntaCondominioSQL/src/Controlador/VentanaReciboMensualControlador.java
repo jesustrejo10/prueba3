@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Interfaz.VentanaGestionCuenta;
 import Interfaz.VentanaGestiondeAsambleas;
 import Interfaz.VentanaReciboMensual;
 import Modelo.ConexionOracle;
@@ -41,7 +42,7 @@ public static void RellenaRecibo1SQL() throws SQLException{
                                                                                 "        AND E.EDI_CLAVE = CON.CONT_FK_EDIFICIO AND CON.CONT_FK_OFICINA = OFI.OFI_CLAVE\n" +
                                                                                 "        AND AD.AD_FK_CUENTA = CUE.CUE_CLAVE AND AVI.AVI_FK_CUENTA = CUE.CUE_CLAVE\n" +
                                                                                 "        AND AVI.AVI_FK_RECIBOMENSUAL = REC.RECI_CLAVE\n" +
-                                                                                "        AND AVI.AVI_CLAVE = 70 ");
+                                                                                "        AND AVI.AVI_CLAVE = "+VentanaGestionCuenta.ClaveAviso+" ");
             while (Valores.next()){
                     VentanaReciboMensual.NombreEdificio = Valores.getString(1);
                     VentanaReciboMensual.DireccionCompleta = Valores.getString(2);
@@ -66,7 +67,7 @@ public static void RellenaReciboMensual2SQL() throws SQLException{
                                                                             "        INNER JOIN AVISOCOBRO AVI ON RECI.RECI_CLAVE = AVI.AVI_FK_RECIBOMENSUAL\n" +
                                                                             "        INNER JOIN CUENTA CUE ON CUE.CUE_CLAVE = AVI.AVI_FK_CUENTA\n" +
                                                                             "        INNER JOIN APT_DET AD ON AD.AD_FK_CUENTA = CUE.CUE_CLAVE\n" +
-                                                                            "        where AVI.AVI_CLAVE = 70");
+                                                                            "        where AVI.AVI_CLAVE = "+VentanaGestionCuenta.ClaveAviso+"");
             while (Valores.next()){
 
                     VentanaReciboMensual.ModeloTrabajos.insertRow(VentanaReciboMensual.cont, new Object[]{});

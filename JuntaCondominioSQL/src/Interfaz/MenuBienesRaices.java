@@ -744,7 +744,6 @@ public void cargarInterfazOficina(){
 
           }
           if (Opcion ==2 ){
-                    JOptionPane.showMessageDialog(PanelComprados,"Actualice el precio.");
                     if(( TablaComprados.getSelectedRows().length > 0 ) && (Tabla.getSelectedRows().length > 0 )){
                               int num = TablaComprados.getSelectedRow();
                               int ClaveAptDet = (Integer) TablaComprados.getValueAt(num,4);
@@ -757,6 +756,8 @@ public void cargarInterfazOficina(){
                               float nuevoprecio= 0;
                               float comision =0;
                               PanelPrecio.setVisible(true);
+                              JOptionPane.showMessageDialog(PanelComprados,"Actualice el precio.");
+
                               try{
                                         nuevoprecio = Float.parseFloat(txtprecio.getText());
                                         comision = Float.parseFloat(txtcomi.getText());

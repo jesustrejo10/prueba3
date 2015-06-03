@@ -111,6 +111,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
         FechaPropuesto = new com.toedter.calendar.JDateChooser();
         lblrealizacion = new javax.swing.JLabel();
         FechaRealizado = new com.toedter.calendar.JDateChooser();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -339,6 +340,13 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
@@ -352,7 +360,8 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                         .addGroup(PanelPrincipalLayout.createSequentialGroup()
                             .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1))))
+                            .addComponent(jButton1)))
+                    .addComponent(jButton2))
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPrincipalLayout.createSequentialGroup()
                         .addGap(744, 744, 744)
@@ -386,9 +395,15 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(PanelEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnfin)
-                .addGap(12, 12, 12))
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnfin)
+                        .addGap(12, 12, 12))
+                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -524,6 +539,20 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboTipoActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+          VentanaMenuPrincipal nuevo;
+        try {
+            nuevo = new VentanaMenuPrincipal();
+            nuevo.setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(VentanaMenuTrabajo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -576,6 +605,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
     private javax.swing.JButton btnfin;
     private javax.swing.JComboBox comboclasif;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

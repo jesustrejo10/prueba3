@@ -638,7 +638,7 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                               //JOptionPane.showMessageDialog(rootPane,"LA CLAVE APT ES:"+ClaveAPT);
                               VentanaMenuEdificioControlador.InsertaArea_DetSQL(claveedificio);
                               VentanaMenuEdificio refresh = new VentanaMenuEdificio();
-                              refresh.setVisible(true);
+                              //refresh.setVisible(true);
                               this.dispose();
                               
                               

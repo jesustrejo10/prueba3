@@ -38,9 +38,9 @@ public class Util {
         Statement st= Con.createStatement();
         String Clave="1";
         int conta = 0;
-        JOptionPane.showConfirmDialog(null, "Antes");
+      //  JOptionPane.showConfirmDialog(null, "Antes");
          ResultSet Valores= st.executeQuery("SELECT MAX("+NombreClave+") FROM "+Tabla);
-        JOptionPane.showConfirmDialog(null, "DESPUES");
+        //JOptionPane.showConfirmDialog(null, "DESPUES");
          
          while (Valores.next()){
                     Clave=Valores.getString(1);

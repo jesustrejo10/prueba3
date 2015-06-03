@@ -75,7 +75,7 @@ public class VentanaGestionCuentaControlador {
                                                                         "  WHERE AVI.AVI_FK_RECIBOMENSUAL = REC.RECI_CLAVE\n" +
                                                                         "       and (AVI.AVI_FK_CUENTA = CUE.CUE_CLAVE)\n" +
                                                                         "       AND (CUE.CUE_CLAVE = AD.AD_FK_CUENTA)\n" +
-                                                                        "       AND (AD.AD_CLAVE="+93+")");
+                                                                        "       AND (AD.AD_CLAVE="+ClaveApt+")");
           while (Valores.next()){
                     VentanaGestionCuenta.ModeloAvisos.insertRow(VentanaGestionCuenta.cont2, new Object[]{});
                     VentanaGestionCuenta.ModeloAvisos.setValueAt(Valores.getString(1),VentanaGestionCuenta.cont2,0);

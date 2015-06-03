@@ -456,19 +456,23 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
                     VentanaGenerarReciboMensualControlador.InsertaReciboMensualSQL(ClaveJuntaActual,FechaRealizadoString);
                     PrecioRecibo = Float.parseFloat(CalculaPrecioRecibo2());
                     String ClaveRecibcoMensual = CalculaClaveRecibo();
+                    
                     VentanaGenerarReciboMensualControlador.InsertaAvisoCobroSQL(ClaveRecibcoMensual);
+                    
                     String [] TrabajosSeparados = TrabajosSeleccionados.split(",");
                     int tamano = TrabajosSeparados.length;
                     for (int factor = 0 ; factor < tamano ; factor++){
                               VentanaGenerarReciboMensualControlador.ActualizaTrabajoAPasado(ClaveRecibcoMensual, TrabajosSeparados[factor]);
                     }
-                    
-                    
+                    JOptionPane.showMessageDialog(rootPane,"Recibo Creado Correctamente");
+                    VentanaGenerarReciboMensual nuevo = new VentanaGenerarReciboMensual();
+                    nuevo.setVisible(true);
+                    this.dispose();
                     
           } catch (SQLException ex) {
                     Logger.getLogger(VentanaGenerarReciboMensual.class.getName()).log(Level.SEVERE, null, ex);
          }
-          JOptionPane.showMessageDialog(null, "La Clave es: "+ClaveJuntaActual);
+         // JOptionPane.showMessageDialog(null, "La Clave es: "+ClaveJuntaActual);
        
         
 // TODO add your handling code here:
