@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="58b58ff6-df8f-42c1-9d4b-9f2cd263c324">
+	<queryString language="SQL">
+		<![CDATA[SELECT PRO.PRO_PNOMBRE, PRO.PRO_PAPELLIDO, AD.AD_ALICUOTA, E.EDI_NOMBRE , E.EDI_RIF , REC.RECI_FECHA
+FROM PROPIETARIO PRO, APT_DET AD, EDIFICIO E, CUENTA CUE, AVISOCOBRO AVI, RECIBOMENSUAL REC
+WHERE PRO.PRO_CLAVE= AD.AD_FK_PROPIETARIO
+AND E.EDI_CLAVE = AD.AD_FK_EDIFICIO
+AND REC.RECI_CLAVE = AVI.AVI_FK_RECIBOMENSUAL 
+AND AVI.AVI_FK_CUENTA = CUE.CUE_CLAVE
+AND CUE.CUE_CLAVE = AD.AD_FK_CUENTA]]>
+	</queryString>
+	<field name="PRO_PNOMBRE" class="java.lang.String"/>
+	<field name="PRO_PAPELLIDO" class="java.lang.String"/>
+	<field name="AD_ALICUOTA" class="java.lang.Double"/>
+	<field name="EDI_NOMBRE" class="java.lang.String"/>
+	<field name="EDI_RIF" class="java.lang.String"/>
+	<field name="RECI_FECHA" class="java.sql.Timestamp"/>
+	<group name="AD_ALICUOTA">
+		<groupExpression><![CDATA[$F{AD_ALICUOTA}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

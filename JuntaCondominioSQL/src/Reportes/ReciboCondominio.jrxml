@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="450ba933-a9b2-492a-845a-3cf49abf193e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="17"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<field name="Prueba" class="java.lang.String"/>
+	<field name="FECHA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="139" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="11" y="20" width="275" height="20" uuid="e095e2df-e59d-42ca-8fc9-b58ce853ca30"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[CONDOMINIOS UCAB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="11" y="40" width="180" height="20" uuid="56311167-df53-45d9-8b4c-817d07c8ccca"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[RECIBO DE CONDOMINIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="40" width="100" height="20" uuid="c95f66d1-bd38-458f-a5d4-62e125990a84"/>
+				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="535" y="0" width="20" height="20" uuid="2258e07d-94a7-4845-b6fe-25016ee6a337"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="11" y="72" width="134" height="20" uuid="0025366a-470c-45ee-adc8-0630342586ec"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[RECIBO NUMERO:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="52" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="5" width="555" height="42" uuid="83dc80ce-7204-4d16-9441-d267b57ce51a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="18" width="100" height="20" uuid="d14f56e9-98c8-4b26-9b0c-c144f43d61ba"/>
+				<text><![CDATA[Descripcion Trabajo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="18" width="100" height="20" uuid="661f12b9-cd34-493c-b9e1-52b69a3bb8d1"/>
+				<text><![CDATA[Monto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="32" width="100" height="20" uuid="beaa065f-8244-4630-ae3a-869ac3b6ccdc"/>
+				<textFieldExpression><![CDATA[$F{Prueba}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="44" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
