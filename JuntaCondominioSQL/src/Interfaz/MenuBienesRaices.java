@@ -508,6 +508,7 @@ public void cargarInterfazOficina(){
                     PanelTablaPrincipal.setVisible(true);
                     PanelPropietarios.setVisible(true);
                     PanelComprados.setVisible(false);
+                    
           try {
                     MenuBienesRaicesControlador.RellenaTablaSQL();
           } catch (SQLException ex) {

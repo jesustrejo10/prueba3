@@ -98,7 +98,7 @@ public static void InsertarEdificioSQL(String Rif, String Nombre, String FK_Luga
 
         ConexionOracle Conexion= new ConexionOracle();
         Connection Con=Conexion.Conectar();
-        PreparedStatement pst=  Con.prepareStatement("INSERT INTO EDIFICIO (EDI_CLAVE,EDI_RIF,EDI_NOMBRE,EDI_FK_LUGAR) VALUES (SQ_PK_EDIFICIO.NEXTVAL,'"+Rif+"','"+Nombre+"',"+FK_Lugar+")");
+        PreparedStatement pst=  Con.prepareStatement("INSERT INTO EDIFICIO  VALUES (SQ_PK_EDIFICIO.NEXTVAL,'"+Rif+"','"+Nombre+"',"+FK_Lugar+")");
         pst.executeUpdate();    
 }
 public static void RellenaTablaSQL() throws SQLException{

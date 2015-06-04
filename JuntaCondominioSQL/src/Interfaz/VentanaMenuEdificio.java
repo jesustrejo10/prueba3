@@ -570,9 +570,9 @@ public class VentanaMenuEdificio extends javax.swing.JFrame {
                     try {
                               String NombreEdif = TXTNombre.getText();
                               String RifEdif = TXTRif.getText();
-                              //JOptionPane.showMessageDialog(rootPane, "Logro buscar la clave de parroquia y es:"+ClaveParroquia);
+                              JOptionPane.showMessageDialog(rootPane, "Logro buscar la clave de parroquia y es:"+ClaveParroquia);
                               ClaveParroquia = Util.Consultar_PKPorNombreParroquia("LUGAR","LUG_CLAVE",ParroquiaSeleccionada,"LUG_NOMBRE",ClaveMunicipio);
-                              //JOptionPane.showMessageDialog(rootPane, "Logro buscar la clave de parroquia y es:"+ClaveParroquia);
+                              JOptionPane.showMessageDialog(rootPane, "Logro buscar la clave de parroquia y es:"+ClaveParroquia);
                               VentanaMenuEdificioControlador.InsertarEdificioSQL(RifEdif,NombreEdif,ClaveParroquia);
                               String ClaveEdificio =Util.Consultar_PK("EDIFICIO","EDI_CLAVE");
                               int claveedificio = Integer.parseInt(ClaveEdificio);
