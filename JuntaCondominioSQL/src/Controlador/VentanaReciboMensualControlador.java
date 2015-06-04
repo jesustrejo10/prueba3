@@ -78,4 +78,23 @@ public static void RellenaReciboMensual2SQL() throws SQLException{
                    VentanaReciboMensual.cont++;
             }
  }
+
+
+public static void RellenaReciboMensual3SQL(String ClaveAvi) throws SQLException{
+ 
+        ConexionOracle Conexion= new ConexionOracle();
+        Connection Con=Conexion.Conectar();
+        java.sql.Statement st= Con.createStatement();
+        VentanaReciboMensual.cont = 0;
+         ResultSet Valores= st.executeQuery(" select SUM (T.TRA_MONTO), SUM(T.TRA_MONTO * (AD.AD_ALICUOTA/100)), RECI.RECI_CLAVE \n" +
+                                                                            " from TRABAJO T, RECIBOMENSUAL RECI, AVISOCOBRO AVI, APT_DET AD, CUENTA CUE\n" +
+                                                                            " WHERE T.TRA_FK_RECIBOMENSUAL = RECI.RECI_CLAVE AND AVI.AVI_FK_RECIBOMENSUAL = RECI.RECI_CLAVE\n" +
+                                                                            "       AND AVI.AVI_FK_CUENTA = CUE.CUE_CLAVE AND CUE.CUE_CLAVE = AD.AD_FK_CUENTA\n" +
+                                                                            "       AND AVI.AVI_CLAVE = "+ClaveAvi+"\n" +
+                                                                            " GROUP BY RECI.RECI_CLAVE");
+            while (Valores.next()){
+                    VentanaReciboMensual.MontoTotal= Float.toString(Valores.getFloat(1));
+                    VentanaReciboMensual.MontoTotalDetallado =Float.toString(Valores.getFloat(2));
+            }
+ }
 }
