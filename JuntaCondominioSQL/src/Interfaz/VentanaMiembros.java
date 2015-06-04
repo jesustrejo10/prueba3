@@ -39,6 +39,8 @@ public class VentanaMiembros extends javax.swing.JFrame {
      public static ArrayList IdentificacionesMiembros = new ArrayList();
     public static ArrayList IdentificacionesPropietarios = new ArrayList(); 
     
+    public static String MiembroSeleccionado="";
+    
     /**
      * Creates new form VentanaMiembros
      * @param Opcion
@@ -123,8 +125,7 @@ public class VentanaMiembros extends javax.swing.JFrame {
          
                 if(Opcion ==3){ //Para Agregar Miembros a una junta
                     LimpiarJTable(modeloMiembros);
-                   
-            LimpiarJTable(modeloPropietarios);
+                    LimpiarJTable(modeloPropietarios);
                     cargarInterfazMiembros();
                     jLabel1.setVisible(true);
                     jLabel1.setText("Tabla Miembros de la junta "+ClaveJunta);
@@ -509,44 +510,58 @@ public class VentanaMiembros extends javax.swing.JFrame {
         IdentificacionesMiembros.add(3, "9999");
         IdentificacionesMiembros.add(4, "9999");
         IdentificacionesMiembros.add(5, "9999");
-        if(Opcion==0){
-            JOptionPane.showMessageDialog(rootPane,"La opcion vale =  "+Opcion);
-
-            if( ( Tabla2.getSelectedRows().length > 0 ) && (Opcion == 0) ) {
-                int num = Tabla2.getSelectedRow();
-                ClavePropietario = (String) Tabla2.getValueAt(num,0);
-                LimpiarJTable(modeloMiembros);
-                LimpiarJTable(modeloPropietarios);
-
-                String CargoMiembro = TXTCargo.getText();
-                int ClaveP = Integer.parseInt(ClavePropietario);
-
-                try {
-                    VentanaMiembrosControlador.insertaMiembrosSQL(CargoMiembro,ClaveP,ClaveJunta);
-                } catch (SQLException ex) {
-                    Logger.getLogger(VentanaMiembros.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                JOptionPane.showMessageDialog(rootPane,"Miembro Agregado Correctamente");
-
-                cargarInterfazMiembros();
-
-                try {
-                    VentanaMiembrosControlador.RellenaTablaMiembrosSQL(ClaveJunta);
+        
+        
+         if (Opcion==0){
+                    int num = Tabla2.getSelectedRow();
+                    String CargoMiembro = TXTCargo.getText();
+                    String ClavePropietarioSeleccionado = (String)Tabla2.getValueAt(num, 0);
+                    int ClaveP= Integer.parseInt(ClavePropietarioSeleccionado);
+                    if (MiembroSeleccionado.equalsIgnoreCase("")){
+                              MiembroSeleccionado =ClavePropietarioSeleccionado;
+                        try {
+                            VentanaMiembrosControlador.insertaMiembrosSQL(CargoMiembro,ClaveP,ClaveJunta);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(VentanaMiembros.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    else{
+                              MiembroSeleccionado = MiembroSeleccionado+","+ClavePropietarioSeleccionado;
+                              try {
+                            VentanaMiembrosControlador.insertaMiembrosSQL(CargoMiembro,ClaveP,ClaveJunta);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(VentanaMiembros.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    LimpiarJTable(modeloMiembros);
+                    LimpiarJTable(modeloPropietarios);
+                    cargarInterfazMiembros();
                     cargarInterfazPropietarios();
-
-                    VentanaMiembrosControlador.RellenaTablaPropietarios2SQL(ClaveEdificio,ClaveP);
-
-                } catch (SQLException ex) {
-                    Logger.getLogger(VentanaMiembros.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                TXTCargo.setText("");
-
+                    try {
+                              VentanaMiembrosControlador.RellenaTablaPropietariosDisponiblesSQL2(ClaveJunta); 
+                              VentanaMiembrosControlador.RellenaTablaMiembrosSQL(ClaveJunta);
+                    } catch (SQLException ex) {
+                              Logger.getLogger(VentanaGenerarReciboMensual.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    Opcion=3;
+                    String aux= Integer.toString(ClaveJunta);
+                    VentanaMiembros Reinicia = null;
+            try {
+                Reinicia = new VentanaMiembros(Opcion,aux);
+            } catch (SQLException ex) {
+                Logger.getLogger(VentanaMiembros.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+                    Reinicia.setVisible(true);
+                    this.dispose();
+          }
+        
+        
+        
+        
+        
+        
 
         if(Opcion==3){
-            JOptionPane.showMessageDialog(rootPane,"La opcion vale =  "+Opcion);
-
             if( ( Tabla2.getSelectedRows().length > 0 ) && (Opcion == 3) ) {
                 int num = Tabla2.getSelectedRow();
                 ClavePropietario = (String) Tabla2.getValueAt(num,0);

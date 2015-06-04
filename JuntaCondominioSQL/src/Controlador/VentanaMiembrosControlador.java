@@ -172,6 +172,38 @@ public static void RellenaTablaPropietariosNoEnJuntaSQL(ArrayList Identificacion
           pst.executeUpdate(); 
        
    };
+    
+    
+    public static void RellenaTablaPropietariosDisponiblesSQL2(int ClaveJunta) throws SQLException{
+ 
+       ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          String ID="";
+          String Nombre="";
+          String Apellido="";
+          VentanaMiembros.cont = 0;
+          ResultSet Valores= st.executeQuery("SELECT P.PRO_CLAVE,P.PRO_PNOMBRE,P.PRO_PAPELLIDO "+
+                                            "FROM PROPIETARIO P,EDIFICIO E,JUNTACONDOMINIO JC, APT_DET AD "+
+                                            "WHERE E.EDI_CLAVE=JC.JC_FK_EDIFICIO AND AD.AD_FK_EDIFICIO = E.EDI_CLAVE "+
+                                            "AND AD.AD_FK_PROPIETARIO = P.PRO_CLAVE AND JC.JC_CLAVE= "+ClaveJunta+""+
+                                            "AND P.PRO_CLAVE NOT IN ("+VentanaMiembros.MiembroSeleccionado+") "+
+                                            "GROUP BY P.PRO_CLAVE, P.PRO_PNOMBRE, P.PRO_PAPELLIDO");
+          
+          
+            while (Valores.next()){
+                    ID=Valores.getString(1);
+                    Nombre=Valores.getString(2);
+                    Apellido= Valores.getString(3);
+                    VentanaMiembros.modeloPropietarios.insertRow(VentanaMiembros.cont, new Object[]{});
+                    VentanaMiembros.modeloPropietarios.setValueAt(ID,VentanaMiembros.cont,0);
+                    VentanaMiembros.modeloPropietarios.setValueAt(Nombre,VentanaMiembros.cont,1);
+                    VentanaMiembros.modeloPropietarios.setValueAt(Apellido,VentanaMiembros.cont,2);
+                    VentanaMiembros.cont++;
+            }
+ };
+    
+
 
     
     
