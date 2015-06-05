@@ -1848,51 +1848,138 @@ INSERT INTO LUGAR VALUES (19250004,'Güiria','Parroquia',19250);
 
 --ESTADO TACHIRA
 
+--Municipio Andres Bello
+INSERT INTO LUGAR VALUES (20251001,'Cordero','Parroquia',20251);
+
+--Municipio Antonio 
+INSERT INTO LUGAR VALUES (20252002,'Las Mesas','Parroquia',20252);
+
+--Municipio Ayacucho 
+INSERT INTO LUGAR VALUES (20253003,'Colon','Parroquia',20253);
+INSERT INTO LUGAR VALUES (20253004,'Rivas Berti','Parroquia',20253);
+INSERT INTO LUGAR VALUES (20253005,'San Pedro','Parroquia',20253);
+
+--Municipio Bolivar
+INSERT INTO LUGAR VALUES (20254006,'Santa Del Tachira','Parroquia',20254);
+INSERT INTO LUGAR VALUES (20254007,'Isaias Medina Angarita','Parroquia',20254);
+INSERT INTO LUGAR VALUES (20254008,'Juan Vicente','Parroquia',20254);
+INSERT INTO LUGAR VALUES (20254009,'Palotal','Parroquia',20254);
+
+--Municipio Cardenas
+INSERT INTO LUGAR VALUES (20255010,'Tariba','Parroquia',20255);
+INSERT INTO LUGAR VALUES (20255011,'Amenodoro Rangel Lamu','Parroquia',20255);
+INSERT INTO LUGAR VALUES (20255012,'La Florida','Parroquia',20255);
+
+--Municipio Cordoba
+INSERT INTO LUGAR VALUES (20256013,'Santa Ana del Tachira','Parroquia',20256);
+
+--Municipio Fernandez Feo
+INSERT INTO LUGAR VALUES (20257014,'San Rafael del Pinal','Parroquia',20257);
+INSERT INTO LUGAR VALUES (20257015,'ALberto Adriani','Parroquia',20257);
+INSERT INTO LUGAR VALUES (20257016,'Santo Domingo','Parroquia',20257);
+
+
+--Municipio Francisco de miranda
+INSERT INTO LUGAR VALUES (20258017,'San Jose del Bolivar','Parroquia',20258);
+
+--Municipio Garcia de Hevia
+INSERT INTO LUGAR VALUES (20259018,'La Fria','Parroquia',20259);
+INSERT INTO LUGAR VALUES (20259019,'Boca de Grita','Parroquia',20259);
+INSERT INTO LUGAR VALUES (20259020,'Jose Antonio Paez','Parroquia',20259);
+
+--Municipio Guasimos 
+INSERT INTO LUGAR VALUES (20260021,'Palmira','Parroquia',20260);
+
+--Municipio Independencia
+INSERT INTO LUGAR VALUES (20261022,'Capacho Nuevo','Parroquia',20261);
+INSERT INTO LUGAR VALUES (20261023,'German Roscio','Parroquia',20261);
+INSERT INTO LUGAR VALUES (20261024,'Roman Cardenas','Parroquia',20261);
+
+--Municipio Jauregui
+INSERT INTO LUGAR VALUES (20262025,'La Grita','Parroquia',20262);
+INSERT INTO LUGAR VALUES (20262026,'Emilio Guerrero','Parroquia',20262);
+INSERT INTO LUGAR VALUES (20262027,'Monseñor Miguel Salas','Parroquia',20262);
+
+--Municipio jose Maria Vargas
+INSERT INTO LUGAR VALUES (20263028,'El cobre','Parroquia',20263);
+
+--Municipio Junin
+INSERT INTO LUGAR VALUES (20264029,'Rubio','Parroquia',20264);
+INSERT INTO LUGAR VALUES (20264030,'Bramon','Parroquia',20264);
+INSERT INTO LUGAR VALUES (20264031,'La Petrolea','Parroquia',20264);
+INSERT INTO LUGAR VALUES (20264032,'Quinimari','Parroquia',20264);
+
+--Municpio Libertad
+INSERT INTO LUGAR VALUES (20265033,'Capacho Viejo','Parroquia',20265);
+INSERT INTO LUGAR VALUES (20265034,'Cipriano Castro','Parroquia',20265);
+INSERT INTO LUGAR VALUES (20265035,'Manuel Felipe','Parroquia',20265);
+
+--Municipio Libertador
+INSERT INTO LUGAR VALUES (20266036,'Abejales','Parroquia',20266);
+INSERT INTO LUGAR VALUES (20266037,'Doradas','Parroquia',20266);
+INSERT INTO LUGAR VALUES (20266038,'Emeterio Ochoa','Parroquia',20266);
+INSERT INTO LUGAR VALUES (20266039,'San Juaquin de Navay','Parroquia',20266);
+
+--Municpio Lobatera
+INSERT INTO LUGAR VALUES (20267040,'Lobatera','Parroquia',20267);
+INSERT INTO LUGAR VALUES (20267041,'Constitucion','Parroquia',20267);
+
+--Municipio Michelena
+INSERT INTO LUGAR VALUES (20268042,'Michelena','Parroquia',20268);
+
+--Municipio Panamericano
+INSERT INTO LUGAR VALUES (20269043,'Coloncito','Parroquia',20269);
+INSERT INTO LUGAR VALUES (20269044,'La Palmita','Parroquia',20269);
+
+--Municipio Pedro maria urena
+INSERT INTO LUGAR VALUES (20270045,'Ureña','Parroquia',20270);
+INSERT INTO LUGAR VALUES (20270046,'Nueva Arcadia','Parroquia',20270);
+
+--Municipio Rafael Urdaneta
+INSERT INTO LUGAR VALUES (20271047,'Delicias','Parroquia',20271);
+
+--Municipio Samuel Dario Maldonado
+INSERT INTO LUGAR VALUES (20272048,'La Tendida','Parroquia',20272);
+INSERT INTO LUGAR VALUES (20272049,'Bocono','Parroquia',20272);
+INSERT INTO LUGAR VALUES (20272050,'Hernandez','Parroquia',20272);
+
+
+--Municnipio San Cristobal
+INSERT INTO LUGAR VALUES (20273051,'Francisco Romero Lobo','Parroquia',20273);
+INSERT INTO LUGAR VALUES (20273052,'La Concordia','Parroquia',20273);
+INSERT INTO LUGAR VALUES (20273053,'Pedro Maria Morantes','Parroquia',20273);
+INSERT INTO LUGAR VALUES (20273054,'San Sebastian','Parroquia',20273);
+INSERT INTO LUGAR VALUES (20273055,'Juan Bautista','Parroquia',20273);
+
+--Municipio Seboruco
+INSERT INTO LUGAR VALUES (20274056,'Seboruco','Parroquia',20274);
+
+--Municipio Simon Rodriguez
+INSERT INTO LUGAR VALUES (20275057,'San Simon','Parroquia',20275);
+
+--Municipio Sucre
+INSERT INTO LUGAR VALUES (20276058,'Queniquea','Parroquia',20276);
+INSERT INTO LUGAR VALUES (20276059,'Eleazar Lopez Contreras','Parroquia',20276);
+INSERT INTO LUGAR VALUES (20276060,'San Pablo','Parroquia',20276);
+
+--Municipio Torbes
+INSERT INTO LUGAR VALUES (20277061,'San Josecito','Parroquia',20277);
+
+--Munciopio Uribante
+INSERT INTO LUGAR VALUES (20278062,'Pregonero','Parroquia',20278);
+INSERT INTO LUGAR VALUES (20278063,'Cardenas','Parroquia',20278);
+INSERT INTO LUGAR VALUES (20278064,'Juan Pablo Penaloza','Parroquia',20278);
+INSERT INTO LUGAR VALUES (20278065,'Potosi','Parroquia',20278);
+
+
+--Municipio San Judas Tadeo
+INSERT INTO LUGAR VALUES (20279066,'Umuquena','Parroquia',20279);
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+--TRUJILLO
 
 
 --Trujillo 20 - Municipio Andres Bello 21280
@@ -2045,3 +2132,220 @@ INSERT INTO LUGAR VALUES (22300008,'Macuto','Parroquia',22300);
 INSERT INTO LUGAR VALUES (22300009,'Maiquetia','Parroquia',22300);
 INSERT INTO LUGAR VALUES (22300010,'Naiguata','Parroquia',22300);
 INSERT INTO LUGAR VALUES (22300011,'Urimare','Parroquia',22300);
+
+
+--YARACUY
+
+--Municipio Aristides Bastidas
+INSERT INTO LUGAR VALUES (23301001,'San Pablo','Parroquia',23301);
+
+
+--Municipio Bolivar
+INSERT INTO LUGAR VALUES (23302002,'Aroa','Parroquia',23302);
+
+--Municipio Bruzual 
+INSERT INTO LUGAR VALUES (23303003,'Chivacoa','Parroquia',23303);
+INSERT INTO LUGAR VALUES (23303004,'Campo Elias','Parroquia',23303);
+
+--Municipio Cocorote
+INSERT INTO LUGAR VALUES (23304005,'Cocorote','Parroquia',23304);
+
+--Municipio Independecia
+INSERT INTO LUGAR VALUES (23305006,'Independecia','Parroquia',23305);
+
+--Municipio Jose Antoinio paez 
+INSERT INTO LUGAR VALUES (23306007,'Sabana de parra','Parroquia',23306);
+
+--Municpio La trinidad
+INSERT INTO LUGAR VALUES (23307008,'Boraure','Parroquia',23307);
+
+
+--Municipio Manuel Monge
+INSERT INTO LUGAR VALUES (23308009,'Yumare','Parroquia',23308);
+
+--Municipio Nirgua
+INSERT INTO LUGAR VALUES (23309010,'Nirgua','Parroquia',23309);
+INSERT INTO LUGAR VALUES (23309011,'Salom','Parroquia',23309);
+INSERT INTO LUGAR VALUES (23309012,'Temerla','Parroquia',23309);
+
+--municpio Pena
+INSERT INTO LUGAR VALUES (23310013,'Yaritagua','Parroquia',23310);
+INSERT INTO LUGAR VALUES (23310014,'San Andres','Parroquia',23310);
+
+
+--Municipio San Felipe
+INSERT INTO LUGAR VALUES (23311015,'San Felipe','Parroquia',23311);
+INSERT INTO LUGAR VALUES (23311016,'Albarico','Parroquia',23311);
+INSERT INTO LUGAR VALUES (23311017,'San Javier','Parroquia',23311);
+
+--Municipio Sucre
+INSERT INTO LUGAR VALUES (23312018,'Guama','Parroquia',23312);
+
+--Municipio Urachiche
+INSERT INTO LUGAR VALUES (23313019,'Urachiche','Parroquia',23313);
+
+--Municipio Veroes
+INSERT INTO LUGAR VALUES (23314020,'Farriar','Parroquia',23314);
+INSERT INTO LUGAR VALUES (23314021,'El Guayabo','Parroquia',23314);
+
+
+
+
+
+--ZULIA 
+ 
+ --Municipio Almirante Padilla
+ INSERT INTO LUGAR VALUES (24315001,'Isla de Toas','Parroquia',24315);
+ INSERT INTO LUGAR VALUES (24315002,'Monagas','Parroquia',24315);
+
+ --Municipio  Baralt
+INSERT INTO LUGAR VALUES (24316003,'General Urdaneta','Parroquia',24316);
+INSERT INTO LUGAR VALUES (24316004,'Liberatador','Parroquia',24316);
+INSERT INTO LUGAR VALUES (24316005,'Manuel Matos','Parroquia',24316);
+INSERT INTO LUGAR VALUES (24316006,'Marcelino Briceño','Parroquia',24316);
+INSERT INTO LUGAR VALUES (24316007,'Pueblo Nuevo','Parroquia',24316);
+INSERT INTO LUGAR VALUES (24316008,'San Timoteo','Parroquia',24316);
+
+--Municipio Cabimas
+INSERT INTO LUGAR VALUES (24317009,'Ambrosio','Parroquia',24317);
+INSERT INTO LUGAR VALUES (24317010,'Aristides','Parroquia',24317);
+INSERT INTO LUGAR VALUES (24317011,'Carmen Herrera','Parroquia',24317);
+INSERT INTO LUGAR VALUES (24317012,'German Rios Linares','Parroquia',24317);
+INSERT INTO LUGAR VALUES (24317013,'Jorge Hernandez','Parroquia',24317);
+INSERT INTO LUGAR VALUES (24317014,'La Rosa','Parroquia',24317);
+INSERT INTO LUGAR VALUES (24317015,'Punta Gorda','Parroquia',24317);
+INSERT INTO LUGAR VALUES (24317016,'Romulo Betancourt','Parroquia',24317);
+INSERT INTO LUGAR VALUES (24317017,'San Benito','Parroquia',24317);
+
+--Municipio  CataTumbo
+
+INSERT INTO LUGAR VALUES (24318018,'Encontrados','Parroquia',24318);
+INSERT INTO LUGAR VALUES (24318019,'Udon Perez','Parroquia',24318);
+
+--Municipio Colon
+INSERT INTO LUGAR VALUES (24319020,'Moralito','Parroquia',24319);
+INSERT INTO LUGAR VALUES (24319021,'San Carlos del zulia','Parroquia',24319);
+INSERT INTO LUGAR VALUES (24319022,'Santa Barbara','Parroquia',24319);
+INSERT INTO LUGAR VALUES (24319023,'Santa Cruz Del Zulia','Parroquia',24319);
+INSERT INTO LUGAR VALUES (24319024,'Urribarri','Parroquia',24319);
+
+--Municipio Francisco
+INSERT INTO LUGAR VALUES (24320025,'Carlos Quevedo','Parroquia',24320);
+INSERT INTO LUGAR VALUES (24320026,'Francisco J Pulgar','Parroquia',24320);
+INSERT INTO LUGAR VALUES (24320027,'Simon Rodriguez','Parroquia',24320);
+
+--Municipio Jesus Enrigue
+INSERT INTO LUGAR VALUES (24321028,'Jose Ramon Yepez','Parroquia',24321);
+INSERT INTO LUGAR VALUES (24321029,'Concepcion','Parroquia',24321);
+INSERT INTO LUGAR VALUES (24321030,'Mariano Parra Leon','Parroquia',24321);
+INSERT INTO LUGAR VALUES (24321031,'San Jose','Parroquia',24321);
+
+--Municipio Jesus Maria Semprum
+INSERT INTO LUGAR VALUES (24322032,'Bari','Parroquia',24322);
+INSERT INTO LUGAR VALUES (24322033,'Jesus M Semprum','Parroquia',24322);
+
+--Municipio La canada de urdaneta
+INSERT INTO LUGAR VALUES (24323034,'Adnres Bello (KM 48)','Parroquia',24323);
+INSERT INTO LUGAR VALUES (24323035,'Chiquinquira','Parroquia',24323);
+INSERT INTO LUGAR VALUES (24323036,'Concepcion','Parroquia',24323);
+INSERT INTO LUGAR VALUES (24323037,'El Carmelo','Parroquia',24323);
+INSERT INTO LUGAR VALUES (24323038,'Potreritos','Parroquia',24323);
+
+--Municipio la gunillas
+
+INSERT INTO LUGAR VALUES (24324039,'Alonso De Ojeda','Parroquia',24324);
+INSERT INTO LUGAR VALUES (24324040,'Campo Lara','Parroquia',24324);
+INSERT INTO LUGAR VALUES (24324041,'Eleazar Lopez C','Parroquia',24324);
+INSERT INTO LUGAR VALUES (24324042,'Libertad','Parroquia',24324);
+INSERT INTO LUGAR VALUES (24324043,'Venezuela','Parroquia',24324);
+
+--Municipio Mariches de Perija
+INSERT INTO LUGAR VALUES (24325044,'Bartolome de las casas','Parroquia',24325);
+INSERT INTO LUGAR VALUES (24325045,'Libertad','Parroquia',24325);
+INSERT INTO LUGAR VALUES (24325046,'Rio Negro','Parroquia',24325);
+INSERT INTO LUGAR VALUES (24325047,'San Jose de Perija','Parroquia',24325);
+
+--Municipio Mara
+INSERT INTO LUGAR VALUES (24326048,'La Sierrita','Parroquia',24326);
+INSERT INTO LUGAR VALUES (24326049,'Las Parcelas','Parroquia',24326);
+INSERT INTO LUGAR VALUES (24326050,'Luis Vicente','Parroquia',24326);
+INSERT INTO LUGAR VALUES (24326051,'Monseñor Marcos Sergio','Parroquia',24326);
+INSERT INTO LUGAR VALUES (24326052,'Ricaurte','Parroquia',24326);
+INSERT INTO LUGAR VALUES (24326053,'San Rafael','Parroquia',24326);
+INSERT INTO LUGAR VALUES (24326054,'Tamare','Parroquia',24326);
+
+--Municipio Maracaibo
+INSERT INTO LUGAR VALUES (24327055,'Antonio Borjas Romero','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327056,'Bolivar','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327057,'Cacique Mara','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327058,'Caracciolo Parra Perez','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327059,'Cecilio Acosta','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327060,'Chiquinquira','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327061,'Coquivacoa','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327062,'Cristo de Aranza','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327063,'Francisco Eugenio','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327064,'Idelfonzo Vasquez','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327065,'Juana de Avila','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327066,'Luis Hurtado Higuera','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327067,'Manuel Dagnino','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327068,'Olegario Villalobos','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327069,'Raul Leoni','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327070,'San Isidro','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327071,'Santa Lucia','Parroquia',24327);
+INSERT INTO LUGAR VALUES (24327072,'Venancio Pulgar','Parroquia',24327);
+
+--Municipio MIranda
+INSERT INTO LUGAR VALUES (24328073,'Altagracia','Parroquia',24328);
+INSERT INTO LUGAR VALUES (24328074,'Ana Maria Campos','Parroquia',24328);
+INSERT INTO LUGAR VALUES (24328075,'Faria','Parroquia',24328);
+INSERT INTO LUGAR VALUES (24328076,'San Antonio','Parroquia',24328);
+INSERT INTO LUGAR VALUES (24328077,'San Jose','Parroquia',24328);
+
+
+--Municipio Boliviano Guajira
+INSERT INTO LUGAR VALUES (24329078,'Alta Gracia','Parroquia',24329);
+INSERT INTO LUGAR VALUES (24329079,'EliasSanchez Rubio','Parroquia',24329);
+INSERT INTO LUGAR VALUES (24329080,'Guajira','Parroquia',24329);
+INSERT INTO LUGAR VALUES (24329081,'Sinamaica','Parroquia',24329);
+
+--Municipio Rosario de Perija
+
+INSERT INTO LUGAR VALUES (24330082,'Donaldo Garcia','Parroquia',24330);
+INSERT INTO LUGAR VALUES (24330083,'El Rosario','Parroquia',24330);
+INSERT INTO LUGAR VALUES (24330084,'Sixto Zambrano','Parroquia',24330);
+
+
+--Municipio San Francisco
+INSERT INTO LUGAR VALUES (24331085,'Domitila Flores','Parroquia',24331);
+INSERT INTO LUGAR VALUES (24331086,'El Bajo','Parroquia',24331);
+INSERT INTO LUGAR VALUES (24331087,'Francisco Ochoa','Parroquia',24331);
+INSERT INTO LUGAR VALUES (24331088,'Los Cortijos','Parroquia',24331);
+INSERT INTO LUGAR VALUES (24331089,'Marcial Hernandez','Parroquia',24331);
+INSERT INTO LUGAR VALUES (24331090,'San Francisco','Parroquia',24331);
+
+--Municipio San Rita
+INSERT INTO LUGAR VALUES (24332091,'El Mene','Parroquia',24332);
+INSERT INTO LUGAR VALUES (24332092,'Jose Cenovio Urribarri','Parroquia',24332);
+INSERT INTO LUGAR VALUES (24332093,'Pedro Lucas Urribarri','Parroquia',24332);
+INSERT INTO LUGAR VALUES (24332094,'Santa Rita','Parroquia',24332);
+
+--Municipio Simon Bolivar
+INSERT INTO LUGAR VALUES (24333095,'Manuel Enrique','Parroquia',24333);
+INSERT INTO LUGAR VALUES (24333096,'Rafael Maria Baralt','Parroquia',24333);
+INSERT INTO LUGAR VALUES (24333097,'Rafael urdaneta','Parroquia',24333);
+
+--Municipio Sucre
+INSERT INTO LUGAR VALUES (24334098,'Bobures','Parroquia',24334);
+INSERT INTO LUGAR VALUES (24334099,'El Batey','Parroquia',24334);
+INSERT INTO LUGAR VALUES (24334100,'Gibraltar','Parroquia',24334);
+INSERT INTO LUGAR VALUES (24334101,'Heras','Parroquia',24334);
+INSERT INTO LUGAR VALUES (24334102,'Arturo Celestino','Parroquia',24334);
+INSERT INTO LUGAR VALUES (24334103,'Romulo Gallegos','Parroquia',24334);
+
+
+--Municipio Valmore
+INSERT INTO LUGAR VALUES (24335104,'La Victoria','Parroquia',24335);
+INSERT INTO LUGAR VALUES (24335105,'Rafael Urdaneta','Parroquia',24335);
+INSERT INTO LUGAR VALUES (24335106,'Raul Cuenca','Parroquia',24335);
+
+
