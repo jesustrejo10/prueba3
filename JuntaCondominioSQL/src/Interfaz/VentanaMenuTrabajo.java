@@ -6,7 +6,9 @@
 package Interfaz;
 
 import Controlador.VentanaMenuTrabajoControlador;
+import static Controlador.VentanaMenuTrabajoControlador.DevuelvePrecioAlto;
 import static Interfaz.VentanaMenuEdificio.modelo;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -36,7 +38,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
     public static String tipo;
     public static String suceptible;
     DateFormat df = DateFormat.getDateInstance();
-    
+    public static int fase = 1;
     
     
     
@@ -199,7 +201,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                 .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(btnSiguiente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         btnfin.setText("Continuar");
@@ -304,7 +306,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         PanelFechas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rellene las Fechas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Light", 1, 18))); // NOI18N
@@ -362,19 +364,18 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1)))
                     .addComponent(jButton2))
-                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPrincipalLayout.createSequentialGroup()
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
                         .addGap(744, 744, 744)
-                        .addComponent(btnfin)
-                        .addGap(0, 52, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPrincipalLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addComponent(btnfin))
+                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(PanelProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PanelFechas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PanelEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                            .addComponent(PanelFechas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PanelEdificio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         PanelPrincipalLayout.setVerticalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,25 +386,24 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(45, 45, 45)
-                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(32, 32, 32)
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addComponent(PanelFechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(PanelEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(PanelProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PanelEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)
+                        .addComponent(PanelFechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnfin)
                         .addGap(12, 12, 12))
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(30, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -442,17 +442,17 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                               suceptible = "RENCIONIVA";
                     else
                               suceptible = "NORETENCIONIVA";
-                    PanelFechas.setVisible(true);
+                    //PanelFechas.setVisible(true);
                     float PRECIOALTO = 200000;
                     btnSiguiente.setVisible(false);
                     PanelEdificio.setVisible(true);
-                    PanelProveedores.setVisible(true);
+                    //PanelProveedores.setVisible(true);
                     PanelEdificio.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Edificios existentes en el sistema"));
-                    PanelProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Proveedores existentes en el sistema"));
+                    //PanelProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Proveedores existentes en el sistema"));
                     cargarInterfazEdificios();
                     VentanaMenuTrabajoControlador.RellenaTablaEdificiosQL();
-                    cargarInterfazProveedores();
-                    VentanaMenuTrabajoControlador.RellenaTablaProveedores();
+                    //cargarInterfazProveedores();
+                    //VentanaMenuTrabajoControlador.RellenaTablaProveedores();
                     
                     //DEBO BUSCAR EN LA CLAUSULA DEL CONTRATO DEL EDIF A VER CUAL ES EL VALOR ALTO.
                               if (Monto >= PRECIOALTO){
@@ -460,7 +460,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                                         lblrealizacion.setVisible(false);
                                         FechaRealizado.setVisible(false);
                               }
-          }catch(Exception e){
+          }catch(NumberFormatException | SQLException | HeadlessException e){
                 JOptionPane.showMessageDialog(rootPane,"Error ->"+ e.getMessage());
          }
 
@@ -470,12 +470,23 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
 
     private void Tabla2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabla2MouseClicked
 
-          if ((Opcion == 0) && (recarga)){
+          if (((Opcion == 0) && (recarga)) && (fase==1)){
                     recarga = false;
                     PanelEdificio.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Areas Comunes en el Edificio Seleccionado"));
                     int numerofila = Tabla2.getSelectedRow();
+                    float PrecioAlto;
                     String codigo = (String) Tabla2.getValueAt(numerofila,0);
+                    JOptionPane.showMessageDialog(rootPane,codigo);
                     try {
+                              PrecioAlto = DevuelvePrecioAlto(codigo);
+                              
+                              if (Monto >= PrecioAlto){
+                                        JOptionPane.showMessageDialog(rootPane,"Para realizar este trabajo se debe realizar una asamblea.");
+                                        lblrealizacion.setVisible(false);
+                                        FechaRealizado.setVisible(false);
+                              }
+                              
+                              
                               cargarInterfazAreasComunes();
                               VentanaMenuTrabajoControlador.RellenaTablaAreaComun(codigo);
                               
@@ -484,6 +495,8 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                     } catch (SQLException ex) {
                               Logger.getLogger(VentanaMenuTrabajo.class.getName()).log(Level.SEVERE, null, ex);
                     }
+
+          
           }
     }//GEN-LAST:event_Tabla2MouseClicked
 

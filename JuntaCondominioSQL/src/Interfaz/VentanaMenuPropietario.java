@@ -532,13 +532,17 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
                     if (Opcion == 1) {
                     }
                     if (Opcion == 2){
+                        
+                                JOptionPane.showMessageDialog(rootPane,"Entre1");
                               String Clave = TXTClave.getText();
                               String PNombre = TXTPNombre.getText();
                               String SNombre = TXTSNombre.getText();
                               String PApellido =  TXTPApellido.getText();
                               String SApellido = TXTSApellido.getText();
                               String ParroquiaSeleccionada = (String) ComboParroquia.getSelectedItem();
+                              JOptionPane.showMessageDialog(rootPane,"Entre2");
                               ClaveParroquia = Util.Consultar_PKPorNombreParroquia("LUGAR","LUG_CLAVE",ParroquiaSeleccionada,"LUG_NOMBRE",ClaveMunicipio);
+                              JOptionPane.showMessageDialog(rootPane,"Entre3");
                               VentanaMenuPropietarioControlador.ActualizaPropietarioSQL(Clave, PNombre, SNombre, PApellido, SApellido,ClaveParroquia);
                               JOptionPane.showMessageDialog(rootPane,"PropietarioActualizado.");
                               VentanaMenuPropietario reinicia = new VentanaMenuPropietario();

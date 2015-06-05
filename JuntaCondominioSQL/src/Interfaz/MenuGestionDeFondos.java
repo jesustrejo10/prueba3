@@ -263,6 +263,8 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
                               
                               for (String x : Fondos){
                                         if (x.equalsIgnoreCase("1")){
+                                            
+                                                  
                                                   VentanaGestionDeFondosControlador.InsertarContFondosSQL("0", x, VentanaGenerarContrato.ClaveContrato);
                                                   String clave = VentanaGestionDeFondosControlador.DevuelveClave();
                                              //     JOptionPane.showMessageDialog(rootPane,"LA CLAVE ES: "+clave);

@@ -24,7 +24,7 @@ public class VentanaGestionDeFondosControlador {
           public static void InsertarContFondosSQL(String Monto,String FK_FONDO , String FK_Contrato) throws SQLException{
                     ConexionOracle Conexion= new ConexionOracle();
                     Connection Con=Conexion.Conectar();
-                    PreparedStatement pst=  Con.prepareStatement("INSERT INTO CONT_FOND VALUES(sq_pk_fondo_Contrato.NEXTVAL,"+FK_FONDO+","+FK_Contrato+","+Monto+")");
+                    PreparedStatement pst=  Con.prepareStatement("INSERT INTO CONT_FOND VALUES(sq_pk_fondo_Contrato.NEXTVAL,"+FK_Contrato+","+FK_FONDO+","+Monto+")");
                     pst.executeUpdate(); 
    }
           public static void RegistraMontosEnTrabajo(){}

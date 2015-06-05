@@ -135,4 +135,24 @@ public static String DevuelveClaveTrabajo() throws SQLException{
             
     };
 
+
+public static Float DevuelvePrecioAlto(String Clave) throws SQLException{
+ 
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery("select CONT_MONTO " +
+                                                                            " from CONTRATO, EDIFICIO E " +
+                                                                            " WHERE CONTRATO.CONT_FK_EDIFICIO = E.EDI_CLAVE " +
+                                                                            " AND E.EDI_RIF = '"+Clave+"' " +
+                                                                            " AND CONTRATO.CONT_FECHA_EMISION = (SELECT MAX (CONTRATO.CONT_FECHA_EMISION)\n" +
+                                                                                                                            "                                   FROM CONTRATO\n" +
+                                                                                                                            "                                   WHERE CONTRATO.CONT_FK_EDIFICIO = E.EDI_CLAVE)");
+                    while (Valores.next()){ 
+                              return(Valores.getFloat(1));
+                    }
+    return null;
+            
+    };
+
 }

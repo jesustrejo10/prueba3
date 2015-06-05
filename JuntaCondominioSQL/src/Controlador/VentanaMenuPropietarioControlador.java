@@ -55,11 +55,17 @@ public static void insertaPropietarioSQL(String Clave, String PNombre, String SN
 
 public static void ActualizaPropietarioSQL(String Clave, String PNombre, String SNombre, String PApellido , String SApellido , String FK_lugar)throws SQLException{
           ConexionOracle Conexion= new ConexionOracle();
-          Connection Con=Conexion.Conectar();
-          PreparedStatement pst=  Con.prepareStatement("update PROPIETARIO SET PRO_CLAVE="+Clave+",PRO_PNOMBRE = '"+PNombre+"',PRO_SNOMBRE = '"+SNombre+"',PRO_PAPELLIDO = '"+PApellido+"',PRO_SAPELLIDO = '"+SApellido+"',PRO_FK_LUGAR = "+FK_lugar+"" +
-            "WHERE PRO_CLAVE ="+VentanaMenuPropietario.ClaveActualPropietario+"");
-                 
-          pst.executeUpdate();    
+    try (Connection Con = Conexion.Conectar()) {
+        JOptionPane.showMessageDialog(null,"entreee1");
+        PreparedStatement pst=  Con.prepareStatement("update PROPIETARIO SET PRO_CLAVE="+Clave+",PRO_PNOMBRE = '"+PNombre+"',PRO_SNOMBRE = '"+SNombre+"',PRO_PAPELLIDO = '"+PApellido+"',PRO_SAPELLIDO = '"+SApellido+"',PRO_FK_LUGAR = "+FK_lugar+"" +
+                "WHERE PRO_CLAVE ="+VentanaMenuPropietario.ClaveActualPropietario+"");
+        JOptionPane.showMessageDialog(null,"entreee2");
+        
+        pst.executeUpdate();
+        JOptionPane.showMessageDialog(null,"entreee3");
+    }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"Error en"+ex);
+     }
 }
 
 public static void EliminaPropietarioSQL()throws SQLException{
