@@ -26,6 +26,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
     /**
      * Creates new form VentanaMenuTrabajo
      */
+    public static String FK_FONDO;
     public static int Opcion = 0;
     public static DefaultTableModel ModeloProveedor = new DefaultTableModel();
     public static DefaultTableModel ModeloEdificios = new DefaultTableModel();
@@ -39,6 +40,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
     public static String suceptible;
     DateFormat df = DateFormat.getDateInstance();
     public static int fase = 1;
+    public static boolean aprobado = true;
     
     
     
@@ -455,11 +457,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                     //VentanaMenuTrabajoControlador.RellenaTablaProveedores();
                     
                     //DEBO BUSCAR EN LA CLAUSULA DEL CONTRATO DEL EDIF A VER CUAL ES EL VALOR ALTO.
-                              if (Monto >= PRECIOALTO){
-                                        JOptionPane.showMessageDialog(rootPane,"Para realizar este trabajo se debe realizar una asamblea.");
-                                        lblrealizacion.setVisible(false);
-                                        FechaRealizado.setVisible(false);
-                              }
+                    
           }catch(NumberFormatException | SQLException | HeadlessException e){
                 JOptionPane.showMessageDialog(rootPane,"Error ->"+ e.getMessage());
          }
@@ -481,12 +479,24 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                               PrecioAlto = DevuelvePrecioAlto(codigo);
                               
                               if (Monto >= PrecioAlto){
-                                        JOptionPane.showMessageDialog(rootPane,"Para realizar este trabajo se debe realizar una asamblea.");
+                                        aprobado = false;
+                                        JOptionPane.showMessageDialog(rootPane,"Para realizar este trabajo se debe realizar una asamblea  ya que su precio es Elevado.");
                                         lblrealizacion.setVisible(false);
                                         FechaRealizado.setVisible(false);
                               }
-                              
-                              
+                              String option = (String) ComboTipo.getSelectedItem();
+                              if (option.equalsIgnoreCase("MEJORA")){
+                                        FK_FONDO = "3";
+                                        aprobado = false ;
+                                        JOptionPane.showMessageDialog(rootPane,"Para realizar esta Mejora es necesario llevar el tema a una Asamblea.");
+                                        lblrealizacion.setVisible(false);
+                                        FechaRealizado.setVisible(false);
+                              }
+                              else{
+                                        FK_FONDO = "1";
+                                     }
+                              PanelFechas.setVisible(true);
+                              PanelProveedores.setVisible(true);
                               cargarInterfazAreasComunes();
                               VentanaMenuTrabajoControlador.RellenaTablaAreaComun(codigo);
                               
