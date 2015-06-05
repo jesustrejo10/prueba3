@@ -9,10 +9,12 @@ import Interfaz.MenuBienesRaices;
 import Interfaz.VentanaMenuTrabajo;
 import Modelo.ConexionOracle;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -100,8 +102,9 @@ public static void InsertarTrabajoSQL(String fk_proveedor ,String f1, String f2)
            ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
           //DEBERIA INSERTAR EN EL LIBRO DE UNA VEZ!...
-          PreparedStatement pst=  Con.prepareStatement(" insert into TRABAJO (TRA_CLAVE, TRA_DESCRIPCION, TRA_MONTO , TRA_CLASIFICACION , TRA_TIPO , TRA_SUSCEPTIBLE , TRA_FK_PROVEEDORSERVICIO,TRA_F_PROPUESTO , TRA_F_REALIZADO,TRA_REALIZADO) \n" +
+          PreparedStatement pst=  Con.prepareStatement(" insert into TRABAJO (TRA_FK_CONT_FOND,TRA_CLAVE, TRA_DESCRIPCION, TRA_MONTO , TRA_CLASIFICACION , TRA_TIPO , TRA_SUSCEPTIBLE , TRA_FK_PROVEEDORSERVICIO,TRA_F_PROPUESTO , TRA_F_REALIZADO,TRA_REALIZADO, TRA_APROBADO) \n" +
                                                                                                       "VALUES ("
+                  +"                                                                               "+VentanaMenuTrabajo.FK_FONDO+", "
                   + "                                                                              SQ_PK_TRABAJO.NEXTVAL,"
                   + "                                                                              '"+VentanaMenuTrabajo.Descripcion+"',"
                   + "                                                                              "+VentanaMenuTrabajo.Monto+","
@@ -111,7 +114,8 @@ public static void InsertarTrabajoSQL(String fk_proveedor ,String f1, String f2)
                   + "                                                                              "+fk_proveedor+","
                   + "                                                                              TO_DATE('"+f1+"','YYYYMMDD'),"
                   + "                                                                              TO_DATE('"+f2+"','YYYYMMDD'),"
-                  + "                                                                              'NO' )");
+                  + "                                                                              'SI' ,"
+                  + "                                                                              'SI')");
           pst.executeUpdate();    
 }
 
@@ -134,6 +138,49 @@ public static String DevuelveClaveTrabajo() throws SQLException{
           return ("");   
             
     };
+
+public static String DevuelveClaveFondo(String RifEdificio,  String TipoFondo, String FechaEntrada) throws SQLException{
+ 
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery("select CF.CF_CLAVE \n" +
+                                                                            " from CONT_FOND CF, CONTRATO CON, EDIFICIO E, FONDO F \n" +
+                                                                            " WHERE \n" +
+                                                                            "    CF.CF_FK_CONTRATO = CON.CONT_CLAVE \n" +
+                                                                            "    AND CF.CF_FK_FONDO = F.FON_CLAVE \n" +
+                                                                            "    AND CON.CONT_FK_EDIFICIO = E.EDI_CLAVE\n" +
+                                                                            "    AND CON.CONT_FECHA_EMISION = '"+FechaEntrada+"' \n" +
+                                                                            "    AND                              \n" +
+                                                                            "    E.EDI_RIF = '"+RifEdificio+"' \n" +
+                                                                            "    AND F.FON_CLAVE = "+TipoFondo+"  ");
+                    while (Valores.next()){ 
+                              return(Integer.toString(Valores.getInt(1)));
+                    }
+          return ("");   
+            
+    };
+public static String DevuelveFechaMaximaContrato(String RifEdificio) throws SQLException{
+ 
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery(" SELECT MAX(CON.CONT_FECHA_EMISION)       \n" +
+                                                                            " FROM CONTRATO CON, EDIFICIO E    \n" +
+                                                                            " WHERE CON.CONT_FK_EDIFICIO = E.EDI_CLAVE AND \n" +
+                                                                            " E.EDI_RIF = '"+RifEdificio+"' ");
+                    while (Valores.next()){ 
+                              Date Rc = Valores.getDate(1);
+                              String fuera = Rc.toString();
+                              JOptionPane.showMessageDialog(null,"Fecha Salida ="+fuera);
+                        return(fuera);
+                    }
+          return ("");   
+            
+    };
+
+
+
 
 
 public static Float DevuelvePrecioAlto(String Clave) throws SQLException{

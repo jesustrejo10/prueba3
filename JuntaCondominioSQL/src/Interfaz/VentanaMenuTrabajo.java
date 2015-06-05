@@ -495,11 +495,19 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                               else{
                                         FK_FONDO = "1";
                                      }
+                              String negrox = VentanaMenuTrabajoControlador.DevuelveFechaMaximaContrato(codigo);
+                              String[] pba = negrox.split("-");
+                              negrox = pba[2]+"/" +pba[1]+"/"+pba[0];
+                              JOptionPane.showMessageDialog(null,negrox);
+                              FK_FONDO = VentanaMenuTrabajoControlador.DevuelveClaveFondo(codigo, FK_FONDO, negrox);
+                              JOptionPane.showMessageDialog(rootPane,"La Clave del CONTFOND es:"+FK_FONDO);
                               PanelFechas.setVisible(true);
                               PanelProveedores.setVisible(true);
                               cargarInterfazAreasComunes();
                               VentanaMenuTrabajoControlador.RellenaTablaAreaComun(codigo);
-                              
+                              cargarInterfazProveedores();
+                              VentanaMenuTrabajoControlador.RellenaTablaProveedores();
+                    
                               
                               
                     } catch (SQLException ex) {
@@ -534,21 +542,37 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
     private void btnfinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfinActionPerformed
            try{
                     if (Opcion == 0){
+                 String FechaPropuestoString = "";
+                 String FechaRealizadoString = "";
+                        try{
                               String Fpropuesto = df.format(FechaPropuesto.getDate());
-                              String FechaPropuestoString = ConvierteFechas(Fpropuesto);
+                              FechaPropuestoString = ConvierteFechas(Fpropuesto);
+                            }catch(Exception e){}
+                            try{
                               String FRealizado = df.format(FechaRealizado.getDate());
-                              String FechaRealizadoString = ConvierteFechas(FRealizado);
+                              FechaRealizadoString = ConvierteFechas(FRealizado);
+                            }catch(Exception e){
+                            }
+                            if (aprobado){
+                                        String ClaveFondo = "";
+                                        int ColumnaSeleccionadaTablaProveedores = Tabla.getSelectedRow();
+                                        String ClaveProveedorSeleccionado = (String)Tabla.getValueAt(ColumnaSeleccionadaTablaProveedores,0);
+                                        VentanaMenuTrabajoControlador.InsertarTrabajoSQL(ClaveProveedorSeleccionado,FechaPropuestoString,FechaRealizadoString);
+                                        int columnaSeleccionadaTablaAreaDet = Tabla2.getSelectedRow();
+                                        String ClaveAreaDet =((String)Tabla2.getValueAt(columnaSeleccionadaTablaAreaDet,0));
+                                        JOptionPane.showMessageDialog(null, ClaveAreaDet);
+                                        String ClaveTrabajoActual = VentanaMenuTrabajoControlador.DevuelveClaveTrabajo();
+                                        VentanaMenuTrabajoControlador.InsertarAD_TRASQL(ClaveTrabajoActual, ClaveAreaDet);
+                                        JOptionPane.showMessageDialog(rootPane,"Trabajo Agregado Correctamente");
+                                        VentanaMenuTrabajo  refresh = new VentanaMenuTrabajo();
+                                        refresh.setVisible(true);
+                                        this.dispose();
+                            }
+                            
+                            
                               
-                              int ColumnaSeleccionadaTablaProveedores = Tabla.getSelectedRow();
-                              String ClaveProveedorSeleccionado = (String)Tabla.getValueAt(ColumnaSeleccionadaTablaProveedores,0);
                               //String ClaveProveedorSeleccionadoString = Integer.toString(ClaveProveedorSeleccionado);
                               //JOptionPane.showMessageDialog(rootPane, FechaPropuestoString+"->"+FechaRealizadoString);
-                              VentanaMenuTrabajoControlador.InsertarTrabajoSQL(ClaveProveedorSeleccionado,FechaPropuestoString,FechaRealizadoString);
-                              int columnaSeleccionadaTablaAreaDet = Tabla2.getSelectedRow();
-                              String ClaveAreaDet =((String)Tabla2.getValueAt(columnaSeleccionadaTablaAreaDet,0));
-                              JOptionPane.showMessageDialog(null, ClaveAreaDet);
-                              String ClaveTrabajoActual = VentanaMenuTrabajoControlador.DevuelveClaveTrabajo();
-                              VentanaMenuTrabajoControlador.InsertarAD_TRASQL(ClaveTrabajoActual, ClaveAreaDet);
                               
                     }
            }catch(Exception e){
