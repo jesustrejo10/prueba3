@@ -385,13 +385,6 @@ public void cargarInterfazOficina(){
                     String NombreEdifSelec = (String)Tabla2.getValueAt(num2,1);
                     String ClaveEdificio = VentanaGenerarContratoControlador.ConsultaClaveEdificioSeleccionadoSQL2(NombreEdifSelec, RifEdificioSelec);
                     
-                    /*
-                    JOptionPane.showMessageDialog(rootPane, MontoElevado);
-                    JOptionPane.showMessageDialog(rootPane, FechaString);
-                    JOptionPane.showMessageDialog(rootPane, FechaString2);
-                    JOptionPane.showMessageDialog(rootPane, ClaveOficina);
-                    JOptionPane.showMessageDialog(rootPane, ClaveEdificio);
-                    */
                     VentanaGenerarContratoControlador.RegistrarContratoSQL(Float.toString(MontoElevado), FechaString, FechaString2, ClaveOficina,ClaveEdificio);
                     ClaveContrato = VentanaGenerarContratoControlador.ConsultaClaveContrato();
                     VentanaGenerarContratoControlador.RegistrarLibro("OFICINA", ClaveContrato);

@@ -36,8 +36,8 @@ public class VentanaGestionDeFondosControlador {
            ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
           //DEBERIA INSERTAR EN EL LIBRO DE UNA VEZ!...
-          PreparedStatement pst=  Con.prepareStatement(" insert into TRABAJO (TRA_CLAVE, TRA_FK_CONT_FOND,TRA_DESCRIPCION, TRA_MONTO , TRA_CLASIFICACION , TRA_TIPO , TRA_SUSCEPTIBLE , TRA_FK_OFICINA,TRA_F_PROPUESTO , TRA_F_REALIZADO,TRA_REALIZADO) \n" +
-                                                                                                      "VALUES ("
+          PreparedStatement pst=  Con.prepareStatement(" insert into TRABAJO (TRA_APROBADO,TRA_CLAVE, TRA_FK_CONT_FOND,TRA_DESCRIPCION, TRA_MONTO , TRA_CLASIFICACION , TRA_TIPO , TRA_SUSCEPTIBLE , TRA_FK_OFICINA,TRA_F_PROPUESTO , TRA_F_REALIZADO,TRA_REALIZADO) \n" +
+                                                                                                      "VALUES ( 'SI',"
                   + "                                                                              SQ_PK_TRABAJO.NEXTVAL,"
                   +"                                                                                "+FK_fondo+","
                   + "                                                                              'CREACION DE FONDO',"
@@ -49,7 +49,9 @@ public class VentanaGestionDeFondosControlador {
                   + "                                                                              TO_DATE('"+VentanaGenerarContrato.FechaRealizado+"','YYYYMMDD'),"
                   + "                                                                              TO_DATE('"+VentanaGenerarContrato.FechaRealizado+"','YYYYMMDD'),"
                   + "                                                                              'SI' )");
+         
           pst.executeUpdate();    
+          Con.close();
 }
 
 

@@ -247,25 +247,21 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
             PanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelProveedoresLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8)
-                .addContainerGap(333, Short.MAX_VALUE))
-            .addGroup(PanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PanelProveedoresLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addGroup(PanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                    .addGroup(PanelProveedoresLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         PanelProveedoresLayout.setVerticalGroup(
             PanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelProveedoresLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel8)
-                .addGap(209, 209, 209))
-            .addGroup(PanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelProveedoresLayout.createSequentialGroup()
-                    .addContainerGap(31, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(22, 22, 22)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PanelEdificio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla de Edificios Existentes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Medium", 0, 18))); // NOI18N
@@ -296,19 +292,20 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
             PanelEdificioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelEdificioLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(PanelEdificioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addComponent(jLabel9)
+                .addContainerGap(309, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelEdificioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
         PanelEdificioLayout.setVerticalGroup(
             PanelEdificioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelEdificioLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PanelFechas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rellene las Fechas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Light", 1, 18))); // NOI18N
@@ -391,9 +388,9 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PanelProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PanelEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(PanelEdificio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PanelProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(15, 15, 15)
                         .addComponent(PanelFechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -567,6 +564,23 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                                         VentanaMenuTrabajo  refresh = new VentanaMenuTrabajo();
                                         refresh.setVisible(true);
                                         this.dispose();
+                            }else{
+                                        int ColumnaSeleccionadaTablaProveedores = Tabla.getSelectedRow();
+                                        String ClaveProveedorSeleccionado = (String)Tabla.getValueAt(ColumnaSeleccionadaTablaProveedores,0);
+                                        
+                                        VentanaMenuTrabajoControlador.InsertarTrabajoNoAprobadoSQL(ClaveProveedorSeleccionado,FechaPropuestoString);
+                                        int columnaSeleccionadaTablaAreaDet = Tabla2.getSelectedRow();
+                                        String ClaveAreaDet =((String)Tabla2.getValueAt(columnaSeleccionadaTablaAreaDet,0));
+                                        JOptionPane.showMessageDialog(null, ClaveAreaDet);
+                                        String ClaveTrabajoActual = VentanaMenuTrabajoControlador.DevuelveClaveTrabajo();
+                                        VentanaMenuTrabajoControlador.InsertarAD_TRASQL(ClaveTrabajoActual, ClaveAreaDet);
+                                        JOptionPane.showMessageDialog(rootPane,"Trabajo Agregado a la lista de Por Aprobar Correctamente");
+                                        VentanaMenuTrabajo  refresh = new VentanaMenuTrabajo();
+                                        refresh.setVisible(true);
+                                        this.dispose();
+                                    
+                            
+                            
                             }
                             
                             

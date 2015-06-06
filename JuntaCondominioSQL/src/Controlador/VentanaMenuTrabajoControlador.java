@@ -119,6 +119,26 @@ public static void InsertarTrabajoSQL(String fk_proveedor ,String f1, String f2)
           pst.executeUpdate();    
 }
 
+public static void InsertarTrabajoNoAprobadoSQL(String fk_proveedor ,String f1) throws SQLException{
+           ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          //DEBERIA INSERTAR EN EL LIBRO DE UNA VEZ!...
+          PreparedStatement pst=  Con.prepareStatement(" insert into TRABAJO (TRA_FK_CONT_FOND,TRA_CLAVE, TRA_DESCRIPCION, TRA_MONTO , TRA_CLASIFICACION , TRA_TIPO , TRA_SUSCEPTIBLE , TRA_FK_PROVEEDORSERVICIO,TRA_F_PROPUESTO ,TRA_REALIZADO, TRA_APROBADO) \n" +
+                                                                                                      "VALUES ("
+                  +"                                                                               "+VentanaMenuTrabajo.FK_FONDO+", "
+                  + "                                                                              SQ_PK_TRABAJO.NEXTVAL,"
+                  + "                                                                              '"+VentanaMenuTrabajo.Descripcion+"',"
+                  + "                                                                              "+VentanaMenuTrabajo.Monto+","
+                  + "                                                                              '"+VentanaMenuTrabajo.Clasificacion+"',"
+                  + "                                                                              '"+VentanaMenuTrabajo.tipo+"',"
+                  + "                                                                              '"+VentanaMenuTrabajo.suceptible+"',"
+                  + "                                                                              "+fk_proveedor+","
+                  + "                                                                              TO_DATE('"+f1+"','YYYYMMDD'),"
+                  + "                                                                              'NO' ,"
+                  + "                                                                              'NO')");
+          pst.executeUpdate();    
+}
+
 public static void InsertarAD_TRASQL(String fk_trabajo, String fk_AD) throws SQLException{
           ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
