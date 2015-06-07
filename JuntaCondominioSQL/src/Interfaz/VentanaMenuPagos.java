@@ -9,6 +9,10 @@ package Interfaz;
 import Controlador.MenuBienesRaicesControlador;
 import Controlador.VentanaGestionCuentaControlador;
 import Controlador.VentanaMenuPagoControlador;
+import static Controlador.VentanaMenuPagoControlador.ActualizarFondos;
+import static Controlador.VentanaMenuPagoControlador.ActualizarFondos2;
+import static Controlador.VentanaMenuPagoControlador.ActualizarFondos3;
+import static Controlador.VentanaMenuPagoControlador.RellenaTablaContratos;
 import static Interfaz.MenuBienesRaices.ModeloApartamentosComprados;
 import static Interfaz.MenuBienesRaices.Opcion;
 import static Interfaz.VentanaGestionCuenta.ModeloAvisos;
@@ -22,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Luis
+ * @author Jesus
  */
 public class VentanaMenuPagos extends javax.swing.JFrame {
 
@@ -31,6 +35,9 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
     public static DefaultTableModel modeloPropietarios = new DefaultTableModel();
     public static DefaultTableModel ModeloAvisos = new DefaultTableModel();
     public static DefaultTableModel modeloApt = new DefaultTableModel();
+    public static DefaultTableModel modeloContratos = new DefaultTableModel();
+    public static DefaultTableModel ModeloTrabajos = new DefaultTableModel();
+    
     public static int cont;
     public static String Monto="25000";
     public static String ClaveAvisoCobro="1";
@@ -41,6 +48,11 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
     DateFormat df = DateFormat.getDateInstance();
     public static String ClaveAptSeleccionado;
     public static String ClaveContFond;
+    public static String ClavePropietarioSeleccionado;
+    public static String ClaveContrato;
+    public static String ClaveTrabajo;
+    public static String ClaveOficina;
+    
     
     /**
      * Creates new form VentanaMenuPagos
@@ -53,6 +65,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
           PanelPago.setVisible(false);
           PanelCheque.setVisible(false);
           PanelTarjet.setVisible(false);
+          
     }
 
       public void cargarInterfazPropietarios(){
@@ -60,6 +73,20 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         String columnas[]={"Identificacion","Nombre","Apellido","Direccion"};
         modeloPropietarios = new DefaultTableModel(x, columnas);
         Tabla1.setModel(modeloPropietarios);
+    }
+
+      public void cargarInterfazContratosVigentes(){
+        String x[][]={};
+        String columnas[]={"ContratoVigente","Rif Edifcio","Nombre Edif","Direccion"};
+        modeloContratos = new DefaultTableModel(x, columnas);
+        Tabla1.setModel(modeloContratos);
+    }
+      
+     public void cargarInterfazTrabajos(){
+        String x[][]={};
+        String columnas[]={"ID Trabajo","Clasificacion","Descripcion","Proveedor","Monto"};
+        ModeloTrabajos = new DefaultTableModel(x, columnas);
+        Tabla1.setModel(ModeloTrabajos);
     }
       
       public void CargarInterfazApartamentosComprados(){
@@ -115,12 +142,12 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         PanelInfo = new javax.swing.JPanel();
         lblPNombre = new javax.swing.JLabel();
-        Label3 = new javax.swing.JLabel();
+        lbltrabajo = new javax.swing.JLabel();
         lblPape = new javax.swing.JLabel();
         LblClaveApt = new javax.swing.JLabel();
-        Label1 = new javax.swing.JLabel();
-        Label2 = new javax.swing.JLabel();
-        Label4 = new javax.swing.JLabel();
+        LabelNombre = new javax.swing.JLabel();
+        LabelApe = new javax.swing.JLabel();
+        lblprov = new javax.swing.JLabel();
         Lbldireccion = new javax.swing.JLabel();
         LblMonto = new javax.swing.JLabel();
         LabelMonto = new javax.swing.JLabel();
@@ -169,7 +196,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         lblPNombre.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         lblPNombre.setText("jLabel1");
 
-        Label3.setText("Apartamento #");
+        lbltrabajo.setText("Apartamento #");
 
         lblPape.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         lblPape.setText("jLabel3");
@@ -177,11 +204,11 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         LblClaveApt.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         LblClaveApt.setText("jLabel4");
 
-        Label1.setText("PrimerNombre:");
+        LabelNombre.setText("PrimerNombre:");
 
-        Label2.setText("Primer Apellido:");
+        LabelApe.setText("Primer Apellido:");
 
-        Label4.setText("Direccion");
+        lblprov.setText("Direccion");
 
         Lbldireccion.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         Lbldireccion.setText("jLabel1");
@@ -198,23 +225,26 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
             PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelInfoLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(PanelInfoLayout.createSequentialGroup()
+                        .addComponent(LabelApe, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblPape, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelInfoLayout.createSequentialGroup()
+                        .addComponent(LabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(27, 27, 27)
+                .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbltrabajo)
+                    .addComponent(lblprov, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelInfoLayout.createSequentialGroup()
-                        .addComponent(Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addComponent(Lbldireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelInfoLayout.createSequentialGroup()
-                        .addComponent(Label2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblPape, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Label3)
-                    .addComponent(Label4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LblClaveApt, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lbldireccion))
+                        .addComponent(LblClaveApt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInfoLayout.createSequentialGroup()
@@ -230,21 +260,20 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelInfoLayout.createSequentialGroup()
+                        .addComponent(LabelNombre)
+                        .addGap(21, 21, 21)
                         .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Label1)
-                            .addComponent(lblPNombre))
-                        .addGap(20, 20, 20)
-                        .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Label2)
+                            .addComponent(LabelApe)
                             .addComponent(lblPape)))
                     .addGroup(PanelInfoLayout.createSequentialGroup()
                         .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Label4)
+                            .addComponent(lblprov)
                             .addComponent(Lbldireccion)
-                            .addComponent(LabelMonto))
+                            .addComponent(LabelMonto)
+                            .addComponent(lblPNombre))
                         .addGap(18, 18, 18)
                         .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Label3)
+                            .addComponent(lbltrabajo)
                             .addComponent(LblClaveApt)
                             .addComponent(LblMonto))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -383,8 +412,8 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 66, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -404,7 +433,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione"));
 
-        ComboPago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TARJETA", "CHEQUE", "COMBINADO" }));
+        ComboPago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CHEQUE", "TARJETA", "COMBINADO" }));
 
         SeleccionCombo.setText("Seleccionar");
         SeleccionCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -457,13 +486,12 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                     .addGroup(PanelPagoLayout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPagoLayout.createSequentialGroup()
                         .addComponent(PanelTarjet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(PanelCheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))))
+                        .addComponent(PanelCheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPagoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(BTNPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -487,7 +515,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione la Operacion a Realizar"));
 
-        ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Realizar Pago Aviso de Cobro" }));
+        ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Realizar Pago Aviso de Cobro", "Realizar Pago de Trabajos" }));
 
         jButton1.setText("Seleccionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -622,8 +650,19 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                     } catch (SQLException ex) {
                                Logger.getLogger(VentanaMenuPagos.class.getName()).log(Level.SEVERE, null, ex);
                     }
+          }if (Opcion ==1){
+                    Panel1.setVisible(true);
+                    cargarInterfazContratosVigentes();
+                    try {
+                              RellenaTablaContratos();
+                    } catch (SQLException ex) {
+                              Logger.getLogger(VentanaMenuPagos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+          
           }
-        
+          
+          
+          
         
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -634,6 +673,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                     Fase = 2;
                     int fila  = Tabla1.getSelectedRow();
                     String ClavePropietario = (String)Tabla1.getValueAt(fila,0);
+                    ClavePropietarioSeleccionado = ClavePropietario;
                     lblPNombre.setText((String)Tabla1.getValueAt(fila, 1));
                     lblPape.setText((String)Tabla1.getValueAt(fila, 2));
                     Lbldireccion.setText((String)Tabla1.getValueAt(fila, 3));
@@ -668,17 +708,62 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                     LblMonto.setText(Float.toString(n));
                     PanelPago.setVisible(true);
           }
-          
+          if ((Opcion == 1) && (Fase == 1)&& ( Tabla1.getSelectedRows().length > 0 ) ){
+                    //PanelInfo.setVisible(true);
+                    LabelNombre.setText("Rif Edificio");
+                    LabelNombre.setText("Nombre Edificio");
+                    Fase = 2;
+                    int fila  = Tabla1.getSelectedRow();
+                    ClaveContrato =Integer.toString((Integer)Tabla1.getValueAt(fila,0));
+                    
+                    
+                    
+                    lblPNombre.setText((String)Tabla1.getValueAt(fila, 1));
+                    lblPape.setText((String)Tabla1.getValueAt(fila, 2));
+                    Lbldireccion.setText((String)Tabla1.getValueAt(fila, 3));
+                    cargarInterfazTrabajos();
+                    try {
+                              VentanaMenuPagoControlador.RellenaTablaTrabajos();
+                              Panel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Trabajos Pertenecientes AL Edificio"));
+                              
+                    } catch (SQLException ex) {
+                              Logger.getLogger(MenuBienesRaices.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+          }
+          if ((Opcion == 1) && (Fase == 2)&& ( Tabla1.getSelectedRows().length > 0 ) ){
+                    PanelInfo.setVisible(true);
+                    LabelNombre.setText("Tipo de Trabajo");
+                    LabelApe.setText("Descripcion del Trabajo");
+                    lblprov.setText("Nombre Proveedor");
+                    lbltrabajo.setText("ClaveTrabajo");
+                    int fila  = Tabla1.getSelectedRow();
+                    ClaveTrabajo =Integer.toString((Integer)Tabla1.getValueAt(fila,0));
+                    LblClaveApt.setText(ClaveTrabajo);
+                    PanelPago.setVisible(true);
+                    ComboPago.setEnabled(false);
+                    lblPNombre.setText((String)Tabla1.getValueAt(fila, 1));
+                    lblPape.setText((String)Tabla1.getValueAt(fila, 2));
+                    Lbldireccion.setText((String)Tabla1.getValueAt(fila, 3));
+                    String p =(((String) Tabla1.getValueAt(fila,4)));
+                    LblMonto.setText((p));
+                    Monto = (p);
+                    //Monto=Float.toStr();
+                    
+          }
+
+
+       
+           
     }//GEN-LAST:event_Tabla1MouseClicked
 
     private void SeleccionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionComboActionPerformed
 
-          if((ComboPago.getSelectedIndex() == 0))
+          if((ComboPago.getSelectedIndex() == 1))
           {    
                     PanelTarjet.setVisible(true);
                     PanelCheque.setVisible(false);
           }
-          if((ComboPago.getSelectedIndex() == 1))
+          if((ComboPago.getSelectedIndex() == 0))
           {    
                     PanelTarjet.setVisible(false);
                     PanelCheque.setVisible(true);
@@ -696,7 +781,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
 
     private void BTNPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNPagarActionPerformed
           boolean error = false;
-          if((ComboPago.getSelectedIndex() == 0))
+          if((ComboPago.getSelectedIndex() == 1))
           {    
                     float PrecioTotal = Float.parseFloat(LblMonto.getText());
                     float MontoTarjeta = Float.parseFloat(TXTMontoConTarjeta.getText());
@@ -729,7 +814,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                     }
                         
           }
-          if((ComboPago.getSelectedIndex() == 1))
+          if((ComboPago.getSelectedIndex() == 0))
           {    
                     float PrecioTotal = Float.parseFloat(LblMonto.getText());
                     float MontoTarjeta = Float.parseFloat(TXTMontoCheque.getText());
@@ -814,12 +899,47 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                         
                     
           }
-          String FechaInicio = df.format(Fecha.getDate());
-          String FechaString = ConvierteFechas(FechaInicio);
-          String Description = txtDescrip.getText();
-          String Monto = LblMonto.getText();
-
-// TODO add your handling code here:
+          if (!error){
+                    if(Opcion == 0){
+                              String FechaInicio = df.format(Fecha.getDate());
+                              String FechaString = ConvierteFechas(FechaInicio);
+                              String Description = txtDescrip.getText();
+                              String Monto = LblMonto.getText();
+                              JOptionPane.showMessageDialog(LabelCombo1,"ClaveTarjeta"+ClaveTarjeta);
+                              JOptionPane.showMessageDialog(LabelCombo1,"ClaveCheque"+ClaveCheque);
+                              try {
+                                        VentanaMenuPagoControlador.CalcularClaveContFondo();
+                                        VentanaMenuPagoControlador.InsertarPAGOSQL(Monto, FechaString,ClaveContFond, ClavePropietarioSeleccionado,  ClaveCheque,ClaveTarjeta,Description);
+                                        ActualizarFondos(Float.parseFloat(Monto));
+                                        JOptionPane.showMessageDialog(LabelCombo1,"Aviso Pagado Correctamente");
+                                        VentanaMenuPagos nuevo = new VentanaMenuPagos();
+                                        nuevo.setVisible(true);
+                                        this.dispose();
+                              } catch (SQLException ex) {
+                                        Logger.getLogger(VentanaMenuPagos.class.getName()).log(Level.SEVERE, null, ex);
+                              }
+                    }
+                    if(Opcion == 1){
+                              String FechaInicio = df.format(Fecha.getDate());
+                              String FechaString = ConvierteFechas(FechaInicio);
+                              String Description = txtDescrip.getText();
+                              String Monto = LblMonto.getText();
+                              JOptionPane.showMessageDialog(LabelCombo1,"ClaveTarjeta"+ClaveTarjeta);
+                              JOptionPane.showMessageDialog(LabelCombo1,"ClaveCheque"+ClaveCheque);
+                              try {
+                                        VentanaMenuPagoControlador.CalcularClaveContFondo();
+                                        VentanaMenuPagoControlador.InsertarPAGOS2QL(Monto, FechaString,ClaveContFond, ClaveOficina,  ClaveCheque,ClaveTarjeta,Description);
+                                        ActualizarFondos2(Float.parseFloat(Monto));
+                                        ActualizarFondos3();
+                                        JOptionPane.showMessageDialog(LabelCombo1,"Trabajo Pagado Correctamente");
+                                        VentanaMenuPagos nuevo = new VentanaMenuPagos();
+                                        nuevo.setVisible(true);
+                                        this.dispose();
+                              } catch (SQLException ex) {
+                                        Logger.getLogger(VentanaMenuPagos.class.getName()).log(Level.SEVERE, null, ex);
+                              }
+                    }
+          }
     }//GEN-LAST:event_BTNPagarActionPerformed
 
     
@@ -874,10 +994,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
     private javax.swing.JComboBox ComboPago;
     private javax.swing.JComboBox ComboTipo;
     private com.toedter.calendar.JDateChooser Fecha;
-    private javax.swing.JLabel Label1;
-    private javax.swing.JLabel Label2;
-    private javax.swing.JLabel Label3;
-    private javax.swing.JLabel Label4;
+    private javax.swing.JLabel LabelApe;
     private javax.swing.JLabel LabelCombo1;
     private javax.swing.JLabel LabelCombo2;
     private javax.swing.JLabel LabelCombo3;
@@ -885,6 +1002,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
     private javax.swing.JLabel LabelMonto;
     private javax.swing.JLabel LabelMontoCheque;
     private javax.swing.JLabel LabelMontoTarjeta;
+    private javax.swing.JLabel LabelNombre;
     private javax.swing.JLabel LblClaveApt;
     private javax.swing.JLabel LblMonto;
     private javax.swing.JLabel Lbldireccion;
@@ -912,6 +1030,8 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPNombre;
     private javax.swing.JLabel lblPape;
+    private javax.swing.JLabel lblprov;
+    private javax.swing.JLabel lbltrabajo;
     private javax.swing.JTextField txtDescrip;
     // End of variables declaration//GEN-END:variables
 }

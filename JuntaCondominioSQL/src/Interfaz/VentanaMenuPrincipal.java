@@ -9,7 +9,11 @@ import Modelo.Util;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -22,6 +26,16 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
      */
     public VentanaMenuPrincipal() throws SQLException {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());    
+
         BTNUsuarios.setEnabled(false);
         BTNPropietario.setEnabled (false);
         BTN2.setEnabled(false);
@@ -82,6 +96,12 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        btnReclamos = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        btnLibros = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,6 +196,33 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setText("Menu Reclamos");
+
+        btnReclamos.setText("Reclamos");
+        btnReclamos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReclamosActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Menu Libros");
+
+        btnLibros.setText("Libros");
+        btnLibros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLibrosActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Gestion de Pagos");
+
+        jButton5.setText("Pagos");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,15 +248,21 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(BTN2)
                             .addComponent(jLabel4)
-                            .addComponent(BtnContrato))
+                            .addComponent(BtnContrato)
+                            .addComponent(jLabel8)
+                            .addComponent(btnReclamos))
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblprop)
                             .addComponent(BTNPropietario)
                             .addComponent(jLabel5)
-                            .addComponent(BtnTrabajo))
+                            .addComponent(BtnTrabajo)
+                            .addComponent(jLabel9)
+                            .addComponent(btnLibros))
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton5)
+                            .addComponent(jLabel10)
                             .addComponent(jButton1)
                             .addComponent(jLabel6)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -247,9 +300,17 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(BtnTrabajo)
                     .addComponent(jButton1))
                 .addGap(41, 41, 41)
-                .addComponent(jLabel7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(btnReclamos)
+                    .addComponent(btnLibros)
+                    .addComponent(jButton5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(LogOut)
                 .addContainerGap())
@@ -349,6 +410,29 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnReclamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReclamosActionPerformed
+          VentanaMenuReclamo nueva = new VentanaMenuReclamo();
+          nueva.setVisible(true);
+          this.dispose();
+        
+    }//GEN-LAST:event_btnReclamosActionPerformed
+
+    private void btnLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrosActionPerformed
+        VentanaMenuLibro nueva = new VentanaMenuLibro();
+        nueva.setVisible(true);
+        this.dispose();
+                
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnLibrosActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+            VentanaMenuPagos nueva = new VentanaMenuPagos();
+            nueva.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     public static void ActivaPermisos(String Usu) throws SQLException{
         String PKUsuario =Util.Consultar_PKPorNombre("USUARIO", "USU_CLAVE",Usu,"USU_USUARIO");
         //JOptionPane.showMessageDialog(null,"PASO 01 CON :"+PKUsuario);
@@ -406,16 +490,22 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel LBLTituloPrincipal;
     private javax.swing.JLabel LBLUsuarios;
     private javax.swing.JButton LogOut;
+    private javax.swing.JButton btnLibros;
+    private javax.swing.JButton btnReclamos;
     private javax.swing.JButton btnbienes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblprop;
     // End of variables declaration//GEN-END:variables
 }

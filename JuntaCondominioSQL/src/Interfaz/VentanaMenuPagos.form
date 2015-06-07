@@ -110,27 +110,32 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="Label1" min="-2" pref="122" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblPNombre" min="-2" pref="94" max="-2" attributes="0"/>
+                              <Component id="LabelApe" min="-2" pref="122" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblPape" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="Label2" min="-2" pref="122" max="-2" attributes="0"/>
+                              <Component id="LabelNombre" min="-2" pref="122" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblPape" min="-2" pref="123" max="-2" attributes="0"/>
+                              <Component id="lblPNombre" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Label3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Label4" min="-2" pref="73" max="-2" attributes="0"/>
+                          <Component id="lbltrabajo" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblprov" min="-2" pref="73" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="LblClaveApt" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="Lbldireccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="Lbldireccion" min="-2" pref="102" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="LblClaveApt" min="-2" pref="91" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -152,25 +157,23 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <Component id="LabelNombre" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Label1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblPNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Label2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelApe" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblPape" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Label4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblprov" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="Lbldireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="LabelMonto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Label3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbltrabajo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="LblClaveApt" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="LblMonto" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -190,7 +193,7 @@
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Label3">
+            <Component class="javax.swing.JLabel" name="lbltrabajo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Apartamento #"/>
               </Properties>
@@ -211,17 +214,17 @@
                 <Property name="text" type="java.lang.String" value="jLabel4"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Label1">
+            <Component class="javax.swing.JLabel" name="LabelNombre">
               <Properties>
                 <Property name="text" type="java.lang.String" value="PrimerNombre:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Label2">
+            <Component class="javax.swing.JLabel" name="LabelApe">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Primer Apellido:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Label4">
+            <Component class="javax.swing.JLabel" name="lblprov">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Direccion"/>
               </Properties>
@@ -521,8 +524,8 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Fecha" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Fecha" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="66" max="32767" attributes="0"/>
                               </Group>
@@ -616,8 +619,8 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="3">
-                        <StringItem index="0" value="TARJETA"/>
-                        <StringItem index="1" value="CHEQUE"/>
+                        <StringItem index="0" value="CHEQUE"/>
+                        <StringItem index="1" value="TARJETA"/>
                         <StringItem index="2" value="COMBINADO"/>
                       </StringArray>
                     </Property>
@@ -685,8 +688,9 @@
             <Component class="javax.swing.JComboBox" name="ComboOpcion">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="1">
+                  <StringArray count="2">
                     <StringItem index="0" value="Realizar Pago Aviso de Cobro"/>
+                    <StringItem index="1" value="Realizar Pago de Trabajos"/>
                   </StringArray>
                 </Property>
               </Properties>

@@ -16,11 +16,16 @@ import static Interfaz.VentanaMenuEdificio.PermisosActuales;
 import static Interfaz.VentanaMenuEdificio.modelo;
 import Modelo.Util;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -52,6 +57,15 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
           Panel2.setVisible(false);
           cargarInterfaz();
           jButton3.setVisible(false);
+          setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        this.jPanel1.add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());    
           
     }
     
@@ -92,20 +106,27 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 0, 24)); // NOI18N
         jLabel1.setText("Menu Propietario");
 
         ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Crear Propietario", "Mostrar Propietarios", "Editar Propietarios", "Eliminar Propietarios" }));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("FreeSans", 0, 18)); // NOI18N
         jLabel2.setText("Seleccione la operacion que desea realizar");
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Seleccionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        PanelFormulario.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("FreeSans", 0, 18)); // NOI18N
         jLabel3.setText("Rellene el formulario los campos con * son obligatorios");
@@ -231,6 +252,7 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Atras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,6 +260,7 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Finalizar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,28 +327,29 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel1)
-                        .addGap(0, 867, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                        .addComponent(jButton3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(98, 98, 98)
+                                        .addComponent(jButton1))
+                                    .addComponent(jLabel2)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(52, 52, 52)
+                                        .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 50, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98)
-                        .addComponent(jButton1))
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,7 +382,9 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,6 +394,279 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
+
+        if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 1) || (Opcion ==3)) ) {
+
+            int num = Tabla.getSelectedRow();
+            String Clave = (String) Tabla.getValueAt(num,0);
+            String Pnombre=(String)Tabla.getValueAt(num,1);
+            String PApellido=(String)Tabla.getValueAt(num,2);
+            this.TXTPNombre.setText(Pnombre);
+            this.TXTPApellido.setText(PApellido);
+            this.TXTClave.setText(Clave);
+
+            try {
+                VentanaMenuPropietarioControlador.RellenaCamposFaltantes(Clave);
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(rootPane,"Error al ejecutar la consulta 'rellena campos faltantes' ->"+ex);
+                Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.TXTSNombre.setText(SNombrePropietarioSeleccionado);
+            this.TXTSApellido.setText(SapellidoPropietarioSeleccionado);
+
+            try {
+                VentanaMenuPropietarioControlador.RellenaComboParroquiaPropietarioSeleccionado(this.ForaneaPropietarioSeleccionado);
+            } catch (SQLException ex) {
+                Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.ComboEstado.removeAllItems();
+            this.ComboMunicipio.removeAllItems();
+            this.ComboParroquia.removeAllItems();
+            this.ComboEstado.addItem(EstadoPropietarioSeleccionado);
+            this.ComboMunicipio.addItem(MunicipioPropietarioSeleccionado);
+            this.ComboParroquia.addItem(ParroquiaPropietarioSeleccionado);
+            this.ComboEstado.setSelectedIndex(0);
+            this.ComboMunicipio.setSelectedIndex(0);
+            this.ComboParroquia.setSelectedIndex(0);
+
+        }
+        if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 2)) ) {
+            int num = Tabla.getSelectedRow();
+            String Clave = (String) Tabla.getValueAt(num,0);
+            ClaveActualPropietario = Clave;
+            String Pnombre=(String)Tabla.getValueAt(num,1);
+            String PApellido=(String)Tabla.getValueAt(num,2);
+            this.TXTPNombre.setText(Pnombre);
+            this.TXTPApellido.setText(PApellido);
+            this.TXTClave.setText(Clave);
+            try {
+                VentanaMenuPropietarioControlador.RellenaCamposFaltantes(Clave);
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(rootPane,"Error al ejecutar la consulta 'rellena campos faltantes' ->"+ex);
+                Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.TXTSNombre.setText(SNombrePropietarioSeleccionado);
+            this.TXTSApellido.setText(SapellidoPropietarioSeleccionado);
+            this.ComboEstado.removeAllItems();
+            this.ComboMunicipio.removeAllItems();
+            this.ComboParroquia.removeAllItems();
+            try {
+                VentanaMenuPropietarioControlador.llenarListaEstados();
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(rootPane,"Error al cargar los estados a la lista. ->"+ex);
+                Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            for (String n : VentanaMenuPropietarioControlador.Estados)
+            ComboEstado.addItem(n);
+            this.ComboEstado.setSelectedIndex(0);
+
+        }
+
+    }//GEN-LAST:event_TablaMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        try{
+            if (Opcion == 0){
+                String Clave = TXTClave.getText();
+                String PNombre = TXTPNombre.getText();
+                String SNombre = TXTSNombre.getText();
+                String PApellido =  TXTPApellido.getText();
+                String SApellido = TXTSApellido.getText();
+                String ParroquiaSeleccionada = (String) ComboParroquia.getSelectedItem();
+                ClaveParroquia = Util.Consultar_PKPorNombreParroquia("LUGAR","LUG_CLAVE",ParroquiaSeleccionada,"LUG_NOMBRE",ClaveMunicipio);
+                VentanaMenuPropietarioControlador.insertaPropietarioSQL(Clave, PNombre, SNombre, PApellido, SApellido,ClaveParroquia);
+                JOptionPane.showMessageDialog(rootPane,"Propietario Agregado Correctamente");
+                VentanaMenuPropietario reinicia = new VentanaMenuPropietario();
+                reinicia.setVisible(true);
+                this.dispose();
+                JOptionPane.showMessageDialog(rootPane,"Propietario Agregado Correctamente");
+            }
+            if (Opcion == 1) {
+            }
+            if (Opcion == 2){
+
+                //JOptionPane.showMessageDialog(rootPane,"Entre1");
+                String Clave = TXTClave.getText();
+                String PNombre = TXTPNombre.getText();
+                String SNombre = TXTSNombre.getText();
+                String PApellido =  TXTPApellido.getText();
+                String SApellido = TXTSApellido.getText();
+                String ParroquiaSeleccionada = (String) ComboParroquia.getSelectedItem();
+                //JOptionPane.showMessageDialog(rootPane,"Entre2");
+                ClaveParroquia = Util.Consultar_PKPorNombreParroquia("LUGAR","LUG_CLAVE",ParroquiaSeleccionada,"LUG_NOMBRE",ClaveMunicipio);
+                //JOptionPane.showMessageDialog(rootPane,"Entre3");
+                VentanaMenuPropietarioControlador.ActualizaPropietarioSQL(Clave, PNombre, SNombre, PApellido, SApellido,ClaveParroquia);
+                JOptionPane.showMessageDialog(rootPane,"PropietarioActualizado.");
+                VentanaMenuPropietario reinicia = new VentanaMenuPropietario();
+                reinicia.setVisible(true);
+                this.dispose();
+            }
+            if (Opcion == 3){
+                VentanaMenuPropietarioControlador.EliminaPropietarioSQL();
+                JOptionPane.showMessageDialog(rootPane,"PropietarioEliminado.");
+                VentanaMenuPropietario reinicia = new VentanaMenuPropietario();
+                reinicia.setVisible(true);
+                this.dispose();
+            }
+
+        }catch (SQLException | HeadlessException e){
+            JOptionPane.showMessageDialog(rootPane,"Error, debe llenar los campos obligatorios"+e);
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+           VentanaMenuPrincipal nueva;
+          try {
+                    nueva = new VentanaMenuPrincipal();
+                    nueva.setVisible(true);
+                    this.dispose();
+          } catch (SQLException ex) {
+                    //Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(rootPane,"Error, debe ingresar desde el LogIn para cargar los permisos");
+          }
+          
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ComboMunicipioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboMunicipioMouseClicked
+
+        if (ActivaCombo){
+            String MunicipioSeleccionado = (String) ComboMunicipio.getSelectedItem();
+            ComboParroquia.removeAllItems();
+            try {
+                ClaveMunicipio = Util.Consultar_PKPorNombreMunicipios("LUGAR","LUG_CLAVE",MunicipioSeleccionado,"LUG_NOMBRE",ClaveEstado);
+                VentanaMenuEdificioControlador.llenarListaParroquias(ClaveMunicipio);
+                for (String x :VentanaMenuEdificioControlador.Parroquias ){
+                    ComboParroquia.addItem(x);
+                }
+            }catch (SQLException ex) {
+                Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_ComboMunicipioMouseClicked
+
+    private void ComboEstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboEstadoMouseClicked
+
+        if (ActivaCombo){
+            int fk = ComboEstado.getSelectedIndex();
+            fk++;
+            ClaveEstado =Integer.toString(fk);
+            ComboMunicipio.removeAllItems();
+            try{
+                VentanaMenuEdificioControlador.llenarListaMunicipios(ClaveEstado);
+                for (String x: VentanaMenuEdificioControlador.Municipios){
+                    ComboMunicipio.addItem(x);
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane,"Error al llenar lista municipios ->"+e);
+            }
+        }
+
+    }//GEN-LAST:event_ComboEstadoMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        LimpiarJTable();
+        try {
+            VentanaMenuPropietarioControlador.RellenaTablaSQL();
+        } catch (SQLException ex) {
+            Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Opcion = ComboOpcion.getSelectedIndex();
+        if (Opcion==0){
+            jButton3.setVisible(true);
+            jLabel3.setText("Rellene el formulario los campos con * son obligatorios.");
+            jButton3.setText("Agregar");
+            ActivaCombo=true;
+            PanelFormulario.setVisible(true);
+            TXTClave.setText("");
+            TXTPNombre.setText("");
+            TXTSNombre.setText("");
+            TXTPApellido.setText("");
+            TXTSApellido.setText("");
+            ComboEstado.removeAllItems();
+            ComboMunicipio.removeAllItems();
+            ComboParroquia.removeAllItems();
+            ComboEstado.setEnabled(true);
+            ComboMunicipio.setEnabled(true);
+            ComboParroquia.setEnabled(true);
+            try {
+                VentanaMenuPropietarioControlador.llenarListaEstados();
+            } catch (SQLException ex) {
+                Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            for (String n : VentanaMenuPropietarioControlador.Estados){
+                ComboEstado.addItem(n);
+            }
+
+        }
+        if (Opcion == 1){
+            jButton3.setVisible(false);
+            PanelFormulario.setVisible(true);
+            Panel2.setVisible(false);
+            jLabel3.setText("Se muestran los datos detallados de cada propietario.");
+            Panel2.setVisible(true);
+            TXTClave.setText("");
+            TXTPNombre.setText("");
+            TXTSNombre.setText("");
+            TXTPApellido.setText("");
+            TXTSApellido.setText("");
+            ComboEstado.removeAllItems();
+            ComboMunicipio.removeAllItems();
+            ComboParroquia.removeAllItems();
+            ComboEstado.setEnabled(false);
+            ComboMunicipio.setEnabled(false);
+            ComboParroquia.setEnabled(false);
+        }
+        if (Opcion == 2){
+            jButton3.setVisible(true);
+            jButton3.setText("Actualizar");
+            ActivaCombo=true;
+            JOptionPane.showMessageDialog(rootPane,"Seleccione en la tabla el propietario que desea Editar.");
+            PanelFormulario.setVisible(true);
+            Panel2.setVisible(false);
+            jLabel3.setText("Actualice los valores que desea cambiar..");
+            Panel2.setVisible(true);
+            TXTClave.setText("");
+            TXTPNombre.setText("");
+            TXTSNombre.setText("");
+            TXTPApellido.setText("");
+            TXTSApellido.setText("");
+            ComboEstado.removeAllItems();
+            ComboMunicipio.removeAllItems();
+            ComboParroquia.removeAllItems();
+            ComboEstado.setEnabled(true);
+            ComboMunicipio.setEnabled(true);
+            ComboParroquia.setEnabled(true);
+        }
+        if (Opcion == 3){
+            jButton3.setText("Eliminar");
+            jButton3.setVisible(true);
+            ActivaCombo=false;
+            JOptionPane.showMessageDialog(rootPane,"Seleccione en la tabla el propietario que desea Eliminar.");
+            PanelFormulario.setVisible(true);
+            Panel2.setVisible(false);
+            jLabel3.setText("Datos del Propietario a Eliminar.");
+            Panel2.setVisible(true);
+            TXTClave.setText("");
+            TXTPNombre.setText("");
+            TXTSNombre.setText("");
+            TXTPApellido.setText("");
+            TXTSApellido.setText("");
+            ComboEstado.removeAllItems();
+            ComboMunicipio.removeAllItems();
+            ComboParroquia.removeAllItems();
+            ComboEstado.setEnabled(false);
+            ComboMunicipio.setEnabled(false);
+            ComboParroquia.setEnabled(false);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void LimpiarJTable(){
           int a =modelo.getRowCount()-1;
           for(int i=a;i>=0;i--){ 
@@ -375,272 +674,6 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
           }
     }
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
-          LimpiarJTable();
-              try {
-                  VentanaMenuPropietarioControlador.RellenaTablaSQL();
-              } catch (SQLException ex) {
-                  Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
-              }
-          Opcion = ComboOpcion.getSelectedIndex();
-            if (Opcion==0){
-                jButton3.setVisible(true);
-                jLabel3.setText("Rellene el formulario los campos con * son obligatorios.");
-                jButton3.setText("Agregar");
-                ActivaCombo=true;
-                PanelFormulario.setVisible(true);
-                TXTClave.setText("");
-                TXTPNombre.setText("");
-                TXTSNombre.setText("");
-                TXTPApellido.setText("");
-                TXTSApellido.setText("");
-                ComboEstado.removeAllItems();
-                ComboMunicipio.removeAllItems();
-                ComboParroquia.removeAllItems();
-                ComboEstado.setEnabled(true);
-                ComboMunicipio.setEnabled(true);
-                ComboParroquia.setEnabled(true);
-            try {
-                VentanaMenuPropietarioControlador.llenarListaEstados();
-            } catch (SQLException ex) {
-                Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                for (String n : VentanaMenuPropietarioControlador.Estados){
-                    ComboEstado.addItem(n);
-                }
-                
-            }
-            if (Opcion == 1){
-                    jButton3.setVisible(false);
-                    PanelFormulario.setVisible(true);
-                    Panel2.setVisible(false);
-                    jLabel3.setText("Se muestran los datos detallados de cada propietario.");
-                    Panel2.setVisible(true);
-                    TXTClave.setText("");
-                    TXTPNombre.setText("");
-                    TXTSNombre.setText("");
-                    TXTPApellido.setText("");
-                    TXTSApellido.setText("");
-                    ComboEstado.removeAllItems();
-                    ComboMunicipio.removeAllItems();
-                    ComboParroquia.removeAllItems();
-                    ComboEstado.setEnabled(false);
-                    ComboMunicipio.setEnabled(false);
-                    ComboParroquia.setEnabled(false);
-            }
-                    if (Opcion == 2){
-                              jButton3.setVisible(true);
-                              jButton3.setText("Actualizar");
-                              ActivaCombo=true;
-                              JOptionPane.showMessageDialog(rootPane,"Seleccione en la tabla el propietario que desea Editar.");
-                              PanelFormulario.setVisible(true);
-                              Panel2.setVisible(false);
-                              jLabel3.setText("Actualice los valores que desea cambiar..");
-                              Panel2.setVisible(true);
-                              TXTClave.setText("");
-                              TXTPNombre.setText("");
-                              TXTSNombre.setText("");
-                              TXTPApellido.setText("");
-                              TXTSApellido.setText("");
-                              ComboEstado.removeAllItems();
-                              ComboMunicipio.removeAllItems();
-                              ComboParroquia.removeAllItems();
-                              ComboEstado.setEnabled(true);
-                              ComboMunicipio.setEnabled(true);
-                              ComboParroquia.setEnabled(true);
-                    }
-                    if (Opcion == 3){
-                              jButton3.setText("Eliminar");
-                              jButton3.setVisible(true);
-                              ActivaCombo=false;
-                              JOptionPane.showMessageDialog(rootPane,"Seleccione en la tabla el propietario que desea Eliminar.");
-                              PanelFormulario.setVisible(true);
-                              Panel2.setVisible(false);
-                              jLabel3.setText("Datos del Propietario a Eliminar.");
-                              Panel2.setVisible(true);
-                              TXTClave.setText("");
-                              TXTPNombre.setText("");
-                              TXTSNombre.setText("");
-                              TXTPApellido.setText("");
-                              TXTSApellido.setText("");
-                              ComboEstado.removeAllItems();
-                              ComboMunicipio.removeAllItems();
-                              ComboParroquia.removeAllItems();
-                              ComboEstado.setEnabled(false);
-                              ComboMunicipio.setEnabled(false);
-                              ComboParroquia.setEnabled(false);
-                    }
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void ComboMunicipioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboMunicipioMouseClicked
-
-           if (ActivaCombo){
-                String MunicipioSeleccionado = (String) ComboMunicipio.getSelectedItem();
-                ComboParroquia.removeAllItems();
-                try {
-                    ClaveMunicipio = Util.Consultar_PKPorNombreMunicipios("LUGAR","LUG_CLAVE",MunicipioSeleccionado,"LUG_NOMBRE",ClaveEstado);
-                    VentanaMenuEdificioControlador.llenarListaParroquias(ClaveMunicipio);    
-                    for (String x :VentanaMenuEdificioControlador.Parroquias ){
-                        ComboParroquia.addItem(x);
-                    }
-                }catch (SQLException ex) {
-                        Logger.getLogger(VentanaMenuEdificio.class.getName()).log(Level.SEVERE, null, ex);
-                }
-          }    
-    }//GEN-LAST:event_ComboMunicipioMouseClicked
-
-    private void ComboEstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboEstadoMouseClicked
-            
-          if (ActivaCombo){
-                    int fk = ComboEstado.getSelectedIndex();
-                    fk++;
-                    ClaveEstado =Integer.toString(fk);
-                    ComboMunicipio.removeAllItems();
-                    try{
-                              VentanaMenuEdificioControlador.llenarListaMunicipios(ClaveEstado);
-                              for (String x: VentanaMenuEdificioControlador.Municipios){
-                                        ComboMunicipio.addItem(x);
-                              }
-                    }catch(Exception e){
-                              JOptionPane.showMessageDialog(rootPane,"Error al llenar lista municipios ->"+e);
-                    }
-          }
-        
-    }//GEN-LAST:event_ComboEstadoMouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-          try{
-                    if (Opcion == 0){
-                              String Clave = TXTClave.getText();
-                              String PNombre = TXTPNombre.getText();
-                              String SNombre = TXTSNombre.getText();
-                              String PApellido =  TXTPApellido.getText();
-                              String SApellido = TXTSApellido.getText();
-                              String ParroquiaSeleccionada = (String) ComboParroquia.getSelectedItem();
-                              ClaveParroquia = Util.Consultar_PKPorNombreParroquia("LUGAR","LUG_CLAVE",ParroquiaSeleccionada,"LUG_NOMBRE",ClaveMunicipio);
-                              VentanaMenuPropietarioControlador.insertaPropietarioSQL(Clave, PNombre, SNombre, PApellido, SApellido,ClaveParroquia);
-                              JOptionPane.showMessageDialog(rootPane,"Propietario Agregado Correctamente");
-                              VentanaMenuPropietario reinicia = new VentanaMenuPropietario();
-                              reinicia.setVisible(true);
-                              this.dispose();
-                              JOptionPane.showMessageDialog(rootPane,"Propietario Agregado Correctamente");
-                    }
-                    if (Opcion == 1) {
-                    }
-                    if (Opcion == 2){
-                        
-                                JOptionPane.showMessageDialog(rootPane,"Entre1");
-                              String Clave = TXTClave.getText();
-                              String PNombre = TXTPNombre.getText();
-                              String SNombre = TXTSNombre.getText();
-                              String PApellido =  TXTPApellido.getText();
-                              String SApellido = TXTSApellido.getText();
-                              String ParroquiaSeleccionada = (String) ComboParroquia.getSelectedItem();
-                              JOptionPane.showMessageDialog(rootPane,"Entre2");
-                              ClaveParroquia = Util.Consultar_PKPorNombreParroquia("LUGAR","LUG_CLAVE",ParroquiaSeleccionada,"LUG_NOMBRE",ClaveMunicipio);
-                              JOptionPane.showMessageDialog(rootPane,"Entre3");
-                              VentanaMenuPropietarioControlador.ActualizaPropietarioSQL(Clave, PNombre, SNombre, PApellido, SApellido,ClaveParroquia);
-                              JOptionPane.showMessageDialog(rootPane,"PropietarioActualizado.");
-                              VentanaMenuPropietario reinicia = new VentanaMenuPropietario();
-                              reinicia.setVisible(true);
-                              this.dispose();
-                    }
-                    if (Opcion == 3){
-                              VentanaMenuPropietarioControlador.EliminaPropietarioSQL();
-                              JOptionPane.showMessageDialog(rootPane,"PropietarioEliminado.");
-                              VentanaMenuPropietario reinicia = new VentanaMenuPropietario();
-                              reinicia.setVisible(true);
-                              this.dispose();
-                    }    
-                            
-          }catch (Exception e){
-          JOptionPane.showMessageDialog(rootPane,"Error, debe llenar los campos obligatorios"+e);
-          }
-
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
-
-        
-                
-          if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 1) || (Opcion ==3)) ) {
-                        
-                    int num = Tabla.getSelectedRow();
-                    String Clave = (String) Tabla.getValueAt(num,0);
-                    String Pnombre=(String)Tabla.getValueAt(num,1);
-                    String PApellido=(String)Tabla.getValueAt(num,2);
-                    this.TXTPNombre.setText(Pnombre);
-                    this.TXTPApellido.setText(PApellido);
-                    this.TXTClave.setText(Clave);
-                        
-                    try {
-                              VentanaMenuPropietarioControlador.RellenaCamposFaltantes(Clave);
-                    }catch (SQLException ex) {
-                              JOptionPane.showMessageDialog(rootPane,"Error al ejecutar la consulta 'rellena campos faltantes' ->"+ex);
-                              Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    this.TXTSNombre.setText(SNombrePropietarioSeleccionado);
-                    this.TXTSApellido.setText(SapellidoPropietarioSeleccionado);
-                 
-                    try {
-                              VentanaMenuPropietarioControlador.RellenaComboParroquiaPropietarioSeleccionado(this.ForaneaPropietarioSeleccionado);
-                    } catch (SQLException ex) {
-                              Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    this.ComboEstado.removeAllItems();
-                    this.ComboMunicipio.removeAllItems();
-                    this.ComboParroquia.removeAllItems();
-                    this.ComboEstado.addItem(EstadoPropietarioSeleccionado);
-                    this.ComboMunicipio.addItem(MunicipioPropietarioSeleccionado);
-                    this.ComboParroquia.addItem(ParroquiaPropietarioSeleccionado);
-                    this.ComboEstado.setSelectedIndex(0);
-                    this.ComboMunicipio.setSelectedIndex(0);
-                    this.ComboParroquia.setSelectedIndex(0);
-
-          }
-          if( ( Tabla.getSelectedRows().length > 0 ) && ((Opcion == 2)) ) {
-                    int num = Tabla.getSelectedRow();
-                    String Clave = (String) Tabla.getValueAt(num,0);
-                    ClaveActualPropietario = Clave;
-                    String Pnombre=(String)Tabla.getValueAt(num,1);
-                    String PApellido=(String)Tabla.getValueAt(num,2);
-                    this.TXTPNombre.setText(Pnombre);
-                    this.TXTPApellido.setText(PApellido);
-                    this.TXTClave.setText(Clave);
-                    try {
-                              VentanaMenuPropietarioControlador.RellenaCamposFaltantes(Clave);
-                    }catch (SQLException ex) {
-                              JOptionPane.showMessageDialog(rootPane,"Error al ejecutar la consulta 'rellena campos faltantes' ->"+ex);
-                              Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    this.TXTSNombre.setText(SNombrePropietarioSeleccionado);
-                    this.TXTSApellido.setText(SapellidoPropietarioSeleccionado);
-                    this.ComboEstado.removeAllItems();
-                    this.ComboMunicipio.removeAllItems();
-                    this.ComboParroquia.removeAllItems();
-                    try {
-                              VentanaMenuPropietarioControlador.llenarListaEstados();
-                    }catch (SQLException ex) {
-                              JOptionPane.showMessageDialog(rootPane,"Error al cargar los estados a la lista. ->"+ex);
-                              Logger.getLogger(VentanaMenuPropietario.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    for (String n : VentanaMenuPropietarioControlador.Estados)
-                              ComboEstado.addItem(n);
-                    this.ComboEstado.setSelectedIndex(0);
-
-          }          
-          
-    }//GEN-LAST:event_TablaMouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     public void cargarInterfaz(){
         String x[][]={};
         String columnas[]={"Identificacion","Nombre","Apellido"};

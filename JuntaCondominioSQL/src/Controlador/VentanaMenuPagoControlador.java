@@ -45,6 +45,63 @@ public static void RellenaTablaApartamentosCompradosSQL(String Clave) throws SQL
     
 }
 
+public static void RellenaTablaContratos() throws SQLException{
+ 
+        ConexionOracle Conexion= new ConexionOracle();
+        Connection Con=Conexion.Conectar();
+        Statement st= Con.createStatement();
+        VentanaMenuPagos.cont = 0;
+         ResultSet Valores= st.executeQuery("  select CON.CONT_CLAVE, E.EDI_RIF, E.EDI_NOMBRE , ('Edo.'||ESTADO.LUG_NOMBRE ||' Mun.'|| MUNICIPIO.LUG_NOMBRE ||' Par.'|| PARROQUIA.LUG_NOMBRE) as Direccion\n" +
+                                                                            "  from CONTRATO CON INNER JOIN EDIFICIO E ON CON.CONT_FK_EDIFICIO = E.EDI_CLAVE\n" +
+                                                                            "  INNER JOIN LUGAR PARROQUIA ON E.EDI_FK_LUGAR = PARROQUIA.LUG_CLAVE INNER JOIN\n" +
+                                                                            "  LUGAR MUNICIPIO ON PARROQUIA.LUG_FK_LUGAR = MUNICIPIO.LUG_CLAVE INNER JOIN\n" +
+                                                                            "  LUGAR ESTADO  ON ESTADO.LUG_CLAVE = MUNICIPIO.LUG_FK_LUGAR\n" +
+                                                                            "  where CON.CONT_FECHA_EMISION = (SELECT MAX (CON.CONT_FECHA_EMISION)\n" +
+                                                                            "                                  FROM CONTRATO CON WHERE CON.CONT_FK_EDIFICIO\n" +
+                                                                            "                                  = E.EDI_CLAVE)");
+            while (Valores.next()){
+                     VentanaMenuPagos.modeloContratos.insertRow(VentanaMenuPagos.cont, new Object[]{});
+                     VentanaMenuPagos.modeloContratos.setValueAt(Valores.getInt(1),VentanaMenuPagos.cont,0);
+                    VentanaMenuPagos.modeloContratos.setValueAt(Valores.getString(2),VentanaMenuPagos.cont,1);
+                    VentanaMenuPagos.modeloContratos.setValueAt(Valores.getString(3),VentanaMenuPagos.cont,2);
+                    VentanaMenuPagos.modeloContratos.setValueAt(Valores.getString(4),VentanaMenuPagos.cont,3);
+                    VentanaMenuPagos.cont++;
+            }
+    
+}
+
+public static void RellenaTablaTrabajos() throws SQLException{
+ 
+        ConexionOracle Conexion= new ConexionOracle();
+        Connection Con=Conexion.Conectar();
+        Statement st= Con.createStatement();
+        VentanaMenuPagos.cont = 0;
+         ResultSet Valores= st.executeQuery(" select T.TRA_CLAVE,T.TRA_TIPO ,T.TRA_DESCRIPCION , PROV.PS_NOMBRE , T.TRA_MONTO\n" +
+                                                                            " from TRABAJO T, PROVEEDORSERVICIO PROV, CONT_FOND CF, CONTRATO CON\n" +
+                                                                            " WHERE PROV.PS_CLAVE = T.TRA_FK_PROVEEDORSERVICIO\n" +
+                                                                            " AND CF.CF_CLAVE = T.TRA_FK_CONT_FOND\n" +
+                                                                            " AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO AND\n" +
+                                                                            " CON.CONT_CLAVE = "+VentanaMenuPagos.ClaveContrato+"\n" +
+                                                                            " UNION ALL\n" +
+                                                                            " select T.TRA_CLAVE,T.TRA_TIPO, T.TRA_DESCRIPCION , O.OFI_NOMBRE , T.TRA_MONTO\n" +
+                                                                            " from TRABAJO T, OFICINA O, CONT_FOND CF, CONTRATO CON\n" +
+                                                                            " WHERE O.OFI_CLAVE = T.TRA_FK_OFICINA\n" +
+                                                                            " AND CF.CF_CLAVE = T.TRA_FK_CONT_FOND\n" +
+                                                                            " AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO AND\n" +
+                                                                            " CON.CONT_CLAVE = "+VentanaMenuPagos.ClaveContrato+" ");
+            while (Valores.next()){
+                     VentanaMenuPagos.ModeloTrabajos.insertRow(VentanaMenuPagos.cont, new Object[]{});
+                     VentanaMenuPagos.ModeloTrabajos.setValueAt(Valores.getInt(1),VentanaMenuPagos.cont,0);
+                    VentanaMenuPagos.ModeloTrabajos.setValueAt(Valores.getString(2),VentanaMenuPagos.cont,1);
+                    VentanaMenuPagos.ModeloTrabajos.setValueAt(Valores.getString(3),VentanaMenuPagos.cont,2);
+                    VentanaMenuPagos.ModeloTrabajos.setValueAt(Valores.getString(4),VentanaMenuPagos.cont,3);
+                    VentanaMenuPagos.ModeloTrabajos.setValueAt(Float.toString(Valores.getFloat(5)),VentanaMenuPagos.cont,4);
+                    VentanaMenuPagos.Monto= Float.toString(Valores.getFloat(5));
+                    VentanaMenuPagos.cont++;
+            }
+    
+}
+
 public static void RellenaTablaAvisosSQL(String ClaveApt) throws SQLException{
  
           ConexionOracle Conexion= new ConexionOracle();
@@ -56,7 +113,8 @@ public static void RellenaTablaAvisosSQL(String ClaveApt) throws SQLException{
                                                                         "  WHERE AVI.AVI_FK_RECIBOMENSUAL = REC.RECI_CLAVE\n" +
                                                                         "       and (AVI.AVI_FK_CUENTA = CUE.CUE_CLAVE)\n" +
                                                                         "       AND (CUE.CUE_CLAVE = AD.AD_FK_CUENTA)\n" +
-                                                                        "       AND (AD.AD_CLAVE="+ClaveApt+")");
+                                                                        "       AND (AD.AD_CLAVE="+ClaveApt+")"
+                  + "                                                           AND (AVI.AVI_PAGADO = 'NOPAGADO')");
           while (Valores.next()){
                     VentanaMenuPagos.ModeloAvisos.insertRow(VentanaMenuPagos.cont, new Object[]{});
                     VentanaMenuPagos.ModeloAvisos.setValueAt(Valores.getString(1),VentanaMenuPagos.cont,0);
@@ -68,6 +126,15 @@ public static void RellenaTablaAvisosSQL(String ClaveApt) throws SQLException{
     
 }
       
+public static void InsertarPAGOS2QL(String Monto, String Fecha, String Fk_fondo, String Fk_Oficina, String fkTarjeta, String fkCheque, String Descripcion) throws SQLException{
+           ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          PreparedStatement pst=  Con.prepareStatement("insert into PAGO (PAG_CLAVE,PAG_MONTO,PAG_DESCRIPCION,PAG_FECHA,PAG_CONFORME,PAG_FK_FONDO_DETALLADO,PAG_FK_OFICINA,PAG_FK_CHEQUE,PAG_FK_TARJETA)\n" +
+                                                                            "          values(SQ_TDP.NEXTVAL,"+Monto+",'"+Descripcion+"',to_date('"+Fecha+"','yyyymmdd'),'CONFORME',"+Fk_fondo+","+Fk_Oficina+","+VentanaMenuPagos.ClaveCheque+","+VentanaMenuPagos.ClaveTarjeta+")");
+
+          pst.executeUpdate(); 
+}
+
 public static void RellenaTablaPropietarioSQL() throws SQLException{
  
           ConexionOracle Conexion= new ConexionOracle();
@@ -109,11 +176,11 @@ public static void InsertarChequeSQL(String Descripcion, String Monto, String En
           pst.executeUpdate(); 
 }
 
-public static void InsertarPAGOSQL(String Monto, String Fecha, String Fk_fondo, String Fk_prop, String fkTarjeta, String fkCheque) throws SQLException{
+public static void InsertarPAGOSQL(String Monto, String Fecha, String Fk_fondo, String Fk_prop, String fkTarjeta, String fkCheque, String Descripcion) throws SQLException{
            ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
           PreparedStatement pst=  Con.prepareStatement("insert into PAGO (PAG_CLAVE,PAG_MONTO,PAG_DESCRIPCION,PAG_FECHA,PAG_CONFORME,PAG_FK_FONDO_DETALLADO,PAG_FK_PROPIETARIO,PAG_FK_CHEQUE,PAG_FK_TARJETA)\n" +
-                                                                            "          values(SQ_TDP.NEXTVAL,"+Monto+",'PRUEBA',to_date('"+Fecha+"','yyyymmdd'),'CONFORME',"+Fk_fondo+","+Fk_prop+","+fkCheque+","+fkTarjeta+")");
+                                                                            "          values(SQ_TDP.NEXTVAL,"+Monto+",'"+Descripcion+"',to_date('"+Fecha+"','yyyymmdd'),'CONFORME',"+Fk_fondo+","+Fk_prop+","+VentanaMenuPagos.ClaveCheque+","+VentanaMenuPagos.ClaveTarjeta+")");
 
           pst.executeUpdate(); 
 }
@@ -157,5 +224,90 @@ public static void CalcularClaveContFondo() throws SQLException{
                               VentanaMenuPagos.ClaveContFond = Integer.toString(Valores.getInt(1));
                            
                     }
-};
+}
+
+public static void ActualizarFondos (Float Recargo) throws SQLException{
+          float MontoActual = Recargo;
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery(" select CF_MONTO\n" +
+                                                                            "FROM CONT_FOND\n" +
+                                                                            "WHERE CF_CLAVE = "+VentanaMenuPagos.ClaveContFond+"");
+          while (Valores.next()){
+                    MontoActual = Valores.getFloat(1);
+                    MontoActual = MontoActual + Recargo; 
+          }
+          
+          PreparedStatement pst=  Con.prepareStatement("UPDATE CONT_FOND SET\n" +
+                                                                                                    " CF_MONTO ="+Float.toString(MontoActual)+" \n" +
+                                                                                                    " WHERE CF_CLAVE = "+VentanaMenuPagos.ClaveContFond+"");
+          pst.executeUpdate(); 
+          
+          PreparedStatement pst2=  Con.prepareStatement("UPDATE AVISOCOBRO SET AVI_PAGADO = 'PAGADO' \n" +
+                                                                                                       "WHERE AVI_CLAVE = "+VentanaMenuPagos.ClaveAvisoSeleccionado+"" );
+          pst2.executeUpdate(); 
+          
+}
+
+public static void CalcularClaveOficina () throws SQLException{
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery(" SELECT O.OFI_CLAVE\n" +
+                                                                            " FROM OFICINA O INNER JOIN CONTRATO CON ON O.OFI_CLAVE = CON.CONT_FK_OFICINA\n" +
+                                                                            " WHERE CON.CONT_CLAVE = "+VentanaMenuPagos.ClaveContrato+"");
+                    while (Valores.next()){
+                              VentanaMenuPagos.ClaveOficina = Integer.toString(Valores.getInt(1));
+                           
+                    }
+}
+
+
+public static void ActualizarFondos2 (Float Recargo) throws SQLException{
+          float MontoActual = Recargo;
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery(" select CF_MONTO\n" +
+                                                                            "FROM CONT_FOND\n" +
+                                                                            "WHERE CF_CLAVE = "+VentanaMenuPagos.ClaveContFond+"");
+          while (Valores.next()){
+                    MontoActual = Valores.getFloat(1);
+                    MontoActual = MontoActual - Recargo; 
+          }
+          
+          PreparedStatement pst=  Con.prepareStatement("UPDATE CONT_FOND SET\n" +
+                                                                                                    " CF_MONTO ="+Float.toString(MontoActual)+" \n" +
+                                                                                                    " WHERE CF_CLAVE = "+VentanaMenuPagos.ClaveContFond+"");
+          pst.executeUpdate(); 
+         
+            }
+
+
+
+
+
+public static void ActualizarFondos3 () throws SQLException{
+          
+          String clavePago = null;
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery(" SELECT MAX(PAG_CLAVE)\n" +
+                                                                               " FROM PAGO");
+          while (Valores.next()){
+                    clavePago = Integer.toString(Valores.getInt(1));
+          }
+          
+          
+          PreparedStatement pst2=  Con.prepareStatement(" update TRABAJO TRA SET TRA.TRA_FK_PAGO =  "+clavePago+"\n" +
+                                                                                                       " where TRA.TRA_CLAVE = "+VentanaMenuPagos.ClaveTrabajo+"" );
+          pst2.executeUpdate(); 
+ 
+          
+
+}
+          
+ 
 }
