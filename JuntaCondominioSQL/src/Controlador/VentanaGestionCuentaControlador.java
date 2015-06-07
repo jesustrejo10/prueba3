@@ -86,8 +86,7 @@ public class VentanaGestionCuentaControlador {
           }
     
 }
-    
-    
+     
     public static void RellenaDatosDeudaPorAPTSQL(String ClaveApt) throws SQLException{
  
           ConexionOracle Conexion= new ConexionOracle();
