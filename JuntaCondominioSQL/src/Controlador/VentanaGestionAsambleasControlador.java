@@ -127,7 +127,7 @@ public static void CalcularLLamadoSQL(String ClaveContrato, String NumeroLlamado
                                                                             "                            FROM JUNTACONDOMINIO JC)\n" +
                                                                             " GROUP BY L.LLA_NUMERO, L.LLA_QUORUM_MINIMO, L.LLA_PORCENTAJEAPROBACION ,JC.JC_CLAVE");
             while (Valores.next()){
-                    JOptionPane.showMessageDialog(null,"OK");
+                   // JOptionPane.showMessageDialog(null,"OK");
                     VentanaGestiondeAsambleas.QuorumMinimo = Valores.getInt(2);
                     VentanaGestiondeAsambleas.PorcentajeAprob = Valores.getFloat(3);
                     VentanaGestiondeAsambleas.MaximoAPT = Valores.getInt(5);
@@ -155,11 +155,63 @@ public static void CalcularClaveLibro(String ClaveContrato) throws SQLException{
                                                                             "from libro inner join contrato on contrato.CONT_CLAVE = libro.LIB_FK_CONTRATO\n" +
                                                                             "where contrato.CONT_CLAVE = "+ClaveContrato+"");
           while (Valores.next()){
-                    JOptionPane.showMessageDialog(null,"OK");
+                 //   JOptionPane.showMessageDialog(null,"OK");
                     VentanaGestiondeAsambleas.Clavelibro = Integer.toString(Valores.getInt(1));
                     VentanaGestiondeAsambleas.ClaveCitaAsamblea =  Integer.toString(Valores.getInt(2));
           }
  }
+
+public static void CalcularValorUT() throws SQLException{
+ 
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery("select UNI_VALOR\n" +
+                                                                            " from UNIDADTRIBUTARIA\n" +
+                                                                            " WHERE UNI_VIGENTE = 'SI'");
+          while (Valores.next()){
+                   // JOptionPane.showMessageDialog(null,"OK");
+                    VentanaGestiondeAsambleas.ValorUT = Valores.getFloat(1);
+          }
+ }
+
+public static void InsertaTrabajoCostoAsambleaSQL(String Monto, String fk_fondo, String fecha) throws SQLException{
+          JOptionPane.showMessageDialog(null,"Entre");
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();   
+          PreparedStatement pst=  Con.prepareStatement("insert into TRABAJO (TRA_CLAVE,TRA_DESCRIPCION,TRA_MONTO,TRA_CLASIFICACION,TRA_TIPO,TRA_SUSCEPTIBLE,TRA_FK_PROVEEDORSERVICIO,TRA_FK_CONT_FOND,TRA_F_REALIZADO,TRA_F_PROPUESTO,TRA_REALIZADO,TRA_APROBADO) \n" +
+                                                                                                    "             VALUES(SQ_PK_TRABAJO.NEXTVAL,'Costo De Realizar Una Asamblea',\n" +
+                                                                                                    "             "+Monto+",\n" +
+                                                                                                    "             'TRABAJO',\n" +
+                                                                                                    "             'ASAMBLEA',\n" +
+                                                                                                    "             'RENCIONIVA',\n" +
+                                                                                                    "             9921,\n" +
+                                                                                                    "             "+fk_fondo+",\n" +
+                                                                                                    "             to_date('"+fecha+"','yyyymmdd'),\n" +
+                                                                                                    "             to_date('"+fecha+"','yyyymmdd'),\n" +
+                                                                                                    "             'SI',\n" +
+                                                                                                    "             'SI') ");
+          pst.executeUpdate(); 
+   }
+
+public static void InsertaTrabajoCostoAsamblea2SQL(String Monto, String fk_fondo, String fecha) throws SQLException{
+          JOptionPane.showMessageDialog(null,"Entre");
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();   
+          PreparedStatement pst=  Con.prepareStatement("insert into TRABAJO (TRA_CLAVE,TRA_DESCRIPCION,TRA_MONTO,TRA_CLASIFICACION,TRA_TIPO,TRA_SUSCEPTIBLE,TRA_FK_PROVEEDORSERVICIO,TRA_FK_CONT_FOND,TRA_F_REALIZADO,TRA_F_PROPUESTO,TRA_REALIZADO,TRA_APROBADO) \n" +
+                                                                                                    "             VALUES(SQ_PK_TRABAJO.NEXTVAL,'Recargo por Tiempo Extra en ASamblea',\n" +
+                                                                                                    "             "+Monto+",\n" +
+                                                                                                    "             'TRABAJO',\n" +
+                                                                                                    "             'ASAMBLEA',\n" +
+                                                                                                    "             'RENCIONIVA',\n" +
+                                                                                                    "             9921,\n" +
+                                                                                                    "             "+fk_fondo+",\n" +
+                                                                                                    "             to_date('"+fecha+"','yyyymmdd'),\n" +
+                                                                                                    "             to_date('"+fecha+"','yyyymmdd'),\n" +
+                                                                                                    "             'SI',\n" +
+                                                                                                    "             'SI') ");
+          pst.executeUpdate(); 
+   }
 
 public static void InsertarAsambleaSQL(String Topico,String tipo, String FK_Ofic, String fklug) throws SQLException{
           ConexionOracle Conexion= new ConexionOracle();

@@ -54,7 +54,7 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
     public static String DireccionEdificio;
     public static String ClaveAsamblea;
     public static int QuorumAsistido;
-    
+    public static Float ValorUT;
     
     public void cargarInterfazContratos(){
           String x[][]={};
@@ -116,6 +116,7 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
         PanelTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla1 = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
         PanelLlamados = new javax.swing.JPanel();
         PanelLLamados = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -218,19 +219,27 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Tabla1);
 
+        jLabel10.setText("Seleccione El Contrato Correspondiente");
+
         javax.swing.GroupLayout PanelTablaLayout = new javax.swing.GroupLayout(PanelTabla);
         PanelTabla.setLayout(PanelTablaLayout);
         PanelTablaLayout.setHorizontalGroup(
             PanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTablaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(PanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(PanelTablaLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PanelTablaLayout.setVerticalGroup(
             PanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTablaLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -238,8 +247,12 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
         PanelLlamados.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Formulario Para Los LLamados"));
 
         PanelLLamados.setBorder(javax.swing.BorderFactory.createTitledBorder("Primer LLamado"));
+        PanelLLamados.setMaximumSize(new java.awt.Dimension(397, 260));
+        PanelLLamados.setMinimumSize(new java.awt.Dimension(397, 260));
 
         jLabel2.setText("Cuanta Gente Asistio?");
+
+        txtQuorum.setText("10");
 
         jButton3.setText("Continuar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -262,19 +275,18 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PanelLLamadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelLLamadosLayout.createSequentialGroup()
-                        .addGroup(PanelLLamadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCostoAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCostoAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3))
                     .addGroup(PanelLLamadosLayout.createSequentialGroup()
                         .addGroup(PanelLLamadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
                             .addComponent(txtQuorum, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelLLamadosLayout.setVerticalGroup(
             PanelLLamadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,11 +301,11 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
                 .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(PanelLLamadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(txtCostoAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(txtCostoAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PanelLlamadosLayout = new javax.swing.GroupLayout(PanelLlamados);
@@ -307,10 +319,7 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
         );
         PanelLlamadosLayout.setVerticalGroup(
             PanelLlamadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLlamadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PanelLLamados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(PanelLLamados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         PanelFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulario de la asamblea"));
@@ -328,9 +337,9 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
 
         jLabel6.setText("Indique los votos en Contra");
 
-        votosfavor.setText("jTextField1");
+        votosfavor.setText("8");
 
-        votoscontra.setText("jTextField2");
+        votoscontra.setText("2");
         votoscontra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 votoscontraActionPerformed(evt);
@@ -342,6 +351,11 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
         jLabel8.setText("Seleccione la hora de inicio");
 
         txttopico.setText("jTextField3");
+        txttopico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttopicoActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Seleccione el lugar donde ocurrira la Asamblea");
 
@@ -354,38 +368,37 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
             .addGroup(PanelFormularioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1)
+                        .addGroup(PanelFormularioLayout.createSequentialGroup()
+                            .addComponent(txttopico)
+                            .addGap(33, 33, 33)))
                     .addGroup(PanelFormularioLayout.createSequentialGroup()
                         .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
                         .addGap(31, 31, 31)
                         .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelFormularioLayout.createSequentialGroup()
-                                .addComponent(votosfavor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)))
-                            .addComponent(votoscontra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(votosfavor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(votoscontra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelFormularioLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dateTimePicker3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Horainicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PanelFormularioLayout.createSequentialGroup()
-                        .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
                             .addGroup(PanelFormularioLayout.createSequentialGroup()
-                                .addComponent(txttopico)
-                                .addGap(33, 33, 33)))
-                        .addGap(124, 124, 124)
-                        .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(dateTimePicker3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel9)
-                            .addComponent(combolugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(combolugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelFormularioLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(Horainicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFormularioLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2))))
         );
         PanelFormularioLayout.setVerticalGroup(
             PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,29 +407,33 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
                 .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txttopico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combolugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelFormularioLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txttopico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combolugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(votosfavor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(votoscontra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addContainerGap(32, Short.MAX_VALUE))
+                            .addComponent(jLabel5)))
                     .addGroup(PanelFormularioLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Horainicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Horainicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))))
+                .addGap(18, 18, 18)
+                .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelFormularioLayout.createSequentialGroup()
+                        .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(votoscontra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6))
+                            .addComponent(jLabel8))
+                        .addContainerGap())
+                    .addGroup(PanelFormularioLayout.createSequentialGroup()
                         .addComponent(dateTimePicker3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2))))
         );
 
@@ -453,7 +470,7 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
             PanelTrabajosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTrabajosLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -478,16 +495,18 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PanelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelLlamados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelTrabajos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PanelLlamados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PanelTrabajos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -559,7 +578,7 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
                               String Monto;
                               boolean Correcto = true;
                               Monto =txtCostoAnuncio.getText();
-                              JOptionPane.showMessageDialog(rootPane,"Clave fond->"+ClaveFondo);
+                              //JOptionPane.showMessageDialog(rootPane,"Clave fond->"+ClaveFondo);
                               VentanaGestionAsambleasControlador.InsertaTrabajoAnuncioSQL(Monto, ClaveFondo,Fechax);
                               
                               
@@ -580,9 +599,95 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
                                         RellenaTablaTrabajosSQL(ClaveContrato);
                               
                               }
-                                  
                     }
+                    if (NumeroLlamado == 2){
+                              boolean Valido = true;
+                              QuorumAsistido =Integer.parseInt(txtQuorum.getText());
+                              String Fpropuesto = df.format(Fecha.getDate());
+                              String FechaPropuestoString = ConvierteFechas(Fpropuesto);
+                              Fechax = FechaPropuestoString;
+                              VentanaGestionAsambleasControlador.CalcularLLamadoSQL(ClaveContrato,"1");
+                              if (QuorumAsistido > MaximoAPT){
+                                        JOptionPane.showMessageDialog(rootPane,"Error, No puede existir un quorum mayor a:"+MaximoAPT);
+                                        Valido = false;
+                              }
+                              if (QuorumMinimo > QuorumAsistido){
+                                        JOptionPane.showMessageDialog(rootPane,"Se debera Generar otro llamado ya que no se cumplio con el quorum Minimo");
+                                        Valido=false;
+                                        VentanaGestionAsambleasControlador.InsertarCitaAsambleaSQL(FechaPropuestoString,Integer.toString(QuorumAsistido),"Asamblea Extraordinaria", JuntaActiva);
+                                        VentanaGestionAsambleasControlador.CalcularClaveLibro(ClaveContrato);
+                                        VentanaGestionAsambleasControlador.InsertarLIBCIT(Clavelibro,ClaveCitaAsamblea);
+                              }
+                              VentanaGestionAsambleasControlador.CalcularClaveFondo(ClaveContrato);
+                              String Monto;
+                              boolean Correcto = true;
+                              Monto =txtCostoAnuncio.getText();
+                              //JOptionPane.showMessageDialog(rootPane,"Clave fond->"+ClaveFondo);
+                              VentanaGestionAsambleasControlador.InsertaTrabajoAnuncioSQL(Monto, ClaveFondo,Fechax);
+                              
+                              
+                              if ((!Valido) && (Correcto)){
+                                        NumeroLlamado++;
+                                        txtQuorum.setText("");
+                                        Fecha.setDate(null);
+                                        PanelLLamados.setBorder(javax.swing.BorderFactory.createTitledBorder("Tercer Llamado"));
                     
+                              }
+                              else{
+                                        PanelTrabajos.setVisible(true);
+                                        PanelFormulario.setVisible(true);
+                                        jButton3.setEnabled(false);
+                                        txtQuorum.setEnabled(false);
+                                        Fecha.setEnabled(false);
+                                        cargarInterfazTrabajos();
+                                        RellenaTablaTrabajosSQL(ClaveContrato);
+                              
+                              }
+                    }
+                    if (NumeroLlamado == 3){
+                              boolean Valido = true;
+                              QuorumAsistido =Integer.parseInt(txtQuorum.getText());
+                              String Fpropuesto = df.format(Fecha.getDate());
+                              String FechaPropuestoString = ConvierteFechas(Fpropuesto);
+                              Fechax = FechaPropuestoString;
+                              VentanaGestionAsambleasControlador.CalcularLLamadoSQL(ClaveContrato,"1");
+                              if (QuorumAsistido > MaximoAPT){
+                                        JOptionPane.showMessageDialog(rootPane,"Error, No puede existir un quorum mayor a:"+MaximoAPT);
+                                        Valido = false;
+                              }
+                              if (QuorumMinimo > QuorumAsistido){
+                                        JOptionPane.showMessageDialog(rootPane,"Se debera Generar otro llamado ya que no se cumplio con el quorum Minimo");
+                                        Valido=false;
+                                        VentanaGestionAsambleasControlador.InsertarCitaAsambleaSQL(FechaPropuestoString,Integer.toString(QuorumAsistido),"Asamblea Extraordinaria", JuntaActiva);
+                                        VentanaGestionAsambleasControlador.CalcularClaveLibro(ClaveContrato);
+                                        VentanaGestionAsambleasControlador.InsertarLIBCIT(Clavelibro,ClaveCitaAsamblea);
+                              }
+                              VentanaGestionAsambleasControlador.CalcularClaveFondo(ClaveContrato);
+                              String Monto;
+                              boolean Correcto = true;
+                              Monto =txtCostoAnuncio.getText();
+                              //JOptionPane.showMessageDialog(rootPane,"Clave fond->"+ClaveFondo);
+                              VentanaGestionAsambleasControlador.InsertaTrabajoAnuncioSQL(Monto, ClaveFondo,Fechax);
+                              
+                              
+                              if ((!Valido) && (Correcto)){
+                                        NumeroLlamado++;
+                                        txtQuorum.setText("");
+                                        Fecha.setDate(null);
+                                        PanelLLamados.setBorder(javax.swing.BorderFactory.createTitledBorder("Cuarto Llamado"));
+                    
+                              }
+                              else{
+                                        PanelTrabajos.setVisible(true);
+                                        PanelFormulario.setVisible(true);
+                                        jButton3.setEnabled(false);
+                                        txtQuorum.setEnabled(false);
+                                        Fecha.setEnabled(false);
+                                        cargarInterfazTrabajos();
+                                        RellenaTablaTrabajosSQL(ClaveContrato);
+                              
+                              }
+                    }
           }catch(NumberFormatException | SQLException | HeadlessException e){
                     JOptionPane.showMessageDialog(rootPane,"Error, los campos deben ser llenados en Numeros"+e);
                     
@@ -661,7 +766,8 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
                                         if (otro > 0)
                                                   HorasExtras= HorasExtras+otro;
                               }
-                    JOptionPane.showMessageDialog(rootPane,"Las Horas Extras son:"+HorasExtras);
+                              
+                    //JOptionPane.showMessageDialog(rootPane,"Las Horas Extras son:"+HorasExtras);
                     }
                     
                     if (correcto){
@@ -692,11 +798,11 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
                     if (correcto)
                     {
                               VentanaGestionAsambleasControlador.InsertaTrabajoMayorSQL(Integer.toString(VotosFavor),Integer.toString( VotosContra), ClaveAsamblea, ClaveTrabajo);
-                              JOptionPane.showMessageDialog(rootPane,VotosFavor);
-                              JOptionPane.showMessageDialog(rootPane,QuorumAsistido);
+                             // JOptionPane.showMessageDialog(rootPane,VotosFavor);
+                              //JOptionPane.showMessageDialog(rootPane,QuorumAsistido);
                               float p = (VotosFavor *100)/QuorumAsistido;
-                              JOptionPane.showMessageDialog(rootPane,"Porcentaje"+PorcentajeAprob);
-                              JOptionPane.showMessageDialog(rootPane,"Resul" +p);
+                              //JOptionPane.showMessageDialog(rootPane,"Porcentaje"+PorcentajeAprob);
+                              //JOptionPane.showMessageDialog(rootPane,"Resul" +p);
                               if (p >PorcentajeAprob){
                                         JOptionPane.showMessageDialog(rootPane,"TRABAJO APROBADO");
                                         ApruebaTrabajoSQL(ClaveTrabajo);
@@ -705,22 +811,23 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
                                         JOptionPane.showMessageDialog(rootPane,"TRABAJO NEGADO, SI SE DESEA SE PUEDE VOLVER A LLEVAR A ASAMBLEA.");
 
                                         //tring Hinicio, String HFin, String FK_horario, String fkas
-                              JOptionPane.showMessageDialog(rootPane,completo+" "+completo2);
-                              VentanaGestionAsambleasControlador.InsertaHor_DETSQL(completo,completo2, "100", ClaveAsamblea);
+                              //JOptionPane.showMessageDialog(rootPane,completo+" "+completo2);
                               
+                              if (combolugar.getSelectedIndex() == 1){
+                                        VentanaGestionAsambleasControlador.InsertaHor_DETSQL(completo,completo2, "1", ClaveAsamblea);
+                                        VentanaGestionAsambleasControlador.CalcularValorUT();
+                                        Float ValorAsamblea = 6*ValorUT;
+                                        VentanaGestionAsambleasControlador.InsertaTrabajoCostoAsambleaSQL(Float.toString(ValorAsamblea), ClaveFondo, Fechax);
+                                        if (HorasExtras > 0){
+                                                  Float MontoExtra = 4 * HorasExtras * ValorUT;
+                                                  VentanaGestionAsambleasControlador.InsertaTrabajoCostoAsamblea2SQL(Float.toString(MontoExtra), ClaveFondo, Fechax);
+
+                                        }
                               
-                              
+                              }
                     }
                     
                     }
-                    
-                    
-                    
-         
-        
-        
-        
-        
         } catch (SQLException ex) {
             Logger.getLogger(VentanaGestiondeAsambleas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -735,6 +842,10 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txttopicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttopicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttopicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -788,6 +899,7 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

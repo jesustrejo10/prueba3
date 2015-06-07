@@ -97,4 +97,76 @@ public static void RellenaReciboMensual3SQL(String ClaveAvi) throws SQLException
                     VentanaReciboMensual.MontoTotalDetallado =Float.toString(Valores.getFloat(2));
             }
  }
+public static void RellenaReciboMensual4SQL() throws SQLException{
+ 
+        ConexionOracle Conexion= new ConexionOracle();
+        Connection Con=Conexion.Conectar();
+        java.sql.Statement st= Con.createStatement();
+        VentanaReciboMensual.cont = 0;
+         ResultSet Valores= st.executeQuery("select (PRO.PRO_PNOMBRE||' '||PRO.PRO_PAPELLIDO) AS NOMBRE, (SELECT SUM(AVI.AVI_MONTO)\n" +
+                                                                "                                                             FROM AVISOCOBRO AVI\n" +
+                                                                "                                                             WHERE AVI.AVI_PAGADO = 'NOPAGADO'\n" +
+                                                                "                                                             AND AVI.AVI_FK_CUENTA = CUE.CUE_CLAVE) AS DEUDA ,\n" +
+                                                                "                                                            (SELECT  SUM (AVI.AVI_MONTO)\n" +
+                                                                "                                                             FROM AVISOCOBRO AVI\n" +
+                                                                "                                                             WHERE AVI.AVI_PAGADO = 'PAGADOS'\n" +
+                                                                "                                                             AND AVI.AVI_FK_CUENTA = CUE.CUE_CLAVE) AS PAGOS,\n" +
+                                                                "                                                             CUE.CUE_MONTO\n" +
+                                                                " from CUENTA CUE, APT_DET AD LEFT OUTER JOIN PROPIETARIO PRO ON AD.AD_FK_PROPIETARIO = PRO.PRO_CLAVE\n" +
+                                                                " WHERE CUE.CUE_CLAVE = AD.AD_FK_CUENTA\n" +
+                                                                " AND AD.AD_CLAVE ="+VentanaReciboMensual.NumeroAPT+"\n" +
+                                                                " UNION ALL\n" +
+                                                                " SELECT  FONDO.FON_TIPO, CF.CF_MONTO AS SALDO ,(select SUM(TRABAJO.TRA_MONTO)\n" +
+                                                                "                                                FROM TRABAJO\n" +
+                                                                "                                                where TRABAJO.TRA_FK_PAGO is null\n" +
+                                                                "                                                and TRABAJO.TRA_FK_CONT_FOND = CF.CF_CLAVE) as HABER ,\n" +
+                                                                "                                                (select SUM(TRABAJO.TRA_MONTO)\n" +
+                                                                "                                                 FROM TRABAJO\n" +
+                                                                "                                                 Where TRABAJO.TRA_FK_PAGO is not null\n" +
+                                                                "                                                 and TRABAJO.TRA_FK_CONT_FOND = CF.CF_CLAVE) as DEBE\n" +
+                                                                "  FROM FONDO, CONT_FOND CF , CONTRATO CON\n" +
+                                                                "  WHERE CF.CF_FK_FONDO = FONDO.FON_CLAVE\n" +
+                                                                "  AND CON.CONT_CLAVE= CF.CF_FK_CONTRATO\n" +
+                                                                "  AND CF.CF_FK_CONTRATO = "+VentanaReciboMensual.ClaveContrato+"\n" +
+                                                                " UNION\n" +
+                                                                " select E.EDI_NOMBRE, (SELECT SUM(AVI.AVI_MONTO)\n" +
+                                                                "                                   FROM AVISOCOBRO AVI, CUENTA CUE\n" +
+                                                                "                                   WHERE AVI.AVI_PAGADO = 'NOPAGADO'\n" +
+                                                                "                                   AND AVI.AVI_FK_CUENTA = CUE.CUE_CLAVE) AS DEUDA ,\n" +
+                                                                "                     (SELECT  SUM (AVI.AVI_MONTO)\n" +
+                                                                "                                    FROM AVISOCOBRO AVI, CUENTA CUE\n" +
+                                                                "                                    WHERE AVI.AVI_PAGADO = 'PAGADOS'\n" +
+                                                                "                                    AND AVI.AVI_FK_CUENTA = CUE.CUE_CLAVE) AS PAGOS,\n" +
+                                                                "                                    CUE.CUE_MONTO\n" +
+                                                                " from CUENTA CUE, APT_DET AD , EDIFICIO E\n" +
+                                                                " WHERE CUE.CUE_CLAVE = AD.AD_FK_CUENTA \n" +
+                                                                " AND E.EDI_CLAVE = AD.AD_FK_EDIFICIO");
+                                                            while (Valores.next()){
+
+                    VentanaReciboMensual.ModeloFondos.insertRow(VentanaReciboMensual.cont, new Object[]{});
+                    VentanaReciboMensual.ModeloFondos.setValueAt((Valores.getString(1)),VentanaReciboMensual.cont,0);
+                    VentanaReciboMensual.ModeloFondos.setValueAt(Float.toString(Valores.getFloat(2)),VentanaReciboMensual.cont,1);
+                    VentanaReciboMensual.ModeloFondos.setValueAt(Float.toString(Valores.getFloat(3)),VentanaReciboMensual.cont,2);
+                    VentanaReciboMensual.ModeloFondos.setValueAt(Float.toString(Valores.getFloat(2)),VentanaReciboMensual.cont,3);
+                   VentanaReciboMensual.cont++;
+            }
+ }
+
+public static void RellenaReciboMensual5SQL(String ClaveEdif) throws SQLException{
+ 
+          ConexionOracle Conexion= new ConexionOracle();
+          Connection Con=Conexion.Conectar();
+          java.sql.Statement st= Con.createStatement();
+          ResultSet Valores= st.executeQuery(" select CON.CONT_CLAVE\n" +
+                                                                            " FROM CONTRATO CON, EDIFICIO E\n" +
+                                                                            " WHERE CON.CONT_FECHA_EMISION = (SELECT MAX (CON.CONT_FECHA_EMISION)\n" +
+                                                                            "                                FROM CONTRATO CON\n" +
+                                                                            "                                WHERE CON.CONT_FK_EDIFICIO = E.EDI_CLAVE)\n" +
+                                                                            " AND E.EDI_CLAVE = CON.CONT_FK_EDIFICIO\n" +
+                                                                            " AND E.EDI_CLAVE = "+ClaveEdif+" ");
+          while (Valores.next()){
+                    VentanaReciboMensual.ClaveContrato= Integer.toString(Valores.getInt(1));
+          }
+ }
+
 }
