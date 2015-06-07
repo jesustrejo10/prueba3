@@ -23,9 +23,10 @@ import javax.swing.JOptionPane;
  *
  * @author Luis
  */
+
 public class VentanaMenuReclamoControlador  {
     
-    public static void RellenaTablaReclamosSQL(String Clave) throws SQLException{
+public static void RellenaTablaReclamosSQL(String Clave) throws SQLException{
  
           ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
@@ -72,7 +73,7 @@ public static void RellenaTablaPropietariosSQL() throws SQLException{
             }
  };
 
-  public static void CalculaClaveOficina(String Clave) throws SQLException{
+public static void CalculaClaveOficina(String Clave) throws SQLException{
 
           ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
@@ -87,7 +88,6 @@ public static void RellenaTablaPropietariosSQL() throws SQLException{
                            
                     }
 }
-
 
 public static void RellenaTablaApartamentosCompradosSQL(String Clave) throws SQLException{
  
@@ -112,7 +112,8 @@ public static void RellenaTablaApartamentosCompradosSQL(String Clave) throws SQL
             }
     
 }
-  public static void RellenaCamposFaltantes(String Clave) throws SQLException{
+
+public static void RellenaCamposFaltantes(String Clave) throws SQLException{
 
           ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
@@ -126,7 +127,7 @@ public static void RellenaTablaApartamentosCompradosSQL(String Clave) throws SQL
                     }
 }
 
-  public static void InsertarReclamoSQL(String TITULO ,String DESCRIPCION, String FechaInicioString, String fk_apartamento) throws SQLException{
+public static void InsertarReclamoSQL(String TITULO ,String DESCRIPCION, String FechaInicioString, String fk_apartamento) throws SQLException{
            ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();
           PreparedStatement pst=  Con.prepareStatement(" insert into RECLAMO  \n" +
@@ -140,6 +141,5 @@ public static void RellenaTablaApartamentosCompradosSQL(String Clave) throws SQL
 
           pst.executeUpdate(); 
 }
-
 
 }

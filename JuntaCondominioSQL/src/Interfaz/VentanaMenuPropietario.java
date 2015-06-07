@@ -646,7 +646,6 @@ public class VentanaMenuPropietario extends javax.swing.JFrame {
         String columnas[]={"Identificacion","Nombre","Apellido"};
         modelo = new DefaultTableModel(x, columnas);
         Tabla.setModel(modelo);
-        //RellenaTablaSQL();
     }
     
 
