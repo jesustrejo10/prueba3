@@ -1,4 +1,4 @@
-insert into PERMISO values(1,'Usuario');
+﻿insert into PERMISO values(1,'Usuario');
 insert into PERMISO values(2,'Edificio');
 insert into PERMISO values(3,'contrato');
 insert into PERMISO values(4,'Propietario');
@@ -68,14 +68,14 @@ insert into EMPLEADO values(12,'Daniel','','Santiago','Romero');
 insert into EMPLEADO values(13,'Rodrigo','Alfonso','Alvarez','');
 insert into EMPLEADO values(14,'Pedro','','Marinez','');
 insert into EMPLEADO values(15,'George','','Madi','');
-INSERT INTO PROVEEDORSERVICIO VALUES (1010,'LUZ ELECTRICA','PROVEEDOR DE ELECTRICIDAD');
-INSERT INTO PROVEEDORSERVICIO VALUES (1011,'HIDROCAPITAL','PROVEEDOR DE AGUA POTABLE');
-INSERT INTO PROVEEDORSERVICIO VALUES (1012,'CANTV','PROVEEDOR DE TELEFONIA');
-INSERT INTO PROVEEDORSERVICIO VALUES (1013,'DIRECTV','PROVEEDOR DE TELEVISION');
-INSERT INTO PROVEEDORSERVICIO VALUES (1014,'PICINAS A DOMICILIO','SERVICIOS DE PISCINA');
-INSERT INTO PROVEEDORSERVICIO VALUES (1015,'TE CUIDAMOS','PROVEEDOR DE SEGURIDAD');
-INSERT INTO PROVEEDORSERVICIO VALUES (1016,'ASENSORIA','SERVICIOS DE ASENSORES');
-INSERT INTO PROVEEDORSERVICIO VALUES (1017,'TU JARDIN','MANTENIMIENTO DE AREAS VERDES');
+INSERT INTO PROVEEDORSERVICIO VALUES (1,'LUZ ELECTRICA','PROVEEDOR DE ELECTRICIDAD');
+INSERT INTO PROVEEDORSERVICIO VALUES (2,'HIDROCAPITAL','PROVEEDOR DE AGUA POTABLE');
+INSERT INTO PROVEEDORSERVICIO VALUES (3,'CANTV','PROVEEDOR DE TELEFONIA');
+INSERT INTO PROVEEDORSERVICIO VALUES (4,'DIRECTV','PROVEEDOR DE TELEVISION');
+INSERT INTO PROVEEDORSERVICIO VALUES (5,'PICINAS A DOMICILIO','SERVICIOS DE PISCINA');
+INSERT INTO PROVEEDORSERVICIO VALUES (6,'TE CUIDAMOS','PROVEEDOR DE SEGURIDAD');
+INSERT INTO PROVEEDORSERVICIO VALUES (7,'ASENSORIA','SERVICIOS DE ASENSORES');
+INSERT INTO PROVEEDORSERVICIO VALUES (8,'TU JARDIN','MANTENIMIENTO DE AREAS VERDES');
 insert into UNIDADTRIBUTARIA VALUES(1,3,'SI');
 insert into ROLPER(RP_CLAVE,RP_FK_PERMISO,RP_FK_ROL) VALUES (1,1,1);
 insert into ROLPER(RP_CLAVE,RP_FK_PERMISO,RP_FK_ROL) VALUES (2,2,1);
@@ -104,11 +104,12 @@ insert into OFICINA values(18,'Automatic@hotmail.com','Juntas Condominio',14154)
 insert into OFICINA values(19,'Automatic@hotmail.com','Loto',14154);
 insert into OFICINA values(20,'Automatic@hotmail.com','Rosas C.A',14154);
 
-insert into ASAMBLEA values(1,'Obras de Mantenimiento','13/06/15','ORDINARIA',1,14154);
-insert into ASAMBLEA values(2,'Reparacion Tubo de Gas','18/02/15','EXTRAORDINARIA',4,14154);
-insert into ASAMBLEA values(3,'Obras de Mantenimiento','19/07/15','ORDINARIA',12,14154);
-insert into ASAMBLEA values(4,'Obras de Mantenimiento','11/12/15','ORDINARIA',1,14154);
-insert into ASAMBLEA values(5,'Reparacion Calle 14','12/04/15','EXTRAORDINARIA',3,14154);
+
+insert into ASAMBLEA values(1,'Obras de Mantenimiento','ORDINARIA',1,14154);
+insert into ASAMBLEA values(2,'Reparacion Tubo de Gas','EXTRAORDINARIA',4,14154);
+insert into ASAMBLEA values(3,'Obras de Mantenimiento','EXTRAORDINARIA',12,14154);
+insert into ASAMBLEA values(4,'Obras de Mantenimiento','EXTRAORDINARIA',1,14154);
+insert into ASAMBLEA values(5,'Reparacion Calle 14','EXTRAORDINARIA',3,14154);
 
 
 insert into EMP_OFI values(1,'Jefe Administrativo',3,1);
@@ -157,906 +158,906 @@ insert into EDIFICIO values(28,'J-5784099','El Venado',14154);
 insert into EDIFICIO values(29,'J-5784677','El Paraiso',14154);
 insert into EDIFICIO values(30,'J-5785255','Gran Altamira',14154);
 
-insert into APARTAMENTO VALUES (1,'75m X 80m')
-insert into CUENTA VALUES (1,'75m X 80m')
-insert into APT_DET VALUES (1,10,1,12,'',1,1,1000000,'NO',1);
-insert into APARTAMENTO VALUES (2,'75m X 80m')
-insert into CUENTA VALUES (2,'75m X 80m')
-insert into APT_DET VALUES (2,10,2,19,'',1,2,1000000,'NO',11);
-insert into APARTAMENTO VALUES (3,'75m X 80m')
-insert into CUENTA VALUES (3,'75m X 80m')
-insert into APT_DET VALUES (3,10,3,4,'',1,3,1000000,'NO',10);
-insert into APARTAMENTO VALUES (4,'75m X 80m')
-insert into CUENTA VALUES (4,'75m X 80m')
-insert into APT_DET VALUES (4,10,4,17,'',1,4,1000000,'NO',4);
-insert into APARTAMENTO VALUES (5,'75m X 80m')
-insert into CUENTA VALUES (5,'75m X 80m')
-insert into APT_DET VALUES (5,10,5,7,'',1,5,1000000,'NO',1);
-insert into APARTAMENTO VALUES (6,'75m X 80m')
-insert into CUENTA VALUES (6,'75m X 80m')
-insert into APT_DET VALUES (6,10,6,7,'',1,6,1000000,'NO',11);
-insert into APARTAMENTO VALUES (7,'75m X 80m')
-insert into CUENTA VALUES (7,'75m X 80m')
-insert into APT_DET VALUES (7,10,7,14,'',1,7,1000000,'NO',14);
-insert into APARTAMENTO VALUES (8,'75m X 80m')
-insert into CUENTA VALUES (8,'75m X 80m')
-insert into APT_DET VALUES (8,10,8,16,'',1,8,1000000,'NO',11);
-insert into APARTAMENTO VALUES (9,'75m X 80m')
-insert into CUENTA VALUES (9,'75m X 80m')
-insert into APT_DET VALUES (9,10,9,17,'',1,9,1000000,'NO',10);
-insert into APARTAMENTO VALUES (10,'75m X 80m')
-insert into CUENTA VALUES (10,'75m X 80m')
-insert into APT_DET VALUES (10,10,10,12,'',1,10,1000000,'NO',7);
-insert into APARTAMENTO VALUES (11,'75m X 80m')
-insert into CUENTA VALUES (11,'75m X 80m')
-insert into APT_DET VALUES (11,10,11,6,'',2,11,1000000,'NO',6);
-insert into APARTAMENTO VALUES (12,'75m X 80m')
-insert into CUENTA VALUES (12,'75m X 80m')
-insert into APT_DET VALUES (12,10,12,10,'',2,12,1000000,'NO',1);
-insert into APARTAMENTO VALUES (13,'75m X 80m')
-insert into CUENTA VALUES (13,'75m X 80m')
-insert into APT_DET VALUES (13,10,13,13,'',2,13,1000000,'NO',5);
-insert into APARTAMENTO VALUES (14,'75m X 80m')
-insert into CUENTA VALUES (14,'75m X 80m')
-insert into APT_DET VALUES (14,10,14,5,'',2,14,1000000,'NO',3);
-insert into APARTAMENTO VALUES (15,'75m X 80m')
-insert into CUENTA VALUES (15,'75m X 80m')
-insert into APT_DET VALUES (15,10,15,16,'',2,15,1000000,'NO',6);
-insert into APARTAMENTO VALUES (16,'75m X 80m')
-insert into CUENTA VALUES (16,'75m X 80m')
-insert into APT_DET VALUES (16,10,16,9,'',2,16,1000000,'NO',15);
-insert into APARTAMENTO VALUES (17,'75m X 80m')
-insert into CUENTA VALUES (17,'75m X 80m')
-insert into APT_DET VALUES (17,10,17,20,'',2,17,1000000,'NO',11);
-insert into APARTAMENTO VALUES (18,'75m X 80m')
-insert into CUENTA VALUES (18,'75m X 80m')
-insert into APT_DET VALUES (18,10,18,16,'',2,18,1000000,'NO',6);
-insert into APARTAMENTO VALUES (19,'75m X 80m')
-insert into CUENTA VALUES (19,'75m X 80m')
-insert into APT_DET VALUES (19,10,19,6,'',2,19,1000000,'NO',13);
-insert into APARTAMENTO VALUES (20,'75m X 80m')
-insert into CUENTA VALUES (20,'75m X 80m')
-insert into APT_DET VALUES (20,10,20,9,'',2,20,1000000,'NO',5);
-insert into APARTAMENTO VALUES (21,'75m X 80m')
-insert into CUENTA VALUES (21,'75m X 80m')
-insert into APT_DET VALUES (21,10,21,3,'',3,21,1000000,'NO',1);
-insert into APARTAMENTO VALUES (22,'75m X 80m')
-insert into CUENTA VALUES (22,'75m X 80m')
-insert into APT_DET VALUES (22,10,22,7,'',3,22,1000000,'NO',1);
-insert into APARTAMENTO VALUES (23,'75m X 80m')
-insert into CUENTA VALUES (23,'75m X 80m')
-insert into APT_DET VALUES (23,10,23,2,'',3,23,1000000,'NO',9);
-insert into APARTAMENTO VALUES (24,'75m X 80m')
-insert into CUENTA VALUES (24,'75m X 80m')
-insert into APT_DET VALUES (24,10,24,5,'',3,24,1000000,'NO',4);
-insert into APARTAMENTO VALUES (25,'75m X 80m')
-insert into CUENTA VALUES (25,'75m X 80m')
-insert into APT_DET VALUES (25,10,25,5,'',3,25,1000000,'NO',13);
-insert into APARTAMENTO VALUES (26,'75m X 80m')
-insert into CUENTA VALUES (26,'75m X 80m')
-insert into APT_DET VALUES (26,10,26,15,'',3,26,1000000,'NO',1);
-insert into APARTAMENTO VALUES (27,'75m X 80m')
-insert into CUENTA VALUES (27,'75m X 80m')
-insert into APT_DET VALUES (27,10,27,14,'',3,27,1000000,'NO',1);
-insert into APARTAMENTO VALUES (28,'75m X 80m')
-insert into CUENTA VALUES (28,'75m X 80m')
-insert into APT_DET VALUES (28,10,28,12,'',3,28,1000000,'NO',1);
-insert into APARTAMENTO VALUES (29,'75m X 80m')
-insert into CUENTA VALUES (29,'75m X 80m')
-insert into APT_DET VALUES (29,10,29,11,'',3,29,1000000,'NO',8);
-insert into APARTAMENTO VALUES (30,'75m X 80m')
-insert into CUENTA VALUES (30,'75m X 80m')
-insert into APT_DET VALUES (30,10,30,19,'',3,30,1000000,'NO',1);
-insert into APARTAMENTO VALUES (31,'75m X 80m')
-insert into CUENTA VALUES (31,'75m X 80m')
-insert into APT_DET VALUES (31,10,31,18,'',4,31,1000000,'NO',3);
-insert into APARTAMENTO VALUES (32,'75m X 80m')
-insert into CUENTA VALUES (32,'75m X 80m')
-insert into APT_DET VALUES (32,10,32,16,'',4,32,1000000,'NO',10);
-insert into APARTAMENTO VALUES (33,'75m X 80m')
-insert into CUENTA VALUES (33,'75m X 80m')
-insert into APT_DET VALUES (33,10,33,17,'',4,33,1000000,'NO',11);
-insert into APARTAMENTO VALUES (34,'75m X 80m')
-insert into CUENTA VALUES (34,'75m X 80m')
-insert into APT_DET VALUES (34,10,34,13,'',4,34,1000000,'NO',14);
-insert into APARTAMENTO VALUES (35,'75m X 80m')
-insert into CUENTA VALUES (35,'75m X 80m')
-insert into APT_DET VALUES (35,10,35,13,'',4,35,1000000,'NO',15);
-insert into APARTAMENTO VALUES (36,'75m X 80m')
-insert into CUENTA VALUES (36,'75m X 80m')
-insert into APT_DET VALUES (36,10,36,8,'',4,36,1000000,'NO',3);
-insert into APARTAMENTO VALUES (37,'75m X 80m')
-insert into CUENTA VALUES (37,'75m X 80m')
-insert into APT_DET VALUES (37,10,37,8,'',4,37,1000000,'NO',14);
-insert into APARTAMENTO VALUES (38,'75m X 80m')
-insert into CUENTA VALUES (38,'75m X 80m')
-insert into APT_DET VALUES (38,10,38,19,'',4,38,1000000,'NO',3);
+insert into APARTAMENTO VALUES (1,'75m X 80m');
+insert into CUENTA VALUES (1,0,'NO_MOROSA');
+insert into APT_DET VALUES (1,10,1,19,'',1,1,1000000,'NO',8);
+insert into APARTAMENTO VALUES (2,'75m X 80m');
+insert into CUENTA VALUES (2,0,'NO_MOROSA');
+insert into APT_DET VALUES (2,10,2,11,'',1,2,1000000,'NO',2);
+insert into APARTAMENTO VALUES (3,'75m X 80m');
+insert into CUENTA VALUES (3,0,'NO_MOROSA');
+insert into APT_DET VALUES (3,10,3,20,'',1,3,1000000,'NO',8);
+insert into APARTAMENTO VALUES (4,'75m X 80m');
+insert into CUENTA VALUES (4,0,'NO_MOROSA');
+insert into APT_DET VALUES (4,10,4,4,'',1,4,1000000,'NO',12);
+insert into APARTAMENTO VALUES (5,'75m X 80m');
+insert into CUENTA VALUES (5,0,'NO_MOROSA');
+insert into APT_DET VALUES (5,10,5,18,'',1,5,1000000,'NO',10);
+insert into APARTAMENTO VALUES (6,'75m X 80m');
+insert into CUENTA VALUES (6,0,'NO_MOROSA');
+insert into APT_DET VALUES (6,10,6,17,'',1,6,1000000,'NO',12);
+insert into APARTAMENTO VALUES (7,'75m X 80m');
+insert into CUENTA VALUES (7,0,'NO_MOROSA');
+insert into APT_DET VALUES (7,10,7,1,'',1,7,1000000,'NO',15);
+insert into APARTAMENTO VALUES (8,'75m X 80m');
+insert into CUENTA VALUES (8,0,'NO_MOROSA');
+insert into APT_DET VALUES (8,10,8,7,'',1,8,1000000,'NO',14);
+insert into APARTAMENTO VALUES (9,'75m X 80m');
+insert into CUENTA VALUES (9,0,'NO_MOROSA');
+insert into APT_DET VALUES (9,10,9,7,'',1,9,1000000,'NO',13);
+insert into APARTAMENTO VALUES (10,'75m X 80m');
+insert into CUENTA VALUES (10,0,'NO_MOROSA');
+insert into APT_DET VALUES (10,10,10,8,'',1,10,1000000,'NO',1);
+insert into APARTAMENTO VALUES (11,'75m X 80m');
+insert into CUENTA VALUES (11,0,'NO_MOROSA');
+insert into APT_DET VALUES (11,10,11,13,'',2,11,1000000,'NO',2);
+insert into APARTAMENTO VALUES (12,'75m X 80m');
+insert into CUENTA VALUES (12,0,'NO_MOROSA');
+insert into APT_DET VALUES (12,10,12,17,'',2,12,1000000,'NO',10);
+insert into APARTAMENTO VALUES (13,'75m X 80m');
+insert into CUENTA VALUES (13,0,'NO_MOROSA');
+insert into APT_DET VALUES (13,10,13,7,'',2,13,1000000,'NO',4);
+insert into APARTAMENTO VALUES (14,'75m X 80m');
+insert into CUENTA VALUES (14,0,'NO_MOROSA');
+insert into APT_DET VALUES (14,10,14,18,'',2,14,1000000,'NO',13);
+insert into APARTAMENTO VALUES (15,'75m X 80m');
+insert into CUENTA VALUES (15,0,'NO_MOROSA');
+insert into APT_DET VALUES (15,10,15,18,'',2,15,1000000,'NO',13);
+insert into APARTAMENTO VALUES (16,'75m X 80m');
+insert into CUENTA VALUES (16,0,'NO_MOROSA');
+insert into APT_DET VALUES (16,10,16,13,'',2,16,1000000,'NO',12);
+insert into APARTAMENTO VALUES (17,'75m X 80m');
+insert into CUENTA VALUES (17,0,'NO_MOROSA');
+insert into APT_DET VALUES (17,10,17,9,'',2,17,1000000,'NO',1);
+insert into APARTAMENTO VALUES (18,'75m X 80m');
+insert into CUENTA VALUES (18,0,'NO_MOROSA');
+insert into APT_DET VALUES (18,10,18,2,'',2,18,1000000,'NO',14);
+insert into APARTAMENTO VALUES (19,'75m X 80m');
+insert into CUENTA VALUES (19,0,'NO_MOROSA');
+insert into APT_DET VALUES (19,10,19,16,'',2,19,1000000,'NO',14);
+insert into APARTAMENTO VALUES (20,'75m X 80m');
+insert into CUENTA VALUES (20,0,'NO_MOROSA');
+insert into APT_DET VALUES (20,10,20,18,'',2,20,1000000,'NO',1);
+insert into APARTAMENTO VALUES (21,'75m X 80m');
+insert into CUENTA VALUES (21,0,'NO_MOROSA');
+insert into APT_DET VALUES (21,10,21,19,'',3,21,1000000,'NO',8);
+insert into APARTAMENTO VALUES (22,'75m X 80m');
+insert into CUENTA VALUES (22,0,'NO_MOROSA');
+insert into APT_DET VALUES (22,10,22,7,'',3,22,1000000,'NO',14);
+insert into APARTAMENTO VALUES (23,'75m X 80m');
+insert into CUENTA VALUES (23,0,'NO_MOROSA');
+insert into APT_DET VALUES (23,10,23,3,'',3,23,1000000,'NO',6);
+insert into APARTAMENTO VALUES (24,'75m X 80m');
+insert into CUENTA VALUES (24,0,'NO_MOROSA');
+insert into APT_DET VALUES (24,10,24,6,'',3,24,1000000,'NO',7);
+insert into APARTAMENTO VALUES (25,'75m X 80m');
+insert into CUENTA VALUES (25,0,'NO_MOROSA');
+insert into APT_DET VALUES (25,10,25,12,'',3,25,1000000,'NO',14);
+insert into APARTAMENTO VALUES (26,'75m X 80m');
+insert into CUENTA VALUES (26,0,'NO_MOROSA');
+insert into APT_DET VALUES (26,10,26,18,'',3,26,1000000,'NO',14);
+insert into APARTAMENTO VALUES (27,'75m X 80m');
+insert into CUENTA VALUES (27,0,'NO_MOROSA');
+insert into APT_DET VALUES (27,10,27,8,'',3,27,1000000,'NO',13);
+insert into APARTAMENTO VALUES (28,'75m X 80m');
+insert into CUENTA VALUES (28,0,'NO_MOROSA');
+insert into APT_DET VALUES (28,10,28,2,'',3,28,1000000,'NO',13);
+insert into APARTAMENTO VALUES (29,'75m X 80m');
+insert into CUENTA VALUES (29,0,'NO_MOROSA');
+insert into APT_DET VALUES (29,10,29,16,'',3,29,1000000,'NO',9);
+insert into APARTAMENTO VALUES (30,'75m X 80m');
+insert into CUENTA VALUES (30,0,'NO_MOROSA');
+insert into APT_DET VALUES (30,10,30,14,'',3,30,1000000,'NO',11);
+insert into APARTAMENTO VALUES (31,'75m X 80m');
+insert into CUENTA VALUES (31,0,'NO_MOROSA');
+insert into APT_DET VALUES (31,10,31,10,'',4,31,1000000,'NO',1);
+insert into APARTAMENTO VALUES (32,'75m X 80m');
+insert into CUENTA VALUES (32,0,'NO_MOROSA');
+insert into APT_DET VALUES (32,10,32,12,'',4,32,1000000,'NO',3);
+insert into APARTAMENTO VALUES (33,'75m X 80m');
+insert into CUENTA VALUES (33,0,'NO_MOROSA');
+insert into APT_DET VALUES (33,10,33,17,'',4,33,1000000,'NO',7);
+insert into APARTAMENTO VALUES (34,'75m X 80m');
+insert into CUENTA VALUES (34,0,'NO_MOROSA');
+insert into APT_DET VALUES (34,10,34,17,'',4,34,1000000,'NO',11);
+insert into APARTAMENTO VALUES (35,'75m X 80m');
+insert into CUENTA VALUES (35,0,'NO_MOROSA');
+insert into APT_DET VALUES (35,10,35,19,'',4,35,1000000,'NO',9);
+insert into APARTAMENTO VALUES (36,'75m X 80m');
+insert into CUENTA VALUES (36,0,'NO_MOROSA');
+insert into APT_DET VALUES (36,10,36,11,'',4,36,1000000,'NO',1);
+insert into APARTAMENTO VALUES (37,'75m X 80m');
+insert into CUENTA VALUES (37,0,'NO_MOROSA');
+insert into APT_DET VALUES (37,10,37,9,'',4,37,1000000,'NO',2);
+insert into APARTAMENTO VALUES (38,'75m X 80m');
+insert into CUENTA VALUES (38,0,'NO_MOROSA');
+insert into APT_DET VALUES (38,10,38,13,'',4,38,1000000,'NO',4);
 insert into APARTAMENTO VALUES (39,'75m X 80m');
-insert into CUENTA VALUES (39,'75m X 80m');
-insert into APT_DET VALUES (39,10,39,'',18,4,39,1000000,'NO',15);
+insert into CUENTA VALUES (39,0,'NO_MOROSA');
+insert into APT_DET VALUES (39,10,39,13,'',4,39,1000000,'NO',3);
 insert into APARTAMENTO VALUES (40,'75m X 80m');
-insert into CUENTA VALUES (40,'75m X 80m');
-insert into APT_DET VALUES (40,10,40,'',4,4,40,1000000,'NO',7);
-insert into APARTAMENTO VALUES (41,'75m X 80m')
-insert into CUENTA VALUES (41,'75m X 80m')
-insert into APT_DET VALUES (41,10,41,4,'',5,41,1000000,'NO',5);
-insert into APARTAMENTO VALUES (42,'75m X 80m')
-insert into CUENTA VALUES (42,'75m X 80m')
-insert into APT_DET VALUES (42,10,42,15,'',5,42,1000000,'NO',10);
-insert into APARTAMENTO VALUES (43,'75m X 80m')
-insert into CUENTA VALUES (43,'75m X 80m')
-insert into APT_DET VALUES (43,10,43,14,'',5,43,1000000,'NO',1);
-insert into APARTAMENTO VALUES (44,'75m X 80m')
-insert into CUENTA VALUES (44,'75m X 80m')
-insert into APT_DET VALUES (44,10,44,15,'',5,44,1000000,'NO',10);
-insert into APARTAMENTO VALUES (45,'75m X 80m')
-insert into CUENTA VALUES (45,'75m X 80m')
-insert into APT_DET VALUES (45,10,45,16,'',5,45,1000000,'NO',3);
-insert into APARTAMENTO VALUES (46,'75m X 80m')
-insert into CUENTA VALUES (46,'75m X 80m')
-insert into APT_DET VALUES (46,10,46,16,'',5,46,1000000,'NO',1);
-insert into APARTAMENTO VALUES (47,'75m X 80m')
-insert into CUENTA VALUES (47,'75m X 80m')
-insert into APT_DET VALUES (47,10,47,12,'',5,47,1000000,'NO',5);
-insert into APARTAMENTO VALUES (48,'75m X 80m')
-insert into CUENTA VALUES (48,'75m X 80m')
-insert into APT_DET VALUES (48,10,48,6,'',5,48,1000000,'NO',4);
-insert into APARTAMENTO VALUES (49,'75m X 80m')
-insert into CUENTA VALUES (49,'75m X 80m')
-insert into APT_DET VALUES (49,10,49,8,'',5,49,1000000,'NO',14);
-insert into APARTAMENTO VALUES (50,'75m X 80m')
-insert into CUENTA VALUES (50,'75m X 80m')
-insert into APT_DET VALUES (50,10,50,17,'',5,50,1000000,'NO',2);
-insert into APARTAMENTO VALUES (51,'75m X 80m')
-insert into CUENTA VALUES (51,'75m X 80m')
-insert into APT_DET VALUES (51,10,51,2,'',6,51,1000000,'NO',7);
-insert into APARTAMENTO VALUES (52,'75m X 80m')
-insert into CUENTA VALUES (52,'75m X 80m')
-insert into APT_DET VALUES (52,10,52,2,'',6,52,1000000,'NO',3);
-insert into APARTAMENTO VALUES (53,'75m X 80m')
-insert into CUENTA VALUES (53,'75m X 80m')
-insert into APT_DET VALUES (53,10,53,3,'',6,53,1000000,'NO',14);
-insert into APARTAMENTO VALUES (54,'75m X 80m')
-insert into CUENTA VALUES (54,'75m X 80m')
-insert into APT_DET VALUES (54,10,54,9,'',6,54,1000000,'NO',7);
+insert into CUENTA VALUES (40,0,'NO_MOROSA');
+insert into APT_DET VALUES (40,10,40,4,'',4,40,1000000,'NO',3);
+insert into APARTAMENTO VALUES (41,'75m X 80m');
+insert into CUENTA VALUES (41,0,'NO_MOROSA');
+insert into APT_DET VALUES (41,10,41,17,'',5,41,1000000,'NO',14);
+insert into APARTAMENTO VALUES (42,'75m X 80m');
+insert into CUENTA VALUES (42,0,'NO_MOROSA');
+insert into APT_DET VALUES (42,10,42,4,'',5,42,1000000,'NO',1);
+insert into APARTAMENTO VALUES (43,'75m X 80m');
+insert into CUENTA VALUES (43,0,'NO_MOROSA');
+insert into APT_DET VALUES (43,10,43,9,'',5,43,1000000,'NO',1);
+insert into APARTAMENTO VALUES (44,'75m X 80m');
+insert into CUENTA VALUES (44,0,'NO_MOROSA');
+insert into APT_DET VALUES (44,10,44,4,'',5,44,1000000,'NO',2);
+insert into APARTAMENTO VALUES (45,'75m X 80m');
+insert into CUENTA VALUES (45,0,'NO_MOROSA');
+insert into APT_DET VALUES (45,10,45,17,'',5,45,1000000,'NO',1);
+insert into APARTAMENTO VALUES (46,'75m X 80m');
+insert into CUENTA VALUES (46,0,'NO_MOROSA');
+insert into APT_DET VALUES (46,10,46,16,'',5,46,1000000,'NO',3);
+insert into APARTAMENTO VALUES (47,'75m X 80m');
+insert into CUENTA VALUES (47,0,'NO_MOROSA');
+insert into APT_DET VALUES (47,10,47,'',10,5,47,1000000,'NO',1);
+insert into APARTAMENTO VALUES (48,'75m X 80m');
+insert into CUENTA VALUES (48,0,'NO_MOROSA');
+insert into APT_DET VALUES (48,10,48,3,'',5,48,1000000,'NO',14);
+insert into APARTAMENTO VALUES (49,'75m X 80m');
+insert into CUENTA VALUES (49,0,'NO_MOROSA');
+insert into APT_DET VALUES (49,10,49,2,'',5,49,1000000,'NO',7);
+insert into APARTAMENTO VALUES (50,'75m X 80m');
+insert into CUENTA VALUES (50,0,'NO_MOROSA');
+insert into APT_DET VALUES (50,10,50,11,'',5,50,1000000,'NO',5);
+insert into APARTAMENTO VALUES (51,'75m X 80m');
+insert into CUENTA VALUES (51,0,'NO_MOROSA');
+insert into APT_DET VALUES (51,10,51,16,'',6,51,1000000,'NO',9);
+insert into APARTAMENTO VALUES (52,'75m X 80m');
+insert into CUENTA VALUES (52,0,'NO_MOROSA');
+insert into APT_DET VALUES (52,10,52,18,'',6,52,1000000,'NO',7);
+insert into APARTAMENTO VALUES (53,'75m X 80m');
+insert into CUENTA VALUES (53,0,'NO_MOROSA');
+insert into APT_DET VALUES (53,10,53,9,'',6,53,1000000,'NO',13);
+insert into APARTAMENTO VALUES (54,'75m X 80m');
+insert into CUENTA VALUES (54,0,'NO_MOROSA');
+insert into APT_DET VALUES (54,10,54,14,'',6,54,1000000,'NO',15);
 insert into APARTAMENTO VALUES (55,'75m X 80m');
-insert into CUENTA VALUES (55,'75m X 80m');
-insert into APT_DET VALUES (55,10,55,'',6,6,55,1000000,'NO',1);
-insert into APARTAMENTO VALUES (56,'75m X 80m')
-insert into CUENTA VALUES (56,'75m X 80m')
-insert into APT_DET VALUES (56,10,56,17,'',6,56,1000000,'NO',7);
-insert into APARTAMENTO VALUES (57,'75m X 80m')
-insert into CUENTA VALUES (57,'75m X 80m')
-insert into APT_DET VALUES (57,10,57,12,'',6,57,1000000,'NO',9);
-insert into APARTAMENTO VALUES (58,'75m X 80m')
-insert into CUENTA VALUES (58,'75m X 80m')
-insert into APT_DET VALUES (58,10,58,2,'',6,58,1000000,'NO',4);
-insert into APARTAMENTO VALUES (59,'75m X 80m')
-insert into CUENTA VALUES (59,'75m X 80m')
-insert into APT_DET VALUES (59,10,59,6,'',6,59,1000000,'NO',14);
-insert into APARTAMENTO VALUES (60,'75m X 80m')
-insert into CUENTA VALUES (60,'75m X 80m')
-insert into APT_DET VALUES (60,10,60,1,'',6,60,1000000,'NO',12);
-insert into APARTAMENTO VALUES (61,'75m X 80m')
-insert into CUENTA VALUES (61,'75m X 80m')
-insert into APT_DET VALUES (61,10,61,3,'',7,61,1000000,'NO',2);
-insert into APARTAMENTO VALUES (62,'75m X 80m')
-insert into CUENTA VALUES (62,'75m X 80m')
-insert into APT_DET VALUES (62,10,62,3,'',7,62,1000000,'NO',7);
-insert into APARTAMENTO VALUES (63,'75m X 80m')
-insert into CUENTA VALUES (63,'75m X 80m')
-insert into APT_DET VALUES (63,10,63,12,'',7,63,1000000,'NO',8);
-insert into APARTAMENTO VALUES (64,'75m X 80m')
-insert into CUENTA VALUES (64,'75m X 80m')
-insert into APT_DET VALUES (64,10,64,3,'',7,64,1000000,'NO',6);
-insert into APARTAMENTO VALUES (65,'75m X 80m')
-insert into CUENTA VALUES (65,'75m X 80m')
-insert into APT_DET VALUES (65,10,65,16,'',7,65,1000000,'NO',8);
-insert into APARTAMENTO VALUES (66,'75m X 80m')
-insert into CUENTA VALUES (66,'75m X 80m')
-insert into APT_DET VALUES (66,10,66,3,'',7,66,1000000,'NO',14);
-insert into APARTAMENTO VALUES (67,'75m X 80m')
-insert into CUENTA VALUES (67,'75m X 80m')
-insert into APT_DET VALUES (67,10,67,14,'',7,67,1000000,'NO',1);
-insert into APARTAMENTO VALUES (68,'75m X 80m')
-insert into CUENTA VALUES (68,'75m X 80m')
-insert into APT_DET VALUES (68,10,68,16,'',7,68,1000000,'NO',2);
-insert into APARTAMENTO VALUES (69,'75m X 80m')
-insert into CUENTA VALUES (69,'75m X 80m')
-insert into APT_DET VALUES (69,10,69,13,'',7,69,1000000,'NO',1);
-insert into APARTAMENTO VALUES (70,'75m X 80m')
-insert into CUENTA VALUES (70,'75m X 80m')
-insert into APT_DET VALUES (70,10,70,7,'',7,70,1000000,'NO',1);
-insert into APARTAMENTO VALUES (71,'75m X 80m')
-insert into CUENTA VALUES (71,'75m X 80m')
-insert into APT_DET VALUES (71,10,71,13,'',8,71,1000000,'NO',5);
-insert into APARTAMENTO VALUES (72,'75m X 80m')
-insert into CUENTA VALUES (72,'75m X 80m')
-insert into APT_DET VALUES (72,10,72,3,'',8,72,1000000,'NO',13);
-insert into APARTAMENTO VALUES (73,'75m X 80m')
-insert into CUENTA VALUES (73,'75m X 80m')
-insert into APT_DET VALUES (73,10,73,9,'',8,73,1000000,'NO',1);
-insert into APARTAMENTO VALUES (74,'75m X 80m')
-insert into CUENTA VALUES (74,'75m X 80m')
-insert into APT_DET VALUES (74,10,74,14,'',8,74,1000000,'NO',15);
-insert into APARTAMENTO VALUES (75,'75m X 80m')
-insert into CUENTA VALUES (75,'75m X 80m')
-insert into APT_DET VALUES (75,10,75,14,'',8,75,1000000,'NO',8);
-insert into APARTAMENTO VALUES (76,'75m X 80m')
-insert into CUENTA VALUES (76,'75m X 80m')
-insert into APT_DET VALUES (76,10,76,13,'',8,76,1000000,'NO',4);
-insert into APARTAMENTO VALUES (77,'75m X 80m')
-insert into CUENTA VALUES (77,'75m X 80m')
-insert into APT_DET VALUES (77,10,77,17,'',8,77,1000000,'NO',4);
-insert into APARTAMENTO VALUES (78,'75m X 80m')
-insert into CUENTA VALUES (78,'75m X 80m')
-insert into APT_DET VALUES (78,10,78,7,'',8,78,1000000,'NO',10);
-insert into APARTAMENTO VALUES (79,'75m X 80m')
-insert into CUENTA VALUES (79,'75m X 80m')
-insert into APT_DET VALUES (79,10,79,11,'',8,79,1000000,'NO',10);
-insert into APARTAMENTO VALUES (80,'75m X 80m')
-insert into CUENTA VALUES (80,'75m X 80m')
-insert into APT_DET VALUES (80,10,80,15,'',8,80,1000000,'NO',12);
-insert into APARTAMENTO VALUES (81,'75m X 80m')
-insert into CUENTA VALUES (81,'75m X 80m')
-insert into APT_DET VALUES (81,10,81,6,'',9,81,1000000,'NO',8);
-insert into APARTAMENTO VALUES (82,'75m X 80m')
-insert into CUENTA VALUES (82,'75m X 80m')
-insert into APT_DET VALUES (82,10,82,3,'',9,82,1000000,'NO',4);
+insert into CUENTA VALUES (55,0,'NO_MOROSA');
+insert into APT_DET VALUES (55,10,55,17,'',6,55,1000000,'NO',14);
+insert into APARTAMENTO VALUES (56,'75m X 80m');
+insert into CUENTA VALUES (56,0,'NO_MOROSA');
+insert into APT_DET VALUES (56,10,56,7,'',6,56,1000000,'NO',12);
+insert into APARTAMENTO VALUES (57,'75m X 80m');
+insert into CUENTA VALUES (57,0,'NO_MOROSA');
+insert into APT_DET VALUES (57,10,57,'',7,6,57,1000000,'NO',9);
+insert into APARTAMENTO VALUES (58,'75m X 80m');
+insert into CUENTA VALUES (58,0,'NO_MOROSA');
+insert into APT_DET VALUES (58,10,58,11,'',6,58,1000000,'NO',10);
+insert into APARTAMENTO VALUES (59,'75m X 80m');
+insert into CUENTA VALUES (59,0,'NO_MOROSA');
+insert into APT_DET VALUES (59,10,59,20,'',6,59,1000000,'NO',5);
+insert into APARTAMENTO VALUES (60,'75m X 80m');
+insert into CUENTA VALUES (60,0,'NO_MOROSA');
+insert into APT_DET VALUES (60,10,60,19,'',6,60,1000000,'NO',10);
+insert into APARTAMENTO VALUES (61,'75m X 80m');
+insert into CUENTA VALUES (61,0,'NO_MOROSA');
+insert into APT_DET VALUES (61,10,61,7,'',7,61,1000000,'NO',1);
+insert into APARTAMENTO VALUES (62,'75m X 80m');
+insert into CUENTA VALUES (62,0,'NO_MOROSA');
+insert into APT_DET VALUES (62,10,62,12,'',7,62,1000000,'NO',4);
+insert into APARTAMENTO VALUES (63,'75m X 80m');
+insert into CUENTA VALUES (63,0,'NO_MOROSA');
+insert into APT_DET VALUES (63,10,63,1,'',7,63,1000000,'NO',7);
+insert into APARTAMENTO VALUES (64,'75m X 80m');
+insert into CUENTA VALUES (64,0,'NO_MOROSA');
+insert into APT_DET VALUES (64,10,64,9,'',7,64,1000000,'NO',1);
+insert into APARTAMENTO VALUES (65,'75m X 80m');
+insert into CUENTA VALUES (65,0,'NO_MOROSA');
+insert into APT_DET VALUES (65,10,65,2,'',7,65,1000000,'NO',6);
+insert into APARTAMENTO VALUES (66,'75m X 80m');
+insert into CUENTA VALUES (66,0,'NO_MOROSA');
+insert into APT_DET VALUES (66,10,66,8,'',7,66,1000000,'NO',11);
+insert into APARTAMENTO VALUES (67,'75m X 80m');
+insert into CUENTA VALUES (67,0,'NO_MOROSA');
+insert into APT_DET VALUES (67,10,67,20,'',7,67,1000000,'NO',1);
+insert into APARTAMENTO VALUES (68,'75m X 80m');
+insert into CUENTA VALUES (68,0,'NO_MOROSA');
+insert into APT_DET VALUES (68,10,68,17,'',7,68,1000000,'NO',4);
+insert into APARTAMENTO VALUES (69,'75m X 80m');
+insert into CUENTA VALUES (69,0,'NO_MOROSA');
+insert into APT_DET VALUES (69,10,69,15,'',7,69,1000000,'NO',1);
+insert into APARTAMENTO VALUES (70,'75m X 80m');
+insert into CUENTA VALUES (70,0,'NO_MOROSA');
+insert into APT_DET VALUES (70,10,70,18,'',7,70,1000000,'NO',11);
+insert into APARTAMENTO VALUES (71,'75m X 80m');
+insert into CUENTA VALUES (71,0,'NO_MOROSA');
+insert into APT_DET VALUES (71,10,71,10,'',8,71,1000000,'NO',7);
+insert into APARTAMENTO VALUES (72,'75m X 80m');
+insert into CUENTA VALUES (72,0,'NO_MOROSA');
+insert into APT_DET VALUES (72,10,72,11,'',8,72,1000000,'NO',15);
+insert into APARTAMENTO VALUES (73,'75m X 80m');
+insert into CUENTA VALUES (73,0,'NO_MOROSA');
+insert into APT_DET VALUES (73,10,73,19,'',8,73,1000000,'NO',5);
+insert into APARTAMENTO VALUES (74,'75m X 80m');
+insert into CUENTA VALUES (74,0,'NO_MOROSA');
+insert into APT_DET VALUES (74,10,74,2,'',8,74,1000000,'NO',1);
+insert into APARTAMENTO VALUES (75,'75m X 80m');
+insert into CUENTA VALUES (75,0,'NO_MOROSA');
+insert into APT_DET VALUES (75,10,75,'',4,8,75,1000000,'NO',1);
+insert into APARTAMENTO VALUES (76,'75m X 80m');
+insert into CUENTA VALUES (76,0,'NO_MOROSA');
+insert into APT_DET VALUES (76,10,76,8,'',8,76,1000000,'NO',11);
+insert into APARTAMENTO VALUES (77,'75m X 80m');
+insert into CUENTA VALUES (77,0,'NO_MOROSA');
+insert into APT_DET VALUES (77,10,77,9,'',8,77,1000000,'NO',1);
+insert into APARTAMENTO VALUES (78,'75m X 80m');
+insert into CUENTA VALUES (78,0,'NO_MOROSA');
+insert into APT_DET VALUES (78,10,78,3,'',8,78,1000000,'NO',2);
+insert into APARTAMENTO VALUES (79,'75m X 80m');
+insert into CUENTA VALUES (79,0,'NO_MOROSA');
+insert into APT_DET VALUES (79,10,79,11,'',8,79,1000000,'NO',14);
+insert into APARTAMENTO VALUES (80,'75m X 80m');
+insert into CUENTA VALUES (80,0,'NO_MOROSA');
+insert into APT_DET VALUES (80,10,80,17,'',8,80,1000000,'NO',2);
+insert into APARTAMENTO VALUES (81,'75m X 80m');
+insert into CUENTA VALUES (81,0,'NO_MOROSA');
+insert into APT_DET VALUES (81,10,81,1,'',9,81,1000000,'NO',8);
+insert into APARTAMENTO VALUES (82,'75m X 80m');
+insert into CUENTA VALUES (82,0,'NO_MOROSA');
+insert into APT_DET VALUES (82,10,82,7,'',9,82,1000000,'NO',6);
 insert into APARTAMENTO VALUES (83,'75m X 80m');
-insert into CUENTA VALUES (83,'75m X 80m');
-insert into APT_DET VALUES (83,10,83,'',16,9,83,1000000,'NO',5);
-insert into APARTAMENTO VALUES (84,'75m X 80m')
-insert into CUENTA VALUES (84,'75m X 80m')
-insert into APT_DET VALUES (84,10,84,2,'',9,84,1000000,'NO',1);
-insert into APARTAMENTO VALUES (85,'75m X 80m')
-insert into CUENTA VALUES (85,'75m X 80m')
-insert into APT_DET VALUES (85,10,85,16,'',9,85,1000000,'NO',8);
-insert into APARTAMENTO VALUES (86,'75m X 80m')
-insert into CUENTA VALUES (86,'75m X 80m')
-insert into APT_DET VALUES (86,10,86,16,'',9,86,1000000,'NO',12);
-insert into APARTAMENTO VALUES (87,'75m X 80m')
-insert into CUENTA VALUES (87,'75m X 80m')
-insert into APT_DET VALUES (87,10,87,13,'',9,87,1000000,'NO',15);
-insert into APARTAMENTO VALUES (88,'75m X 80m')
-insert into CUENTA VALUES (88,'75m X 80m')
-insert into APT_DET VALUES (88,10,88,10,'',9,88,1000000,'NO',9);
-insert into APARTAMENTO VALUES (89,'75m X 80m')
-insert into CUENTA VALUES (89,'75m X 80m')
-insert into APT_DET VALUES (89,10,89,7,'',9,89,1000000,'NO',15);
-insert into APARTAMENTO VALUES (90,'75m X 80m')
-insert into CUENTA VALUES (90,'75m X 80m')
-insert into APT_DET VALUES (90,10,90,3,'',9,90,1000000,'NO',3);
-insert into APARTAMENTO VALUES (91,'75m X 80m')
-insert into CUENTA VALUES (91,'75m X 80m')
-insert into APT_DET VALUES (91,10,91,1,'',10,91,1000000,'NO',7);
-insert into APARTAMENTO VALUES (92,'75m X 80m')
-insert into CUENTA VALUES (92,'75m X 80m')
-insert into APT_DET VALUES (92,10,92,17,'',10,92,1000000,'NO',1);
-insert into APARTAMENTO VALUES (93,'75m X 80m')
-insert into CUENTA VALUES (93,'75m X 80m')
-insert into APT_DET VALUES (93,10,93,18,'',10,93,1000000,'NO',11);
-insert into APARTAMENTO VALUES (94,'75m X 80m')
-insert into CUENTA VALUES (94,'75m X 80m')
-insert into APT_DET VALUES (94,10,94,17,'',10,94,1000000,'NO',15);
-insert into APARTAMENTO VALUES (95,'75m X 80m')
-insert into CUENTA VALUES (95,'75m X 80m')
-insert into APT_DET VALUES (95,10,95,7,'',10,95,1000000,'NO',13);
-insert into APARTAMENTO VALUES (96,'75m X 80m')
-insert into CUENTA VALUES (96,'75m X 80m')
-insert into APT_DET VALUES (96,10,96,20,'',10,96,1000000,'NO',14);
-insert into APARTAMENTO VALUES (97,'75m X 80m')
-insert into CUENTA VALUES (97,'75m X 80m')
-insert into APT_DET VALUES (97,10,97,5,'',10,97,1000000,'NO',14);
-insert into APARTAMENTO VALUES (98,'75m X 80m')
-insert into CUENTA VALUES (98,'75m X 80m')
-insert into APT_DET VALUES (98,10,98,19,'',10,98,1000000,'NO',7);
-insert into APARTAMENTO VALUES (99,'75m X 80m')
-insert into CUENTA VALUES (99,'75m X 80m')
-insert into APT_DET VALUES (99,10,99,6,'',10,99,1000000,'NO',1);
-insert into APARTAMENTO VALUES (100,'75m X 80m')
-insert into CUENTA VALUES (100,'75m X 80m')
-insert into APT_DET VALUES (100,10,100,10,'',10,100,1000000,'NO',15);
-insert into APARTAMENTO VALUES (101,'75m X 80m')
-insert into CUENTA VALUES (101,'75m X 80m')
-insert into APT_DET VALUES (101,10,101,15,'',11,101,1000000,'NO',1);
-insert into APARTAMENTO VALUES (102,'75m X 80m')
-insert into CUENTA VALUES (102,'75m X 80m')
-insert into APT_DET VALUES (102,10,102,11,'',11,102,1000000,'NO',8);
-insert into APARTAMENTO VALUES (103,'75m X 80m')
-insert into CUENTA VALUES (103,'75m X 80m')
-insert into APT_DET VALUES (103,10,103,8,'',11,103,1000000,'NO',8);
-insert into APARTAMENTO VALUES (104,'75m X 80m')
-insert into CUENTA VALUES (104,'75m X 80m')
-insert into APT_DET VALUES (104,10,104,17,'',11,104,1000000,'NO',9);
-insert into APARTAMENTO VALUES (105,'75m X 80m')
-insert into CUENTA VALUES (105,'75m X 80m')
-insert into APT_DET VALUES (105,10,105,12,'',11,105,1000000,'NO',7);
-insert into APARTAMENTO VALUES (106,'75m X 80m')
-insert into CUENTA VALUES (106,'75m X 80m')
-insert into APT_DET VALUES (106,10,106,8,'',11,106,1000000,'NO',1);
-insert into APARTAMENTO VALUES (107,'75m X 80m')
-insert into CUENTA VALUES (107,'75m X 80m')
-insert into APT_DET VALUES (107,10,107,16,'',11,107,1000000,'NO',9);
-insert into APARTAMENTO VALUES (108,'75m X 80m')
-insert into CUENTA VALUES (108,'75m X 80m')
-insert into APT_DET VALUES (108,10,108,5,'',11,108,1000000,'NO',15);
+insert into CUENTA VALUES (83,0,'NO_MOROSA');
+insert into APT_DET VALUES (83,10,83,19,'',9,83,1000000,'NO',15);
+insert into APARTAMENTO VALUES (84,'75m X 80m');
+insert into CUENTA VALUES (84,0,'NO_MOROSA');
+insert into APT_DET VALUES (84,10,84,12,'',9,84,1000000,'NO',13);
+insert into APARTAMENTO VALUES (85,'75m X 80m');
+insert into CUENTA VALUES (85,0,'NO_MOROSA');
+insert into APT_DET VALUES (85,10,85,8,'',9,85,1000000,'NO',2);
+insert into APARTAMENTO VALUES (86,'75m X 80m');
+insert into CUENTA VALUES (86,0,'NO_MOROSA');
+insert into APT_DET VALUES (86,10,86,16,'',9,86,1000000,'NO',4);
+insert into APARTAMENTO VALUES (87,'75m X 80m');
+insert into CUENTA VALUES (87,0,'NO_MOROSA');
+insert into APT_DET VALUES (87,10,87,3,'',9,87,1000000,'NO',9);
+insert into APARTAMENTO VALUES (88,'75m X 80m');
+insert into CUENTA VALUES (88,0,'NO_MOROSA');
+insert into APT_DET VALUES (88,10,88,17,'',9,88,1000000,'NO',7);
+insert into APARTAMENTO VALUES (89,'75m X 80m');
+insert into CUENTA VALUES (89,0,'NO_MOROSA');
+insert into APT_DET VALUES (89,10,89,4,'',9,89,1000000,'NO',13);
+insert into APARTAMENTO VALUES (90,'75m X 80m');
+insert into CUENTA VALUES (90,0,'NO_MOROSA');
+insert into APT_DET VALUES (90,10,90,8,'',9,90,1000000,'NO',12);
+insert into APARTAMENTO VALUES (91,'75m X 80m');
+insert into CUENTA VALUES (91,0,'NO_MOROSA');
+insert into APT_DET VALUES (91,10,91,15,'',10,91,1000000,'NO',8);
+insert into APARTAMENTO VALUES (92,'75m X 80m');
+insert into CUENTA VALUES (92,0,'NO_MOROSA');
+insert into APT_DET VALUES (92,10,92,10,'',10,92,1000000,'NO',9);
+insert into APARTAMENTO VALUES (93,'75m X 80m');
+insert into CUENTA VALUES (93,0,'NO_MOROSA');
+insert into APT_DET VALUES (93,10,93,4,'',10,93,1000000,'NO',4);
+insert into APARTAMENTO VALUES (94,'75m X 80m');
+insert into CUENTA VALUES (94,0,'NO_MOROSA');
+insert into APT_DET VALUES (94,10,94,4,'',10,94,1000000,'NO',2);
+insert into APARTAMENTO VALUES (95,'75m X 80m');
+insert into CUENTA VALUES (95,0,'NO_MOROSA');
+insert into APT_DET VALUES (95,10,95,16,'',10,95,1000000,'NO',7);
+insert into APARTAMENTO VALUES (96,'75m X 80m');
+insert into CUENTA VALUES (96,0,'NO_MOROSA');
+insert into APT_DET VALUES (96,10,96,3,'',10,96,1000000,'NO',13);
+insert into APARTAMENTO VALUES (97,'75m X 80m');
+insert into CUENTA VALUES (97,0,'NO_MOROSA');
+insert into APT_DET VALUES (97,10,97,20,'',10,97,1000000,'NO',1);
+insert into APARTAMENTO VALUES (98,'75m X 80m');
+insert into CUENTA VALUES (98,0,'NO_MOROSA');
+insert into APT_DET VALUES (98,10,98,1,'',10,98,1000000,'NO',1);
+insert into APARTAMENTO VALUES (99,'75m X 80m');
+insert into CUENTA VALUES (99,0,'NO_MOROSA');
+insert into APT_DET VALUES (99,10,99,9,'',10,99,1000000,'NO',6);
+insert into APARTAMENTO VALUES (100,'75m X 80m');
+insert into CUENTA VALUES (100,0,'NO_MOROSA');
+insert into APT_DET VALUES (100,10,100,10,'',10,100,1000000,'NO',2);
+insert into APARTAMENTO VALUES (101,'75m X 80m');
+insert into CUENTA VALUES (101,0,'NO_MOROSA');
+insert into APT_DET VALUES (101,10,101,9,'',11,101,1000000,'NO',3);
+insert into APARTAMENTO VALUES (102,'75m X 80m');
+insert into CUENTA VALUES (102,0,'NO_MOROSA');
+insert into APT_DET VALUES (102,10,102,8,'',11,102,1000000,'NO',3);
+insert into APARTAMENTO VALUES (103,'75m X 80m');
+insert into CUENTA VALUES (103,0,'NO_MOROSA');
+insert into APT_DET VALUES (103,10,103,10,'',11,103,1000000,'NO',12);
+insert into APARTAMENTO VALUES (104,'75m X 80m');
+insert into CUENTA VALUES (104,0,'NO_MOROSA');
+insert into APT_DET VALUES (104,10,104,4,'',11,104,1000000,'NO',15);
+insert into APARTAMENTO VALUES (105,'75m X 80m');
+insert into CUENTA VALUES (105,0,'NO_MOROSA');
+insert into APT_DET VALUES (105,10,105,14,'',11,105,1000000,'NO',1);
+insert into APARTAMENTO VALUES (106,'75m X 80m');
+insert into CUENTA VALUES (106,0,'NO_MOROSA');
+insert into APT_DET VALUES (106,10,106,9,'',11,106,1000000,'NO',3);
+insert into APARTAMENTO VALUES (107,'75m X 80m');
+insert into CUENTA VALUES (107,0,'NO_MOROSA');
+insert into APT_DET VALUES (107,10,107,8,'',11,107,1000000,'NO',2);
+insert into APARTAMENTO VALUES (108,'75m X 80m');
+insert into CUENTA VALUES (108,0,'NO_MOROSA');
+insert into APT_DET VALUES (108,10,108,8,'',11,108,1000000,'NO',3);
 insert into APARTAMENTO VALUES (109,'75m X 80m');
-insert into CUENTA VALUES (109,'75m X 80m');
-insert into APT_DET VALUES (109,10,109,'',20,11,109,1000000,'NO',6);
-insert into APARTAMENTO VALUES (110,'75m X 80m')
-insert into CUENTA VALUES (110,'75m X 80m')
-insert into APT_DET VALUES (110,10,110,6,'',11,110,1000000,'NO',7);
-insert into APARTAMENTO VALUES (111,'75m X 80m')
-insert into CUENTA VALUES (111,'75m X 80m')
-insert into APT_DET VALUES (111,10,111,2,'',11,111,1000000,'NO',2);
-insert into APARTAMENTO VALUES (112,'75m X 80m')
-insert into CUENTA VALUES (112,'75m X 80m')
-insert into APT_DET VALUES (112,10,112,20,'',11,112,1000000,'NO',2);
-insert into APARTAMENTO VALUES (113,'75m X 80m')
-insert into CUENTA VALUES (113,'75m X 80m')
-insert into APT_DET VALUES (113,10,113,7,'',11,113,1000000,'NO',8);
-insert into APARTAMENTO VALUES (114,'75m X 80m')
-insert into CUENTA VALUES (114,'75m X 80m')
-insert into APT_DET VALUES (114,10,114,10,'',11,114,1000000,'NO',12);
-insert into APARTAMENTO VALUES (115,'75m X 80m')
-insert into CUENTA VALUES (115,'75m X 80m')
-insert into APT_DET VALUES (115,10,115,14,'',11,115,1000000,'NO',14);
-insert into APARTAMENTO VALUES (116,'75m X 80m')
-insert into CUENTA VALUES (116,'75m X 80m')
-insert into APT_DET VALUES (116,10,116,17,'',11,116,1000000,'NO',13);
-insert into APARTAMENTO VALUES (117,'75m X 80m')
-insert into CUENTA VALUES (117,'75m X 80m')
-insert into APT_DET VALUES (117,10,117,20,'',11,117,1000000,'NO',2);
-insert into APARTAMENTO VALUES (118,'75m X 80m')
-insert into CUENTA VALUES (118,'75m X 80m')
-insert into APT_DET VALUES (118,10,118,11,'',11,118,1000000,'NO',12);
-insert into APARTAMENTO VALUES (119,'75m X 80m')
-insert into CUENTA VALUES (119,'75m X 80m')
-insert into APT_DET VALUES (119,10,119,17,'',11,119,1000000,'NO',6);
-insert into APARTAMENTO VALUES (120,'75m X 80m')
-insert into CUENTA VALUES (120,'75m X 80m')
-insert into APT_DET VALUES (120,10,120,9,'',11,120,1000000,'NO',13);
-insert into APARTAMENTO VALUES (121,'75m X 80m')
-insert into CUENTA VALUES (121,'75m X 80m')
-insert into APT_DET VALUES (121,10,121,18,'',12,121,1000000,'NO',12);
-insert into APARTAMENTO VALUES (122,'75m X 80m')
-insert into CUENTA VALUES (122,'75m X 80m')
-insert into APT_DET VALUES (122,10,122,5,'',12,122,1000000,'NO',7);
-insert into APARTAMENTO VALUES (123,'75m X 80m')
-insert into CUENTA VALUES (123,'75m X 80m')
-insert into APT_DET VALUES (123,10,123,20,'',12,123,1000000,'NO',3);
-insert into APARTAMENTO VALUES (124,'75m X 80m')
-insert into CUENTA VALUES (124,'75m X 80m')
-insert into APT_DET VALUES (124,10,124,1,'',12,124,1000000,'NO',1);
-insert into APARTAMENTO VALUES (125,'75m X 80m')
-insert into CUENTA VALUES (125,'75m X 80m')
-insert into APT_DET VALUES (125,10,125,16,'',12,125,1000000,'NO',9);
-insert into APARTAMENTO VALUES (126,'75m X 80m')
-insert into CUENTA VALUES (126,'75m X 80m')
-insert into APT_DET VALUES (126,10,126,1,'',12,126,1000000,'NO',8);
-insert into APARTAMENTO VALUES (127,'75m X 80m')
-insert into CUENTA VALUES (127,'75m X 80m')
-insert into APT_DET VALUES (127,10,127,15,'',12,127,1000000,'NO',14);
+insert into CUENTA VALUES (109,0,'NO_MOROSA');
+insert into APT_DET VALUES (109,10,109,10,'',11,109,1000000,'NO',12);
+insert into APARTAMENTO VALUES (110,'75m X 80m');
+insert into CUENTA VALUES (110,0,'NO_MOROSA');
+insert into APT_DET VALUES (110,10,110,5,'',11,110,1000000,'NO',5);
+insert into APARTAMENTO VALUES (111,'75m X 80m');
+insert into CUENTA VALUES (111,0,'NO_MOROSA');
+insert into APT_DET VALUES (111,10,111,1,'',11,111,1000000,'NO',7);
+insert into APARTAMENTO VALUES (112,'75m X 80m');
+insert into CUENTA VALUES (112,0,'NO_MOROSA');
+insert into APT_DET VALUES (112,10,112,20,'',11,112,1000000,'NO',9);
+insert into APARTAMENTO VALUES (113,'75m X 80m');
+insert into CUENTA VALUES (113,0,'NO_MOROSA');
+insert into APT_DET VALUES (113,10,113,17,'',11,113,1000000,'NO',3);
+insert into APARTAMENTO VALUES (114,'75m X 80m');
+insert into CUENTA VALUES (114,0,'NO_MOROSA');
+insert into APT_DET VALUES (114,10,114,11,'',11,114,1000000,'NO',14);
+insert into APARTAMENTO VALUES (115,'75m X 80m');
+insert into CUENTA VALUES (115,0,'NO_MOROSA');
+insert into APT_DET VALUES (115,10,115,10,'',11,115,1000000,'NO',1);
+insert into APARTAMENTO VALUES (116,'75m X 80m');
+insert into CUENTA VALUES (116,0,'NO_MOROSA');
+insert into APT_DET VALUES (116,10,116,12,'',11,116,1000000,'NO',1);
+insert into APARTAMENTO VALUES (117,'75m X 80m');
+insert into CUENTA VALUES (117,0,'NO_MOROSA');
+insert into APT_DET VALUES (117,10,117,4,'',11,117,1000000,'NO',2);
+insert into APARTAMENTO VALUES (118,'75m X 80m');
+insert into CUENTA VALUES (118,0,'NO_MOROSA');
+insert into APT_DET VALUES (118,10,118,5,'',11,118,1000000,'NO',1);
+insert into APARTAMENTO VALUES (119,'75m X 80m');
+insert into CUENTA VALUES (119,0,'NO_MOROSA');
+insert into APT_DET VALUES (119,10,119,11,'',11,119,1000000,'NO',12);
+insert into APARTAMENTO VALUES (120,'75m X 80m');
+insert into CUENTA VALUES (120,0,'NO_MOROSA');
+insert into APT_DET VALUES (120,10,120,16,'',11,120,1000000,'NO',8);
+insert into APARTAMENTO VALUES (121,'75m X 80m');
+insert into CUENTA VALUES (121,0,'NO_MOROSA');
+insert into APT_DET VALUES (121,10,121,15,'',12,121,1000000,'NO',12);
+insert into APARTAMENTO VALUES (122,'75m X 80m');
+insert into CUENTA VALUES (122,0,'NO_MOROSA');
+insert into APT_DET VALUES (122,10,122,7,'',12,122,1000000,'NO',12);
+insert into APARTAMENTO VALUES (123,'75m X 80m');
+insert into CUENTA VALUES (123,0,'NO_MOROSA');
+insert into APT_DET VALUES (123,10,123,15,'',12,123,1000000,'NO',15);
+insert into APARTAMENTO VALUES (124,'75m X 80m');
+insert into CUENTA VALUES (124,0,'NO_MOROSA');
+insert into APT_DET VALUES (124,10,124,'',4,12,124,1000000,'NO',5);
+insert into APARTAMENTO VALUES (125,'75m X 80m');
+insert into CUENTA VALUES (125,0,'NO_MOROSA');
+insert into APT_DET VALUES (125,10,125,5,'',12,125,1000000,'NO',1);
+insert into APARTAMENTO VALUES (126,'75m X 80m');
+insert into CUENTA VALUES (126,0,'NO_MOROSA');
+insert into APT_DET VALUES (126,10,126,11,'',12,126,1000000,'NO',9);
+insert into APARTAMENTO VALUES (127,'75m X 80m');
+insert into CUENTA VALUES (127,0,'NO_MOROSA');
+insert into APT_DET VALUES (127,10,127,9,'',12,127,1000000,'NO',13);
 insert into APARTAMENTO VALUES (128,'75m X 80m');
-insert into CUENTA VALUES (128,'75m X 80m');
-insert into APT_DET VALUES (128,10,128,'',8,12,128,1000000,'NO',1);
-insert into APARTAMENTO VALUES (129,'75m X 80m')
-insert into CUENTA VALUES (129,'75m X 80m')
-insert into APT_DET VALUES (129,10,129,4,'',12,129,1000000,'NO',11);
-insert into APARTAMENTO VALUES (130,'75m X 80m')
-insert into CUENTA VALUES (130,'75m X 80m')
-insert into APT_DET VALUES (130,10,130,9,'',12,130,1000000,'NO',15);
-insert into APARTAMENTO VALUES (131,'75m X 80m')
-insert into CUENTA VALUES (131,'75m X 80m')
-insert into APT_DET VALUES (131,10,131,10,'',12,131,1000000,'NO',10);
-insert into APARTAMENTO VALUES (132,'75m X 80m')
-insert into CUENTA VALUES (132,'75m X 80m')
-insert into APT_DET VALUES (132,10,132,2,'',12,132,1000000,'NO',10);
-insert into APARTAMENTO VALUES (133,'75m X 80m')
-insert into CUENTA VALUES (133,'75m X 80m')
-insert into APT_DET VALUES (133,10,133,15,'',12,133,1000000,'NO',10);
-insert into APARTAMENTO VALUES (134,'75m X 80m')
-insert into CUENTA VALUES (134,'75m X 80m')
-insert into APT_DET VALUES (134,10,134,7,'',12,134,1000000,'NO',11);
-insert into APARTAMENTO VALUES (135,'75m X 80m')
-insert into CUENTA VALUES (135,'75m X 80m')
-insert into APT_DET VALUES (135,10,135,7,'',12,135,1000000,'NO',8);
-insert into APARTAMENTO VALUES (136,'75m X 80m')
-insert into CUENTA VALUES (136,'75m X 80m')
-insert into APT_DET VALUES (136,10,136,13,'',12,136,1000000,'NO',6);
-insert into APARTAMENTO VALUES (137,'75m X 80m')
-insert into CUENTA VALUES (137,'75m X 80m')
-insert into APT_DET VALUES (137,10,137,4,'',12,137,1000000,'NO',4);
-insert into APARTAMENTO VALUES (138,'75m X 80m')
-insert into CUENTA VALUES (138,'75m X 80m')
-insert into APT_DET VALUES (138,10,138,18,'',12,138,1000000,'NO',4);
-insert into APARTAMENTO VALUES (139,'75m X 80m')
-insert into CUENTA VALUES (139,'75m X 80m')
-insert into APT_DET VALUES (139,10,139,15,'',12,139,1000000,'NO',5);
-insert into APARTAMENTO VALUES (140,'75m X 80m')
-insert into CUENTA VALUES (140,'75m X 80m')
-insert into APT_DET VALUES (140,10,140,7,'',12,140,1000000,'NO',5);
-insert into APARTAMENTO VALUES (141,'75m X 80m')
-insert into CUENTA VALUES (141,'75m X 80m')
-insert into APT_DET VALUES (141,10,141,19,'',13,141,1000000,'NO',11);
-insert into APARTAMENTO VALUES (142,'75m X 80m')
-insert into CUENTA VALUES (142,'75m X 80m')
-insert into APT_DET VALUES (142,10,142,13,'',13,142,1000000,'NO',3);
-insert into APARTAMENTO VALUES (143,'75m X 80m')
-insert into CUENTA VALUES (143,'75m X 80m')
-insert into APT_DET VALUES (143,10,143,9,'',13,143,1000000,'NO',1);
-insert into APARTAMENTO VALUES (144,'75m X 80m')
-insert into CUENTA VALUES (144,'75m X 80m')
-insert into APT_DET VALUES (144,10,144,8,'',13,144,1000000,'NO',13);
-insert into APARTAMENTO VALUES (145,'75m X 80m')
-insert into CUENTA VALUES (145,'75m X 80m')
-insert into APT_DET VALUES (145,10,145,4,'',13,145,1000000,'NO',14);
-insert into APARTAMENTO VALUES (146,'75m X 80m')
-insert into CUENTA VALUES (146,'75m X 80m')
-insert into APT_DET VALUES (146,10,146,18,'',13,146,1000000,'NO',14);
-insert into APARTAMENTO VALUES (147,'75m X 80m')
-insert into CUENTA VALUES (147,'75m X 80m')
-insert into APT_DET VALUES (147,10,147,8,'',13,147,1000000,'NO',13);
-insert into APARTAMENTO VALUES (148,'75m X 80m')
-insert into CUENTA VALUES (148,'75m X 80m')
-insert into APT_DET VALUES (148,10,148,7,'',13,148,1000000,'NO',12);
-insert into APARTAMENTO VALUES (149,'75m X 80m')
-insert into CUENTA VALUES (149,'75m X 80m')
-insert into APT_DET VALUES (149,10,149,8,'',13,149,1000000,'NO',6);
-insert into APARTAMENTO VALUES (150,'75m X 80m')
-insert into CUENTA VALUES (150,'75m X 80m')
-insert into APT_DET VALUES (150,10,150,10,'',13,150,1000000,'NO',6);
-insert into APARTAMENTO VALUES (151,'75m X 80m')
-insert into CUENTA VALUES (151,'75m X 80m')
-insert into APT_DET VALUES (151,10,151,1,'',13,151,1000000,'NO',8);
+insert into CUENTA VALUES (128,0,'NO_MOROSA');
+insert into APT_DET VALUES (128,10,128,20,'',12,128,1000000,'NO',8);
+insert into APARTAMENTO VALUES (129,'75m X 80m');
+insert into CUENTA VALUES (129,0,'NO_MOROSA');
+insert into APT_DET VALUES (129,10,129,20,'',12,129,1000000,'NO',14);
+insert into APARTAMENTO VALUES (130,'75m X 80m');
+insert into CUENTA VALUES (130,0,'NO_MOROSA');
+insert into APT_DET VALUES (130,10,130,1,'',12,130,1000000,'NO',9);
+insert into APARTAMENTO VALUES (131,'75m X 80m');
+insert into CUENTA VALUES (131,0,'NO_MOROSA');
+insert into APT_DET VALUES (131,10,131,10,'',12,131,1000000,'NO',1);
+insert into APARTAMENTO VALUES (132,'75m X 80m');
+insert into CUENTA VALUES (132,0,'NO_MOROSA');
+insert into APT_DET VALUES (132,10,132,18,'',12,132,1000000,'NO',9);
+insert into APARTAMENTO VALUES (133,'75m X 80m');
+insert into CUENTA VALUES (133,0,'NO_MOROSA');
+insert into APT_DET VALUES (133,10,133,4,'',12,133,1000000,'NO',2);
+insert into APARTAMENTO VALUES (134,'75m X 80m');
+insert into CUENTA VALUES (134,0,'NO_MOROSA');
+insert into APT_DET VALUES (134,10,134,5,'',12,134,1000000,'NO',1);
+insert into APARTAMENTO VALUES (135,'75m X 80m');
+insert into CUENTA VALUES (135,0,'NO_MOROSA');
+insert into APT_DET VALUES (135,10,135,12,'',12,135,1000000,'NO',7);
+insert into APARTAMENTO VALUES (136,'75m X 80m');
+insert into CUENTA VALUES (136,0,'NO_MOROSA');
+insert into APT_DET VALUES (136,10,136,19,'',12,136,1000000,'NO',1);
+insert into APARTAMENTO VALUES (137,'75m X 80m');
+insert into CUENTA VALUES (137,0,'NO_MOROSA');
+insert into APT_DET VALUES (137,10,137,10,'',12,137,1000000,'NO',11);
+insert into APARTAMENTO VALUES (138,'75m X 80m');
+insert into CUENTA VALUES (138,0,'NO_MOROSA');
+insert into APT_DET VALUES (138,10,138,5,'',12,138,1000000,'NO',5);
+insert into APARTAMENTO VALUES (139,'75m X 80m');
+insert into CUENTA VALUES (139,0,'NO_MOROSA');
+insert into APT_DET VALUES (139,10,139,10,'',12,139,1000000,'NO',7);
+insert into APARTAMENTO VALUES (140,'75m X 80m');
+insert into CUENTA VALUES (140,0,'NO_MOROSA');
+insert into APT_DET VALUES (140,10,140,4,'',12,140,1000000,'NO',3);
+insert into APARTAMENTO VALUES (141,'75m X 80m');
+insert into CUENTA VALUES (141,0,'NO_MOROSA');
+insert into APT_DET VALUES (141,10,141,14,'',13,141,1000000,'NO',9);
+insert into APARTAMENTO VALUES (142,'75m X 80m');
+insert into CUENTA VALUES (142,0,'NO_MOROSA');
+insert into APT_DET VALUES (142,10,142,18,'',13,142,1000000,'NO',10);
+insert into APARTAMENTO VALUES (143,'75m X 80m');
+insert into CUENTA VALUES (143,0,'NO_MOROSA');
+insert into APT_DET VALUES (143,10,143,18,'',13,143,1000000,'NO',12);
+insert into APARTAMENTO VALUES (144,'75m X 80m');
+insert into CUENTA VALUES (144,0,'NO_MOROSA');
+insert into APT_DET VALUES (144,10,144,18,'',13,144,1000000,'NO',4);
+insert into APARTAMENTO VALUES (145,'75m X 80m');
+insert into CUENTA VALUES (145,0,'NO_MOROSA');
+insert into APT_DET VALUES (145,10,145,8,'',13,145,1000000,'NO',10);
+insert into APARTAMENTO VALUES (146,'75m X 80m');
+insert into CUENTA VALUES (146,0,'NO_MOROSA');
+insert into APT_DET VALUES (146,10,146,2,'',13,146,1000000,'NO',6);
+insert into APARTAMENTO VALUES (147,'75m X 80m');
+insert into CUENTA VALUES (147,0,'NO_MOROSA');
+insert into APT_DET VALUES (147,10,147,20,'',13,147,1000000,'NO',11);
+insert into APARTAMENTO VALUES (148,'75m X 80m');
+insert into CUENTA VALUES (148,0,'NO_MOROSA');
+insert into APT_DET VALUES (148,10,148,18,'',13,148,1000000,'NO',3);
+insert into APARTAMENTO VALUES (149,'75m X 80m');
+insert into CUENTA VALUES (149,0,'NO_MOROSA');
+insert into APT_DET VALUES (149,10,149,9,'',13,149,1000000,'NO',12);
+insert into APARTAMENTO VALUES (150,'75m X 80m');
+insert into CUENTA VALUES (150,0,'NO_MOROSA');
+insert into APT_DET VALUES (150,10,150,1,'',13,150,1000000,'NO',5);
+insert into APARTAMENTO VALUES (151,'75m X 80m');
+insert into CUENTA VALUES (151,0,'NO_MOROSA');
+insert into APT_DET VALUES (151,10,151,10,'',13,151,1000000,'NO',7);
 insert into APARTAMENTO VALUES (152,'75m X 80m');
-insert into CUENTA VALUES (152,'75m X 80m');
-insert into APT_DET VALUES (152,10,152,'',13,13,152,1000000,'NO',12);
-insert into APARTAMENTO VALUES (153,'75m X 80m')
-insert into CUENTA VALUES (153,'75m X 80m')
-insert into APT_DET VALUES (153,10,153,1,'',13,153,1000000,'NO',8);
-insert into APARTAMENTO VALUES (154,'75m X 80m')
-insert into CUENTA VALUES (154,'75m X 80m')
-insert into APT_DET VALUES (154,10,154,7,'',13,154,1000000,'NO',15);
-insert into APARTAMENTO VALUES (155,'75m X 80m')
-insert into CUENTA VALUES (155,'75m X 80m')
-insert into APT_DET VALUES (155,10,155,1,'',13,155,1000000,'NO',6);
-insert into APARTAMENTO VALUES (156,'75m X 80m')
-insert into CUENTA VALUES (156,'75m X 80m')
-insert into APT_DET VALUES (156,10,156,3,'',13,156,1000000,'NO',9);
-insert into APARTAMENTO VALUES (157,'75m X 80m')
-insert into CUENTA VALUES (157,'75m X 80m')
-insert into APT_DET VALUES (157,10,157,9,'',13,157,1000000,'NO',11);
-insert into APARTAMENTO VALUES (158,'75m X 80m')
-insert into CUENTA VALUES (158,'75m X 80m')
-insert into APT_DET VALUES (158,10,158,7,'',13,158,1000000,'NO',1);
-insert into APARTAMENTO VALUES (159,'75m X 80m')
-insert into CUENTA VALUES (159,'75m X 80m')
-insert into APT_DET VALUES (159,10,159,10,'',13,159,1000000,'NO',14);
-insert into APARTAMENTO VALUES (160,'75m X 80m')
-insert into CUENTA VALUES (160,'75m X 80m')
-insert into APT_DET VALUES (160,10,160,2,'',13,160,1000000,'NO',9);
-insert into APARTAMENTO VALUES (161,'75m X 80m')
-insert into CUENTA VALUES (161,'75m X 80m')
-insert into APT_DET VALUES (161,10,161,14,'',14,161,1000000,'NO',9);
-insert into APARTAMENTO VALUES (162,'75m X 80m')
-insert into CUENTA VALUES (162,'75m X 80m')
-insert into APT_DET VALUES (162,10,162,3,'',14,162,1000000,'NO',2);
-insert into APARTAMENTO VALUES (163,'75m X 80m')
-insert into CUENTA VALUES (163,'75m X 80m')
-insert into APT_DET VALUES (163,10,163,3,'',14,163,1000000,'NO',1);
-insert into APARTAMENTO VALUES (164,'75m X 80m')
-insert into CUENTA VALUES (164,'75m X 80m')
-insert into APT_DET VALUES (164,10,164,2,'',14,164,1000000,'NO',1);
-insert into APARTAMENTO VALUES (165,'75m X 80m')
-insert into CUENTA VALUES (165,'75m X 80m')
-insert into APT_DET VALUES (165,10,165,8,'',14,165,1000000,'NO',11);
-insert into APARTAMENTO VALUES (166,'75m X 80m')
-insert into CUENTA VALUES (166,'75m X 80m')
-insert into APT_DET VALUES (166,10,166,17,'',14,166,1000000,'NO',11);
-insert into APARTAMENTO VALUES (167,'75m X 80m')
-insert into CUENTA VALUES (167,'75m X 80m')
-insert into APT_DET VALUES (167,10,167,12,'',14,167,1000000,'NO',1);
-insert into APARTAMENTO VALUES (168,'75m X 80m')
-insert into CUENTA VALUES (168,'75m X 80m')
-insert into APT_DET VALUES (168,10,168,17,'',14,168,1000000,'NO',10);
-insert into APARTAMENTO VALUES (169,'75m X 80m')
-insert into CUENTA VALUES (169,'75m X 80m')
-insert into APT_DET VALUES (169,10,169,10,'',14,169,1000000,'NO',11);
-insert into APARTAMENTO VALUES (170,'75m X 80m')
-insert into CUENTA VALUES (170,'75m X 80m')
-insert into APT_DET VALUES (170,10,170,7,'',14,170,1000000,'NO',3);
-insert into APARTAMENTO VALUES (171,'75m X 80m')
-insert into CUENTA VALUES (171,'75m X 80m')
+insert into CUENTA VALUES (152,0,'NO_MOROSA');
+insert into APT_DET VALUES (152,10,152,'',4,13,152,1000000,'NO',6);
+insert into APARTAMENTO VALUES (153,'75m X 80m');
+insert into CUENTA VALUES (153,0,'NO_MOROSA');
+insert into APT_DET VALUES (153,10,153,'',10,13,153,1000000,'NO',13);
+insert into APARTAMENTO VALUES (154,'75m X 80m');
+insert into CUENTA VALUES (154,0,'NO_MOROSA');
+insert into APT_DET VALUES (154,10,154,16,'',13,154,1000000,'NO',10);
+insert into APARTAMENTO VALUES (155,'75m X 80m');
+insert into CUENTA VALUES (155,0,'NO_MOROSA');
+insert into APT_DET VALUES (155,10,155,7,'',13,155,1000000,'NO',13);
+insert into APARTAMENTO VALUES (156,'75m X 80m');
+insert into CUENTA VALUES (156,0,'NO_MOROSA');
+insert into APT_DET VALUES (156,10,156,1,'',13,156,1000000,'NO',8);
+insert into APARTAMENTO VALUES (157,'75m X 80m');
+insert into CUENTA VALUES (157,0,'NO_MOROSA');
+insert into APT_DET VALUES (157,10,157,7,'',13,157,1000000,'NO',1);
+insert into APARTAMENTO VALUES (158,'75m X 80m');
+insert into CUENTA VALUES (158,0,'NO_MOROSA');
+insert into APT_DET VALUES (158,10,158,12,'',13,158,1000000,'NO',12);
+insert into APARTAMENTO VALUES (159,'75m X 80m');
+insert into CUENTA VALUES (159,0,'NO_MOROSA');
+insert into APT_DET VALUES (159,10,159,13,'',13,159,1000000,'NO',13);
+insert into APARTAMENTO VALUES (160,'75m X 80m');
+insert into CUENTA VALUES (160,0,'NO_MOROSA');
+insert into APT_DET VALUES (160,10,160,1,'',13,160,1000000,'NO',10);
+insert into APARTAMENTO VALUES (161,'75m X 80m');
+insert into CUENTA VALUES (161,0,'NO_MOROSA');
+insert into APT_DET VALUES (161,10,161,7,'',14,161,1000000,'NO',3);
+insert into APARTAMENTO VALUES (162,'75m X 80m');
+insert into CUENTA VALUES (162,0,'NO_MOROSA');
+insert into APT_DET VALUES (162,10,162,5,'',14,162,1000000,'NO',1);
+insert into APARTAMENTO VALUES (163,'75m X 80m');
+insert into CUENTA VALUES (163,0,'NO_MOROSA');
+insert into APT_DET VALUES (163,10,163,2,'',14,163,1000000,'NO',6);
+insert into APARTAMENTO VALUES (164,'75m X 80m');
+insert into CUENTA VALUES (164,0,'NO_MOROSA');
+insert into APT_DET VALUES (164,10,164,4,'',14,164,1000000,'NO',12);
+insert into APARTAMENTO VALUES (165,'75m X 80m');
+insert into CUENTA VALUES (165,0,'NO_MOROSA');
+insert into APT_DET VALUES (165,10,165,9,'',14,165,1000000,'NO',12);
+insert into APARTAMENTO VALUES (166,'75m X 80m');
+insert into CUENTA VALUES (166,0,'NO_MOROSA');
+insert into APT_DET VALUES (166,10,166,1,'',14,166,1000000,'NO',1);
+insert into APARTAMENTO VALUES (167,'75m X 80m');
+insert into CUENTA VALUES (167,0,'NO_MOROSA');
+insert into APT_DET VALUES (167,10,167,18,'',14,167,1000000,'NO',12);
+insert into APARTAMENTO VALUES (168,'75m X 80m');
+insert into CUENTA VALUES (168,0,'NO_MOROSA');
+insert into APT_DET VALUES (168,10,168,6,'',14,168,1000000,'NO',2);
+insert into APARTAMENTO VALUES (169,'75m X 80m');
+insert into CUENTA VALUES (169,0,'NO_MOROSA');
+insert into APT_DET VALUES (169,10,169,12,'',14,169,1000000,'NO',8);
+insert into APARTAMENTO VALUES (170,'75m X 80m');
+insert into CUENTA VALUES (170,0,'NO_MOROSA');
+insert into APT_DET VALUES (170,10,170,6,'',14,170,1000000,'NO',7);
+insert into APARTAMENTO VALUES (171,'75m X 80m');
+insert into CUENTA VALUES (171,0,'NO_MOROSA');
 insert into APT_DET VALUES (171,10,171,20,'',14,171,1000000,'NO',1);
-insert into APARTAMENTO VALUES (172,'75m X 80m')
-insert into CUENTA VALUES (172,'75m X 80m')
-insert into APT_DET VALUES (172,10,172,8,'',14,172,1000000,'NO',1);
-insert into APARTAMENTO VALUES (173,'75m X 80m')
-insert into CUENTA VALUES (173,'75m X 80m')
-insert into APT_DET VALUES (173,10,173,14,'',14,173,1000000,'NO',15);
-insert into APARTAMENTO VALUES (174,'75m X 80m')
-insert into CUENTA VALUES (174,'75m X 80m')
-insert into APT_DET VALUES (174,10,174,2,'',14,174,1000000,'NO',13);
+insert into APARTAMENTO VALUES (172,'75m X 80m');
+insert into CUENTA VALUES (172,0,'NO_MOROSA');
+insert into APT_DET VALUES (172,10,172,14,'',14,172,1000000,'NO',15);
+insert into APARTAMENTO VALUES (173,'75m X 80m');
+insert into CUENTA VALUES (173,0,'NO_MOROSA');
+insert into APT_DET VALUES (173,10,173,13,'',14,173,1000000,'NO',13);
+insert into APARTAMENTO VALUES (174,'75m X 80m');
+insert into CUENTA VALUES (174,0,'NO_MOROSA');
+insert into APT_DET VALUES (174,10,174,8,'',14,174,1000000,'NO',4);
 insert into APARTAMENTO VALUES (175,'75m X 80m');
-insert into CUENTA VALUES (175,'75m X 80m');
-insert into APT_DET VALUES (175,10,175,'',16,14,175,1000000,'NO',12);
-insert into APARTAMENTO VALUES (176,'75m X 80m')
-insert into CUENTA VALUES (176,'75m X 80m')
-insert into APT_DET VALUES (176,10,176,14,'',14,176,1000000,'NO',11);
-insert into APARTAMENTO VALUES (177,'75m X 80m')
-insert into CUENTA VALUES (177,'75m X 80m')
-insert into APT_DET VALUES (177,10,177,11,'',14,177,1000000,'NO',3);
+insert into CUENTA VALUES (175,0,'NO_MOROSA');
+insert into APT_DET VALUES (175,10,175,7,'',14,175,1000000,'NO',4);
+insert into APARTAMENTO VALUES (176,'75m X 80m');
+insert into CUENTA VALUES (176,0,'NO_MOROSA');
+insert into APT_DET VALUES (176,10,176,14,'',14,176,1000000,'NO',9);
+insert into APARTAMENTO VALUES (177,'75m X 80m');
+insert into CUENTA VALUES (177,0,'NO_MOROSA');
+insert into APT_DET VALUES (177,10,177,17,'',14,177,1000000,'NO',10);
 insert into APARTAMENTO VALUES (178,'75m X 80m');
-insert into CUENTA VALUES (178,'75m X 80m');
-insert into APT_DET VALUES (178,10,178,'',10,14,178,1000000,'NO',4);
-insert into APARTAMENTO VALUES (179,'75m X 80m')
-insert into CUENTA VALUES (179,'75m X 80m')
-insert into APT_DET VALUES (179,10,179,4,'',14,179,1000000,'NO',7);
-insert into APARTAMENTO VALUES (180,'75m X 80m')
-insert into CUENTA VALUES (180,'75m X 80m')
-insert into APT_DET VALUES (180,10,180,15,'',14,180,1000000,'NO',9);
-insert into APARTAMENTO VALUES (181,'75m X 80m')
-insert into CUENTA VALUES (181,'75m X 80m')
-insert into APT_DET VALUES (181,10,181,11,'',15,181,1000000,'NO',8);
-insert into APARTAMENTO VALUES (182,'75m X 80m')
-insert into CUENTA VALUES (182,'75m X 80m')
-insert into APT_DET VALUES (182,10,182,14,'',15,182,1000000,'NO',7);
-insert into APARTAMENTO VALUES (183,'75m X 80m')
-insert into CUENTA VALUES (183,'75m X 80m')
-insert into APT_DET VALUES (183,10,183,15,'',15,183,1000000,'NO',7);
-insert into APARTAMENTO VALUES (184,'75m X 80m')
-insert into CUENTA VALUES (184,'75m X 80m')
-insert into APT_DET VALUES (184,10,184,3,'',15,184,1000000,'NO',1);
-insert into APARTAMENTO VALUES (185,'75m X 80m')
-insert into CUENTA VALUES (185,'75m X 80m')
-insert into APT_DET VALUES (185,10,185,19,'',15,185,1000000,'NO',6);
-insert into APARTAMENTO VALUES (186,'75m X 80m')
-insert into CUENTA VALUES (186,'75m X 80m')
-insert into APT_DET VALUES (186,10,186,14,'',15,186,1000000,'NO',13);
-insert into APARTAMENTO VALUES (187,'75m X 80m')
-insert into CUENTA VALUES (187,'75m X 80m')
-insert into APT_DET VALUES (187,10,187,10,'',15,187,1000000,'NO',2);
-insert into APARTAMENTO VALUES (188,'75m X 80m')
-insert into CUENTA VALUES (188,'75m X 80m')
-insert into APT_DET VALUES (188,10,188,17,'',15,188,1000000,'NO',4);
-insert into APARTAMENTO VALUES (189,'75m X 80m')
-insert into CUENTA VALUES (189,'75m X 80m')
-insert into APT_DET VALUES (189,10,189,19,'',15,189,1000000,'NO',5);
-insert into APARTAMENTO VALUES (190,'75m X 80m')
-insert into CUENTA VALUES (190,'75m X 80m')
-insert into APT_DET VALUES (190,10,190,5,'',15,190,1000000,'NO',3);
-insert into APARTAMENTO VALUES (191,'75m X 80m')
-insert into CUENTA VALUES (191,'75m X 80m')
-insert into APT_DET VALUES (191,10,191,8,'',15,191,1000000,'NO',5);
-insert into APARTAMENTO VALUES (192,'75m X 80m')
-insert into CUENTA VALUES (192,'75m X 80m')
-insert into APT_DET VALUES (192,10,192,15,'',15,192,1000000,'NO',6);
-insert into APARTAMENTO VALUES (193,'75m X 80m')
-insert into CUENTA VALUES (193,'75m X 80m')
-insert into APT_DET VALUES (193,10,193,18,'',15,193,1000000,'NO',5);
-insert into APARTAMENTO VALUES (194,'75m X 80m')
-insert into CUENTA VALUES (194,'75m X 80m')
-insert into APT_DET VALUES (194,10,194,9,'',15,194,1000000,'NO',15);
-insert into APARTAMENTO VALUES (195,'75m X 80m')
-insert into CUENTA VALUES (195,'75m X 80m')
-insert into APT_DET VALUES (195,10,195,9,'',15,195,1000000,'NO',14);
-insert into APARTAMENTO VALUES (196,'75m X 80m')
-insert into CUENTA VALUES (196,'75m X 80m')
-insert into APT_DET VALUES (196,10,196,4,'',15,196,1000000,'NO',10);
-insert into APARTAMENTO VALUES (197,'75m X 80m')
-insert into CUENTA VALUES (197,'75m X 80m')
-insert into APT_DET VALUES (197,10,197,2,'',15,197,1000000,'NO',14);
-insert into APARTAMENTO VALUES (198,'75m X 80m')
-insert into CUENTA VALUES (198,'75m X 80m')
-insert into APT_DET VALUES (198,10,198,20,'',15,198,1000000,'NO',13);
-insert into APARTAMENTO VALUES (199,'75m X 80m')
-insert into CUENTA VALUES (199,'75m X 80m')
-insert into APT_DET VALUES (199,10,199,8,'',15,199,1000000,'NO',8);
-insert into APARTAMENTO VALUES (200,'75m X 80m')
-insert into CUENTA VALUES (200,'75m X 80m')
-insert into APT_DET VALUES (200,10,200,5,'',15,200,1000000,'NO',4);
-insert into APARTAMENTO VALUES (201,'75m X 80m')
-insert into CUENTA VALUES (201,'75m X 80m')
-insert into APT_DET VALUES (201,10,201,17,'',16,201,1000000,'NO',11);
-insert into APARTAMENTO VALUES (202,'75m X 80m')
-insert into CUENTA VALUES (202,'75m X 80m')
-insert into APT_DET VALUES (202,10,202,18,'',16,202,1000000,'NO',7);
-insert into APARTAMENTO VALUES (203,'75m X 80m')
-insert into CUENTA VALUES (203,'75m X 80m')
-insert into APT_DET VALUES (203,10,203,20,'',16,203,1000000,'NO',15);
-insert into APARTAMENTO VALUES (204,'75m X 80m')
-insert into CUENTA VALUES (204,'75m X 80m')
-insert into APT_DET VALUES (204,10,204,10,'',16,204,1000000,'NO',1);
-insert into APARTAMENTO VALUES (205,'75m X 80m')
-insert into CUENTA VALUES (205,'75m X 80m')
-insert into APT_DET VALUES (205,10,205,7,'',16,205,1000000,'NO',4);
-insert into APARTAMENTO VALUES (206,'75m X 80m')
-insert into CUENTA VALUES (206,'75m X 80m')
-insert into APT_DET VALUES (206,10,206,18,'',16,206,1000000,'NO',15);
+insert into CUENTA VALUES (178,0,'NO_MOROSA');
+insert into APT_DET VALUES (178,10,178,7,'',14,178,1000000,'NO',15);
+insert into APARTAMENTO VALUES (179,'75m X 80m');
+insert into CUENTA VALUES (179,0,'NO_MOROSA');
+insert into APT_DET VALUES (179,10,179,20,'',14,179,1000000,'NO',3);
+insert into APARTAMENTO VALUES (180,'75m X 80m');
+insert into CUENTA VALUES (180,0,'NO_MOROSA');
+insert into APT_DET VALUES (180,10,180,12,'',14,180,1000000,'NO',15);
+insert into APARTAMENTO VALUES (181,'75m X 80m');
+insert into CUENTA VALUES (181,0,'NO_MOROSA');
+insert into APT_DET VALUES (181,10,181,14,'',15,181,1000000,'NO',2);
+insert into APARTAMENTO VALUES (182,'75m X 80m');
+insert into CUENTA VALUES (182,0,'NO_MOROSA');
+insert into APT_DET VALUES (182,10,182,14,'',15,182,1000000,'NO',5);
+insert into APARTAMENTO VALUES (183,'75m X 80m');
+insert into CUENTA VALUES (183,0,'NO_MOROSA');
+insert into APT_DET VALUES (183,10,183,8,'',15,183,1000000,'NO',10);
+insert into APARTAMENTO VALUES (184,'75m X 80m');
+insert into CUENTA VALUES (184,0,'NO_MOROSA');
+insert into APT_DET VALUES (184,10,184,14,'',15,184,1000000,'NO',3);
+insert into APARTAMENTO VALUES (185,'75m X 80m');
+insert into CUENTA VALUES (185,0,'NO_MOROSA');
+insert into APT_DET VALUES (185,10,185,1,'',15,185,1000000,'NO',13);
+insert into APARTAMENTO VALUES (186,'75m X 80m');
+insert into CUENTA VALUES (186,0,'NO_MOROSA');
+insert into APT_DET VALUES (186,10,186,3,'',15,186,1000000,'NO',3);
+insert into APARTAMENTO VALUES (187,'75m X 80m');
+insert into CUENTA VALUES (187,0,'NO_MOROSA');
+insert into APT_DET VALUES (187,10,187,1,'',15,187,1000000,'NO',13);
+insert into APARTAMENTO VALUES (188,'75m X 80m');
+insert into CUENTA VALUES (188,0,'NO_MOROSA');
+insert into APT_DET VALUES (188,10,188,6,'',15,188,1000000,'NO',14);
+insert into APARTAMENTO VALUES (189,'75m X 80m');
+insert into CUENTA VALUES (189,0,'NO_MOROSA');
+insert into APT_DET VALUES (189,10,189,14,'',15,189,1000000,'NO',2);
+insert into APARTAMENTO VALUES (190,'75m X 80m');
+insert into CUENTA VALUES (190,0,'NO_MOROSA');
+insert into APT_DET VALUES (190,10,190,17,'',15,190,1000000,'NO',5);
+insert into APARTAMENTO VALUES (191,'75m X 80m');
+insert into CUENTA VALUES (191,0,'NO_MOROSA');
+insert into APT_DET VALUES (191,10,191,3,'',15,191,1000000,'NO',6);
+insert into APARTAMENTO VALUES (192,'75m X 80m');
+insert into CUENTA VALUES (192,0,'NO_MOROSA');
+insert into APT_DET VALUES (192,10,192,19,'',15,192,1000000,'NO',15);
+insert into APARTAMENTO VALUES (193,'75m X 80m');
+insert into CUENTA VALUES (193,0,'NO_MOROSA');
+insert into APT_DET VALUES (193,10,193,20,'',15,193,1000000,'NO',5);
+insert into APARTAMENTO VALUES (194,'75m X 80m');
+insert into CUENTA VALUES (194,0,'NO_MOROSA');
+insert into APT_DET VALUES (194,10,194,9,'',15,194,1000000,'NO',7);
+insert into APARTAMENTO VALUES (195,'75m X 80m');
+insert into CUENTA VALUES (195,0,'NO_MOROSA');
+insert into APT_DET VALUES (195,10,195,3,'',15,195,1000000,'NO',14);
+insert into APARTAMENTO VALUES (196,'75m X 80m');
+insert into CUENTA VALUES (196,0,'NO_MOROSA');
+insert into APT_DET VALUES (196,10,196,7,'',15,196,1000000,'NO',4);
+insert into APARTAMENTO VALUES (197,'75m X 80m');
+insert into CUENTA VALUES (197,0,'NO_MOROSA');
+insert into APT_DET VALUES (197,10,197,11,'',15,197,1000000,'NO',9);
+insert into APARTAMENTO VALUES (198,'75m X 80m');
+insert into CUENTA VALUES (198,0,'NO_MOROSA');
+insert into APT_DET VALUES (198,10,198,7,'',15,198,1000000,'NO',12);
+insert into APARTAMENTO VALUES (199,'75m X 80m');
+insert into CUENTA VALUES (199,0,'NO_MOROSA');
+insert into APT_DET VALUES (199,10,199,3,'',15,199,1000000,'NO',1);
+insert into APARTAMENTO VALUES (200,'75m X 80m');
+insert into CUENTA VALUES (200,0,'NO_MOROSA');
+insert into APT_DET VALUES (200,10,200,8,'',15,200,1000000,'NO',9);
+insert into APARTAMENTO VALUES (201,'75m X 80m');
+insert into CUENTA VALUES (201,0,'NO_MOROSA');
+insert into APT_DET VALUES (201,10,201,18,'',16,201,1000000,'NO',8);
+insert into APARTAMENTO VALUES (202,'75m X 80m');
+insert into CUENTA VALUES (202,0,'NO_MOROSA');
+insert into APT_DET VALUES (202,10,202,14,'',16,202,1000000,'NO',3);
+insert into APARTAMENTO VALUES (203,'75m X 80m');
+insert into CUENTA VALUES (203,0,'NO_MOROSA');
+insert into APT_DET VALUES (203,10,203,2,'',16,203,1000000,'NO',8);
+insert into APARTAMENTO VALUES (204,'75m X 80m');
+insert into CUENTA VALUES (204,0,'NO_MOROSA');
+insert into APT_DET VALUES (204,10,204,'',17,16,204,1000000,'NO',8);
+insert into APARTAMENTO VALUES (205,'75m X 80m');
+insert into CUENTA VALUES (205,0,'NO_MOROSA');
+insert into APT_DET VALUES (205,10,205,8,'',16,205,1000000,'NO',11);
+insert into APARTAMENTO VALUES (206,'75m X 80m');
+insert into CUENTA VALUES (206,0,'NO_MOROSA');
+insert into APT_DET VALUES (206,10,206,7,'',16,206,1000000,'NO',1);
 insert into APARTAMENTO VALUES (207,'75m X 80m');
-insert into CUENTA VALUES (207,'75m X 80m');
-insert into APT_DET VALUES (207,10,207,'',4,16,207,1000000,'NO',7);
-insert into APARTAMENTO VALUES (208,'75m X 80m')
-insert into CUENTA VALUES (208,'75m X 80m')
-insert into APT_DET VALUES (208,10,208,16,'',16,208,1000000,'NO',5);
-insert into APARTAMENTO VALUES (209,'75m X 80m')
-insert into CUENTA VALUES (209,'75m X 80m')
-insert into APT_DET VALUES (209,10,209,7,'',16,209,1000000,'NO',10);
-insert into APARTAMENTO VALUES (210,'75m X 80m')
-insert into CUENTA VALUES (210,'75m X 80m')
-insert into APT_DET VALUES (210,10,210,4,'',16,210,1000000,'NO',10);
-insert into APARTAMENTO VALUES (211,'75m X 80m')
-insert into CUENTA VALUES (211,'75m X 80m')
-insert into APT_DET VALUES (211,10,211,3,'',16,211,1000000,'NO',1);
-insert into APARTAMENTO VALUES (212,'75m X 80m')
-insert into CUENTA VALUES (212,'75m X 80m')
-insert into APT_DET VALUES (212,10,212,5,'',16,212,1000000,'NO',15);
-insert into APARTAMENTO VALUES (213,'75m X 80m')
-insert into CUENTA VALUES (213,'75m X 80m')
-insert into APT_DET VALUES (213,10,213,15,'',16,213,1000000,'NO',3);
+insert into CUENTA VALUES (207,0,'NO_MOROSA');
+insert into APT_DET VALUES (207,10,207,2,'',16,207,1000000,'NO',2);
+insert into APARTAMENTO VALUES (208,'75m X 80m');
+insert into CUENTA VALUES (208,0,'NO_MOROSA');
+insert into APT_DET VALUES (208,10,208,3,'',16,208,1000000,'NO',6);
+insert into APARTAMENTO VALUES (209,'75m X 80m');
+insert into CUENTA VALUES (209,0,'NO_MOROSA');
+insert into APT_DET VALUES (209,10,209,8,'',16,209,1000000,'NO',14);
+insert into APARTAMENTO VALUES (210,'75m X 80m');
+insert into CUENTA VALUES (210,0,'NO_MOROSA');
+insert into APT_DET VALUES (210,10,210,6,'',16,210,1000000,'NO',2);
+insert into APARTAMENTO VALUES (211,'75m X 80m');
+insert into CUENTA VALUES (211,0,'NO_MOROSA');
+insert into APT_DET VALUES (211,10,211,3,'',16,211,1000000,'NO',13);
+insert into APARTAMENTO VALUES (212,'75m X 80m');
+insert into CUENTA VALUES (212,0,'NO_MOROSA');
+insert into APT_DET VALUES (212,10,212,20,'',16,212,1000000,'NO',15);
+insert into APARTAMENTO VALUES (213,'75m X 80m');
+insert into CUENTA VALUES (213,0,'NO_MOROSA');
+insert into APT_DET VALUES (213,10,213,19,'',16,213,1000000,'NO',14);
 insert into APARTAMENTO VALUES (214,'75m X 80m');
-insert into CUENTA VALUES (214,'75m X 80m');
-insert into APT_DET VALUES (214,10,214,'',9,16,214,1000000,'NO',8);
-insert into APARTAMENTO VALUES (215,'75m X 80m')
-insert into CUENTA VALUES (215,'75m X 80m')
-insert into APT_DET VALUES (215,10,215,2,'',16,215,1000000,'NO',2);
-insert into APARTAMENTO VALUES (216,'75m X 80m')
-insert into CUENTA VALUES (216,'75m X 80m')
-insert into APT_DET VALUES (216,10,216,16,'',16,216,1000000,'NO',9);
+insert into CUENTA VALUES (214,0,'NO_MOROSA');
+insert into APT_DET VALUES (214,10,214,1,'',16,214,1000000,'NO',3);
+insert into APARTAMENTO VALUES (215,'75m X 80m');
+insert into CUENTA VALUES (215,0,'NO_MOROSA');
+insert into APT_DET VALUES (215,10,215,10,'',16,215,1000000,'NO',4);
+insert into APARTAMENTO VALUES (216,'75m X 80m');
+insert into CUENTA VALUES (216,0,'NO_MOROSA');
+insert into APT_DET VALUES (216,10,216,7,'',16,216,1000000,'NO',2);
 insert into APARTAMENTO VALUES (217,'75m X 80m');
-insert into CUENTA VALUES (217,'75m X 80m');
-insert into APT_DET VALUES (217,10,217,'',4,16,217,1000000,'NO',1);
-insert into APARTAMENTO VALUES (218,'75m X 80m')
-insert into CUENTA VALUES (218,'75m X 80m')
-insert into APT_DET VALUES (218,10,218,17,'',16,218,1000000,'NO',6);
-insert into APARTAMENTO VALUES (219,'75m X 80m')
-insert into CUENTA VALUES (219,'75m X 80m')
-insert into APT_DET VALUES (219,10,219,7,'',16,219,1000000,'NO',4);
-insert into APARTAMENTO VALUES (220,'75m X 80m')
-insert into CUENTA VALUES (220,'75m X 80m')
-insert into APT_DET VALUES (220,10,220,4,'',16,220,1000000,'NO',8);
-insert into APARTAMENTO VALUES (221,'75m X 80m')
-insert into CUENTA VALUES (221,'75m X 80m')
-insert into APT_DET VALUES (221,10,221,10,'',17,221,1000000,'NO',11);
-insert into APARTAMENTO VALUES (222,'75m X 80m')
-insert into CUENTA VALUES (222,'75m X 80m')
-insert into APT_DET VALUES (222,10,222,16,'',17,222,1000000,'NO',4);
-insert into APARTAMENTO VALUES (223,'75m X 80m')
-insert into CUENTA VALUES (223,'75m X 80m')
-insert into APT_DET VALUES (223,10,223,6,'',17,223,1000000,'NO',12);
-insert into APARTAMENTO VALUES (224,'75m X 80m')
-insert into CUENTA VALUES (224,'75m X 80m')
-insert into APT_DET VALUES (224,10,224,16,'',17,224,1000000,'NO',6);
-insert into APARTAMENTO VALUES (225,'75m X 80m')
-insert into CUENTA VALUES (225,'75m X 80m')
-insert into APT_DET VALUES (225,10,225,15,'',17,225,1000000,'NO',5);
-insert into APARTAMENTO VALUES (226,'75m X 80m')
-insert into CUENTA VALUES (226,'75m X 80m')
-insert into APT_DET VALUES (226,10,226,16,'',17,226,1000000,'NO',6);
-insert into APARTAMENTO VALUES (227,'75m X 80m')
-insert into CUENTA VALUES (227,'75m X 80m')
-insert into APT_DET VALUES (227,10,227,4,'',17,227,1000000,'NO',11);
-insert into APARTAMENTO VALUES (228,'75m X 80m')
-insert into CUENTA VALUES (228,'75m X 80m')
-insert into APT_DET VALUES (228,10,228,13,'',17,228,1000000,'NO',3);
-insert into APARTAMENTO VALUES (229,'75m X 80m')
-insert into CUENTA VALUES (229,'75m X 80m')
-insert into APT_DET VALUES (229,10,229,7,'',17,229,1000000,'NO',14);
-insert into APARTAMENTO VALUES (230,'75m X 80m')
-insert into CUENTA VALUES (230,'75m X 80m')
-insert into APT_DET VALUES (230,10,230,15,'',17,230,1000000,'NO',8);
-insert into APARTAMENTO VALUES (231,'75m X 80m')
-insert into CUENTA VALUES (231,'75m X 80m')
-insert into APT_DET VALUES (231,10,231,16,'',17,231,1000000,'NO',6);
-insert into APARTAMENTO VALUES (232,'75m X 80m')
-insert into CUENTA VALUES (232,'75m X 80m')
-insert into APT_DET VALUES (232,10,232,11,'',17,232,1000000,'NO',3);
-insert into APARTAMENTO VALUES (233,'75m X 80m')
-insert into CUENTA VALUES (233,'75m X 80m')
-insert into APT_DET VALUES (233,10,233,10,'',17,233,1000000,'NO',11);
-insert into APARTAMENTO VALUES (234,'75m X 80m')
-insert into CUENTA VALUES (234,'75m X 80m')
-insert into APT_DET VALUES (234,10,234,12,'',17,234,1000000,'NO',2);
-insert into APARTAMENTO VALUES (235,'75m X 80m')
-insert into CUENTA VALUES (235,'75m X 80m')
-insert into APT_DET VALUES (235,10,235,6,'',17,235,1000000,'NO',4);
-insert into APARTAMENTO VALUES (236,'75m X 80m')
-insert into CUENTA VALUES (236,'75m X 80m')
-insert into APT_DET VALUES (236,10,236,18,'',17,236,1000000,'NO',14);
-insert into APARTAMENTO VALUES (237,'75m X 80m')
-insert into CUENTA VALUES (237,'75m X 80m')
-insert into APT_DET VALUES (237,10,237,12,'',17,237,1000000,'NO',1);
-insert into APARTAMENTO VALUES (238,'75m X 80m')
-insert into CUENTA VALUES (238,'75m X 80m')
-insert into APT_DET VALUES (238,10,238,1,'',17,238,1000000,'NO',10);
-insert into APARTAMENTO VALUES (239,'75m X 80m')
-insert into CUENTA VALUES (239,'75m X 80m')
-insert into APT_DET VALUES (239,10,239,17,'',17,239,1000000,'NO',6);
-insert into APARTAMENTO VALUES (240,'75m X 80m')
-insert into CUENTA VALUES (240,'75m X 80m')
-insert into APT_DET VALUES (240,10,240,12,'',17,240,1000000,'NO',1);
-insert into APARTAMENTO VALUES (241,'75m X 80m')
-insert into CUENTA VALUES (241,'75m X 80m')
-insert into APT_DET VALUES (241,10,241,7,'',18,241,1000000,'NO',4);
-insert into APARTAMENTO VALUES (242,'75m X 80m')
-insert into CUENTA VALUES (242,'75m X 80m')
-insert into APT_DET VALUES (242,10,242,1,'',18,242,1000000,'NO',1);
-insert into APARTAMENTO VALUES (243,'75m X 80m')
-insert into CUENTA VALUES (243,'75m X 80m')
-insert into APT_DET VALUES (243,10,243,19,'',18,243,1000000,'NO',9);
-insert into APARTAMENTO VALUES (244,'75m X 80m')
-insert into CUENTA VALUES (244,'75m X 80m')
-insert into APT_DET VALUES (244,10,244,4,'',18,244,1000000,'NO',15);
-insert into APARTAMENTO VALUES (245,'75m X 80m')
-insert into CUENTA VALUES (245,'75m X 80m')
-insert into APT_DET VALUES (245,10,245,12,'',18,245,1000000,'NO',12);
-insert into APARTAMENTO VALUES (246,'75m X 80m')
-insert into CUENTA VALUES (246,'75m X 80m')
-insert into APT_DET VALUES (246,10,246,18,'',18,246,1000000,'NO',6);
-insert into APARTAMENTO VALUES (247,'75m X 80m')
-insert into CUENTA VALUES (247,'75m X 80m')
-insert into APT_DET VALUES (247,10,247,1,'',18,247,1000000,'NO',7);
-insert into APARTAMENTO VALUES (248,'75m X 80m')
-insert into CUENTA VALUES (248,'75m X 80m')
-insert into APT_DET VALUES (248,10,248,11,'',18,248,1000000,'NO',14);
-insert into APARTAMENTO VALUES (249,'75m X 80m')
-insert into CUENTA VALUES (249,'75m X 80m')
-insert into APT_DET VALUES (249,10,249,9,'',18,249,1000000,'NO',1);
-insert into APARTAMENTO VALUES (250,'75m X 80m')
-insert into CUENTA VALUES (250,'75m X 80m')
-insert into APT_DET VALUES (250,10,250,19,'',18,250,1000000,'NO',6);
-insert into APARTAMENTO VALUES (251,'75m X 80m')
-insert into CUENTA VALUES (251,'75m X 80m')
-insert into APT_DET VALUES (251,10,251,12,'',18,251,1000000,'NO',8);
-insert into APARTAMENTO VALUES (252,'75m X 80m')
-insert into CUENTA VALUES (252,'75m X 80m')
-insert into APT_DET VALUES (252,10,252,9,'',18,252,1000000,'NO',14);
-insert into APARTAMENTO VALUES (253,'75m X 80m')
-insert into CUENTA VALUES (253,'75m X 80m')
-insert into APT_DET VALUES (253,10,253,1,'',18,253,1000000,'NO',2);
-insert into APARTAMENTO VALUES (254,'75m X 80m')
-insert into CUENTA VALUES (254,'75m X 80m')
-insert into APT_DET VALUES (254,10,254,10,'',18,254,1000000,'NO',10);
-insert into APARTAMENTO VALUES (255,'75m X 80m')
-insert into CUENTA VALUES (255,'75m X 80m')
-insert into APT_DET VALUES (255,10,255,12,'',18,255,1000000,'NO',14);
-insert into APARTAMENTO VALUES (256,'75m X 80m')
-insert into CUENTA VALUES (256,'75m X 80m')
-insert into APT_DET VALUES (256,10,256,15,'',18,256,1000000,'NO',7);
-insert into APARTAMENTO VALUES (257,'75m X 80m')
-insert into CUENTA VALUES (257,'75m X 80m')
-insert into APT_DET VALUES (257,10,257,10,'',18,257,1000000,'NO',10);
-insert into APARTAMENTO VALUES (258,'75m X 80m')
-insert into CUENTA VALUES (258,'75m X 80m')
-insert into APT_DET VALUES (258,10,258,14,'',18,258,1000000,'NO',3);
-insert into APARTAMENTO VALUES (259,'75m X 80m')
-insert into CUENTA VALUES (259,'75m X 80m')
-insert into APT_DET VALUES (259,10,259,17,'',18,259,1000000,'NO',6);
-insert into APARTAMENTO VALUES (260,'75m X 80m')
-insert into CUENTA VALUES (260,'75m X 80m')
-insert into APT_DET VALUES (260,10,260,7,'',18,260,1000000,'NO',14);
-insert into APARTAMENTO VALUES (261,'75m X 80m')
-insert into CUENTA VALUES (261,'75m X 80m')
-insert into APT_DET VALUES (261,10,261,18,'',19,261,1000000,'NO',7);
-insert into APARTAMENTO VALUES (262,'75m X 80m')
-insert into CUENTA VALUES (262,'75m X 80m')
-insert into APT_DET VALUES (262,10,262,4,'',19,262,1000000,'NO',13);
-insert into APARTAMENTO VALUES (263,'75m X 80m')
-insert into CUENTA VALUES (263,'75m X 80m')
-insert into APT_DET VALUES (263,10,263,19,'',19,263,1000000,'NO',13);
-insert into APARTAMENTO VALUES (264,'75m X 80m')
-insert into CUENTA VALUES (264,'75m X 80m')
-insert into APT_DET VALUES (264,10,264,12,'',19,264,1000000,'NO',14);
-insert into APARTAMENTO VALUES (265,'75m X 80m')
-insert into CUENTA VALUES (265,'75m X 80m')
-insert into APT_DET VALUES (265,10,265,15,'',19,265,1000000,'NO',6);
-insert into APARTAMENTO VALUES (266,'75m X 80m')
-insert into CUENTA VALUES (266,'75m X 80m')
-insert into APT_DET VALUES (266,10,266,19,'',19,266,1000000,'NO',13);
-insert into APARTAMENTO VALUES (267,'75m X 80m')
-insert into CUENTA VALUES (267,'75m X 80m')
-insert into APT_DET VALUES (267,10,267,10,'',19,267,1000000,'NO',13);
-insert into APARTAMENTO VALUES (268,'75m X 80m')
-insert into CUENTA VALUES (268,'75m X 80m')
-insert into APT_DET VALUES (268,10,268,3,'',19,268,1000000,'NO',15);
-insert into APARTAMENTO VALUES (269,'75m X 80m')
-insert into CUENTA VALUES (269,'75m X 80m')
-insert into APT_DET VALUES (269,10,269,9,'',19,269,1000000,'NO',2);
-insert into APARTAMENTO VALUES (270,'75m X 80m')
-insert into CUENTA VALUES (270,'75m X 80m')
-insert into APT_DET VALUES (270,10,270,4,'',19,270,1000000,'NO',3);
-insert into APARTAMENTO VALUES (271,'75m X 80m')
-insert into CUENTA VALUES (271,'75m X 80m')
-insert into APT_DET VALUES (271,10,271,8,'',19,271,1000000,'NO',9);
-insert into APARTAMENTO VALUES (272,'75m X 80m')
-insert into CUENTA VALUES (272,'75m X 80m')
-insert into APT_DET VALUES (272,10,272,11,'',19,272,1000000,'NO',14);
-insert into APARTAMENTO VALUES (273,'75m X 80m')
-insert into CUENTA VALUES (273,'75m X 80m')
-insert into APT_DET VALUES (273,10,273,2,'',19,273,1000000,'NO',7);
-insert into APARTAMENTO VALUES (274,'75m X 80m')
-insert into CUENTA VALUES (274,'75m X 80m')
-insert into APT_DET VALUES (274,10,274,13,'',19,274,1000000,'NO',6);
-insert into APARTAMENTO VALUES (275,'75m X 80m')
-insert into CUENTA VALUES (275,'75m X 80m')
-insert into APT_DET VALUES (275,10,275,18,'',19,275,1000000,'NO',1);
-insert into APARTAMENTO VALUES (276,'75m X 80m')
-insert into CUENTA VALUES (276,'75m X 80m')
-insert into APT_DET VALUES (276,10,276,12,'',19,276,1000000,'NO',6);
-insert into APARTAMENTO VALUES (277,'75m X 80m')
-insert into CUENTA VALUES (277,'75m X 80m')
-insert into APT_DET VALUES (277,10,277,19,'',19,277,1000000,'NO',4);
-insert into APARTAMENTO VALUES (278,'75m X 80m')
-insert into CUENTA VALUES (278,'75m X 80m')
-insert into APT_DET VALUES (278,10,278,15,'',19,278,1000000,'NO',5);
-insert into APARTAMENTO VALUES (279,'75m X 80m')
-insert into CUENTA VALUES (279,'75m X 80m')
-insert into APT_DET VALUES (279,10,279,17,'',19,279,1000000,'NO',8);
-insert into APARTAMENTO VALUES (280,'75m X 80m')
-insert into CUENTA VALUES (280,'75m X 80m')
-insert into APT_DET VALUES (280,10,280,1,'',19,280,1000000,'NO',1);
-insert into APARTAMENTO VALUES (281,'75m X 80m')
-insert into CUENTA VALUES (281,'75m X 80m')
-insert into APT_DET VALUES (281,10,281,20,'',20,281,1000000,'NO',9);
+insert into CUENTA VALUES (217,0,'NO_MOROSA');
+insert into APT_DET VALUES (217,10,217,8,'',16,217,1000000,'NO',1);
+insert into APARTAMENTO VALUES (218,'75m X 80m');
+insert into CUENTA VALUES (218,0,'NO_MOROSA');
+insert into APT_DET VALUES (218,10,218,14,'',16,218,1000000,'NO',2);
+insert into APARTAMENTO VALUES (219,'75m X 80m');
+insert into CUENTA VALUES (219,0,'NO_MOROSA');
+insert into APT_DET VALUES (219,10,219,'',11,16,219,1000000,'NO',1);
+insert into APARTAMENTO VALUES (220,'75m X 80m');
+insert into CUENTA VALUES (220,0,'NO_MOROSA');
+insert into APT_DET VALUES (220,10,220,9,'',16,220,1000000,'NO',8);
+insert into APARTAMENTO VALUES (221,'75m X 80m');
+insert into CUENTA VALUES (221,0,'NO_MOROSA');
+insert into APT_DET VALUES (221,10,221,16,'',17,221,1000000,'NO',2);
+insert into APARTAMENTO VALUES (222,'75m X 80m');
+insert into CUENTA VALUES (222,0,'NO_MOROSA');
+insert into APT_DET VALUES (222,10,222,14,'',17,222,1000000,'NO',9);
+insert into APARTAMENTO VALUES (223,'75m X 80m');
+insert into CUENTA VALUES (223,0,'NO_MOROSA');
+insert into APT_DET VALUES (223,10,223,6,'',17,223,1000000,'NO',7);
+insert into APARTAMENTO VALUES (224,'75m X 80m');
+insert into CUENTA VALUES (224,0,'NO_MOROSA');
+insert into APT_DET VALUES (224,10,224,12,'',17,224,1000000,'NO',4);
+insert into APARTAMENTO VALUES (225,'75m X 80m');
+insert into CUENTA VALUES (225,0,'NO_MOROSA');
+insert into APT_DET VALUES (225,10,225,5,'',17,225,1000000,'NO',1);
+insert into APARTAMENTO VALUES (226,'75m X 80m');
+insert into CUENTA VALUES (226,0,'NO_MOROSA');
+insert into APT_DET VALUES (226,10,226,4,'',17,226,1000000,'NO',13);
+insert into APARTAMENTO VALUES (227,'75m X 80m');
+insert into CUENTA VALUES (227,0,'NO_MOROSA');
+insert into APT_DET VALUES (227,10,227,14,'',17,227,1000000,'NO',2);
+insert into APARTAMENTO VALUES (228,'75m X 80m');
+insert into CUENTA VALUES (228,0,'NO_MOROSA');
+insert into APT_DET VALUES (228,10,228,14,'',17,228,1000000,'NO',13);
+insert into APARTAMENTO VALUES (229,'75m X 80m');
+insert into CUENTA VALUES (229,0,'NO_MOROSA');
+insert into APT_DET VALUES (229,10,229,2,'',17,229,1000000,'NO',8);
+insert into APARTAMENTO VALUES (230,'75m X 80m');
+insert into CUENTA VALUES (230,0,'NO_MOROSA');
+insert into APT_DET VALUES (230,10,230,2,'',17,230,1000000,'NO',7);
+insert into APARTAMENTO VALUES (231,'75m X 80m');
+insert into CUENTA VALUES (231,0,'NO_MOROSA');
+insert into APT_DET VALUES (231,10,231,6,'',17,231,1000000,'NO',14);
+insert into APARTAMENTO VALUES (232,'75m X 80m');
+insert into CUENTA VALUES (232,0,'NO_MOROSA');
+insert into APT_DET VALUES (232,10,232,1,'',17,232,1000000,'NO',14);
+insert into APARTAMENTO VALUES (233,'75m X 80m');
+insert into CUENTA VALUES (233,0,'NO_MOROSA');
+insert into APT_DET VALUES (233,10,233,5,'',17,233,1000000,'NO',15);
+insert into APARTAMENTO VALUES (234,'75m X 80m');
+insert into CUENTA VALUES (234,0,'NO_MOROSA');
+insert into APT_DET VALUES (234,10,234,8,'',17,234,1000000,'NO',13);
+insert into APARTAMENTO VALUES (235,'75m X 80m');
+insert into CUENTA VALUES (235,0,'NO_MOROSA');
+insert into APT_DET VALUES (235,10,235,18,'',17,235,1000000,'NO',15);
+insert into APARTAMENTO VALUES (236,'75m X 80m');
+insert into CUENTA VALUES (236,0,'NO_MOROSA');
+insert into APT_DET VALUES (236,10,236,6,'',17,236,1000000,'NO',2);
+insert into APARTAMENTO VALUES (237,'75m X 80m');
+insert into CUENTA VALUES (237,0,'NO_MOROSA');
+insert into APT_DET VALUES (237,10,237,11,'',17,237,1000000,'NO',9);
+insert into APARTAMENTO VALUES (238,'75m X 80m');
+insert into CUENTA VALUES (238,0,'NO_MOROSA');
+insert into APT_DET VALUES (238,10,238,8,'',17,238,1000000,'NO',13);
+insert into APARTAMENTO VALUES (239,'75m X 80m');
+insert into CUENTA VALUES (239,0,'NO_MOROSA');
+insert into APT_DET VALUES (239,10,239,20,'',17,239,1000000,'NO',15);
+insert into APARTAMENTO VALUES (240,'75m X 80m');
+insert into CUENTA VALUES (240,0,'NO_MOROSA');
+insert into APT_DET VALUES (240,10,240,1,'',17,240,1000000,'NO',6);
+insert into APARTAMENTO VALUES (241,'75m X 80m');
+insert into CUENTA VALUES (241,0,'NO_MOROSA');
+insert into APT_DET VALUES (241,10,241,8,'',18,241,1000000,'NO',9);
+insert into APARTAMENTO VALUES (242,'75m X 80m');
+insert into CUENTA VALUES (242,0,'NO_MOROSA');
+insert into APT_DET VALUES (242,10,242,14,'',18,242,1000000,'NO',15);
+insert into APARTAMENTO VALUES (243,'75m X 80m');
+insert into CUENTA VALUES (243,0,'NO_MOROSA');
+insert into APT_DET VALUES (243,10,243,1,'',18,243,1000000,'NO',15);
+insert into APARTAMENTO VALUES (244,'75m X 80m');
+insert into CUENTA VALUES (244,0,'NO_MOROSA');
+insert into APT_DET VALUES (244,10,244,8,'',18,244,1000000,'NO',2);
+insert into APARTAMENTO VALUES (245,'75m X 80m');
+insert into CUENTA VALUES (245,0,'NO_MOROSA');
+insert into APT_DET VALUES (245,10,245,15,'',18,245,1000000,'NO',11);
+insert into APARTAMENTO VALUES (246,'75m X 80m');
+insert into CUENTA VALUES (246,0,'NO_MOROSA');
+insert into APT_DET VALUES (246,10,246,20,'',18,246,1000000,'NO',13);
+insert into APARTAMENTO VALUES (247,'75m X 80m');
+insert into CUENTA VALUES (247,0,'NO_MOROSA');
+insert into APT_DET VALUES (247,10,247,1,'',18,247,1000000,'NO',15);
+insert into APARTAMENTO VALUES (248,'75m X 80m');
+insert into CUENTA VALUES (248,0,'NO_MOROSA');
+insert into APT_DET VALUES (248,10,248,17,'',18,248,1000000,'NO',7);
+insert into APARTAMENTO VALUES (249,'75m X 80m');
+insert into CUENTA VALUES (249,0,'NO_MOROSA');
+insert into APT_DET VALUES (249,10,249,5,'',18,249,1000000,'NO',12);
+insert into APARTAMENTO VALUES (250,'75m X 80m');
+insert into CUENTA VALUES (250,0,'NO_MOROSA');
+insert into APT_DET VALUES (250,10,250,16,'',18,250,1000000,'NO',15);
+insert into APARTAMENTO VALUES (251,'75m X 80m');
+insert into CUENTA VALUES (251,0,'NO_MOROSA');
+insert into APT_DET VALUES (251,10,251,6,'',18,251,1000000,'NO',10);
+insert into APARTAMENTO VALUES (252,'75m X 80m');
+insert into CUENTA VALUES (252,0,'NO_MOROSA');
+insert into APT_DET VALUES (252,10,252,13,'',18,252,1000000,'NO',5);
+insert into APARTAMENTO VALUES (253,'75m X 80m');
+insert into CUENTA VALUES (253,0,'NO_MOROSA');
+insert into APT_DET VALUES (253,10,253,4,'',18,253,1000000,'NO',9);
+insert into APARTAMENTO VALUES (254,'75m X 80m');
+insert into CUENTA VALUES (254,0,'NO_MOROSA');
+insert into APT_DET VALUES (254,10,254,11,'',18,254,1000000,'NO',1);
+insert into APARTAMENTO VALUES (255,'75m X 80m');
+insert into CUENTA VALUES (255,0,'NO_MOROSA');
+insert into APT_DET VALUES (255,10,255,3,'',18,255,1000000,'NO',13);
+insert into APARTAMENTO VALUES (256,'75m X 80m');
+insert into CUENTA VALUES (256,0,'NO_MOROSA');
+insert into APT_DET VALUES (256,10,256,15,'',18,256,1000000,'NO',6);
+insert into APARTAMENTO VALUES (257,'75m X 80m');
+insert into CUENTA VALUES (257,0,'NO_MOROSA');
+insert into APT_DET VALUES (257,10,257,13,'',18,257,1000000,'NO',1);
+insert into APARTAMENTO VALUES (258,'75m X 80m');
+insert into CUENTA VALUES (258,0,'NO_MOROSA');
+insert into APT_DET VALUES (258,10,258,12,'',18,258,1000000,'NO',13);
+insert into APARTAMENTO VALUES (259,'75m X 80m');
+insert into CUENTA VALUES (259,0,'NO_MOROSA');
+insert into APT_DET VALUES (259,10,259,10,'',18,259,1000000,'NO',4);
+insert into APARTAMENTO VALUES (260,'75m X 80m');
+insert into CUENTA VALUES (260,0,'NO_MOROSA');
+insert into APT_DET VALUES (260,10,260,12,'',18,260,1000000,'NO',15);
+insert into APARTAMENTO VALUES (261,'75m X 80m');
+insert into CUENTA VALUES (261,0,'NO_MOROSA');
+insert into APT_DET VALUES (261,10,261,12,'',19,261,1000000,'NO',3);
+insert into APARTAMENTO VALUES (262,'75m X 80m');
+insert into CUENTA VALUES (262,0,'NO_MOROSA');
+insert into APT_DET VALUES (262,10,262,3,'',19,262,1000000,'NO',15);
+insert into APARTAMENTO VALUES (263,'75m X 80m');
+insert into CUENTA VALUES (263,0,'NO_MOROSA');
+insert into APT_DET VALUES (263,10,263,6,'',19,263,1000000,'NO',1);
+insert into APARTAMENTO VALUES (264,'75m X 80m');
+insert into CUENTA VALUES (264,0,'NO_MOROSA');
+insert into APT_DET VALUES (264,10,264,19,'',19,264,1000000,'NO',14);
+insert into APARTAMENTO VALUES (265,'75m X 80m');
+insert into CUENTA VALUES (265,0,'NO_MOROSA');
+insert into APT_DET VALUES (265,10,265,17,'',19,265,1000000,'NO',13);
+insert into APARTAMENTO VALUES (266,'75m X 80m');
+insert into CUENTA VALUES (266,0,'NO_MOROSA');
+insert into APT_DET VALUES (266,10,266,11,'',19,266,1000000,'NO',6);
+insert into APARTAMENTO VALUES (267,'75m X 80m');
+insert into CUENTA VALUES (267,0,'NO_MOROSA');
+insert into APT_DET VALUES (267,10,267,15,'',19,267,1000000,'NO',9);
+insert into APARTAMENTO VALUES (268,'75m X 80m');
+insert into CUENTA VALUES (268,0,'NO_MOROSA');
+insert into APT_DET VALUES (268,10,268,9,'',19,268,1000000,'NO',10);
+insert into APARTAMENTO VALUES (269,'75m X 80m');
+insert into CUENTA VALUES (269,0,'NO_MOROSA');
+insert into APT_DET VALUES (269,10,269,4,'',19,269,1000000,'NO',12);
+insert into APARTAMENTO VALUES (270,'75m X 80m');
+insert into CUENTA VALUES (270,0,'NO_MOROSA');
+insert into APT_DET VALUES (270,10,270,'',20,19,270,1000000,'NO',7);
+insert into APARTAMENTO VALUES (271,'75m X 80m');
+insert into CUENTA VALUES (271,0,'NO_MOROSA');
+insert into APT_DET VALUES (271,10,271,12,'',19,271,1000000,'NO',4);
+insert into APARTAMENTO VALUES (272,'75m X 80m');
+insert into CUENTA VALUES (272,0,'NO_MOROSA');
+insert into APT_DET VALUES (272,10,272,2,'',19,272,1000000,'NO',1);
+insert into APARTAMENTO VALUES (273,'75m X 80m');
+insert into CUENTA VALUES (273,0,'NO_MOROSA');
+insert into APT_DET VALUES (273,10,273,4,'',19,273,1000000,'NO',10);
+insert into APARTAMENTO VALUES (274,'75m X 80m');
+insert into CUENTA VALUES (274,0,'NO_MOROSA');
+insert into APT_DET VALUES (274,10,274,15,'',19,274,1000000,'NO',12);
+insert into APARTAMENTO VALUES (275,'75m X 80m');
+insert into CUENTA VALUES (275,0,'NO_MOROSA');
+insert into APT_DET VALUES (275,10,275,10,'',19,275,1000000,'NO',5);
+insert into APARTAMENTO VALUES (276,'75m X 80m');
+insert into CUENTA VALUES (276,0,'NO_MOROSA');
+insert into APT_DET VALUES (276,10,276,1,'',19,276,1000000,'NO',2);
+insert into APARTAMENTO VALUES (277,'75m X 80m');
+insert into CUENTA VALUES (277,0,'NO_MOROSA');
+insert into APT_DET VALUES (277,10,277,8,'',19,277,1000000,'NO',7);
+insert into APARTAMENTO VALUES (278,'75m X 80m');
+insert into CUENTA VALUES (278,0,'NO_MOROSA');
+insert into APT_DET VALUES (278,10,278,10,'',19,278,1000000,'NO',14);
+insert into APARTAMENTO VALUES (279,'75m X 80m');
+insert into CUENTA VALUES (279,0,'NO_MOROSA');
+insert into APT_DET VALUES (279,10,279,20,'',19,279,1000000,'NO',4);
+insert into APARTAMENTO VALUES (280,'75m X 80m');
+insert into CUENTA VALUES (280,0,'NO_MOROSA');
+insert into APT_DET VALUES (280,10,280,7,'',19,280,1000000,'NO',9);
+insert into APARTAMENTO VALUES (281,'75m X 80m');
+insert into CUENTA VALUES (281,0,'NO_MOROSA');
+insert into APT_DET VALUES (281,10,281,6,'',20,281,1000000,'NO',6);
 insert into APARTAMENTO VALUES (282,'75m X 80m');
-insert into CUENTA VALUES (282,'75m X 80m');
-insert into APT_DET VALUES (282,10,282,'',4,20,282,1000000,'NO',9);
-insert into APARTAMENTO VALUES (283,'75m X 80m')
-insert into CUENTA VALUES (283,'75m X 80m')
-insert into APT_DET VALUES (283,10,283,5,'',20,283,1000000,'NO',9);
-insert into APARTAMENTO VALUES (284,'75m X 80m')
-insert into CUENTA VALUES (284,'75m X 80m')
-insert into APT_DET VALUES (284,10,284,1,'',20,284,1000000,'NO',1);
-insert into APARTAMENTO VALUES (285,'75m X 80m')
-insert into CUENTA VALUES (285,'75m X 80m')
-insert into APT_DET VALUES (285,10,285,14,'',20,285,1000000,'NO',7);
-insert into APARTAMENTO VALUES (286,'75m X 80m')
-insert into CUENTA VALUES (286,'75m X 80m')
-insert into APT_DET VALUES (286,10,286,11,'',20,286,1000000,'NO',8);
-insert into APARTAMENTO VALUES (287,'75m X 80m')
-insert into CUENTA VALUES (287,'75m X 80m')
-insert into APT_DET VALUES (287,10,287,12,'',20,287,1000000,'NO',13);
+insert into CUENTA VALUES (282,0,'NO_MOROSA');
+insert into APT_DET VALUES (282,10,282,11,'',20,282,1000000,'NO',13);
+insert into APARTAMENTO VALUES (283,'75m X 80m');
+insert into CUENTA VALUES (283,0,'NO_MOROSA');
+insert into APT_DET VALUES (283,10,283,20,'',20,283,1000000,'NO',1);
+insert into APARTAMENTO VALUES (284,'75m X 80m');
+insert into CUENTA VALUES (284,0,'NO_MOROSA');
+insert into APT_DET VALUES (284,10,284,14,'',20,284,1000000,'NO',8);
+insert into APARTAMENTO VALUES (285,'75m X 80m');
+insert into CUENTA VALUES (285,0,'NO_MOROSA');
+insert into APT_DET VALUES (285,10,285,5,'',20,285,1000000,'NO',14);
+insert into APARTAMENTO VALUES (286,'75m X 80m');
+insert into CUENTA VALUES (286,0,'NO_MOROSA');
+insert into APT_DET VALUES (286,10,286,18,'',20,286,1000000,'NO',11);
+insert into APARTAMENTO VALUES (287,'75m X 80m');
+insert into CUENTA VALUES (287,0,'NO_MOROSA');
+insert into APT_DET VALUES (287,10,287,'',8,20,287,1000000,'NO',5);
 insert into APARTAMENTO VALUES (288,'75m X 80m');
-insert into CUENTA VALUES (288,'75m X 80m');
-insert into APT_DET VALUES (288,10,288,'',4,20,288,1000000,'NO',7);
-insert into APARTAMENTO VALUES (289,'75m X 80m')
-insert into CUENTA VALUES (289,'75m X 80m')
-insert into APT_DET VALUES (289,10,289,16,'',20,289,1000000,'NO',14);
-insert into APARTAMENTO VALUES (290,'75m X 80m')
-insert into CUENTA VALUES (290,'75m X 80m')
-insert into APT_DET VALUES (290,10,290,1,'',20,290,1000000,'NO',3);
+insert into CUENTA VALUES (288,0,'NO_MOROSA');
+insert into APT_DET VALUES (288,10,288,10,'',20,288,1000000,'NO',13);
+insert into APARTAMENTO VALUES (289,'75m X 80m');
+insert into CUENTA VALUES (289,0,'NO_MOROSA');
+insert into APT_DET VALUES (289,10,289,'',3,20,289,1000000,'NO',1);
+insert into APARTAMENTO VALUES (290,'75m X 80m');
+insert into CUENTA VALUES (290,0,'NO_MOROSA');
+insert into APT_DET VALUES (290,10,290,8,'',20,290,1000000,'NO',14);
 insert into APARTAMENTO VALUES (291,'75m X 80m');
-insert into CUENTA VALUES (291,'75m X 80m');
-insert into APT_DET VALUES (291,10,291,'',6,20,291,1000000,'NO',11);
-insert into APARTAMENTO VALUES (292,'75m X 80m')
-insert into CUENTA VALUES (292,'75m X 80m')
-insert into APT_DET VALUES (292,10,292,13,'',20,292,1000000,'NO',2);
-insert into APARTAMENTO VALUES (293,'75m X 80m')
-insert into CUENTA VALUES (293,'75m X 80m')
-insert into APT_DET VALUES (293,10,293,3,'',20,293,1000000,'NO',14);
-insert into APARTAMENTO VALUES (294,'75m X 80m')
-insert into CUENTA VALUES (294,'75m X 80m')
-insert into APT_DET VALUES (294,10,294,4,'',20,294,1000000,'NO',13);
-insert into APARTAMENTO VALUES (295,'75m X 80m')
-insert into CUENTA VALUES (295,'75m X 80m')
-insert into APT_DET VALUES (295,10,295,8,'',20,295,1000000,'NO',13);
-insert into APARTAMENTO VALUES (296,'75m X 80m')
-insert into CUENTA VALUES (296,'75m X 80m')
-insert into APT_DET VALUES (296,10,296,20,'',20,296,1000000,'NO',13);
-insert into APARTAMENTO VALUES (297,'75m X 80m')
-insert into CUENTA VALUES (297,'75m X 80m')
-insert into APT_DET VALUES (297,10,297,16,'',20,297,1000000,'NO',3);
-insert into APARTAMENTO VALUES (298,'75m X 80m')
-insert into CUENTA VALUES (298,'75m X 80m')
-insert into APT_DET VALUES (298,10,298,8,'',20,298,1000000,'NO',8);
-insert into APARTAMENTO VALUES (299,'75m X 80m')
-insert into CUENTA VALUES (299,'75m X 80m')
-insert into APT_DET VALUES (299,10,299,10,'',20,299,1000000,'NO',12);
-insert into APARTAMENTO VALUES (300,'75m X 80m')
-insert into CUENTA VALUES (300,'75m X 80m')
-insert into APT_DET VALUES (300,10,300,14,'',20,300,1000000,'NO',10);
+insert into CUENTA VALUES (291,0,'NO_MOROSA');
+insert into APT_DET VALUES (291,10,291,'',10,20,291,1000000,'NO',1);
+insert into APARTAMENTO VALUES (292,'75m X 80m');
+insert into CUENTA VALUES (292,0,'NO_MOROSA');
+insert into APT_DET VALUES (292,10,292,17,'',20,292,1000000,'NO',1);
+insert into APARTAMENTO VALUES (293,'75m X 80m');
+insert into CUENTA VALUES (293,0,'NO_MOROSA');
+insert into APT_DET VALUES (293,10,293,'',11,20,293,1000000,'NO',4);
+insert into APARTAMENTO VALUES (294,'75m X 80m');
+insert into CUENTA VALUES (294,0,'NO_MOROSA');
+insert into APT_DET VALUES (294,10,294,16,'',20,294,1000000,'NO',1);
+insert into APARTAMENTO VALUES (295,'75m X 80m');
+insert into CUENTA VALUES (295,0,'NO_MOROSA');
+insert into APT_DET VALUES (295,10,295,3,'',20,295,1000000,'NO',10);
+insert into APARTAMENTO VALUES (296,'75m X 80m');
+insert into CUENTA VALUES (296,0,'NO_MOROSA');
+insert into APT_DET VALUES (296,10,296,10,'',20,296,1000000,'NO',8);
+insert into APARTAMENTO VALUES (297,'75m X 80m');
+insert into CUENTA VALUES (297,0,'NO_MOROSA');
+insert into APT_DET VALUES (297,10,297,13,'',20,297,1000000,'NO',14);
+insert into APARTAMENTO VALUES (298,'75m X 80m');
+insert into CUENTA VALUES (298,0,'NO_MOROSA');
+insert into APT_DET VALUES (298,10,298,6,'',20,298,1000000,'NO',15);
+insert into APARTAMENTO VALUES (299,'75m X 80m');
+insert into CUENTA VALUES (299,0,'NO_MOROSA');
+insert into APT_DET VALUES (299,10,299,2,'',20,299,1000000,'NO',1);
+insert into APARTAMENTO VALUES (300,'75m X 80m');
+insert into CUENTA VALUES (300,0,'NO_MOROSA');
+insert into APT_DET VALUES (300,10,300,5,'',20,300,1000000,'NO',10);
 
 insert into AREACOMUN values (1,'Piscina');
 insert into AREACOMUN values (2,'CanchasDeportivas');
@@ -1085,11 +1086,46 @@ insert into AREA_DET values(13,10,10);
 insert into AREA_DET values(14,1,9);
 insert into AREA_DET values(15,9,4);
 
-insert into CONTRATO values(1,2000000,'13/01/15','14/09/15',1,1);
-insert into CONTRATO values(2,1123320,'01/01/15','14/09/15',2,2);
-insert into CONTRATO values(3,2012300,'01/01/15','14/09/15',3,3);
-insert into CONTRATO values(4,1231233,'02/02/15','14/09/15',4,4);
-insert into CONTRATO values(5,1231234,'10/03/15','15/05/15',5,5);
+insert into CONTRATO values(1,30000,'01/01/14','15/01/15',18,1);
+insert into CONTRATO values(2,30000,'01/01/15','15/01/16',17,1);
+insert into CONTRATO values(3,30000,'01/01/14','15/01/15',1,2);
+insert into CONTRATO values(4,30000,'01/01/15','15/01/16',1,2);
+insert into CONTRATO values(5,30000,'01/01/14','15/01/15',1,3);
+insert into CONTRATO values(6,30000,'01/01/15','15/01/16',12,3);
+insert into CONTRATO values(7,30000,'01/01/14','15/01/15',3,4);
+insert into CONTRATO values(8,30000,'01/01/15','15/01/16',20,4);
+insert into CONTRATO values(9,30000,'01/01/14','15/01/15',17,5);
+insert into CONTRATO values(10,30000,'01/01/15','15/01/16',17,5);
+insert into CONTRATO values(11,30000,'01/01/14','15/01/15',14,6);
+insert into CONTRATO values(12,30000,'01/01/15','15/01/16',10,6);
+insert into CONTRATO values(13,30000,'01/01/14','15/01/15',3,7);
+insert into CONTRATO values(14,30000,'01/01/15','15/01/16',5,7);
+insert into CONTRATO values(15,30000,'01/01/14','15/01/15',5,8);
+insert into CONTRATO values(16,30000,'01/01/15','15/01/16',14,8);
+insert into CONTRATO values(17,30000,'01/01/14','15/01/15',11,9);
+insert into CONTRATO values(18,30000,'01/01/15','15/01/16',10,9);
+insert into CONTRATO values(19,30000,'01/01/14','15/01/15',3,10);
+insert into CONTRATO values(20,30000,'01/01/15','15/01/16',3,10);
+insert into CONTRATO values(21,30000,'01/01/14','15/01/15',3,11);
+insert into CONTRATO values(22,30000,'01/01/15','15/01/16',4,11);
+insert into CONTRATO values(23,30000,'01/01/14','15/01/15',11,12);
+insert into CONTRATO values(24,30000,'01/01/15','15/01/16',14,12);
+insert into CONTRATO values(25,30000,'01/01/14','15/01/15',1,13);
+insert into CONTRATO values(26,30000,'01/01/15','15/01/16',2,13);
+insert into CONTRATO values(27,30000,'01/01/14','15/01/15',10,14);
+insert into CONTRATO values(28,30000,'01/01/15','15/01/16',20,14);
+insert into CONTRATO values(29,30000,'01/01/14','15/01/15',7,15);
+insert into CONTRATO values(30,30000,'01/01/15','15/01/16',12,15);
+insert into CONTRATO values(31,30000,'01/01/14','15/01/15',20,16);
+insert into CONTRATO values(32,30000,'01/01/15','15/01/16',10,16);
+insert into CONTRATO values(33,30000,'01/01/14','15/01/15',6,17);
+insert into CONTRATO values(34,30000,'01/01/15','15/01/16',11,17);
+insert into CONTRATO values(35,30000,'01/01/14','15/01/15',14,18);
+insert into CONTRATO values(36,30000,'01/01/15','15/01/16',8,18);
+insert into CONTRATO values(37,30000,'01/01/14','15/01/15',7,19);
+insert into CONTRATO values(38,30000,'01/01/15','15/01/16',7,19);
+insert into CONTRATO values(39,30000,'01/01/14','15/01/15',4,20);
+insert into CONTRATO values(40,30000,'01/01/15','15/01/16',19,20);
 
 insert into LIBRO values(1,'OFICINA',1);
 insert into LIBRO values(2,'JUNTA',2);
@@ -1101,15 +1137,678 @@ insert into JUNTACONDOMINIO values(1,'01/01/15','21/12/16',1);
 insert into JUNTACONDOMINIO values(2,'01/01/15','21/12/16',2);
 insert into JUNTACONDOMINIO values(3,'01/01/15','21/12/16',3);
 insert into JUNTACONDOMINIO values(4,'01/01/15','21/12/16',4);
-insert into JUNTACONDOMINIO values(5,'01/01/15','21/12/16',13);
-insert into JUNTACONDOMINIO values(6,'01/01/15','21/12/16',14);
-insert into JUNTACONDOMINIO values(7,'01/01/15','21/12/16',16);
-insert into JUNTACONDOMINIO values(8,'01/01/15','21/12/16',17);
-insert into JUNTACONDOMINIO values(9,'01/01/15','21/12/16',20);
-insert into JUNTACONDOMINIO values(10,'22/12/15','21/12/17',1);
+insert into JUNTACONDOMINIO values(5,'01/01/15','21/12/16',5);
+insert into JUNTACONDOMINIO values(6,'01/01/15','21/12/16',6);
+insert into JUNTACONDOMINIO values(7,'01/01/15','21/12/16',7);
+insert into JUNTACONDOMINIO values(8,'01/01/15','21/12/16',8);
+insert into JUNTACONDOMINIO values(9,'01/01/15','21/12/16',9);
+insert into JUNTACONDOMINIO values(10,'22/12/15','21/12/17',10);
+insert into JUNTACONDOMINIO values(11,'22/12/15','21/12/17',11);
+insert into JUNTACONDOMINIO values(12,'22/12/15','21/12/17',12);
+insert into JUNTACONDOMINIO values(13,'22/12/15','21/12/17',13);
+insert into JUNTACONDOMINIO values(14,'22/12/15','21/12/17',14);
+insert into JUNTACONDOMINIO values(15,'22/12/15','21/12/17',15);
+insert into JUNTACONDOMINIO values(16,'22/12/15','21/12/17',16);
+insert into JUNTACONDOMINIO values(17,'22/12/15','21/12/17',17);
+insert into JUNTACONDOMINIO values(18,'22/12/15','21/12/17',18);
+insert into JUNTACONDOMINIO values(19,'22/12/15','21/12/17',19);
+insert into JUNTACONDOMINIO values(20,'22/12/15','21/12/17',20);
+
 
 insert into RECIBOMENSUAL values(1,'01/01/15','APROBADO',1);
 insert into RECIBOMENSUAL values(2,'02/01/15','NOAPROBADO',2);
 insert into RECIBOMENSUAL values(3,'03/01/15','NOAPROBADO',7);
 insert into RECIBOMENSUAL values(4,'04/01/15','APROBADO',3);
 insert into RECIBOMENSUAL values(5,'05/01/15','APROBADO',9);
+
+
+insert into CONT_FOND values(1,2,1,0);
+insert into CONT_FOND values(2,2,2,0);
+insert into CONT_FOND values(3,2,3,0);
+insert into CONT_FOND values(4,2,4,0);
+insert into CONT_FOND values(5,4,1,0);
+insert into CONT_FOND values(6,4,2,0);
+insert into CONT_FOND values(7,4,3,0);
+insert into CONT_FOND values(8,4,4,0);
+insert into CONT_FOND values(9,6,1,0);
+insert into CONT_FOND values(10,6,2,0);
+insert into CONT_FOND values(11,6,3,0);
+insert into CONT_FOND values(12,6,4,0);
+insert into CONT_FOND values(13,8,1,0);
+insert into CONT_FOND values(14,8,2,0);
+insert into CONT_FOND values(15,8,3,0);
+insert into CONT_FOND values(16,8,4,0);
+insert into CONT_FOND values(17,10,1,0);
+insert into CONT_FOND values(18,10,2,0);
+insert into CONT_FOND values(19,10,3,0);
+insert into CONT_FOND values(20,10,4,0);
+insert into CONT_FOND values(21,12,1,0);
+insert into CONT_FOND values(22,12,2,0);
+insert into CONT_FOND values(23,12,3,0);
+insert into CONT_FOND values(24,12,4,0);
+insert into CONT_FOND values(25,14,1,0);
+insert into CONT_FOND values(26,14,2,0);
+insert into CONT_FOND values(27,14,3,0);
+insert into CONT_FOND values(28,14,4,0);
+insert into CONT_FOND values(29,16,1,0);
+insert into CONT_FOND values(30,16,2,0);
+insert into CONT_FOND values(31,16,3,0);
+insert into CONT_FOND values(32,16,4,0);
+insert into CONT_FOND values(33,18,1,0);
+insert into CONT_FOND values(34,18,2,0);
+insert into CONT_FOND values(35,18,3,0);
+insert into CONT_FOND values(36,18,4,0);
+insert into CONT_FOND values(37,20,1,0);
+insert into CONT_FOND values(38,20,2,0);
+insert into CONT_FOND values(39,20,3,0);
+insert into CONT_FOND values(40,20,4,0);
+insert into CONT_FOND values(41,22,1,0);
+insert into CONT_FOND values(42,22,2,0);
+insert into CONT_FOND values(43,22,3,0);
+insert into CONT_FOND values(44,22,4,0);
+insert into CONT_FOND values(45,24,1,0);
+insert into CONT_FOND values(46,24,2,0);
+insert into CONT_FOND values(47,24,3,0);
+insert into CONT_FOND values(48,24,4,0);
+insert into CONT_FOND values(49,26,1,0);
+insert into CONT_FOND values(50,26,2,0);
+insert into CONT_FOND values(51,26,3,0);
+insert into CONT_FOND values(52,26,4,0);
+insert into CONT_FOND values(53,28,1,0);
+insert into CONT_FOND values(54,28,2,0);
+insert into CONT_FOND values(55,28,3,0);
+insert into CONT_FOND values(56,28,4,0);
+insert into CONT_FOND values(57,30,1,0);
+insert into CONT_FOND values(58,30,2,0);
+insert into CONT_FOND values(59,30,3,0);
+insert into CONT_FOND values(60,30,4,0);
+insert into CONT_FOND values(61,32,1,0);
+insert into CONT_FOND values(62,32,2,0);
+insert into CONT_FOND values(63,32,3,0);
+insert into CONT_FOND values(64,32,4,0);
+insert into CONT_FOND values(65,34,1,0);
+insert into CONT_FOND values(66,34,2,0);
+insert into CONT_FOND values(67,34,3,0);
+insert into CONT_FOND values(68,34,4,0);
+insert into CONT_FOND values(69,36,1,0);
+insert into CONT_FOND values(70,36,2,0);
+insert into CONT_FOND values(71,36,3,0);
+insert into CONT_FOND values(72,36,4,0);
+insert into CONT_FOND values(73,38,1,0);
+insert into CONT_FOND values(74,38,2,0);
+insert into CONT_FOND values(75,38,3,0);
+insert into CONT_FOND values(76,38,4,0);
+insert into CONT_FOND values(77,40,1,0);
+insert into CONT_FOND values(78,40,2,0);
+insert into CONT_FOND values(79,40,3,0);
+insert into CONT_FOND values(80,40,4,0);
+
+insert into TRABAJO values(1,'trabajos del mes',23974,'TRABAJO','ASAMBLEA','NORETENCIONIVA','',3,'','',1,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(2,'trabajos del mes',24623,'TRABAJO','MANTENIMIENTO','NORETENCIONIVA','',5,'','',2,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(3,'trabajos del mes',22899,'TRABAJO','MANTENIMIENTO','NORETENCIONIVA','',1,'','',3,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(4,'trabajos del mes',29334,'TRABAJO','REPARACION','RENCIONIVA','',1,'','',4,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(5,'trabajos del mes',22093,'TRABAJO','REPARACION','NORETENCIONIVA','',4,'','',5,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(6,'trabajos del mes',30008,'TRABAJO','FONDO','RENCIONIVA',15,'','','',6,'','15/01/16','NO','SI');
+insert into TRABAJO values(7,'trabajos del mes',24984,'TRABAJO','MEJORA','NORETENCIONIVA','',3,'','',7,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(8,'trabajos del mes',23292,'TRABAJO','ANUNCIO','NORETENCIONIVA','',3,'','',8,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(9,'trabajos del mes',30842,'TRABAJO','SERVICIOBASICO','RENCIONIVA','',1,'','',9,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(10,'trabajos del mes',30647,'TRABAJO','SERVICIOBASICO','RENCIONIVA','',4,'','',10,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(11,'trabajos del mes',24064,'TRABAJO','SERVICIOBASICO','NORETENCIONIVA','',5,'','',11,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(12,'trabajos del mes',29412,'TRABAJO','FONDO','RENCIONIVA',9,'','','',12,'','15/01/16','NO','SI');
+insert into TRABAJO values(13,'trabajos del mes',23647,'TRABAJO','FONDO','NORETENCIONIVA',19,'','','',13,'','15/01/16','NO','SI');
+insert into TRABAJO values(14,'trabajos del mes',29089,'TRABAJO','MEJORA','RENCIONIVA','',3,'','',14,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(15,'trabajos del mes',29615,'TRABAJO','ANUNCIO','RENCIONIVA','',4,'','',15,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(16,'trabajos del mes',28359,'TRABAJO','SERVICIOBASICO','RENCIONIVA','',3,'','',16,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(17,'trabajos del mes',30393,'TRABAJO','MEJORA','RENCIONIVA','',3,'','',17,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(18,'trabajos del mes',23590,'TRABAJO','REPARACION','NORETENCIONIVA','',3,'','',18,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(19,'trabajos del mes',28486,'TRABAJO','FONDO','RENCIONIVA',8,'','','',19,'','15/01/16','NO','SI');
+insert into TRABAJO values(20,'trabajos del mes',29999,'TRABAJO','MEJORA','RENCIONIVA','',5,'','',20,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(21,'trabajos del mes',24819,'TRABAJO','ASAMBLEA','NORETENCIONIVA','',1,'','',21,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(22,'trabajos del mes',23495,'TRABAJO','SERVICIOBASICO','NORETENCIONIVA','',1,'','',22,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(23,'trabajos del mes',29577,'TRABAJO','FONDO','RENCIONIVA',6,'','','',23,'','15/01/16','NO','SI');
+insert into TRABAJO values(24,'trabajos del mes',29302,'TRABAJO','ASAMBLEA','RENCIONIVA','',4,'','',24,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(25,'trabajos del mes',24039,'TRABAJO','SERVICIOBASICO','NORETENCIONIVA','',1,'','',25,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(26,'trabajos del mes',22717,'TRABAJO','MANTENIMIENTO','NORETENCIONIVA','',5,'','',26,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(27,'trabajos del mes',28832,'TRABAJO','REPARACION','RENCIONIVA','',4,'','',27,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(28,'trabajos del mes',24104,'TRABAJO','ANUNCIO','NORETENCIONIVA','',5,'','',28,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(29,'trabajos del mes',29638,'PRESUPUESTO','ANUNCIO','RENCIONIVA','',2,'','',29,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(30,'trabajos del mes',23505,'PRESUPUESTO','ANUNCIO','NORETENCIONIVA','',3,'','',30,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(31,'trabajos del mes',30831,'PRESUPUESTO','REPARACION','RENCIONIVA','',5,'','',31,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(32,'trabajos del mes',23638,'PRESUPUESTO','FONDO','NORETENCIONIVA',4,'','','',32,'','15/01/16','NO','SI');
+insert into TRABAJO values(33,'trabajos del mes',28321,'PRESUPUESTO','FONDO','RENCIONIVA',15,'','','',33,'','15/01/16','NO','SI');
+insert into TRABAJO values(34,'trabajos del mes',22769,'PRESUPUESTO','REPARACION','NORETENCIONIVA','',2,'','',34,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(35,'trabajos del mes',23095,'PRESUPUESTO','ANUNCIO','NORETENCIONIVA','',1,'','',35,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(36,'trabajos del mes',29657,'PRESUPUESTO','FONDO','RENCIONIVA',14,'','','',36,'','15/01/16','NO','SI');
+insert into TRABAJO values(37,'trabajos del mes',30772,'PRESUPUESTO','MEJORA','RENCIONIVA','',3,'','',37,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(38,'trabajos del mes',28046,'PRESUPUESTO','FONDO','RENCIONIVA',8,'','','',38,'','15/01/16','NO','SI');
+insert into TRABAJO values(39,'trabajos del mes',30654,'PRESUPUESTO','ANUNCIO','RENCIONIVA','',2,'','',39,'20/02/16','15/01/16','SI','NO');
+insert into TRABAJO values(40,'trabajos del mes',28707,'PRESUPUESTO','MANTENIMIENTO','RENCIONIVA','',3,'','',40,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(41,'trabajos del mes',28732,'PRESUPUESTO','REPARACION','RENCIONIVA','',1,'','',41,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(42,'trabajos del mes',30746,'PRESUPUESTO','ASAMBLEA','RENCIONIVA','',5,'','',42,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(43,'trabajos del mes',29854,'PRESUPUESTO','FONDO','RENCIONIVA',1,'','','',43,'','15/01/16','NO','SI');
+insert into TRABAJO values(44,'trabajos del mes',24864,'PRESUPUESTO','ANUNCIO','NORETENCIONIVA','',2,'','',44,'20/02/16','15/01/16','SI','NO');
+insert into TRABAJO values(45,'trabajos del mes',24827,'PRESUPUESTO','MANTENIMIENTO','NORETENCIONIVA','',1,'','',45,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(46,'trabajos del mes',23180,'PRESUPUESTO','MEJORA','NORETENCIONIVA','',1,'','',46,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(47,'trabajos del mes',24220,'PRESUPUESTO','ANUNCIO','NORETENCIONIVA','',3,'','',47,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(48,'trabajos del mes',30148,'PRESUPUESTO','FONDO','RENCIONIVA',15,'','','',48,'','15/01/16','NO','SI');
+insert into TRABAJO values(49,'trabajos del mes',24575,'PRESUPUESTO','MEJORA','NORETENCIONIVA','',3,'','',49,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(50,'trabajos del mes',24481,'PRESUPUESTO','FONDO','NORETENCIONIVA',14,'','','',50,'','15/01/16','NO','SI');
+insert into TRABAJO values(51,'trabajos del mes',30907,'PRESUPUESTO','REPARACION','RENCIONIVA','',5,'','',51,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(52,'trabajos del mes',30550,'PRESUPUESTO','ASAMBLEA','RENCIONIVA','',1,'','',52,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(53,'trabajos del mes',30216,'PRESUPUESTO','SERVICIOBASICO','RENCIONIVA','',5,'','',53,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(54,'trabajos del mes',30587,'PRESUPUESTO','MEJORA','RENCIONIVA','',4,'','',54,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(55,'trabajos del mes',28023,'PRESUPUESTO','FONDO','RENCIONIVA',3,'','','',55,'','15/01/16','NO','SI');
+insert into TRABAJO values(56,'trabajos del mes',30939,'PRESUPUESTO','MEJORA','RENCIONIVA','',5,'','',56,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(57,'trabajos del mes',22401,'PRESUPUESTO','ASAMBLEA','NORETENCIONIVA','',5,'','',57,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(58,'trabajos del mes',28629,'PRESUPUESTO','FONDO','RENCIONIVA',16,'','','',58,'','15/01/16','NO','SI');
+insert into TRABAJO values(59,'trabajos del mes',24262,'PRESUPUESTO','ANUNCIO','NORETENCIONIVA','',4,'','',59,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(60,'trabajos del mes',24980,'PRESUPUESTO','REPARACION','NORETENCIONIVA','',1,'','',60,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(61,'trabajos del mes',28793,'PRESUPUESTO','MEJORA','RENCIONIVA','',4,'','',61,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(62,'trabajos del mes',28148,'PRESUPUESTO','REPARACION','RENCIONIVA','',1,'','',62,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(63,'trabajos del mes',22614,'PRESUPUESTO','ANUNCIO','NORETENCIONIVA','',5,'','',63,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(64,'trabajos del mes',24914,'PRESUPUESTO','MEJORA','NORETENCIONIVA','',1,'','',64,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(65,'trabajos del mes',30904,'PRESUPUESTO','FONDO','RENCIONIVA',1,'','','',65,'','15/01/16','NO','SI');
+insert into TRABAJO values(66,'trabajos del mes',23793,'PRESUPUESTO','MEJORA','NORETENCIONIVA','',4,'','',66,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(67,'trabajos del mes',30335,'PRESUPUESTO','SERVICIOBASICO','RENCIONIVA','',4,'','',67,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(68,'trabajos del mes',23364,'PRESUPUESTO','MEJORA','NORETENCIONIVA','',1,'','',68,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(69,'trabajos del mes',29561,'PRESUPUESTO','ANUNCIO','RENCIONIVA','',2,'','',69,'20/02/16','15/01/16','SI','NO');
+insert into TRABAJO values(70,'trabajos del mes',24237,'PRESUPUESTO','ASAMBLEA','NORETENCIONIVA','',1,'','',70,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(71,'trabajos del mes',28681,'PRESUPUESTO','SERVICIOBASICO','RENCIONIVA','',3,'','',71,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(72,'trabajos del mes',24853,'PRESUPUESTO','ASAMBLEA','NORETENCIONIVA','',2,'','',72,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(73,'trabajos del mes',30438,'PRESUPUESTO','MANTENIMIENTO','RENCIONIVA','',3,'','',73,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(74,'trabajos del mes',28626,'PRESUPUESTO','FONDO','RENCIONIVA',16,'','','',74,'','15/01/16','NO','SI');
+insert into TRABAJO values(75,'trabajos del mes',28359,'PRESUPUESTO','REPARACION','RENCIONIVA','',1,'','',75,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(76,'trabajos del mes',22003,'PRESUPUESTO','SERVICIOBASICO','NORETENCIONIVA','',5,'','',76,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(77,'trabajos del mes',23321,'PRESUPUESTO','FONDO','NORETENCIONIVA',17,'','','',77,'','15/01/16','NO','SI');
+insert into TRABAJO values(78,'trabajos del mes',24917,'PRESUPUESTO','ANUNCIO','NORETENCIONIVA','',1,'','',78,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(79,'trabajos del mes',29638,'PRESUPUESTO','REPARACION','RENCIONIVA','',5,'','',79,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(80,'trabajos del mes',28531,'PRESUPUESTO','FONDO','RENCIONIVA',16,'','','',80,'','15/01/16','NO','SI');
+insert into TRABAJO values(81,'trabajos del mes',29230,'PRESUPUESTO','SERVICIOBASICO','RENCIONIVA','',1,'','',1,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(82,'trabajos del mes',24831,'PRESUPUESTO','ASAMBLEA','NORETENCIONIVA','',3,'','',2,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(83,'trabajos del mes',28017,'PRESUPUESTO','ANUNCIO','RENCIONIVA','',1,'','',3,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(84,'trabajos del mes',29276,'PRESUPUESTO','REPARACION','RENCIONIVA','',5,'','',4,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(85,'trabajos del mes',22950,'PRESUPUESTO','MANTENIMIENTO','NORETENCIONIVA','',5,'','',5,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(86,'trabajos del mes',23426,'PRESUPUESTO','ANUNCIO','NORETENCIONIVA','',3,'','',6,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(87,'trabajos del mes',30527,'PRESUPUESTO','SERVICIOBASICO','RENCIONIVA','',4,'','',7,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(88,'trabajos del mes',22693,'PRESUPUESTO','REPARACION','NORETENCIONIVA','',4,'','',8,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(89,'trabajos del mes',30240,'PRESUPUESTO','FONDO','RENCIONIVA',5,'','','',9,'','15/01/16','NO','SI');
+insert into TRABAJO values(90,'trabajos del mes',30215,'PRESUPUESTO','MANTENIMIENTO','RENCIONIVA','',1,'','',10,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(91,'trabajos del mes',30421,'PRESUPUESTO','REPARACION','RENCIONIVA','',5,'','',11,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(92,'trabajos del mes',30762,'PRESUPUESTO','FONDO','RENCIONIVA',20,'','','',12,'','15/01/16','NO','SI');
+insert into TRABAJO values(93,'trabajos del mes',24943,'PRESUPUESTO','SERVICIOBASICO','NORETENCIONIVA','',4,'','',13,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(94,'trabajos del mes',28442,'PRESUPUESTO','ANUNCIO','RENCIONIVA','',4,'','',14,'20/02/16','15/01/16','SI','NO');
+insert into TRABAJO values(95,'trabajos del mes',22730,'PRESUPUESTO','REPARACION','NORETENCIONIVA','',2,'','',15,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(96,'trabajos del mes',24499,'PRESUPUESTO','SERVICIOBASICO','NORETENCIONIVA','',4,'','',16,'20/04/16','15/01/16','SI','SI');
+insert into TRABAJO values(97,'trabajos del mes',29838,'PRESUPUESTO','SERVICIOBASICO','RENCIONIVA','',1,'','',17,'20/01/16','15/01/16','SI','SI');
+insert into TRABAJO values(98,'trabajos del mes',28908,'PRESUPUESTO','REPARACION','RENCIONIVA','',1,'','',18,'20/02/16','15/01/16','SI','SI');
+insert into TRABAJO values(99,'trabajos del mes',29456,'PRESUPUESTO','ASAMBLEA','RENCIONIVA','',5,'','',19,'20/03/16','15/01/16','SI','SI');
+insert into TRABAJO values(100,'trabajos del mes',23080,'PRESUPUESTO','SERVICIOBASICO','NORETENCIONIVA','',1,'','',20,'20/04/16','15/01/16','SI','SI');	
+
+
+insert into AD_TRA values(1,6,1);
+insert into AD_TRA values(2,12,2);
+insert into AD_TRA values(3,10,3);
+insert into AD_TRA values(4,11,4);
+insert into AD_TRA values(5,15,5);
+insert into AD_TRA values(6,9,6);
+insert into AD_TRA values(7,14,7);
+insert into AD_TRA values(8,4,8);
+insert into AD_TRA values(9,4,9);
+insert into AD_TRA values(10,6,10);
+insert into AD_TRA values(11,8,11);
+insert into AD_TRA values(12,15,12);
+insert into AD_TRA values(13,8,13);
+insert into AD_TRA values(14,8,14);
+insert into AD_TRA values(15,3,15);
+insert into AD_TRA values(16,7,16);
+insert into AD_TRA values(17,12,17);
+insert into AD_TRA values(18,14,18);
+insert into AD_TRA values(19,13,19);
+insert into AD_TRA values(20,12,20);
+insert into AD_TRA values(21,15,21);
+insert into AD_TRA values(22,11,22);
+insert into AD_TRA values(23,4,23);
+insert into AD_TRA values(24,3,24);
+insert into AD_TRA values(25,6,25);
+insert into AD_TRA values(26,15,26);
+insert into AD_TRA values(27,13,27);
+insert into AD_TRA values(28,10,28);
+insert into AD_TRA values(29,8,29);
+insert into AD_TRA values(30,8,30);
+insert into AD_TRA values(31,1,31);
+insert into AD_TRA values(32,3,32);
+insert into AD_TRA values(33,4,33);
+insert into AD_TRA values(34,14,34);
+insert into AD_TRA values(35,1,35);
+insert into AD_TRA values(36,7,36);
+insert into AD_TRA values(37,6,37);
+insert into AD_TRA values(38,5,38);
+insert into AD_TRA values(39,11,39);
+insert into AD_TRA values(40,10,40);
+insert into AD_TRA values(41,4,41);
+insert into AD_TRA values(42,8,42);
+insert into AD_TRA values(43,13,43);
+insert into AD_TRA values(44,9,44);
+insert into AD_TRA values(45,11,45);
+insert into AD_TRA values(46,8,46);
+insert into AD_TRA values(47,13,47);
+insert into AD_TRA values(48,13,48);
+insert into AD_TRA values(49,15,49);
+insert into AD_TRA values(50,8,50);
+insert into AD_TRA values(51,12,51);
+insert into AD_TRA values(52,7,52);
+insert into AD_TRA values(53,8,53);
+insert into AD_TRA values(54,12,54);
+insert into AD_TRA values(55,8,55);
+insert into AD_TRA values(56,7,56);
+insert into AD_TRA values(57,12,57);
+insert into AD_TRA values(58,4,58);
+insert into AD_TRA values(59,5,59);
+insert into AD_TRA values(60,5,60);
+insert into AD_TRA values(61,5,61);
+insert into AD_TRA values(62,14,62);
+insert into AD_TRA values(63,1,63);
+insert into AD_TRA values(64,1,64);
+insert into AD_TRA values(65,12,65);
+insert into AD_TRA values(66,10,66);
+insert into AD_TRA values(67,5,67);
+insert into AD_TRA values(68,5,68);
+insert into AD_TRA values(69,7,69);
+insert into AD_TRA values(70,11,70);
+insert into AD_TRA values(71,6,71);
+insert into AD_TRA values(72,2,72);
+insert into AD_TRA values(73,5,73);
+insert into AD_TRA values(74,2,74);
+insert into AD_TRA values(75,1,75);
+insert into AD_TRA values(76,1,76);
+insert into AD_TRA values(77,2,77);
+insert into AD_TRA values(78,14,78);
+insert into AD_TRA values(79,1,79);
+insert into AD_TRA values(80,13,80);
+insert into AD_TRA values(81,10,81);
+insert into AD_TRA values(82,1,82);
+insert into AD_TRA values(83,10,83);
+insert into AD_TRA values(84,1,84);
+insert into AD_TRA values(85,5,85);
+insert into AD_TRA values(86,1,86);
+insert into AD_TRA values(87,15,87);
+insert into AD_TRA values(88,14,88);
+insert into AD_TRA values(89,8,89);
+insert into AD_TRA values(90,6,90);
+insert into AD_TRA values(91,8,91);
+insert into AD_TRA values(92,13,92);
+insert into AD_TRA values(93,14,93);
+insert into AD_TRA values(94,1,94);
+insert into AD_TRA values(95,8,95);
+insert into AD_TRA values(96,11,96);
+insert into AD_TRA values(97,15,97);
+insert into AD_TRA values(98,9,98);
+insert into AD_TRA values(99,14,99);
+insert into AD_TRA values(100,6,100);
+
+
+insert into RECIBOMENSUAL values(1,'01/01/16','APROBADO',1);
+insert into AVISOCOBRO values(1,20000,'NOPAGADO',1,1);
+insert into RECIBOMENSUAL values(2,'01/01/16','APROBADO',1);
+insert into AVISOCOBRO values(2,20000,'NOPAGADO',2,2);
+insert into RECIBOMENSUAL values(3,'01/01/16','APROBADO',1);
+insert into AVISOCOBRO values(3,20000,'NOPAGADO',3,3);
+insert into RECIBOMENSUAL values(4,'01/01/16','APROBADO',1);
+insert into AVISOCOBRO values(4,20000,'NOPAGADO',4,4);
+insert into RECIBOMENSUAL values(5,'01/01/16','APROBADO',1);
+insert into AVISOCOBRO values(5,20000,'NOPAGADO',5,5);
+insert into RECIBOMENSUAL values(6,'01/01/16','APROBADO',2);
+insert into AVISOCOBRO values(6,20000,'NOPAGADO',6,11);
+insert into RECIBOMENSUAL values(7,'01/01/16','APROBADO',2);
+insert into AVISOCOBRO values(7,20000,'NOPAGADO',7,12);
+insert into RECIBOMENSUAL values(8,'01/01/16','APROBADO',2);
+insert into AVISOCOBRO values(8,20000,'NOPAGADO',8,13);
+insert into RECIBOMENSUAL values(9,'01/01/16','APROBADO',2);
+insert into AVISOCOBRO values(9,20000,'NOPAGADO',9,14);
+insert into RECIBOMENSUAL values(10,'01/01/16','APROBADO',2);
+insert into AVISOCOBRO values(10,20000,'NOPAGADO',10,15);
+insert into RECIBOMENSUAL values(11,'01/01/16','APROBADO',3);
+insert into AVISOCOBRO values(11,20000,'NOPAGADO',11,21);
+insert into RECIBOMENSUAL values(12,'01/01/16','APROBADO',3);
+insert into AVISOCOBRO values(12,20000,'NOPAGADO',12,22);
+insert into RECIBOMENSUAL values(13,'01/01/16','APROBADO',3);
+insert into AVISOCOBRO values(13,20000,'NOPAGADO',13,23);
+insert into RECIBOMENSUAL values(14,'01/01/16','APROBADO',3);
+insert into AVISOCOBRO values(14,20000,'NOPAGADO',14,24);
+insert into RECIBOMENSUAL values(15,'01/01/16','APROBADO',3);
+insert into AVISOCOBRO values(15,20000,'NOPAGADO',15,25);
+insert into RECIBOMENSUAL values(16,'01/01/16','APROBADO',4);
+insert into AVISOCOBRO values(16,20000,'NOPAGADO',16,31);
+insert into RECIBOMENSUAL values(17,'01/01/16','APROBADO',4);
+insert into AVISOCOBRO values(17,20000,'NOPAGADO',17,32);
+insert into RECIBOMENSUAL values(18,'01/01/16','APROBADO',4);
+insert into AVISOCOBRO values(18,20000,'NOPAGADO',18,33);
+insert into RECIBOMENSUAL values(19,'01/01/16','APROBADO',4);
+insert into AVISOCOBRO values(19,20000,'NOPAGADO',19,34);
+insert into RECIBOMENSUAL values(20,'01/01/16','APROBADO',4);
+insert into AVISOCOBRO values(20,20000,'NOPAGADO',20,35);
+insert into RECIBOMENSUAL values(21,'01/01/16','APROBADO',5);
+insert into AVISOCOBRO values(21,20000,'NOPAGADO',21,41);
+insert into RECIBOMENSUAL values(22,'01/01/16','APROBADO',5);
+insert into AVISOCOBRO values(22,20000,'NOPAGADO',22,42);
+insert into RECIBOMENSUAL values(23,'01/01/16','APROBADO',5);
+insert into AVISOCOBRO values(23,20000,'NOPAGADO',23,43);
+insert into RECIBOMENSUAL values(24,'01/01/16','APROBADO',5);
+insert into AVISOCOBRO values(24,20000,'NOPAGADO',24,44);
+insert into RECIBOMENSUAL values(25,'01/01/16','APROBADO',5);
+insert into AVISOCOBRO values(25,20000,'NOPAGADO',25,45);
+insert into RECIBOMENSUAL values(26,'01/01/16','APROBADO',6);
+insert into AVISOCOBRO values(26,20000,'NOPAGADO',26,51);
+insert into RECIBOMENSUAL values(27,'01/01/16','APROBADO',6);
+insert into AVISOCOBRO values(27,20000,'NOPAGADO',27,52);
+insert into RECIBOMENSUAL values(28,'01/01/16','APROBADO',6);
+insert into AVISOCOBRO values(28,20000,'NOPAGADO',28,53);
+insert into RECIBOMENSUAL values(29,'01/01/16','APROBADO',6);
+insert into AVISOCOBRO values(29,20000,'NOPAGADO',29,54);
+insert into RECIBOMENSUAL values(30,'01/01/16','APROBADO',6);
+insert into AVISOCOBRO values(30,20000,'NOPAGADO',30,55);
+insert into RECIBOMENSUAL values(31,'01/01/16','APROBADO',7);
+insert into AVISOCOBRO values(31,20000,'NOPAGADO',31,61);
+insert into RECIBOMENSUAL values(32,'01/01/16','APROBADO',7);
+insert into AVISOCOBRO values(32,20000,'NOPAGADO',32,62);
+insert into RECIBOMENSUAL values(33,'01/01/16','APROBADO',7);
+insert into AVISOCOBRO values(33,20000,'NOPAGADO',33,63);
+insert into RECIBOMENSUAL values(34,'01/01/16','APROBADO',7);
+insert into AVISOCOBRO values(34,20000,'NOPAGADO',34,64);
+insert into RECIBOMENSUAL values(35,'01/01/16','APROBADO',7);
+insert into AVISOCOBRO values(35,20000,'NOPAGADO',35,65);
+insert into RECIBOMENSUAL values(36,'01/01/16','APROBADO',8);
+insert into AVISOCOBRO values(36,20000,'NOPAGADO',36,71);
+insert into RECIBOMENSUAL values(37,'01/01/16','APROBADO',8);
+insert into AVISOCOBRO values(37,20000,'NOPAGADO',37,72);
+insert into RECIBOMENSUAL values(38,'01/01/16','APROBADO',8);
+insert into AVISOCOBRO values(38,20000,'NOPAGADO',38,73);
+insert into RECIBOMENSUAL values(39,'01/01/16','APROBADO',8);
+insert into AVISOCOBRO values(39,20000,'NOPAGADO',39,74);
+insert into RECIBOMENSUAL values(40,'01/01/16','APROBADO',8);
+insert into AVISOCOBRO values(40,20000,'NOPAGADO',40,75);
+insert into RECIBOMENSUAL values(41,'01/01/16','APROBADO',9);
+insert into AVISOCOBRO values(41,20000,'NOPAGADO',41,81);
+insert into RECIBOMENSUAL values(42,'01/01/16','APROBADO',9);
+insert into AVISOCOBRO values(42,20000,'NOPAGADO',42,82);
+insert into RECIBOMENSUAL values(43,'01/01/16','APROBADO',9);
+insert into AVISOCOBRO values(43,20000,'NOPAGADO',43,83);
+insert into RECIBOMENSUAL values(44,'01/01/16','APROBADO',9);
+insert into AVISOCOBRO values(44,20000,'NOPAGADO',44,84);
+insert into RECIBOMENSUAL values(45,'01/01/16','APROBADO',9);
+insert into AVISOCOBRO values(45,20000,'NOPAGADO',45,85);
+insert into RECIBOMENSUAL values(46,'01/01/16','APROBADO',10);
+insert into AVISOCOBRO values(46,20000,'NOPAGADO',46,91);
+insert into RECIBOMENSUAL values(47,'01/01/16','APROBADO',10);
+insert into AVISOCOBRO values(47,20000,'NOPAGADO',47,92);
+insert into RECIBOMENSUAL values(48,'01/01/16','APROBADO',10);
+insert into AVISOCOBRO values(48,20000,'NOPAGADO',48,93);
+insert into RECIBOMENSUAL values(49,'01/01/16','APROBADO',10);
+insert into AVISOCOBRO values(49,20000,'NOPAGADO',49,94);
+insert into RECIBOMENSUAL values(50,'01/01/16','APROBADO',10);
+insert into AVISOCOBRO values(50,20000,'NOPAGADO',50,95);
+insert into RECIBOMENSUAL values(51,'01/01/16','APROBADO',11);
+insert into AVISOCOBRO values(51,20000,'NOPAGADO',51,101);
+insert into RECIBOMENSUAL values(52,'01/01/16','APROBADO',11);
+insert into AVISOCOBRO values(52,20000,'NOPAGADO',52,102);
+insert into RECIBOMENSUAL values(53,'01/01/16','APROBADO',11);
+insert into AVISOCOBRO values(53,20000,'NOPAGADO',53,103);
+insert into RECIBOMENSUAL values(54,'01/01/16','APROBADO',11);
+insert into AVISOCOBRO values(54,20000,'NOPAGADO',54,104);
+insert into RECIBOMENSUAL values(55,'01/01/16','APROBADO',11);
+insert into AVISOCOBRO values(55,20000,'NOPAGADO',55,105);
+insert into RECIBOMENSUAL values(56,'01/01/16','APROBADO',12);
+insert into AVISOCOBRO values(56,20000,'NOPAGADO',56,121);
+insert into RECIBOMENSUAL values(57,'01/01/16','APROBADO',12);
+insert into AVISOCOBRO values(57,20000,'NOPAGADO',57,122);
+insert into RECIBOMENSUAL values(58,'01/01/16','APROBADO',12);
+insert into AVISOCOBRO values(58,20000,'NOPAGADO',58,123);
+insert into RECIBOMENSUAL values(59,'01/01/16','APROBADO',12);
+insert into AVISOCOBRO values(59,20000,'NOPAGADO',59,124);
+insert into RECIBOMENSUAL values(60,'01/01/16','APROBADO',12);
+insert into AVISOCOBRO values(60,20000,'NOPAGADO',60,125);
+insert into RECIBOMENSUAL values(61,'01/01/16','APROBADO',13);
+insert into AVISOCOBRO values(61,20000,'NOPAGADO',61,141);
+insert into RECIBOMENSUAL values(62,'01/01/16','APROBADO',13);
+insert into AVISOCOBRO values(62,20000,'NOPAGADO',62,142);
+insert into RECIBOMENSUAL values(63,'01/01/16','APROBADO',13);
+insert into AVISOCOBRO values(63,20000,'NOPAGADO',63,143);
+insert into RECIBOMENSUAL values(64,'01/01/16','APROBADO',13);
+insert into AVISOCOBRO values(64,20000,'NOPAGADO',64,144);
+insert into RECIBOMENSUAL values(65,'01/01/16','APROBADO',13);
+insert into AVISOCOBRO values(65,20000,'NOPAGADO',65,145);
+insert into RECIBOMENSUAL values(66,'01/01/16','APROBADO',14);
+insert into AVISOCOBRO values(66,20000,'NOPAGADO',66,161);
+insert into RECIBOMENSUAL values(67,'01/01/16','APROBADO',14);
+insert into AVISOCOBRO values(67,20000,'NOPAGADO',67,162);
+insert into RECIBOMENSUAL values(68,'01/01/16','APROBADO',14);
+insert into AVISOCOBRO values(68,20000,'NOPAGADO',68,163);
+insert into RECIBOMENSUAL values(69,'01/01/16','APROBADO',14);
+insert into AVISOCOBRO values(69,20000,'NOPAGADO',69,164);
+insert into RECIBOMENSUAL values(70,'01/01/16','APROBADO',14);
+insert into AVISOCOBRO values(70,20000,'NOPAGADO',70,165);
+insert into RECIBOMENSUAL values(71,'01/01/16','APROBADO',15);
+insert into AVISOCOBRO values(71,20000,'NOPAGADO',71,181);
+insert into RECIBOMENSUAL values(72,'01/01/16','APROBADO',15);
+insert into AVISOCOBRO values(72,20000,'NOPAGADO',72,182);
+insert into RECIBOMENSUAL values(73,'01/01/16','APROBADO',15);
+insert into AVISOCOBRO values(73,20000,'NOPAGADO',73,183);
+insert into RECIBOMENSUAL values(74,'01/01/16','APROBADO',15);
+insert into AVISOCOBRO values(74,20000,'NOPAGADO',74,184);
+insert into RECIBOMENSUAL values(75,'01/01/16','APROBADO',15);
+insert into AVISOCOBRO values(75,20000,'NOPAGADO',75,185);
+insert into RECIBOMENSUAL values(76,'01/01/16','APROBADO',16);
+insert into AVISOCOBRO values(76,20000,'NOPAGADO',76,201);
+insert into RECIBOMENSUAL values(77,'01/01/16','APROBADO',16);
+insert into AVISOCOBRO values(77,20000,'NOPAGADO',77,202);
+insert into RECIBOMENSUAL values(78,'01/01/16','APROBADO',16);
+insert into AVISOCOBRO values(78,20000,'NOPAGADO',78,203);
+insert into RECIBOMENSUAL values(79,'01/01/16','APROBADO',16);
+insert into AVISOCOBRO values(79,20000,'NOPAGADO',79,204);
+insert into RECIBOMENSUAL values(80,'01/01/16','APROBADO',16);
+insert into AVISOCOBRO values(80,20000,'NOPAGADO',80,205);
+insert into RECIBOMENSUAL values(81,'01/01/16','APROBADO',17);
+insert into AVISOCOBRO values(81,20000,'NOPAGADO',81,221);
+insert into RECIBOMENSUAL values(82,'01/01/16','APROBADO',17);
+insert into AVISOCOBRO values(82,20000,'NOPAGADO',82,222);
+insert into RECIBOMENSUAL values(83,'01/01/16','APROBADO',17);
+insert into AVISOCOBRO values(83,20000,'NOPAGADO',83,223);
+insert into RECIBOMENSUAL values(84,'01/01/16','APROBADO',17);
+insert into AVISOCOBRO values(84,20000,'NOPAGADO',84,224);
+insert into RECIBOMENSUAL values(85,'01/01/16','APROBADO',17);
+insert into AVISOCOBRO values(85,20000,'NOPAGADO',85,225);
+insert into RECIBOMENSUAL values(86,'01/01/16','APROBADO',18);
+insert into AVISOCOBRO values(86,20000,'NOPAGADO',86,241);
+insert into RECIBOMENSUAL values(87,'01/01/16','APROBADO',18);
+insert into AVISOCOBRO values(87,20000,'NOPAGADO',87,242);
+insert into RECIBOMENSUAL values(88,'01/01/16','APROBADO',18);
+insert into AVISOCOBRO values(88,20000,'NOPAGADO',88,243);
+insert into RECIBOMENSUAL values(89,'01/01/16','APROBADO',18);
+insert into AVISOCOBRO values(89,20000,'NOPAGADO',89,244);
+insert into RECIBOMENSUAL values(90,'01/01/16','APROBADO',18);
+insert into AVISOCOBRO values(90,20000,'NOPAGADO',90,245);
+insert into RECIBOMENSUAL values(91,'01/01/16','APROBADO',19);
+insert into AVISOCOBRO values(91,20000,'NOPAGADO',91,261);
+insert into RECIBOMENSUAL values(92,'01/01/16','APROBADO',19);
+insert into AVISOCOBRO values(92,20000,'NOPAGADO',92,262);
+insert into RECIBOMENSUAL values(93,'01/01/16','APROBADO',19);
+insert into AVISOCOBRO values(93,20000,'NOPAGADO',93,263);
+insert into RECIBOMENSUAL values(94,'01/01/16','APROBADO',19);
+insert into AVISOCOBRO values(94,20000,'NOPAGADO',94,264);
+insert into RECIBOMENSUAL values(95,'01/01/16','APROBADO',19);
+insert into AVISOCOBRO values(95,20000,'NOPAGADO',95,265);
+insert into RECIBOMENSUAL values(96,'01/01/16','APROBADO',20);
+insert into AVISOCOBRO values(96,20000,'NOPAGADO',96,281);
+insert into RECIBOMENSUAL values(97,'01/01/16','APROBADO',20);
+insert into AVISOCOBRO values(97,20000,'NOPAGADO',97,282);
+insert into RECIBOMENSUAL values(98,'01/01/16','APROBADO',20);
+insert into AVISOCOBRO values(98,20000,'NOPAGADO',98,283);
+insert into RECIBOMENSUAL values(99,'01/01/16','APROBADO',20);
+insert into AVISOCOBRO values(99,20000,'NOPAGADO',99,284);
+insert into RECIBOMENSUAL values(100,'01/01/16','APROBADO',20);
+insert into AVISOCOBRO values(100,20000,'NOPAGADO',100,285);
+
+
+
+
+
+
+
+
+
+insert into LLAMADO values(1,1,8,75,1);
+insert into LLAMADO values(2,2,5,50,1);
+insert into LLAMADO values(3,1,8,75,2);
+insert into LLAMADO values(4,2,5,50,2);
+----------------------------------------1er edificio
+insert into LLAMADO values(5,1,8,75,3);
+insert into LLAMADO values(6,2,5,50,3);
+insert into LLAMADO values(7,1,8,75,4);
+insert into LLAMADO values(8,2,5,50,4);
+----------------------------------------2do edificio
+insert into LLAMADO values(9,1,8,75,5);
+insert into LLAMADO values(10,2,5,50,5);
+insert into LLAMADO values(11,1,8,75,6);
+insert into LLAMADO values(12,2,5,50,6);
+----------------------------------------3er Edificio
+insert into LLAMADO values(13,1,8,75,7);
+insert into LLAMADO values(14,2,5,50,7);
+insert into LLAMADO values(15,1,8,75,8);
+insert into LLAMADO values(16,2,5,50,8);
+----------------------------------------4to edificio
+insert into LLAMADO values(17,1,8,75,9);
+insert into LLAMADO values(18,2,5,50,9);
+insert into LLAMADO values(19,1,8,75,10);
+insert into LLAMADO values(20,2,5,50,10);
+------------------------------------5to edificio
+
+insert into LLAMADO values(21,1,8,75,11);
+insert into LLAMADO values(22,2,5,50,11);
+insert into LLAMADO values(23,3,1,50,11);
+insert into LLAMADO values(24,1,8,75,12);
+insert into LLAMADO values(25,2,5,50,12);
+insert into LLAMADO values(26,3,1,50,12);
+---------------------------------------6to edificio
+
+insert into LLAMADO values(27,1,8,75,13);
+insert into LLAMADO values(28,2,5,50,13);
+insert into LLAMADO values(29,3,1,50,13);
+insert into LLAMADO values(30,1,8,75,14);
+insert into LLAMADO values(31,2,5,50,14);
+insert into LLAMADO values(32,3,1,50,14);
+----------------------------------------7mo edificio
+
+insert into LLAMADO values(33,1,8,75,15);
+insert into LLAMADO values(34,2,5,50,15);
+insert into LLAMADO values(35,3,1,50,15);
+insert into LLAMADO values(36,1,8,75,16);
+insert into LLAMADO values(37,2,5,50,16);
+insert into LLAMADO values(38,3,1,50,16);
+----------------------------------------8 edificio
+
+insert into LLAMADO values(39,1,8,75,17);
+insert into LLAMADO values(40,2,5,50,17);
+insert into LLAMADO values(41,3,1,50,17);
+insert into LLAMADO values(42,1,8,75,18);
+insert into LLAMADO values(43,2,5,50,18);
+insert into LLAMADO values(44,3,1,50,18);
+---------------------------------------9 edificio 
+
+insert into LLAMADO values(45,1,8,75,19);
+insert into LLAMADO values(46,2,5,50,19);
+insert into LLAMADO values(47,3,1,50,19);
+insert into LLAMADO values(48,1,8,75,20);
+insert into LLAMADO values(49,2,5,50,20);
+insert into LLAMADO values(50,3,1,50,20);
+--------------------------------------10 edificio
+
+	insert into LLAMADO values(51,1,8,75,21);
+	insert into LLAMADO values(52,2,5,50,21);
+	insert into LLAMADO values(53,3,1,50,21);
+	insert into LLAMADO values(54,1,8,75,22);
+	insert into LLAMADO values(55,2,5,50,22);
+	insert into LLAMADO values(56,3,1,50,22);
+	---------------------------------------11 edificio
+
+	insert into LLAMADO values(57,1,8,75,23);
+	insert into LLAMADO values(58,2,5,50,23);
+	insert into LLAMADO values(59,3,1,50,23);
+	insert into LLAMADO values(60,1,8,75,24);
+	insert into LLAMADO values(61,2,5,50,24);
+	insert into LLAMADO values(62,3,1,50,24);
+	-----------------------------------------12 edificio
+
+	insert into LLAMADO values(63,1,8,75,25);
+	insert into LLAMADO values(64,2,5,50,25);
+	insert into LLAMADO values(65,3,1,50,25);
+	insert into LLAMADO values(66,1,8,75,26);
+	insert into LLAMADO values(67,2,5,50,26);
+	insert into LLAMADO values(68,3,1,50,26);
+	----------------------------------------13 edificio
+
+	insert into LLAMADO values(69,1,8,75,27);
+	insert into LLAMADO values(70,2,5,50,27);
+	insert into LLAMADO values(71,3,1,50,27);
+	insert into LLAMADO values(72,1,8,75,28);
+	insert into LLAMADO values(73,2,5,50,28);
+	insert into LLAMADO values(74,3,1,50,28);
+	----------------------------------------14 edificio
+
+	insert into LLAMADO values(75,1,8,75,29);
+	insert into LLAMADO values(76,2,5,50,29);
+	insert into LLAMADO values(77,3,1,50,29);
+	insert into LLAMADO values(78,1,8,75,30);
+	insert into LLAMADO values(79,2,5,50,30);
+	insert into LLAMADO values(80,3,1,50,30);
+	---------------------------------------15 edificio
+
+
+	insert into LLAMADO values(81,1,8,75,31);
+	insert into LLAMADO values(82,2,5,50,31);
+	insert into LLAMADO values(83,3,1,50,31);
+	insert into LLAMADO values(84,4,1,50,31);
+	insert into LLAMADO values(85,1,8,75,32);
+	insert into LLAMADO values(86,2,5,50,32);
+	insert into LLAMADO values(87,3,1,50,32);
+	insert into LLAMADO values(88,4,1,50,32);
+	---------------------------------------16 edificio
+
+	insert into LLAMADO values(89,1,8,75,33);
+	insert into LLAMADO values(90,2,5,50,33);
+	insert into LLAMADO values(91,3,1,50,33);
+	insert into LLAMADO values(92,4,1,50,33);
+	insert into LLAMADO values(93,1,8,75,34);
+	insert into LLAMADO values(94,2,5,50,34);
+	insert into LLAMADO values(95,3,1,50,34);
+	insert into LLAMADO values(96,4,1,50,34);
+	-----------------------------------------17 edificio
+
+	insert into LLAMADO values(97,1,8,75,33);
+	insert into LLAMADO values(98,2,5,50,33);
+	insert into LLAMADO values(99,3,1,50,33);
+	insert into LLAMADO values(100,4,1,50,33);
+	insert into LLAMADO values(101,1,8,75,34);
+	insert into LLAMADO values(102,2,5,50,34);
+	insert into LLAMADO values(103,3,1,50,34);
+	insert into LLAMADO values(104,4,1,50,34);
+	-----------------------------------------18 edificio
+
+	insert into LLAMADO values(105,1,8,75,35);
+	insert into LLAMADO values(106,2,5,50,35);
+	insert into LLAMADO values(107,3,1,50,35);
+	insert into LLAMADO values(108,4,1,50,35);
+	insert into LLAMADO values(109,1,8,75,36);
+	insert into LLAMADO values(110,2,5,50,36);
+	insert into LLAMADO values(111,3,1,50,36);
+	insert into LLAMADO values(112,4,1,50,36);
+	-----------------------------------------19 edificio
+
+	insert into LLAMADO values(113,1,8,75,37);
+	insert into LLAMADO values(114,2,5,50,37);
+	insert into LLAMADO values(115,3,1,50,37);
+	insert into LLAMADO values(116,4,1,50,37);
+	insert into LLAMADO values(117,1,8,75,38);
+	insert into LLAMADO values(118,2,5,50,38);
+	insert into LLAMADO values(119,3,1,50,38);
+	insert into LLAMADO values(120,4,1,50,38); 
+	----------------------------------------20 edificio 
