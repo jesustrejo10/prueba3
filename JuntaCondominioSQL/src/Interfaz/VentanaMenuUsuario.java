@@ -12,8 +12,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -28,6 +32,16 @@ public class VentanaMenuUsuario extends javax.swing.JFrame {
     
     public VentanaMenuUsuario() throws SQLException {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo1.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());    
+
         VentanaUsuarioControlador.initOutlets(Combo);
         VentanaUsuarioControlador.LlenarComboBoxSQL();
         PASS1.setEnabled(false);
@@ -46,68 +60,27 @@ public class VentanaMenuUsuario extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         LBLTitulo = new javax.swing.JLabel();
-        LBLUsuario = new javax.swing.JLabel();
-        LBLPass1 = new javax.swing.JLabel();
-        LBLPass2 = new javax.swing.JLabel();
-        TXTUsuario = new javax.swing.JTextField();
-        PASS1 = new javax.swing.JPasswordField();
-        PASS2 = new javax.swing.JPasswordField();
-        LBLRol = new javax.swing.JLabel();
-        Combo = new javax.swing.JComboBox();
-        LBLRol1 = new javax.swing.JLabel();
-        LBLRol2 = new javax.swing.JLabel();
-        BTNROL = new javax.swing.JButton();
         BTNVolver = new javax.swing.JButton();
         BTNRegistrar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        LBLUsuario = new javax.swing.JLabel();
+        TXTUsuario = new javax.swing.JTextField();
         BTNVerificar = new javax.swing.JButton();
+        LBLRol = new javax.swing.JLabel();
+        LBLPass1 = new javax.swing.JLabel();
+        PASS1 = new javax.swing.JPasswordField();
+        LBLPass2 = new javax.swing.JLabel();
+        PASS2 = new javax.swing.JPasswordField();
+        Combo = new javax.swing.JComboBox();
+        jPanel2 = new javax.swing.JPanel();
+        LBLRol2 = new javax.swing.JLabel();
+        LBLRol1 = new javax.swing.JLabel();
+        BTNROL = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         LBLTitulo.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         LBLTitulo.setText("Registro De Usuario");
-
-        LBLUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        LBLUsuario.setText("Nombre De usuario");
-
-        LBLPass1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        LBLPass1.setText("Contraseña");
-
-        LBLPass2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        LBLPass2.setText("Repita la Contraseña");
-
-        TXTUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        TXTUsuario.setText("jTextField1");
-
-        PASS1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        PASS1.setText("1");
-        PASS1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PASS1ActionPerformed(evt);
-            }
-        });
-
-        PASS2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        PASS2.setText("1");
-
-        LBLRol.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        LBLRol.setText("Seleccione el rol que desea que tenga el usuario");
-
-        Combo.setEditable(true);
-        Combo.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-
-        LBLRol1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        LBLRol1.setText("Si el rol deseado no se encuentra en la lista, puede ");
-
-        LBLRol2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        LBLRol2.setText("Crear un rol si es de su agrado");
-
-        BTNROL.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        BTNROL.setText("Crear Rol");
-        BTNROL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTNROLActionPerformed(evt);
-            }
-        });
 
         BTNVolver.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         BTNVolver.setText("Volver");
@@ -125,6 +98,15 @@ public class VentanaMenuUsuario extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulario Para usuario"));
+
+        LBLUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        LBLUsuario.setText("Nombre De usuario");
+
+        TXTUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        TXTUsuario.setText("Usuario");
+
         BTNVerificar.setFont(new java.awt.Font("Comic Sans MS", 2, 10)); // NOI18N
         BTNVerificar.setText("Verificar Usuario");
         BTNVerificar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,102 +115,153 @@ public class VentanaMenuUsuario extends javax.swing.JFrame {
             }
         });
 
+        LBLRol.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        LBLRol.setText("Seleccione el rol que desea que tenga el usuario");
+
+        LBLPass1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        LBLPass1.setText("Contraseña");
+
+        PASS1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        PASS1.setText("1");
+        PASS1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PASS1ActionPerformed(evt);
+            }
+        });
+
+        LBLPass2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        LBLPass2.setText("Repita la Contraseña");
+
+        PASS2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        PASS2.setText("1");
+
+        Combo.setEditable(true);
+        Combo.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LBLUsuario)
+                    .addComponent(LBLPass1)
+                    .addComponent(LBLPass2))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PASS2, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TXTUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                        .addComponent(PASS1)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LBLRol))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(BTNVerificar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LBLUsuario)
+                    .addComponent(TXTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTNVerificar))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LBLPass1)
+                    .addComponent(PASS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LBLRol))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LBLPass2)
+                    .addComponent(PASS2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones Para Rol"));
+
+        LBLRol2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        LBLRol2.setText("Crear un rol si es de su agrado");
+
+        LBLRol1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        LBLRol1.setText("Si el rol deseado no se encuentra en la lista, puede ");
+
+        BTNROL.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        BTNROL.setText("Crear Rol");
+        BTNROL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNROLActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LBLRol2)
+                    .addComponent(LBLRol1))
+                .addContainerGap(53, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BTNROL)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(LBLRol1)
+                .addGap(18, 18, 18)
+                .addComponent(LBLRol2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(BTNROL)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(LBLUsuario)
-                                .addGap(243, 243, 243))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LBLPass1)
-                                .addGap(270, 270, 270))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(BTNVerificar)
-                                .addGap(79, 79, 79)))
-                        .addComponent(LBLRol)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(LBLPass2)
-                                .addGap(18, 18, 18)
-                                .addComponent(PASS2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(147, 147, 147)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(PASS1)
-                                    .addComponent(TXTUsuario))))
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(BTNRegistrar))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(79, 79, 79)
-                                        .addComponent(LBLRol2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(BTNROL)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LBLRol1))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(LBLTitulo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(BTNVolver)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BTNVolver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BTNRegistrar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LBLTitulo)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(32, 32, 32)
                 .addComponent(LBLTitulo)
-                .addGap(68, 68, 68)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLUsuario)
-                    .addComponent(TXTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LBLRol))
-                .addGap(15, 15, 15)
-                .addComponent(BTNVerificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLPass1)
-                    .addComponent(PASS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addComponent(LBLRol1)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LBLRol2)
-                            .addComponent(BTNROL))
-                        .addGap(93, 93, 93))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LBLPass2)
-                            .addComponent(PASS2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BTNVolver)
-                            .addComponent(BTNRegistrar))
-                        .addContainerGap())))
+                    .addComponent(BTNRegistrar)
+                    .addComponent(BTNVolver))
+                .addGap(12, 12, 12))
         );
 
         pack();
@@ -371,6 +404,8 @@ public class VentanaMenuUsuario extends javax.swing.JFrame {
     private javax.swing.JPasswordField PASS1;
     private javax.swing.JPasswordField PASS2;
     private javax.swing.JTextField TXTUsuario;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
