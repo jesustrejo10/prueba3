@@ -94,6 +94,13 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         P4 = new javax.swing.JCheckBox();
         P2 = new javax.swing.JCheckBox();
         P1 = new javax.swing.JCheckBox();
+        P7 = new javax.swing.JCheckBox();
+        P8 = new javax.swing.JCheckBox();
+        P9 = new javax.swing.JCheckBox();
+        P10 = new javax.swing.JCheckBox();
+        P11 = new javax.swing.JCheckBox();
+        P12 = new javax.swing.JCheckBox();
+        P13 = new javax.swing.JCheckBox();
 
         jButton1.setText("jButton1");
 
@@ -165,7 +172,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTNVolver2)
                     .addComponent(BTNContinuar)))
@@ -207,7 +214,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -252,11 +259,11 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                 .addComponent(LBLNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TXTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(LBLDescripcion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(TXTDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel4.setBackground(new java.awt.Color(254, 254, 254));
@@ -285,24 +292,63 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
             }
         });
 
+        P7.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P7.setText("Trabajos");
+
+        P8.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P8.setText("Cuenta");
+
+        P9.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P9.setText("Asambleas");
+
+        P10.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P10.setText("Reclamos");
+
+        P11.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P11.setText("Libros");
+
+        P12.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P12.setText("Pagos");
+
+        P13.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P13.setText("Fondos");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(P1)
-                    .addComponent(P2))
-                .addGap(58, 58, 58)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(P3)
-                    .addComponent(P4))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(P5)
-                    .addComponent(P6))
-                .addGap(42, 42, 42))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(P1)
+                                    .addComponent(P2))
+                                .addGap(58, 58, 58)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(P3)
+                                    .addComponent(P4)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(P7)
+                                    .addComponent(P10))
+                                .addGap(50, 50, 50)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(P11)
+                                    .addComponent(P8))))
+                        .addGap(0, 23, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(P9)
+                            .addComponent(P5)
+                            .addComponent(P6)
+                            .addComponent(P12))
+                        .addGap(42, 42, 42))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(P13)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,12 +358,24 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                     .addComponent(P1)
                     .addComponent(P3)
                     .addComponent(P5))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(P2)
                     .addComponent(P4)
                     .addComponent(P6))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(P7)
+                    .addComponent(P8)
+                    .addComponent(P9))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(P10)
+                    .addComponent(P11)
+                    .addComponent(P12))
+                .addGap(18, 18, 18)
+                .addComponent(P13)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -335,7 +393,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                         .addGap(11, 11, 11))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,7 +411,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -362,7 +420,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(BTNFinal))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -487,7 +545,42 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
              valido = true;
              AuxiliarPermisos.add("3");
         }
-
+        if (P7.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 1");
+             valido = true;
+             AuxiliarPermisos.add("7");
+        }
+        if (P8.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 1");
+             valido = true;
+             AuxiliarPermisos.add("8");
+        }
+        if (P9.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             valido = true;
+             AuxiliarPermisos.add("9");
+        }
+        if (P10.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             valido = true;
+             AuxiliarPermisos.add("10");
+        }
+        if (P11.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             valido = true;
+             AuxiliarPermisos.add("11");
+             
+        }
+        if (P12.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             valido = true;
+             AuxiliarPermisos.add("12");
+        }
+        if (P13.isSelected()){
+             //JOptionPane.showMessageDialog(rootPane,"SE LE DIO CLICK AL 3");
+             valido = true;
+             AuxiliarPermisos.add("13");
+        }
         
         
         if (valido){
@@ -569,11 +662,18 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
     private javax.swing.JLabel LBLNombre;
     private javax.swing.JLabel LBLTituloPrincipal;
     private javax.swing.JCheckBox P1;
+    private javax.swing.JCheckBox P10;
+    private javax.swing.JCheckBox P11;
+    private javax.swing.JCheckBox P12;
+    private javax.swing.JCheckBox P13;
     private javax.swing.JCheckBox P2;
     private javax.swing.JCheckBox P3;
     private javax.swing.JCheckBox P4;
     private javax.swing.JCheckBox P5;
     private javax.swing.JCheckBox P6;
+    private javax.swing.JCheckBox P7;
+    private javax.swing.JCheckBox P8;
+    private javax.swing.JCheckBox P9;
     private javax.swing.JTextField TXTDescripcion;
     private javax.swing.JTextField TXTNombre;
     private javax.swing.JTable Tabla;

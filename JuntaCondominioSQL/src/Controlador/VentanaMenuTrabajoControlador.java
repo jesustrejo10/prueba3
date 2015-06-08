@@ -192,7 +192,7 @@ public static String DevuelveFechaMaximaContrato(String RifEdificio) throws SQLE
                     while (Valores.next()){ 
                               Date Rc = Valores.getDate(1);
                               String fuera = Rc.toString();
-                              JOptionPane.showMessageDialog(null,"Fecha Salida ="+fuera);
+                              //JOptionPane.showMessageDialog(null,"Fecha Salida ="+fuera);
                         return(fuera);
                     }
           return ("");   

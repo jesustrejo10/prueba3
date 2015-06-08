@@ -54,7 +54,9 @@ public class VentanaGenerarReciboMensualControlador {
                                                                             " WHERE T.TRA_FK_CONT_FOND = CF.CF_CLAVE\n" +
                                                                             " AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO\n" +
                                                                             " AND E.EDI_CLAVE = CON.CONT_FK_EDIFICIO\n" +
+                                                                            " AND T.TRA_APROBADO = 'SI'"+
                                                                             " AND E.EDI_CLAVE = "+ClaveEdif+"\n" +
+                                                                            " AND T.TRA_FK_RECIBOMENSUAL IS NULL\n" +
                                                                             " AND CON.CONT_FECHA_EMISION = (SELECT MAX(CON.CONT_FECHA_EMISION)\n" +
                                                                             "                              FROM CONTRATO CON\n" +
                                                                             "                              WHERE CON.CONT_FK_EDIFICIO = E.EDI_CLAVE)");
@@ -128,6 +130,7 @@ public class VentanaGenerarReciboMensualControlador {
                                                                             "  AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO\n" +
                                                                             "  AND E.EDI_CLAVE = CON.CONT_FK_EDIFICIO\n" +
                                                                             "  AND E.EDI_CLAVE = "+ClaveEdif+"\n" +
+                                                                            " AND T.TRA_APROBADO = 'SI'"+
                                                                             "  AND T.TRA_FK_RECIBOMENSUAL IS NULL\n" +
                                                                             "  AND (T.TRA_CLAVE NOT IN ("+VentanaGenerarReciboMensual.TrabajosSeleccionados+"))\n" +
                                                                             "  AND CON.CONT_FECHA_EMISION = (SELECT MAX(CON.CONT_FECHA_EMISION)\n" +
@@ -158,6 +161,7 @@ public class VentanaGenerarReciboMensualControlador {
                                                                             "  AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO\n" +
                                                                             "  AND E.EDI_CLAVE = CON.CONT_FK_EDIFICIO\n" +
                                                                             "  AND E.EDI_CLAVE = "+ClaveEdif+"\n" +
+                                                                            "  AND T.TRA_APROBADO = 'SI'"+                                                          
                                                                             "  AND T.TRA_FK_RECIBOMENSUAL IS NULL\n" +
                                                                             "  AND (T.TRA_CLAVE IN ("+VentanaGenerarReciboMensual.TrabajosSeleccionados+"))\n" +
                                                                             "  AND CON.CONT_FECHA_EMISION = (SELECT MAX(CON.CONT_FECHA_EMISION)\n" +

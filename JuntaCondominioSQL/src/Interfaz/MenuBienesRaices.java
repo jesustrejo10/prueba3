@@ -130,6 +130,7 @@ public void cargarInterfazOficina(){
         PanelOpcion = new javax.swing.JPanel();
         ComboOpcion = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         PanelTablaPrincipal = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
@@ -173,26 +174,38 @@ public void cargarInterfazOficina(){
             }
         });
 
+        jButton4.setText("Reiniciar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelOpcionLayout = new javax.swing.GroupLayout(PanelOpcion);
         PanelOpcion.setLayout(PanelOpcionLayout);
         PanelOpcionLayout.setHorizontalGroup(
             PanelOpcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelOpcionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelOpcionLayout.createSequentialGroup()
-                .addContainerGap(311, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(PanelOpcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelOpcionLayout.createSequentialGroup()
+                        .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 61, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelOpcionLayout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         PanelOpcionLayout.setVerticalGroup(
             PanelOpcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelOpcionLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addGroup(PanelOpcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton4))
                 .addContainerGap())
         );
 
@@ -752,7 +765,7 @@ public void cargarInterfazOficina(){
                               String ClavePropietario = (String)TablaPropietarios.getValueAt(num2,0);
 
                               try {
-                                        JOptionPane.showMessageDialog(PanelComprados, ClaveAptDet2+ClavePropietario);
+                                        //JOptionPane.showMessageDialog(PanelComprados, ClaveAptDet2+ClavePropietario);
                                         MenuBienesRaicesControlador.AsignaApartamentoAPropietario(ClaveAptDet2, ClavePropietario);
                                         
                                         String FechaInicio = df.format(Fecha.getDate());
@@ -761,7 +774,7 @@ public void cargarInterfazOficina(){
                                         int Comision = Integer.parseInt(comi);
                                         float LComision =   (Comision / PrecioInt) * 100;
                                         MenuBienesRaicesControlador.RegistrarTransaccionBienesRaices(LComision, ClaveAptDet2, ClaveOficina2, FechaString);
-                                        JOptionPane.showMessageDialog(PanelComprados,"Compra Concretada");
+                                        JOptionPane.showMessageDialog(null,"Compra Concretada");
                                         MenuBienesRaices reset = new MenuBienesRaices();
                                         reset.setVisible(true);
                                         this.dispose();
@@ -769,6 +782,7 @@ public void cargarInterfazOficina(){
                                         JOptionPane.showMessageDialog(PanelComprados,"Error al ejecutar el UPDATE->"+ex.getMessage());
                                         Logger.getLogger(MenuBienesRaices.class.getName()).log(Level.SEVERE, null, ex);
                               }
+                    FinEnabled= false;
                     }
 
           }
@@ -785,17 +799,17 @@ public void cargarInterfazOficina(){
                               float nuevoprecio= 0;
                               float comision =0;
                               PanelPrecio.setVisible(true);
-                              JOptionPane.showMessageDialog(PanelComprados,"Actualice el precio.");
+                              JOptionPane.showMessageDialog(null,"Actualice el precio.");
 
                               try{
                                         nuevoprecio = Float.parseFloat(txtprecio.getText());
                                         comision = Float.parseFloat(txtcomi.getText());
                               }catch(Exception e){
-                                      JOptionPane.showMessageDialog(PanelComprados,"Error, debe ingresar el precio expresado en numeros.");
+                                      JOptionPane.showMessageDialog(null,"Error, debe ingresar el precio expresado en numeros.");
                               }
                               try {
                                         comision = (comision / nuevoprecio) * 100;
-                                        JOptionPane.showMessageDialog(PanelComprados,"Apartamento puesto en venta correctamente.");
+                                        JOptionPane.showMessageDialog(null,"Apartamento puesto en venta correctamente.");
                                         MenuBienesRaicesControlador.ColocarApartamentoEnVentaPropietario(ClaveAptDet2, Float.toString(nuevoprecio));
                                         MenuBienesRaicesControlador.RegistrarTransaccionBienesRaices(comision, ClaveAptDet2, ClaveOfi, FechaString);
                                         MenuBienesRaices refresh = new MenuBienesRaices();
@@ -803,7 +817,7 @@ public void cargarInterfazOficina(){
                                         this.dispose();
                               } catch (SQLException ex) {
                                         Logger.getLogger(MenuBienesRaices.class.getName()).log(Level.SEVERE, null, ex);
-                                        JOptionPane.showMessageDialog(PanelComprados,"Error al realizar la consulta ->"+ ex.getMessage());
+                                        JOptionPane.showMessageDialog(null,"Error al realizar la consulta ->"+ ex.getMessage());
                               }
                     }    
            }
@@ -821,12 +835,12 @@ public void cargarInterfazOficina(){
                               int ClavePropietario = (Integer)TablaPropietarios.getValueAt(num2,0);
                               try {
                                         MenuBienesRaicesControlador.AsignaApartamentoAOficina(ClaveAptDet2,Integer.toString(ClavePropietario));
-                                        JOptionPane.showMessageDialog(PanelComprados,"Compra Concretada");
+                                        JOptionPane.showMessageDialog(null,"Compra Concretada");
                                         MenuBienesRaices reset = new MenuBienesRaices();
                                         reset.setVisible(true);
                                         this.dispose();
                               }catch (SQLException ex) {
-                                        JOptionPane.showMessageDialog(PanelComprados,"Error al ejecutar el UPDATE->"+ex.getMessage());
+                                        JOptionPane.showMessageDialog(null,"Error al ejecutar el UPDATE->"+ex.getMessage());
                                         Logger.getLogger(MenuBienesRaices.class.getName()).log(Level.SEVERE, null, ex);
                               }
                     }
@@ -912,6 +926,13 @@ public void cargarInterfazOficina(){
             
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+          MenuBienesRaices Nuevo = new MenuBienesRaices();
+          Nuevo.setVisible(true);
+          this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -964,6 +985,7 @@ public void cargarInterfazOficina(){
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

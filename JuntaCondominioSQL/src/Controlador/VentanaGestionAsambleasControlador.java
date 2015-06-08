@@ -122,13 +122,21 @@ public static void CalcularLLamadoSQL(String ClaveContrato, String NumeroLlamado
         ConexionOracle Conexion= new ConexionOracle();
         Connection Con=Conexion.Conectar();
         Statement st= Con.createStatement();
-         ResultSet Valores= st.executeQuery("select L.LLA_NUMERO, L.LLA_QUORUM_MINIMO, L.LLA_PORCENTAJEAPROBACION ,JC.JC_CLAVE, COUNT(AD.AD_CLAVE) \n" +
-                                                                            " FROM LLAMADO L INNER JOIN CONTRATO CON ON L.LLA_FK_CONTRATO = CON.CONT_CLAVE INNER JOIN EDIFICIO E ON E.EDI_CLAVE = CON.CONT_FK_EDIFICIO\n" +
-                                                                            " INNER JOIN APT_DET AD ON AD.AD_FK_EDIFICIO = E.EDI_CLAVE INNER JOIN JUNTACONDOMINIO JC ON E.EDI_CLAVE = JC.JC_FK_EDIFICIO\n" +
-                                                                            " AND CON.CONT_CLAVE = "+ClaveContrato+" AND L.LLA_NUMERO = "+NumeroLlamado+"\n" +
-                                                                            " AND JC.JC_FECHA_INICIAL = (SELECT MAX(JC.JC_FECHA_INICIAL)\n" +
-                                                                            "                            FROM JUNTACONDOMINIO JC)\n" +
-                                                                            " GROUP BY L.LLA_NUMERO, L.LLA_QUORUM_MINIMO, L.LLA_PORCENTAJEAPROBACION ,JC.JC_CLAVE");
+         ResultSet Valores= st.executeQuery("  SELECT L.LLA_NUMERO, L.LLA_QUORUM_MINIMO , L.LLA_PORCENTAJEAPROBACION, JC.JC_CLAVE, COUNT (AD.AD_CLAVE)\n" +
+                                                                            "  FROM LLAMADO L, CONTRATO CON, EDIFICIO E, JUNTACONDOMINIO JC, APT_DET AD\n" +
+                                                                            "  WHERE L.LLA_FK_CONTRATO = CON.CONT_CLAVE\n" +
+                                                                            "  AND E.EDI_CLAVE = CON.CONT_FK_EDIFICIO\n" +
+                                                                            "  AND CON.CONT_CLAVE = "+ClaveContrato+"\n" +
+                                                                            "  AND JC.JC_FK_EDIFICIO = E.EDI_CLAVE\n" +
+                                                                            "  AND AD.AD_FK_EDIFICIO = E.EDI_CLAVE\n" +
+                                                                            "  AND L.LLA_NUMERO = '"+NumeroLlamado+"'\n" +
+                                                                            "  AND JC.JC_FECHA_INICIAL = (SELECT MAX(JC.JC_FECHA_INICIAL)\n" +
+                                                                            "                             FROM JUNTACONDOMINIO JC\n" +
+                                                                            "                             WHERE JC.JC_FK_EDIFICIO =E.EDI_CLAVE)\n" +
+                                                                            "  AND CON.CONT_FECHA_EMISION = (SELECT MAX(CON.CONT_FECHA_EMISION)\n" +
+                                                                            "                                FROM CONTRATO CON\n" +
+                                                                            "                                WHERE CON.CONT_FK_EDIFICIO = E.EDI_CLAVE)\n" +
+                                                                            "  GROUP BY L.LLA_NUMERO, L.LLA_QUORUM_MINIMO , L.LLA_PORCENTAJEAPROBACION,JC.JC_CLAVE");
             while (Valores.next()){
                    // JOptionPane.showMessageDialog(null,"OK");
                     VentanaGestiondeAsambleas.QuorumMinimo = Valores.getInt(2);

@@ -624,6 +624,7 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
                               String Fpropuesto = df.format(Fecha.getDate());
                               String FechaPropuestoString = ConvierteFechas(Fpropuesto);
                               Fechax = FechaPropuestoString;
+                              JOptionPane.showMessageDialog(rootPane,"Clave cont ->"+ClaveContrato);
                               VentanaGestionAsambleasControlador.CalcularLLamadoSQL(ClaveContrato,"1");
                               if (QuorumAsistido > MaximoAPT){
                                         JOptionPane.showMessageDialog(rootPane,"Error, No puede existir un quorum mayor a:"+MaximoAPT);
@@ -921,7 +922,10 @@ public class VentanaGestiondeAsambleas extends javax.swing.JFrame {
             nueva.setVisible(true);
             this.dispose();
         } catch (SQLException ex) {
-            Logger.getLogger(VentanaGestiondeAsambleas.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane,"Error, Debe ingresar desde el LogIn");
+              VentanaLogIn x = new VentanaLogIn();
+              x.setVisible(true);
+              this.dispose();
         }
         
 // TODO add your handling code here:

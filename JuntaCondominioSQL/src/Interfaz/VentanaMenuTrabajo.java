@@ -14,7 +14,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -47,6 +51,17 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
     public VentanaMenuTrabajo() {
         
         initComponents();
+
+         setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo2.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());    
+        
         PanelFormulario.setVisible(false);
         PanelEdificio.setVisible(false);
         PanelProveedores.setVisible(false);
@@ -120,8 +135,10 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PanelPrincipal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu Trabajo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Light", 1, 24))); // NOI18N
+        PanelPrincipal.setOpaque(false);
 
         PanelFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rellene el Formulario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Light", 1, 18))); // NOI18N
+        PanelFormulario.setOpaque(false);
 
         jLabel3.setText("Indique la Descripcion del trabajo");
 
@@ -225,6 +242,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
         jLabel2.setText("Seleccione La opcion que desea Realizar");
 
         PanelProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla de Proveedores Disponibles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Light", 1, 18))); // NOI18N
+        PanelProveedores.setOpaque(false);
 
         jLabel8.setText("jLabel8");
 
@@ -265,6 +283,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
         );
 
         PanelEdificio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tabla de Edificios Existentes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Medium", 0, 18))); // NOI18N
+        PanelEdificio.setOpaque(false);
 
         Tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -309,6 +328,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
         );
 
         PanelFechas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rellene las Fechas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Light", 1, 18))); // NOI18N
+        PanelFechas.setOpaque(false);
 
         jLabel1.setText("Indique la Fecha de Solicitud.");
 
@@ -471,7 +491,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                     int numerofila = Tabla2.getSelectedRow();
                     float PrecioAlto;
                     String codigo = (String) Tabla2.getValueAt(numerofila,0);
-                    JOptionPane.showMessageDialog(rootPane,codigo);
+                    //JOptionPane.showMessageDialog(rootPane,codigo);
                     try {
                               PrecioAlto = DevuelvePrecioAlto(codigo);
                               
@@ -495,9 +515,9 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                               String negrox = VentanaMenuTrabajoControlador.DevuelveFechaMaximaContrato(codigo);
                               String[] pba = negrox.split("-");
                               negrox = pba[2]+"/" +pba[1]+"/"+pba[0];
-                              JOptionPane.showMessageDialog(null,negrox);
+                              //JOptionPane.showMessageDialog(null,negrox);
                               FK_FONDO = VentanaMenuTrabajoControlador.DevuelveClaveFondo(codigo, FK_FONDO, negrox);
-                              JOptionPane.showMessageDialog(rootPane,"La Clave del CONTFOND es:"+FK_FONDO);
+                              //JOptionPane.showMessageDialog(rootPane,"La Clave del CONTFOND es:"+FK_FONDO);
                               PanelFechas.setVisible(true);
                               PanelProveedores.setVisible(true);
                               cargarInterfazAreasComunes();
@@ -557,7 +577,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                                         VentanaMenuTrabajoControlador.InsertarTrabajoSQL(ClaveProveedorSeleccionado,FechaPropuestoString,FechaRealizadoString);
                                         int columnaSeleccionadaTablaAreaDet = Tabla2.getSelectedRow();
                                         String ClaveAreaDet =((String)Tabla2.getValueAt(columnaSeleccionadaTablaAreaDet,0));
-                                        JOptionPane.showMessageDialog(null, ClaveAreaDet);
+                                        //JOptionPane.showMessageDialog(null, ClaveAreaDet);
                                         String ClaveTrabajoActual = VentanaMenuTrabajoControlador.DevuelveClaveTrabajo();
                                         VentanaMenuTrabajoControlador.InsertarAD_TRASQL(ClaveTrabajoActual, ClaveAreaDet);
                                         JOptionPane.showMessageDialog(rootPane,"Trabajo Agregado Correctamente");
@@ -571,7 +591,7 @@ public class VentanaMenuTrabajo extends javax.swing.JFrame {
                                         VentanaMenuTrabajoControlador.InsertarTrabajoNoAprobadoSQL(ClaveProveedorSeleccionado,FechaPropuestoString);
                                         int columnaSeleccionadaTablaAreaDet = Tabla2.getSelectedRow();
                                         String ClaveAreaDet =((String)Tabla2.getValueAt(columnaSeleccionadaTablaAreaDet,0));
-                                        JOptionPane.showMessageDialog(null, ClaveAreaDet);
+                                        //JOptionPane.showMessageDialog(null, ClaveAreaDet);
                                         String ClaveTrabajoActual = VentanaMenuTrabajoControlador.DevuelveClaveTrabajo();
                                         VentanaMenuTrabajoControlador.InsertarAD_TRASQL(ClaveTrabajoActual, ClaveAreaDet);
                                         JOptionPane.showMessageDialog(rootPane,"Trabajo Agregado a la lista de Por Aprobar Correctamente");
