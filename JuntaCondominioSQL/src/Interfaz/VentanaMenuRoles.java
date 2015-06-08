@@ -9,7 +9,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -32,6 +36,16 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
     public VentanaMenuRoles() throws SQLException {
         initComponents();
         cargarInterfaz();
+            setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo1.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());  
+    
         VentanaMenuRolesControlador.RellenaTablaSQL();
     
         P1.setVisible(false);
@@ -40,8 +54,8 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         P4.setVisible(false);
         P5.setVisible(false);
         P6.setVisible(false);
-        LBLPermisos.setVisible(false);
-        LBLTabla.setVisible(false);
+       // LBLPermisos.setVisible(false);
+       // LBLTabla.setVisible(false);
         LBLNombre.setVisible(false);
         LBLDescripcion.setVisible(false);
         Tabla.setEnabled(false);
@@ -59,26 +73,27 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         LBLTituloPrincipal = new javax.swing.JLabel();
-        LBLCreaPermiso = new javax.swing.JLabel();
-        BTNContinuar = new javax.swing.JButton();
-        Combo = new javax.swing.JComboBox();
-        P1 = new javax.swing.JCheckBox();
-        P2 = new javax.swing.JCheckBox();
-        P3 = new javax.swing.JCheckBox();
-        P4 = new javax.swing.JCheckBox();
-        P5 = new javax.swing.JCheckBox();
-        P6 = new javax.swing.JCheckBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Tabla = new javax.swing.JTable();
-        LBLTabla = new javax.swing.JLabel();
-        LBLPermisos = new javax.swing.JLabel();
         BTNFinal = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        Combo = new javax.swing.JComboBox();
+        BTNVolver2 = new javax.swing.JButton();
+        BTNContinuar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabla = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
         LBLNombre = new javax.swing.JLabel();
         TXTNombre = new javax.swing.JTextField();
         LBLDescripcion = new javax.swing.JLabel();
         TXTDescripcion = new javax.swing.JTextField();
-        BTNVolver2 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        P6 = new javax.swing.JCheckBox();
+        P5 = new javax.swing.JCheckBox();
+        P3 = new javax.swing.JCheckBox();
+        P4 = new javax.swing.JCheckBox();
+        P2 = new javax.swing.JCheckBox();
+        P1 = new javax.swing.JCheckBox();
 
         jButton1.setText("jButton1");
 
@@ -91,8 +106,35 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         LBLTituloPrincipal.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         LBLTituloPrincipal.setText("Menu Roles");
 
-        LBLCreaPermiso.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        LBLCreaPermiso.setText("Seleccione la operacion que desea Realizar");
+        BTNFinal.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        BTNFinal.setText("Confirmar");
+        BTNFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNFinalActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jButton3.setText("Volver");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Selecione la opcion que desea Realizar"));
+
+        Combo.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        Combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Crear Rol" }));
+
+        BTNVolver2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        BTNVolver2.setText("Reiniciar");
+        BTNVolver2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNVolver2ActionPerformed(evt);
+            }
+        });
 
         BTNContinuar.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         BTNContinuar.setText("Continuar");
@@ -102,31 +144,35 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
             }
         });
 
-        Combo.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        Combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Crear rol", "Editar Rol", "Eliminar Rol", "Mostrar los Roles", " " }));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BTNVolver2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BTNContinuar)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTNVolver2)
+                    .addComponent(BTNContinuar)))
+        );
 
-        P1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P1.setText("Usuarios");
-        P1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                P1ActionPerformed(evt);
-            }
-        });
-
-        P2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P2.setText("Edificio");
-
-        P3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P3.setText("Propietario");
-
-        P4.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P4.setText("JuntaCondominio");
-
-        P5.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P5.setText("Bienes Raices");
-
-        P6.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        P6.setText("Contrato");
+        jPanel2.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Roles Existentes"));
 
         Tabla.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -148,27 +194,25 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Tabla);
 
-        LBLTabla.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        LBLTabla.setText("Lista De Roles");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
-        LBLPermisos.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        LBLPermisos.setText("Permisos Disponibles");
-
-        BTNFinal.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        BTNFinal.setText("Confirmar");
-        BTNFinal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTNFinalActionPerformed(evt);
-            }
-        });
-
-        jButton3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jButton3.setText("Volver");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jPanel3.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulario para el Rol"));
 
         LBLNombre.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         LBLNombre.setText("Indique El nombre Del Rol");
@@ -182,106 +226,143 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         TXTDescripcion.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         TXTDescripcion.setText("TXTDescripcion");
 
-        BTNVolver2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        BTNVolver2.setText("Atras");
-        BTNVolver2.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LBLNombre)
+                            .addComponent(LBLDescripcion))
+                        .addGap(0, 91, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TXTNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TXTDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LBLNombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TXTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(LBLDescripcion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TXTDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel4.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de permisos Disponibles"));
+
+        P6.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P6.setText("Contrato");
+
+        P5.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P5.setText("Bienes Raices");
+
+        P3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P3.setText("Propietario");
+
+        P4.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P4.setText("JuntaCondominio");
+
+        P2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P2.setText("Edificio");
+
+        P1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        P1.setText("Usuarios");
+        P1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTNVolver2ActionPerformed(evt);
+                P1ActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(P1)
+                    .addComponent(P2))
+                .addGap(58, 58, 58)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(P3)
+                    .addComponent(P4))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(P5)
+                    .addComponent(P6))
+                .addGap(42, 42, 42))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(P1)
+                    .addComponent(P3)
+                    .addComponent(P5))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(P2)
+                    .addComponent(P4)
+                    .addComponent(P6))
+                .addContainerGap(149, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(354, 354, 354)
-                .addComponent(LBLTituloPrincipal)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LBLCreaPermiso)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LBLTituloPrincipal)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LBLTabla)
-                        .addGap(178, 178, 178))
+                        .addComponent(BTNFinal)
+                        .addGap(11, 11, 11))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(P1)
-                                    .addComponent(P2)
-                                    .addComponent(jButton3)
-                                    .addComponent(BTNVolver2))
-                                .addGap(58, 58, 58)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LBLPermisos)
-                                    .addComponent(BTNContinuar)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(P3)
-                                            .addComponent(P4))
-                                        .addGap(53, 53, 53)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(P6)
-                                            .addComponent(P5)))))
-                            .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TXTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(BTNFinal)
-                                    .addGap(35, 35, 35))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(LBLNombre)
-                                    .addGap(185, 185, 185)))
-                            .addComponent(LBLDescripcion)
-                            .addComponent(TXTDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addComponent(LBLTituloPrincipal)
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLTabla)
-                    .addComponent(LBLCreaPermiso))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(LBLNombre))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BTNVolver2)
-                        .addComponent(BTNContinuar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLPermisos)
-                    .addComponent(TXTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(P1)
-                    .addComponent(P3)
-                    .addComponent(P5)
-                    .addComponent(LBLDescripcion))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(P2)
-                    .addComponent(P4)
-                    .addComponent(P6)
-                    .addComponent(TXTDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BTNFinal)
-                    .addComponent(jButton3))
-                .addGap(25, 25, 25))
+                    .addComponent(jButton3)
+                    .addComponent(BTNFinal))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -311,8 +392,8 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                 P4.setVisible(true);
                 P5.setVisible(true);
                 P6.setVisible(true);
-                LBLPermisos.setVisible(true);
-                LBLTabla.setVisible(true);
+          //      LBLPermisos.setVisible(true);
+            //    LBLTabla.setVisible(true);
                 LBLNombre.setVisible(true);
                 LBLDescripcion.setVisible(true);
                 Tabla.setVisible(true);
@@ -331,8 +412,8 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                 P4.setVisible(true);
                 P5.setVisible(true);
                 P6.setVisible(true);
-                LBLPermisos.setVisible(true);
-                LBLTabla.setVisible(true);
+              //  LBLPermisos.setVisible(true);
+               // LBLTabla.setVisible(true);
                 LBLNombre.setVisible(true);
                 LBLDescripcion.setVisible(true);
                 Tabla.setVisible(true);
@@ -341,7 +422,7 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
                 TXTDescripcion.setVisible(true);
                 }
         if (opcion == 3){
-                LBLTabla.setVisible(true);
+                //LBLTabla.setVisible(true);
                 Tabla.setVisible(true);
                 BTNContinuar.setEnabled(false);
                 BTNVolver2.setVisible(true);
@@ -357,8 +438,8 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
         P4.setVisible(false);
         P5.setVisible(false);
         P6.setVisible(false);
-        LBLPermisos.setVisible(false);
-        LBLTabla.setVisible(false);
+        //LBLPermisos.setVisible(false);
+        //LBLTabla.setVisible(false);
         LBLNombre.setVisible(false);
         LBLDescripcion.setVisible(false);
         Tabla.setVisible(false);
@@ -484,11 +565,8 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
     private javax.swing.JButton BTNFinal;
     private javax.swing.JButton BTNVolver2;
     private javax.swing.JComboBox Combo;
-    private javax.swing.JLabel LBLCreaPermiso;
     private javax.swing.JLabel LBLDescripcion;
     private javax.swing.JLabel LBLNombre;
-    private javax.swing.JLabel LBLPermisos;
-    private javax.swing.JLabel LBLTabla;
     private javax.swing.JLabel LBLTituloPrincipal;
     private javax.swing.JCheckBox P1;
     private javax.swing.JCheckBox P2;
@@ -502,6 +580,10 @@ public class VentanaMenuRoles extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables

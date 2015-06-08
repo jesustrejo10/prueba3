@@ -107,7 +107,7 @@ public class VentanaMenuRolesControlador {
                     Clave=Valores.getString(1);
                     conta++;
                 }
-          JOptionPane.showMessageDialog(null,"el conta DEVUELTA ES:"+Integer.toString(conta));
+    //      JOptionPane.showMessageDialog(null,"el conta DEVUELTA ES:"+Integer.toString(conta));
           if (conta >=1)
             return Clave;
           else

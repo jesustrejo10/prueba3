@@ -18,7 +18,11 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -110,7 +114,18 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
      }; 
      
     public VentanaGenerarReciboMensual() {
-        initComponents();
+          initComponents();
+    
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo2.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());    
+        
     }
 
     /**
@@ -146,8 +161,10 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu Recibos Mensuales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Medium", 0, 24))); // NOI18N
+        jPanel1.setOpaque(false);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione la opcion"));
+        jPanel2.setOpaque(false);
 
         ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Generar Recibo" }));
 
@@ -182,6 +199,7 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Edificios Administrados en el sistema"));
+        jPanel3.setOpaque(false);
 
         Tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -228,6 +246,7 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de trabajos pertenecientes al edificio Sin pagar."));
+        jPanel4.setOpaque(false);
 
         Tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -265,6 +284,7 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista De trabajos Asignados"));
+        jPanel5.setOpaque(false);
 
         Tabla3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -309,6 +329,7 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
         });
 
         PanelFormulario.setBorder(javax.swing.BorderFactory.createTitledBorder("Rellene La Informacion Solicitada"));
+        PanelFormulario.setOpaque(false);
 
         jLabel2.setText("Seleccione El mes Al cual desea Realizar el recibo");
 
@@ -377,7 +398,7 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addGap(0, 36, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
@@ -456,9 +477,7 @@ public class VentanaGenerarReciboMensual extends javax.swing.JFrame {
                     VentanaGenerarReciboMensualControlador.InsertaReciboMensualSQL(ClaveJuntaActual,FechaRealizadoString);
                     PrecioRecibo = Float.parseFloat(CalculaPrecioRecibo2());
                     String ClaveRecibcoMensual = CalculaClaveRecibo();
-                    
                     VentanaGenerarReciboMensualControlador.InsertaAvisoCobroSQL(ClaveRecibcoMensual);
-                    
                     String [] TrabajosSeparados = TrabajosSeleccionados.split(",");
                     int tamano = TrabajosSeparados.length;
                     for (int factor = 0 ; factor < tamano ; factor++){

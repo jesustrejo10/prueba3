@@ -13,7 +13,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -50,6 +54,15 @@ public class VentanaMiembros extends javax.swing.JFrame {
     
     public VentanaMiembros(Integer Opcion,String Clave ) throws SQLException {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo1.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight()); 
         
          IdentificacionesMiembros.add(0,"9999");
         IdentificacionesMiembros.add(1, "9999");
@@ -62,7 +75,7 @@ public class VentanaMiembros extends javax.swing.JFrame {
         jLabel1.setVisible(false);
         jLabel2.setVisible(false);
         if(Opcion == 0){ //para agregar propietarios a la junta recien creada
-            JOptionPane.showMessageDialog(rootPane,"Por favor Escriba el cargo del miembro y seleccione /n en la tabla de Propietarios, para agregar un miembro");
+           // JOptionPane.showMessageDialog(rootPane,"Por favor Escriba el cargo del miembro y seleccione /n en la tabla de Propietarios, para agregar un miembro");
             LimpiarJTable(modeloMiembros);
             LimpiarJTable(modeloPropietarios);
             
@@ -133,7 +146,7 @@ public class VentanaMiembros extends javax.swing.JFrame {
                     jLabel2.setText("Tabla Propietarios Disponibles para la junta "+ClaveJunta);
                     jButton1.setVisible(false);
                    
-                     JOptionPane.showMessageDialog(rootPane,"Indique el cargo que ocupara el propietario /n y seleccionelo de la tabla propietarios ");
+                     //JOptionPane.showMessageDialog(rootPane,"Indique el cargo que ocupara el propietario /n y seleccionelo de la tabla propietarios ");
                      TXTCargo.requestFocusInWindow();
                     ClaveEdificio =  Integer.parseInt(Util.Consultar_PK_EdificioConClaveJunta(ClaveJunta));
                     try {
@@ -237,7 +250,7 @@ public class VentanaMiembros extends javax.swing.JFrame {
          while(fila <Tabla1.getRowCount()){
              ID = Integer.parseInt((String) Tabla1.getValueAt(fila, columna));
              IdentificacionesMiembros.add(fila,ID);       
-            JOptionPane.showMessageDialog(rootPane,"Valor de columna= "+columna+", Valor de fila = "+fila+" Valor del getcount= "+Tabla1.getRowCount()+" Valor de ID= "+ID+" Valor del ARRAY posicion Fila "+IdentificacionesMiembros.get(fila));
+            //JOptionPane.showMessageDialog(rootPane,"Valor de columna= "+columna+", Valor de fila = "+fila+" Valor del getcount= "+Tabla1.getRowCount()+" Valor de ID= "+ID+" Valor del ARRAY posicion Fila "+IdentificacionesMiembros.get(fila));
              fila++;
                 
          }
@@ -248,7 +261,7 @@ public class VentanaMiembros extends javax.swing.JFrame {
          while(fila <Tabla1.getRowCount()){
              ID = Integer.parseInt((String) Tabla1.getValueAt(fila, columna));
              IdentificacionesMiembros.add(fila,ID);       
-            JOptionPane.showMessageDialog(rootPane,"Valor de columna= "+columna+", Valor de fila = "+fila+" Valor del getcount= "+Tabla1.getRowCount()+" Valor de ID= "+ID+" Valor del ARRAY posicion Fila "+IdentificacionesMiembros.get(fila));
+            //JOptionPane.showMessageDialog(rootPane,"Valor de columna= "+columna+", Valor de fila = "+fila+" Valor del getcount= "+Tabla1.getRowCount()+" Valor de ID= "+ID+" Valor del ARRAY posicion Fila "+IdentificacionesMiembros.get(fila));
              fila++;
                 
          }
@@ -289,9 +302,13 @@ public class VentanaMiembros extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("MENU DE MIEMBROS");
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setText("Menu Miembros");
+
+        PanelFormulario.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Boton");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -329,6 +346,8 @@ public class VentanaMiembros extends javax.swing.JFrame {
                 .addContainerGap(85, Short.MAX_VALUE))
         );
 
+        PanelTabla1.setBackground(new java.awt.Color(255, 255, 255));
+
         Tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -363,6 +382,8 @@ public class VentanaMiembros extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
+
+        PanelTabla2.setBackground(new java.awt.Color(255, 255, 255));
 
         Tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -420,13 +441,8 @@ public class VentanaMiembros extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(243, 243, 243))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108))))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,13 +459,16 @@ public class VentanaMiembros extends javax.swing.JFrame {
                                     .addGap(61, 61, 61)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

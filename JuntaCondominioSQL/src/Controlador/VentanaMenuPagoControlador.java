@@ -82,13 +82,16 @@ public static void RellenaTablaTrabajos() throws SQLException{
                                                                             " AND CF.CF_CLAVE = T.TRA_FK_CONT_FOND\n" +
                                                                             " AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO AND\n" +
                                                                             " CON.CONT_CLAVE = "+VentanaMenuPagos.ClaveContrato+"\n" +
+                                                                            
+                                                                             " AND T.TRA_FK_PAGO IS NULL "+
                                                                             " UNION ALL\n" +
                                                                             " select T.TRA_CLAVE,T.TRA_TIPO, T.TRA_DESCRIPCION , O.OFI_NOMBRE , T.TRA_MONTO\n" +
                                                                             " from TRABAJO T, OFICINA O, CONT_FOND CF, CONTRATO CON\n" +
                                                                             " WHERE O.OFI_CLAVE = T.TRA_FK_OFICINA\n" +
                                                                             " AND CF.CF_CLAVE = T.TRA_FK_CONT_FOND\n" +
                                                                             " AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO AND\n" +
-                                                                            " CON.CONT_CLAVE = "+VentanaMenuPagos.ClaveContrato+" ");
+                                                                            " T.TRA_FK_PAGO IS NULL and "
+                                                                        + " CON.CONT_CLAVE = "+VentanaMenuPagos.ClaveContrato+" ");
             while (Valores.next()){
                      VentanaMenuPagos.ModeloTrabajos.insertRow(VentanaMenuPagos.cont, new Object[]{});
                      VentanaMenuPagos.ModeloTrabajos.setValueAt(Valores.getInt(1),VentanaMenuPagos.cont,0);

@@ -5,9 +5,16 @@
  */
 package Interfaz;
 
+import Controlador.VentanaGenerarContratoControlador;
 import Controlador.VentanaGestionDeFondosControlador;
+import java.awt.HeadlessException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,11 +26,24 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
 
     public static int Opcion;
     public static ArrayList<String> Fondos = new ArrayList();
+    public static String ClaveFondo;
+    public static Float Honorarios;
     
     public MenuGestionDeFondos() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        this.PanelPrincipal.add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());    
         PanelAsignacionFondo.setVisible(false);
+    
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,12 +73,14 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
         txtEstimado = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PanelPrincipal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de Fondos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Mono", 0, 24))); // NOI18N
+        PanelPrincipal.setOpaque(false);
 
         PanelOpcion.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione La Operacion que desea Realizar"));
+        PanelOpcion.setOpaque(false);
 
         ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Asignar Fondos a Edificio Nuevo" }));
 
@@ -93,6 +115,7 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
         );
 
         PanelAsignacionFondo.setBorder(javax.swing.BorderFactory.createTitledBorder("Asignacion de Fondos"));
+        PanelAsignacionFondo.setOpaque(false);
 
         FONDO2.setText("Fondo de Reserva");
 
@@ -167,7 +190,7 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
                 .addGroup(PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAsignacionFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,6 +213,9 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel4.setText("Gestion de Fondos");
+
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
@@ -197,6 +223,7 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
             .addGroup(PanelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelAsignacionFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PanelOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -205,10 +232,12 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(PanelAsignacionFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(PanelOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PanelAsignacionFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,7 +297,7 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
                                                   VentanaGestionDeFondosControlador.InsertarContFondosSQL("0", x, VentanaGenerarContrato.ClaveContrato);
                                                   String clave = VentanaGestionDeFondosControlador.DevuelveClave();
                                              //     JOptionPane.showMessageDialog(rootPane,"LA CLAVE ES: "+clave);
-                                                  
+                                                  ClaveFondo = clave;
                                                   VentanaGestionDeFondosControlador.InsertarTrabajoSQL(clave,Float.toString(MontoFondoTrabajo));
                                                //   JOptionPane.showMessageDialog(rootPane,"inserto el trabajo");
                                         }
@@ -292,10 +321,11 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
                                         }         
                               }
                               JOptionPane.showMessageDialog(rootPane,"Fondos Asignados Correctamente");
-                              
-                              
+                              VentanaGestionDeFondosControlador.ConsultaHonorarios(VentanaGenerarContrato.ClaveContrato);
+                              JOptionPane.showMessageDialog(rootPane,Honorarios);
+                              VentanaGestionDeFondosControlador.InsertarHonorariosSQL(Float.toString(Honorarios), VentanaGenerarContrato.ClaveOficinaSeleccionada, ClaveFondo, VentanaGenerarContrato.FechaRealizado);
                               this.dispose();
-                    }catch(Exception e){
+                    }catch(NumberFormatException | SQLException | HeadlessException e){
                               JOptionPane.showMessageDialog(rootPane," Error,Los Montos Deben ser indicados en Numeros"+e);
                     }
                               
@@ -373,6 +403,7 @@ public class MenuGestionDeFondos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtCajaChica;
     private javax.swing.JTextField txtEstimado;
     private javax.swing.JTextField txtMejora;

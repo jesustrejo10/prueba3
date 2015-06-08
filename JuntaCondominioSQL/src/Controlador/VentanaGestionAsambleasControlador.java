@@ -56,7 +56,10 @@ public static void RellenaTablaContratosSQL() throws SQLException{
          ResultSet Valores= st.executeQuery("SELECT CON.CONT_CLAVE, E.EDI_RIF , E.EDI_NOMBRE, O.OFI_NOMBRE\n" +
                                                                             " FROM CONTRATO CON, EDIFICIO E, OFICINA O\n" +
                                                                             " WHERE CON.CONT_FK_EDIFICIO = E.EDI_CLAVE\n" +
-                                                                            " AND O.OFI_CLAVE = CON.CONT_FK_OFICINA");
+                                                                            " AND O.OFI_CLAVE = CON.CONT_FK_OFICINA"
+                 + "                                                        AND CON.CONT_FECHA_EMISION = (SELECT MAX(CONT_FECHA_EMISION)"
+                 + "                                                                                                                          FROM CONTRATO WHERE"
+                 + "                                                                                                                           CONT_FK_EDIFICIO =E.EDI_CLAVE )");
             while (Valores.next()){
                 
                     VentanaGestiondeAsambleas.ModeloContratos.insertRow(VentanaGestiondeAsambleas.cont, new Object[]{});
@@ -176,7 +179,7 @@ public static void CalcularValorUT() throws SQLException{
  }
 
 public static void InsertaTrabajoCostoAsambleaSQL(String Monto, String fk_fondo, String fecha) throws SQLException{
-          JOptionPane.showMessageDialog(null,"Entre");
+          //JOptionPane.showMessageDialog(null,"Entre");
           ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();   
           PreparedStatement pst=  Con.prepareStatement("insert into TRABAJO (TRA_CLAVE,TRA_DESCRIPCION,TRA_MONTO,TRA_CLASIFICACION,TRA_TIPO,TRA_SUSCEPTIBLE,TRA_FK_PROVEEDORSERVICIO,TRA_FK_CONT_FOND,TRA_F_REALIZADO,TRA_F_PROPUESTO,TRA_REALIZADO,TRA_APROBADO) \n" +
@@ -195,7 +198,7 @@ public static void InsertaTrabajoCostoAsambleaSQL(String Monto, String fk_fondo,
    }
 
 public static void InsertaTrabajoCostoAsamblea2SQL(String Monto, String fk_fondo, String fecha) throws SQLException{
-          JOptionPane.showMessageDialog(null,"Entre");
+          //JOptionPane.showMessageDialog(null,"Entre");
           ConexionOracle Conexion= new ConexionOracle();
           Connection Con=Conexion.Conectar();   
           PreparedStatement pst=  Con.prepareStatement("insert into TRABAJO (TRA_CLAVE,TRA_DESCRIPCION,TRA_MONTO,TRA_CLASIFICACION,TRA_TIPO,TRA_SUSCEPTIBLE,TRA_FK_PROVEEDORSERVICIO,TRA_FK_CONT_FOND,TRA_F_REALIZADO,TRA_F_PROPUESTO,TRA_REALIZADO,TRA_APROBADO) \n" +

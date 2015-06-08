@@ -49,11 +49,15 @@ public class VentanaGenerarReciboMensualControlador {
           Connection Con=Conexion.Conectar();
           Statement st= Con.createStatement();
           VentanaGenerarReciboMensual.cont = 0;
-          ResultSet Valores= st.executeQuery(" SELECT T.TRA_CLAVE, T.TRA_DESCRIPCION, T.TRA_F_REALIZADO,T.TRA_MONTO,T.TRA_TIPO\n" +
-                                                                            " from TRABAJO T ,AD_TRA ATT, AREA_DET AD, EDIFICIO E\n" +
-                                                                            " WHERE (T.TRA_CLAVE = ATT.AT_FK_TRABAJO) AND (ATT.AT_FK_AREADET = AD.AD_CLAVE) AND \n" +
-                                                                            " (AD.AD_FK_EDIFICIO = E.EDI_CLAVE) and (T.TRA_FK_RECIBOMENSUAL IS NULL)\n" +
-                                                                            " and (E.EDI_CLAVE = "+ClaveEdif+")");
+          ResultSet Valores= st.executeQuery(" select T.TRA_CLAVE, T.TRA_DESCRIPCION,  T.TRA_F_REALIZADO, T.TRA_MONTO, T.TRA_TIPO\n" +
+                                                                            " from TRABAJO T, CONT_FOND CF, CONTRATO CON, EDIFICIO E\n" +
+                                                                            " WHERE T.TRA_FK_CONT_FOND = CF.CF_CLAVE\n" +
+                                                                            " AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO\n" +
+                                                                            " AND E.EDI_CLAVE = CON.CONT_FK_EDIFICIO\n" +
+                                                                            " AND E.EDI_CLAVE = "+ClaveEdif+"\n" +
+                                                                            " AND CON.CONT_FECHA_EMISION = (SELECT MAX(CON.CONT_FECHA_EMISION)\n" +
+                                                                            "                              FROM CONTRATO CON\n" +
+                                                                            "                              WHERE CON.CONT_FK_EDIFICIO = E.EDI_CLAVE)");
           while (Valores.next()){
 
                     VentanaGenerarReciboMensual.ModeloTrabajosDisponibles.insertRow(VentanaGenerarReciboMensual.cont, new Object[]{});
@@ -118,11 +122,17 @@ public class VentanaGenerarReciboMensualControlador {
           Connection Con=Conexion.Conectar();
           Statement st= Con.createStatement();
           VentanaGenerarReciboMensual.cont = 0;
-          ResultSet Valores= st.executeQuery(" SELECT T.TRA_CLAVE, T.TRA_DESCRIPCION, T.TRA_F_REALIZADO,T.TRA_MONTO,T.TRA_TIPO\n" +
-                                                                            " from TRABAJO T ,AD_TRA ATT, AREA_DET AD, EDIFICIO E\n" +
-                                                                            " WHERE (T.TRA_CLAVE = ATT.AT_FK_TRABAJO) AND (ATT.AT_FK_AREADET = AD.AD_CLAVE) AND \n" +
-                                                                            " (AD.AD_FK_EDIFICIO = E.EDI_CLAVE) and (T.TRA_FK_RECIBOMENSUAL IS NULL)\n" +
-                                                                            " and (E.EDI_CLAVE = "+ClaveEdif+") AND (T.TRA_CLAVE NOT IN ("+VentanaGenerarReciboMensual.TrabajosSeleccionados+"))");
+          ResultSet Valores= st.executeQuery(" select T.TRA_CLAVE, T.TRA_DESCRIPCION,  T.TRA_F_REALIZADO, T.TRA_MONTO, T.TRA_TIPO\n" +
+                                                                            "  from TRABAJO T, CONT_FOND CF, CONTRATO CON, EDIFICIO E\n" +
+                                                                            "  WHERE T.TRA_FK_CONT_FOND = CF.CF_CLAVE\n" +
+                                                                            "  AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO\n" +
+                                                                            "  AND E.EDI_CLAVE = CON.CONT_FK_EDIFICIO\n" +
+                                                                            "  AND E.EDI_CLAVE = "+ClaveEdif+"\n" +
+                                                                            "  AND T.TRA_FK_RECIBOMENSUAL IS NULL\n" +
+                                                                            "  AND (T.TRA_CLAVE NOT IN ("+VentanaGenerarReciboMensual.TrabajosSeleccionados+"))\n" +
+                                                                            "  AND CON.CONT_FECHA_EMISION = (SELECT MAX(CON.CONT_FECHA_EMISION)\n" +
+                                                                                                                "                                  FROM CONTRATO CON\n" +
+                                                                                                                "                                  WHERE CON.CONT_FK_EDIFICIO = E.EDI_CLAVE)");
           while (Valores.next()){
 
                     VentanaGenerarReciboMensual.ModeloTrabajosDisponibles.insertRow(VentanaGenerarReciboMensual.cont, new Object[]{});
@@ -142,11 +152,18 @@ public class VentanaGenerarReciboMensualControlador {
           Connection Con=Conexion.Conectar();
           Statement st= Con.createStatement();
           VentanaGenerarReciboMensual.cont = 0;
-          ResultSet Valores= st.executeQuery(" SELECT T.TRA_CLAVE, T.TRA_DESCRIPCION, T.TRA_F_REALIZADO,T.TRA_MONTO,T.TRA_TIPO\n" +
-                                                                            " from TRABAJO T ,AD_TRA ATT, AREA_DET AD, EDIFICIO E\n" +
-                                                                            " WHERE (T.TRA_CLAVE = ATT.AT_FK_TRABAJO) AND (ATT.AT_FK_AREADET = AD.AD_CLAVE) AND \n" +
-                                                                            " (AD.AD_FK_EDIFICIO = E.EDI_CLAVE) and (T.TRA_FK_RECIBOMENSUAL IS NULL)\n" +
-                                                                            " and (E.EDI_CLAVE = "+ClaveEdif+") AND (T.TRA_CLAVE IN ("+VentanaGenerarReciboMensual.TrabajosSeleccionados+"))");
+          ResultSet Valores= st.executeQuery(" select T.TRA_CLAVE, T.TRA_DESCRIPCION,  T.TRA_F_REALIZADO, T.TRA_MONTO, T.TRA_TIPO\n" +
+                                                                            "  from TRABAJO T, CONT_FOND CF, CONTRATO CON, EDIFICIO E\n" +
+                                                                            "  WHERE T.TRA_FK_CONT_FOND = CF.CF_CLAVE\n" +
+                                                                            "  AND CON.CONT_CLAVE = CF.CF_FK_CONTRATO\n" +
+                                                                            "  AND E.EDI_CLAVE = CON.CONT_FK_EDIFICIO\n" +
+                                                                            "  AND E.EDI_CLAVE = "+ClaveEdif+"\n" +
+                                                                            "  AND T.TRA_FK_RECIBOMENSUAL IS NULL\n" +
+                                                                            "  AND (T.TRA_CLAVE IN ("+VentanaGenerarReciboMensual.TrabajosSeleccionados+"))\n" +
+                                                                            "  AND CON.CONT_FECHA_EMISION = (SELECT MAX(CON.CONT_FECHA_EMISION)\n" +
+                                                                                                                "                                  FROM CONTRATO CON\n" +
+                                                                                                                "                                  WHERE CON.CONT_FK_EDIFICIO = E.EDI_CLAVE)");
+          
           while (Valores.next()){
 
                     VentanaGenerarReciboMensual.ModeloTrabajosAsignados.insertRow(VentanaGenerarReciboMensual.cont, new Object[]{});
@@ -161,11 +178,15 @@ public class VentanaGenerarReciboMensualControlador {
  };
      
      public static void InsertaReciboMensualSQL(String fk_Junta, String Fecha) throws SQLException{
-          ConexionOracle Conexion= new ConexionOracle();
-          Connection Con=Conexion.Conectar();
-          PreparedStatement pst=  Con.prepareStatement("INSERT INTO RECIBOMENSUAL VALUES (SQ_RECIBO_MENSUAL.NEXTVAL,TO_DATE('"+Fecha+"','YYYYMMDD'),'APROBADO',"+fk_Junta+")");
-          pst.executeUpdate();    
-}
+         if (fk_Junta.equalsIgnoreCase(""))
+                    JOptionPane.showMessageDialog(null,"Error, para generar un recibo el edificio debe tener una Juntade Condominio");
+         else{
+                    ConexionOracle Conexion= new ConexionOracle();
+                    Connection Con=Conexion.Conectar();
+                    PreparedStatement pst=  Con.prepareStatement("INSERT INTO RECIBOMENSUAL VALUES (SQ_RECIBO_MENSUAL.NEXTVAL,TO_DATE('"+Fecha+"','YYYYMMDD'),'APROBADO',"+fk_Junta+")");
+                    pst.executeUpdate();    
+          }        
+     }
 
      public static void ActualizaTrabajoAPasado(String fk_Recibo, String ClaveTrabajo) throws SQLException{
      

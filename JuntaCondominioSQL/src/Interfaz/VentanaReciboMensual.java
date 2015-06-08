@@ -17,7 +17,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -81,6 +85,16 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         
     public VentanaReciboMensual() throws SQLException {
           initComponents();
+          
+        setLocationRelativeTo(null);
+        //setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());    
           cargarInterfazTrabajos();
           TABLA1.setEnabled(false);
           TABLA2.setEnabled(false);
@@ -100,6 +114,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
           RellenaReciboMensual3SQL(VentanaGestionCuenta.ClaveAviso);
           txtMontoTotal.setText(MontoTotal);
           txtMontoDet.setText(MontoTotalDetallado);
+          jLabel22.setText(MontoTotalDetallado);
           RellenaReciboMensual5SQL(VentanaGestionCuenta.ClaveEdificio);
           JOptionPane.showMessageDialog(txtMontoDet,"Clave Edif->"+VentanaGestionCuenta.ClaveEdificio+" Clave Cntra->"+ClaveContrato);
           RellenaReciboMensual4SQL();
@@ -190,6 +205,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         jLabel1.setText("CONDOMINIOS UCAB");
 
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel2.setOpaque(false);
 
         jLabel2.setText("Nombre del Edificio");
 
@@ -216,7 +232,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(TxtNombreEdif)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addGap(44, 44, 44)
                         .addComponent(TxtcodigoEdif))
@@ -240,6 +256,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel3.setOpaque(false);
 
         jLabel7.setText("Nombre del Propietario");
 
@@ -266,7 +283,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(TxtNombreProp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addGap(101, 101, 101)
                         .addComponent(TxtAlicuota)
@@ -292,6 +309,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel4.setOpaque(false);
 
         jLabel10.setText("FECHA:");
 
@@ -327,6 +345,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel5.setOpaque(false);
 
         jLabel14.setText("NO.RECIBO:");
 
@@ -366,6 +385,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel6.setOpaque(false);
 
         TABLA1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         TABLA1.setModel(new javax.swing.table.DefaultTableModel(
@@ -379,6 +399,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TABLA1.setOpaque(false);
         jScrollPane1.setViewportView(TABLA1);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -393,9 +414,13 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel7.setOpaque(false);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel8.setOpaque(false);
 
+        txtMontoDet.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        txtMontoDet.setForeground(new java.awt.Color(255, 0, 0));
         txtMontoDet.setText("monto por alicuota");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -415,7 +440,10 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel9.setOpaque(false);
 
+        txtMontoTotal.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        txtMontoTotal.setForeground(new java.awt.Color(255, 0, 0));
         txtMontoTotal.setText("montototal");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -434,6 +462,8 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jLabel20.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 0, 0));
         jLabel20.setText("Total Recibo");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -462,11 +492,15 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel10.setOpaque(false);
 
         jPanel11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel11.setOpaque(false);
 
         jLabel21.setText("MONTO A PAGAR:");
 
+        jLabel22.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 0, 0));
         jLabel22.setText("jLabel22");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -491,6 +525,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel12.setOpaque(false);
 
         jLabel23.setText("NOTA");
 
@@ -528,6 +563,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel13.setOpaque(false);
 
         jLabel27.setText("NOTA");
 
@@ -570,6 +606,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel14.setOpaque(false);
 
         jLabel32.setText("Si desea pagar en cheque, realicelos a");
 
@@ -631,6 +668,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         );
 
         jPanel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel15.setOpaque(false);
 
         TABLA2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         TABLA2.setModel(new javax.swing.table.DefaultTableModel(
@@ -650,7 +688,7 @@ public class VentanaReciboMensual extends javax.swing.JFrame {
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1105, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1141, Short.MAX_VALUE)
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

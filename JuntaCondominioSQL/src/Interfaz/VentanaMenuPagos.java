@@ -21,7 +21,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -59,7 +63,14 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
      */
     public VentanaMenuPagos(/*String Monto, String ClaveAvisoCobro*/) {
           initComponents();
-        
+         setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo2.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
           Panel1.setVisible(false);
           PanelInfo.setVisible(false);
           PanelPago.setVisible(false);
@@ -184,14 +195,17 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu Pagos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 24))); // NOI18N
+        jPanel1.setBorder(null);
         jPanel1.setMaximumSize(new java.awt.Dimension(1233, 842));
         jPanel1.setMinimumSize(new java.awt.Dimension(1233, 842));
+        jPanel1.setOpaque(false);
 
         PanelInfo.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Generales"));
+        PanelInfo.setOpaque(false);
 
         lblPNombre.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         lblPNombre.setText("jLabel1");
@@ -213,8 +227,8 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         Lbldireccion.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         Lbldireccion.setText("jLabel1");
 
-        LblMonto.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        LblMonto.setForeground(new java.awt.Color(255, 0, 0));
+        LblMonto.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        LblMonto.setForeground(new java.awt.Color(98, 1, 1));
         LblMonto.setText("MONTO TOTAL");
 
         LabelMonto.setText("Monto a Pagar");
@@ -247,12 +261,9 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                         .addComponent(LblClaveApt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInfoLayout.createSequentialGroup()
-                        .addComponent(LabelMonto)
-                        .addGap(49, 49, 49))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInfoLayout.createSequentialGroup()
-                        .addComponent(LblMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
+                    .addComponent(LabelMonto)
+                    .addComponent(LblMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34))
         );
         PanelInfoLayout.setVerticalGroup(
             PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,6 +291,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         );
 
         PanelPago.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu Opciones de Pago"));
+        PanelPago.setOpaque(false);
 
         BTNPagar.setText("PAGAR");
         BTNPagar.addActionListener(new java.awt.event.ActionListener() {
@@ -289,6 +301,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         });
 
         PanelTarjet.setBorder(javax.swing.BorderFactory.createTitledBorder("Tarjeta"));
+        PanelTarjet.setOpaque(false);
 
         LabelCombo1.setText("Numero De Tarjeta/Cheque");
 
@@ -343,6 +356,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         );
 
         PanelCheque.setBorder(javax.swing.BorderFactory.createTitledBorder("Cheque"));
+        PanelCheque.setOpaque(false);
 
         LabelCombo3.setText("Numero de Cheque");
 
@@ -394,6 +408,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulario General"));
+        jPanel6.setOpaque(false);
 
         jLabel2.setText("Indique la fecha de la transaccion");
 
@@ -432,6 +447,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         );
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione"));
+        jPanel7.setOpaque(false);
 
         ComboPago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CHEQUE", "TARJETA", "COMBINADO" }));
 
@@ -514,6 +530,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione la Operacion a Realizar"));
+        jPanel2.setOpaque(false);
 
         ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Realizar Pago Aviso de Cobro", "Realizar Pago de Trabajos" }));
 
@@ -550,6 +567,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         Panel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione El Propietario"));
         Panel1.setMaximumSize(new java.awt.Dimension(36, 461));
         Panel1.setMinimumSize(new java.awt.Dimension(36, 461));
+        Panel1.setOpaque(false);
 
         Tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -587,6 +605,11 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
         );
 
         jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -620,18 +643,30 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
                     .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addComponent(jButton2)
-                .addGap(20, 20, 20))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel5.setText("Menu de Pago");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1180, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel5)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -942,6 +977,23 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
           }
     }//GEN-LAST:event_BTNPagarActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        VentanaMenuPrincipal nueva;
+        try {
+            nueva = new VentanaMenuPrincipal();
+            nueva.setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error, Debe Ingresar Desde el LogIn");
+            VentanaLogIn nuevas = new VentanaLogIn();
+            nuevas.setVisible(true);
+            dispose();
+            
+        }
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     
 
     
@@ -1023,6 +1075,7 @@ public class VentanaMenuPagos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
