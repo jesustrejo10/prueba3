@@ -32,7 +32,8 @@ public class VentanaLogIn extends javax.swing.JFrame {
         JLabel fondo= new JLabel();
         fondo.setIcon(uno);
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
-        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());    }
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());  
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,14 +78,19 @@ public class VentanaLogIn extends javax.swing.JFrame {
 
         BTNHelp.setText("Ayuda");
 
-        TXTUsuario.setText("ADM");
+        TXTUsuario.setText("ADMIN");
         TXTUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TXTUsuarioActionPerformed(evt);
             }
         });
 
-        TXTPass.setText("1");
+        TXTPass.setText("1234");
+        TXTPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TXTPassActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,6 +180,10 @@ public class VentanaLogIn extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_BTNExitActionPerformed
+
+    private void TXTPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXTPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TXTPassActionPerformed
 
     /**
      * @param args the command line arguments

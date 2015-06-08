@@ -16,7 +16,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -50,6 +54,15 @@ public MenuBienesRaices() {
         PanelPropietarios.setVisible(false);
         PanelComprados.setVisible(false);
         PanelTablaPrincipal.setVisible(false);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/iconbuil.png")).getImage() );
+        ((JPanel)getContentPane()).setOpaque(false);
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo2.jpg"));
+        JLabel fondo= new JLabel();
+        fondo.setIcon(uno);
+        this.PanelPrincipal.add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
+        fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());    
     }
 
 public static void LimpiarJTable(DefaultTableModel Nombremodelo){
@@ -117,6 +130,7 @@ public void cargarInterfazOficina(){
         PanelOpcion = new javax.swing.JPanel();
         ComboOpcion = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         PanelTablaPrincipal = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
@@ -137,11 +151,13 @@ public void cargarInterfazOficina(){
         jLabel8 = new javax.swing.JLabel();
         Fecha = new com.toedter.calendar.JDateChooser();
         jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PanelPrincipal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu Bienes Raices", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Mono", 0, 36))); // NOI18N
+        PanelPrincipal.setBorder(null);
 
+        PanelOpcion.setBackground(new java.awt.Color(255, 255, 255));
         PanelOpcion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Seleccione la operacion que desea Realizar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Mono", 0, 18))); // NOI18N
 
         ComboOpcion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Compra de APT por parte de un propietario", "Mostrar Apartamentos Por Propietario", "Poner en venta APT por Propietario", "Comprar APT por parte de una Oficina", "Mostrar Apartamentos Por Oficina", "Poner en venta APT por Oficina" }));
@@ -158,28 +174,42 @@ public void cargarInterfazOficina(){
             }
         });
 
+        jButton4.setText("Reiniciar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelOpcionLayout = new javax.swing.GroupLayout(PanelOpcion);
         PanelOpcion.setLayout(PanelOpcionLayout);
         PanelOpcionLayout.setHorizontalGroup(
             PanelOpcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelOpcionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelOpcionLayout.createSequentialGroup()
-                .addContainerGap(311, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(PanelOpcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelOpcionLayout.createSequentialGroup()
+                        .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 61, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelOpcionLayout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         PanelOpcionLayout.setVerticalGroup(
             PanelOpcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelOpcionLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(ComboOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addGroup(PanelOpcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton4))
                 .addContainerGap())
         );
+
+        PanelTablaPrincipal.setBackground(new java.awt.Color(255, 255, 255));
 
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -229,8 +259,10 @@ public void cargarInterfazOficina(){
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
+
+        PanelPropietarios.setBackground(new java.awt.Color(255, 255, 255));
 
         TablaPropietarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -265,6 +297,8 @@ public void cargarInterfazOficina(){
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        PanelComprados.setBackground(new java.awt.Color(255, 255, 255));
 
         TablaComprados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -308,13 +342,13 @@ public void cargarInterfazOficina(){
         );
 
         btnfin.setText("Realizar Compra");
-        btnfin.setOpaque(true);
         btnfin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfinActionPerformed(evt);
             }
         });
 
+        PanelPrecio.setBackground(new java.awt.Color(255, 255, 255));
         PanelPrecio.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Formulario de Venta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu Medium", 0, 18))); // NOI18N
 
         lblPrecio.setText("Indique el precio por el cual quiere Vender");
@@ -371,12 +405,14 @@ public void cargarInterfazOficina(){
 
         jButton3.setText("Volver");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setOpaque(true);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu Light", 1, 24)); // NOI18N
+        jLabel1.setText("Menu Bienes Raices");
 
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
         PanelPrincipal.setLayout(PanelPrincipalLayout);
@@ -385,9 +421,11 @@ public void cargarInterfazOficina(){
             .addGroup(PanelPrincipalLayout.createSequentialGroup()
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPrincipalLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(PanelOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
+                        .addContainerGap()
+                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PanelOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(88, 88, 88)
                         .addComponent(PanelPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPrincipalLayout.createSequentialGroup()
                         .addComponent(PanelTablaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -395,7 +433,7 @@ public void cargarInterfazOficina(){
                         .addComponent(PanelPropietarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(PanelComprados, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addGap(0, 30, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jButton3)
@@ -407,10 +445,13 @@ public void cargarInterfazOficina(){
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PanelOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(PanelPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(PanelPropietarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PanelTablaPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -724,7 +765,7 @@ public void cargarInterfazOficina(){
                               String ClavePropietario = (String)TablaPropietarios.getValueAt(num2,0);
 
                               try {
-                                        JOptionPane.showMessageDialog(PanelComprados, ClaveAptDet2+ClavePropietario);
+                                        //JOptionPane.showMessageDialog(PanelComprados, ClaveAptDet2+ClavePropietario);
                                         MenuBienesRaicesControlador.AsignaApartamentoAPropietario(ClaveAptDet2, ClavePropietario);
                                         
                                         String FechaInicio = df.format(Fecha.getDate());
@@ -733,7 +774,7 @@ public void cargarInterfazOficina(){
                                         int Comision = Integer.parseInt(comi);
                                         float LComision =   (Comision / PrecioInt) * 100;
                                         MenuBienesRaicesControlador.RegistrarTransaccionBienesRaices(LComision, ClaveAptDet2, ClaveOficina2, FechaString);
-                                        JOptionPane.showMessageDialog(PanelComprados,"Compra Concretada");
+                                        JOptionPane.showMessageDialog(null,"Compra Concretada");
                                         MenuBienesRaices reset = new MenuBienesRaices();
                                         reset.setVisible(true);
                                         this.dispose();
@@ -741,6 +782,7 @@ public void cargarInterfazOficina(){
                                         JOptionPane.showMessageDialog(PanelComprados,"Error al ejecutar el UPDATE->"+ex.getMessage());
                                         Logger.getLogger(MenuBienesRaices.class.getName()).log(Level.SEVERE, null, ex);
                               }
+                    FinEnabled= false;
                     }
 
           }
@@ -757,17 +799,17 @@ public void cargarInterfazOficina(){
                               float nuevoprecio= 0;
                               float comision =0;
                               PanelPrecio.setVisible(true);
-                              JOptionPane.showMessageDialog(PanelComprados,"Actualice el precio.");
+                              JOptionPane.showMessageDialog(null,"Actualice el precio.");
 
                               try{
                                         nuevoprecio = Float.parseFloat(txtprecio.getText());
                                         comision = Float.parseFloat(txtcomi.getText());
                               }catch(Exception e){
-                                      JOptionPane.showMessageDialog(PanelComprados,"Error, debe ingresar el precio expresado en numeros.");
+                                      JOptionPane.showMessageDialog(null,"Error, debe ingresar el precio expresado en numeros.");
                               }
                               try {
                                         comision = (comision / nuevoprecio) * 100;
-                                        JOptionPane.showMessageDialog(PanelComprados,"Apartamento puesto en venta correctamente.");
+                                        JOptionPane.showMessageDialog(null,"Apartamento puesto en venta correctamente.");
                                         MenuBienesRaicesControlador.ColocarApartamentoEnVentaPropietario(ClaveAptDet2, Float.toString(nuevoprecio));
                                         MenuBienesRaicesControlador.RegistrarTransaccionBienesRaices(comision, ClaveAptDet2, ClaveOfi, FechaString);
                                         MenuBienesRaices refresh = new MenuBienesRaices();
@@ -775,7 +817,7 @@ public void cargarInterfazOficina(){
                                         this.dispose();
                               } catch (SQLException ex) {
                                         Logger.getLogger(MenuBienesRaices.class.getName()).log(Level.SEVERE, null, ex);
-                                        JOptionPane.showMessageDialog(PanelComprados,"Error al realizar la consulta ->"+ ex.getMessage());
+                                        JOptionPane.showMessageDialog(null,"Error al realizar la consulta ->"+ ex.getMessage());
                               }
                     }    
            }
@@ -793,12 +835,12 @@ public void cargarInterfazOficina(){
                               int ClavePropietario = (Integer)TablaPropietarios.getValueAt(num2,0);
                               try {
                                         MenuBienesRaicesControlador.AsignaApartamentoAOficina(ClaveAptDet2,Integer.toString(ClavePropietario));
-                                        JOptionPane.showMessageDialog(PanelComprados,"Compra Concretada");
+                                        JOptionPane.showMessageDialog(null,"Compra Concretada");
                                         MenuBienesRaices reset = new MenuBienesRaices();
                                         reset.setVisible(true);
                                         this.dispose();
                               }catch (SQLException ex) {
-                                        JOptionPane.showMessageDialog(PanelComprados,"Error al ejecutar el UPDATE->"+ex.getMessage());
+                                        JOptionPane.showMessageDialog(null,"Error al ejecutar el UPDATE->"+ex.getMessage());
                                         Logger.getLogger(MenuBienesRaices.class.getName()).log(Level.SEVERE, null, ex);
                               }
                     }
@@ -884,6 +926,13 @@ public void cargarInterfazOficina(){
             
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+          MenuBienesRaices Nuevo = new MenuBienesRaices();
+          Nuevo.setVisible(true);
+          this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -936,6 +985,8 @@ public void cargarInterfazOficina(){
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;

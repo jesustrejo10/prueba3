@@ -108,6 +108,7 @@ public static String ConsultaClaveEdificioSeleccionadoSQL2(String Nombre, String
             
 };
 
+
 public static String ConsultaClaveContrato() throws SQLException{
         String clave =null ;
         ConexionOracle Conexion= new ConexionOracle();
